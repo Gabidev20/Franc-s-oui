@@ -1,0 +1,981 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Plano de estudo de francês do zero ao avançado em 78 semanas: gramática, vocabulário, vídeos, podcasts, músicas e jogos, com sete tarefas por semana.">
+<meta name="theme-color" content="#EFF1F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D0F14" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Français">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="manifest" href="manifest.json">
+<style>
+  :root{
+    color-scheme:light dark;
+    padding-top:env(safe-area-inset-top, 0px);
+    padding-bottom:env(safe-area-inset-bottom, 0px);
+  }
+  body{margin:0}
+  img{max-width:100%}
+  [hidden]{display:none !important}
+</style>
+<title>78 Semanas de Francês</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --paper:#EFF1F5;
+  --surface:#FFFFFF;
+  --surface-2:#F6F8FB;
+  --ink:#14171F;
+  --ink-2:#4B5364;
+  --ink-3:#7C8494;
+  --rule:#D8DCE5;
+  --rule-soft:#E7EAF1;
+  --outremer:#2A45A5;
+  --outremer-2:#4863C4;
+  --outremer-soft:#E5EAF8;
+  --garance:#A32E38;
+  --garance-soft:#F7E8E9;
+  --vert:#1E6B55;
+  --vert-soft:#E3F0EB;
+  --shadow:0 1px 2px rgba(20,23,31,.05), 0 8px 24px -16px rgba(20,23,31,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0D0F14;
+    --surface:#161A22;
+    --surface-2:#1C212C;
+    --ink:#E9ECF4;
+    --ink-2:#A6AEC0;
+    --ink-3:#798195;
+    --rule:#2A3040;
+    --rule-soft:#222835;
+    --outremer:#93A7F5;
+    --outremer-2:#A9B9F8;
+    --outremer-soft:#1B2340;
+    --garance:#E98F97;
+    --garance-soft:#332023;
+    --vert:#5DC5A3;
+    --vert-soft:#142A26;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0D0F14;
+  --surface:#161A22;
+  --surface-2:#1C212C;
+  --ink:#E9ECF4;
+  --ink-2:#A6AEC0;
+  --ink-3:#798195;
+  --rule:#2A3040;
+  --rule-soft:#222835;
+  --outremer:#93A7F5;
+  --outremer-2:#A9B9F8;
+  --outremer-soft:#1B2340;
+  --garance:#E98F97;
+  --garance-soft:#332023;
+  --vert:#5DC5A3;
+  --vert-soft:#142A26;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Spectral",Georgia,"Times New Roman",serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1000px;margin:0 auto;padding-inline:18px}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:var(--outremer);text-decoration:none;border-bottom:1px solid color-mix(in srgb, var(--outremer) 35%, transparent)}
+a:hover{border-bottom-color:var(--outremer)}
+:focus-visible{outline:2px solid var(--outremer);outline-offset:2px;border-radius:3px}
+
+/* ---------- topbar ---------- */
+.topbar{
+  position:sticky;top:env(safe-area-inset-top, 0px);z-index:30;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.topbar .wrap{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
+.brand{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+.meter{flex:1 1 200px;min-width:140px;display:flex;align-items:center;gap:10px}
+.track{flex:1;height:6px;border-radius:99px;background:var(--rule-soft);overflow:hidden}
+.track > i{display:block;height:100%;width:0%;background:var(--outremer);border-radius:99px;transition:width .35s ease}
+.pct{font-family:"IBM Plex Mono",monospace;font-size:12px;font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap}
+.sync{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+.sync[data-s="ok"]{color:var(--vert)}
+.sync[data-s="err"]{color:var(--garance)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:54px 34px;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--outremer);margin-bottom:18px}
+h1{font-family:"Bodoni Moda",Didot,Georgia,serif;font-weight:700;font-size:clamp(2.5rem,8vw,4.4rem);line-height:.98;letter-spacing:-.015em}
+h1 em{font-style:italic;font-weight:500;color:var(--outremer)}
+.lede{margin-top:20px;max-width:60ch;font-size:1.06rem;color:var(--ink-2)}
+.facts{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.fact{background:var(--surface);padding:14px 16px}
+.fact dt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.fact dd{margin:5px 0 0;font-size:1.02rem;font-weight:600}
+.fact dd small{display:block;font-weight:400;font-size:.82rem;color:var(--ink-2);margin-top:2px}
+
+.note{
+  margin-top:26px;padding:16px 18px;border-left:3px solid var(--garance);
+  background:var(--garance-soft);border-radius:0 4px 4px 0;font-size:.95rem;color:var(--ink-2);
+}
+.note b{color:var(--ink)}
+
+/* ---------- sections ---------- */
+section.block{padding-block:46px;border-bottom:1px solid var(--rule)}
+.head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+h2{font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:clamp(1.6rem,4.4vw,2.2rem);font-weight:700;letter-spacing:-.01em}
+.fr{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.sub{max-width:62ch;color:var(--ink-2);font-size:.98rem;margin-bottom:26px}
+
+/* ---------- today ---------- */
+.today{
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.today-top{display:flex;gap:18px;align-items:center;flex-wrap:wrap;padding:18px 20px;background:var(--outremer-soft);border-bottom:1px solid var(--rule)}
+.today-wk{font-family:"IBM Plex Mono",monospace;font-size:2.1rem;font-weight:600;line-height:1;color:var(--outremer);font-variant-numeric:tabular-nums}
+.today-top div h3{font-family:"Spectral",serif;font-size:1.05rem;font-weight:600}
+.today-top div p{font-size:.86rem;color:var(--ink-2)}
+.today-body{padding:6px 20px 18px}
+.datefield{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 20px;border-top:1px solid var(--rule-soft);font-size:.86rem;color:var(--ink-2)}
+.datefield input{
+  font-family:"IBM Plex Mono",monospace;font-size:.86rem;padding:6px 8px;
+  border:1px solid var(--rule);border-radius:4px;background:var(--surface-2);color:var(--ink);
+}
+
+/* ---------- routine ---------- */
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px}
+.tier{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px}
+.tier h3{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.06em;color:var(--outremer);margin-bottom:4px}
+.tier .when{font-size:.82rem;color:var(--ink-3);margin-bottom:12px}
+.tier ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.tier li{display:flex;gap:9px;font-size:.92rem;align-items:baseline}
+.tier li b{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--ink-3);min-width:46px;font-variant-numeric:tabular-nums}
+
+.rhythm{margin-top:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.day{background:var(--surface);padding:13px 14px}
+.day .d{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--outremer);margin-bottom:5px}
+.day .n{font-size:.92rem;font-weight:600}
+.day .h{font-size:.78rem;color:var(--ink-3);margin-top:3px}
+
+/* ---------- phase overview ---------- */
+.phases{display:flex;flex-direction:column;gap:12px}
+.phase-row{
+  display:grid;grid-template-columns:62px 1fr;gap:16px;align-items:start;
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px 18px;
+}
+.badge{
+  font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:1.05rem;
+  display:grid;place-items:center;height:44px;border-radius:4px;
+  background:var(--outremer-soft);color:var(--outremer);
+}
+.phase-row h3{font-family:"Spectral",serif;font-size:1.06rem;font-weight:600}
+.phase-row .rng{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);letter-spacing:.05em}
+.phase-row p{font-size:.92rem;color:var(--ink-2);margin-top:6px;max-width:64ch}
+.minibar{margin-top:11px;display:flex;align-items:center;gap:9px}
+.minibar .track{height:5px}
+.minibar span{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+/* ---------- filters + weeks ---------- */
+.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
+.chip{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.04em;
+  padding:7px 13px;border-radius:99px;border:1px solid var(--rule);
+  background:var(--surface);color:var(--ink-2);cursor:pointer;
+}
+.chip[aria-pressed="true"]{background:var(--outremer);border-color:var(--outremer);color:var(--paper)}
+
+.weeks{display:flex;flex-direction:column;gap:8px}
+.week{background:var(--surface);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.week.is-done{border-color:color-mix(in srgb, var(--vert) 45%, var(--rule))}
+.week.is-now{border-color:var(--outremer);box-shadow:0 0 0 1px var(--outremer)}
+.week-btn{
+  width:100%;display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;
+  padding:13px 16px;background:none;border:0;cursor:pointer;text-align:left;
+  font-family:inherit;color:inherit;
+}
+.week-btn:hover{background:var(--surface-2)}
+.wno{font-family:"IBM Plex Mono",monospace;font-size:1.02rem;font-weight:600;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.week.is-done .wno{color:var(--vert)}
+.week.is-now .wno{color:var(--outremer)}
+.wtitle{font-size:1rem;font-weight:600;line-height:1.3}
+.wtags{display:flex;gap:8px;align-items:center;margin-top:3px;flex-wrap:wrap}
+.lvl{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;padding:2px 6px;border-radius:3px;background:var(--outremer-soft);color:var(--outremer)}
+.now-tag{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;padding:2px 6px;border-radius:3px;background:var(--outremer);color:var(--paper)}
+.count{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums;white-space:nowrap}
+.week.is-done .count{color:var(--vert)}
+
+.week-body{padding:2px 16px 16px;border-top:1px solid var(--rule-soft)}
+.tasks{display:flex;flex-direction:column}
+.task{display:grid;grid-template-columns:22px 52px 1fr;gap:12px;align-items:start;padding:11px 0;border-bottom:1px solid var(--rule-soft)}
+.task:last-child{border-bottom:0}
+.task input{
+  appearance:none;-webkit-appearance:none;width:18px;height:18px;margin:2px 0 0;
+  border:1.5px solid var(--rule);border-radius:4px;background:var(--surface-2);cursor:pointer;position:relative;
+}
+.task input:checked{background:var(--vert);border-color:var(--vert)}
+.task input:checked::after{
+  content:"";position:absolute;left:5px;top:1.5px;width:5px;height:10px;
+  border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg);
+}
+.task .dw{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);padding-top:4px}
+.task .tx{font-size:.94rem;line-height:1.5}
+.task .tx b{display:block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--outremer);font-weight:500;margin-bottom:2px}
+.task input:checked ~ .tx{color:var(--ink-3)}
+.task input:checked ~ .tx > b{color:var(--ink-3)}
+
+/* ---------- milestones ---------- */
+.miles{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--rule);padding-left:0}
+.mile{position:relative;padding:0 0 26px 26px}
+.mile:last-child{padding-bottom:0}
+.mile::before{
+  content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:99px;
+  background:var(--paper);border:2px solid var(--outremer);
+}
+.mile .when{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--outremer)}
+.mile h3{font-size:1.02rem;font-weight:600;margin-top:3px}
+.mile p{font-size:.92rem;color:var(--ink-2);margin-top:4px;max-width:62ch}
+
+/* ---------- library ---------- */
+.lib{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:14px}
+.libcard{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:17px 19px}
+.libcard h3{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--garance);margin-bottom:11px}
+.libcard ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+.libcard li{font-size:.9rem;line-height:1.45;padding-left:13px;position:relative;color:var(--ink-2)}
+.libcard li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:1px;background:var(--ink-3)}
+.libcard li b{color:var(--ink);font-weight:600}
+
+footer{padding-block:38px 56px;color:var(--ink-3);font-size:.86rem}
+footer p{max-width:66ch}
+footer p + p{margin-top:10px}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media (max-width:560px){
+  .week-btn{grid-template-columns:40px 1fr;grid-template-areas:"n t" ". c";row-gap:6px}
+  .wno{grid-area:n}
+  .week-btn > div:nth-child(2){grid-area:t}
+  .count{grid-area:c;justify-self:start}
+  .task{grid-template-columns:22px 1fr}
+  .task .dw{display:none}
+}
+</style>
+
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">Objectif&nbsp;C1 · 18&nbsp;mois</div>
+    <div class="meter">
+      <div class="track"><i id="bar"></i></div>
+      <div class="pct" id="pct">0 / 546</div>
+    </div>
+    <div class="sync" id="sync" data-s="wait">salvo neste aparelho</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="masthead">
+    <div class="eyebrow">Plan d'étude · 78 semaines</div>
+    <h1>Do zero ao <em>francês avançado</em> em 78 semanas</h1>
+    <p class="lede">Um currículo semanal completo — gramática, vocabulário, vídeo, áudio, música, escrita e fala — com 7 tarefas por semana, uma para cada dia. Marque o que fizer: o progresso fica salvo.</p>
+
+    <dl class="facts">
+      <div class="fact"><dt>Duração</dt><dd>78 semanas<small>18 meses, 5 fases</small></dd></div>
+      <div class="fact"><dt>Carga diária</dt><dd>30 a 90 min<small>~30 min é o piso, 60 min o padrão</small></dd></div>
+      <div class="fact"><dt>Total estimado</dt><dd>≈ 600 horas<small>1 tarefa por dia, 7 por semana</small></dd></div>
+      <div class="fact"><dt>Meta final</dt><dd>B2 sólido → C1<small>DELF B2 no mês 15, DALF C1 no 18</small></dd></div>
+    </dl>
+
+    <p class="note"><b>Um ajuste honesto de expectativa antes de começar.</b> As referências oficiais (CEFR e o Foreign Service Institute) estimam 600–750 horas de estudo para chegar ao nível profissional em francês. Com 1h/dia você terá ~550–600 horas em 18 meses — o suficiente para um <b>B2 muito sólido</b>, com leitura e compreensão auditiva já em C1, e o C1 completo ao alcance se você somar conversação frequente. O plano abaixo mira exatamente isso: B2 certificável no mês 15 e ataque ao C1 nos últimos três meses. Se quiser o C1 garantido, o que muda não é o conteúdo — é dobrar o tempo de fala com um tutor.</p>
+  </section>
+
+  <section class="block">
+    <div class="head"><h2>Onde você está hoje</h2><span class="fr">La semaine en cours</span></div>
+    <div class="today" id="today"></div>
+  </section>
+
+  <section class="block">
+    <div class="head"><h2>A rotina diária</h2><span class="fr">Le rythme quotidien</span></div>
+    <p class="sub">Escolha o bloco pelo tempo que o dia permite. O essencial é nunca zerar: um dia de 30 minutos vale muito mais que um dia pulado, porque o que consolida idioma é frequência, não volume.</p>
+    <div class="tiers">
+      <div class="tier">
+        <h3>30 min</h3><div class="when">dia corrido — o mínimo inegociável</div>
+        <ul>
+          <li><b>10 min</b><span>Anki: revisões atrasadas primeiro</span></li>
+          <li><b>15 min</b><span>A tarefa do dia, versão curta</span></li>
+          <li><b>5 min</b><span>Leitura em voz alta de qualquer texto</span></li>
+        </ul>
+      </div>
+      <div class="tier">
+        <h3>60 min</h3><div class="when">o padrão — mire aqui</div>
+        <ul>
+          <li><b>10 min</b><span>Anki completo</span></li>
+          <li><b>25 min</b><span>A tarefa do dia + exercícios</span></li>
+          <li><b>15 min</b><span>Input livre: vídeo, podcast, série</span></li>
+          <li><b>10 min</b><span>Produção: escrever ou falar em voz alta</span></li>
+        </ul>
+      </div>
+      <div class="tier">
+        <h3>90 min</h3><div class="when">fim de semana e dias livres</div>
+        <ul>
+          <li><b>15 min</b><span>Anki + cartões novos da semana</span></li>
+          <li><b>30 min</b><span>Gramática do dia com exercícios escritos</span></li>
+          <li><b>25 min</b><span>Input longo com anotação de vocabulário</span></li>
+          <li><b>20 min</b><span>Produção escrita ou conversa com tutor</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rhythm">
+      <div class="day"><div class="d">Lundi</div><div class="n">Gramática</div><div class="h">curso + exercícios</div></div>
+      <div class="day"><div class="d">Mardi</div><div class="n">Vocabulário</div><div class="h">30 cartões novos</div></div>
+      <div class="day"><div class="d">Mercredi</div><div class="n">Vídeo</div><div class="h">canal do bloco</div></div>
+      <div class="day"><div class="d">Jeudi</div><div class="n">Áudio</div><div class="h">podcast / rádio</div></div>
+      <div class="day"><div class="d">Vendredi</div><div class="n">Música</div><div class="h">letra + pronúncia</div></div>
+      <div class="day"><div class="d">Samedi</div><div class="n">Produção</div><div class="h">escrever ou falar</div></div>
+      <div class="day"><div class="d">Dimanche</div><div class="n">Revisão</div><div class="h">jogos + atrasados</div></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="head"><h2>As cinco fases</h2><span class="fr">Les cinq étapes</span></div>
+    <p class="sub">Cada fase termina em uma semana de consolidação com simulado do exame correspondente. Só avance depois de fazer o simulado — ele é o que mostra se a base está de pé.</p>
+    <div class="phases" id="phases"></div>
+  </section>
+
+  <section class="block">
+    <div class="head"><h2>O plano, semana por semana</h2><span class="fr">Le programme détaillé</span></div>
+    <p class="sub">Sete tarefas por semana, uma por dia. Clique na semana para abrir e marcar. Se atrasar, não reorganize nada: faça a próxima tarefa não marcada e siga.</p>
+    <div class="filters" id="filters"></div>
+    <div class="weeks" id="weeks"></div>
+  </section>
+
+  <section class="block">
+    <div class="head"><h2>Marcos e exames</h2><span class="fr">Les jalons</span></div>
+    <p class="sub">Os exames DELF/DALF são aplicados no Brasil pela Aliança Francesa e pelos Institutos Franceses, em várias datas por ano. Inscrever-se com antecedência funciona como prazo real e muda a qualidade do estudo.</p>
+    <div class="miles">
+      <div class="mile"><div class="when">Semana 14 · mês 3</div><h3>Simulado DELF A1</h3><p>Você sobrevive a uma conversa básica: apresentar-se, pedir comida, dar direções, falar do passado recente. ~600 palavras ativas.</p></div>
+      <div class="mile"><div class="when">Semana 30 · mês 7</div><h3>Simulado DELF A2 + primeira conversa longa</h3><p>15 minutos de conversa sem travar sobre rotina, passado, planos e opiniões simples. É aqui que a maioria desiste — passe dessa semana e o resto flui.</p></div>
+      <div class="mile"><div class="when">Semana 48 · mês 11</div><h3>DELF B1 — exame oficial</h3><p>Autonomia: você entende conteúdo nativo com apoio, defende uma opinião e escreve textos estruturados. Vale inscrever-se de verdade nesta etapa.</p></div>
+      <div class="mile"><div class="when">Semana 66 · mês 15</div><h3>DELF B2 — exame oficial (o marco que importa)</h3><p>Nível aceito por universidades francesas e para imigração. Diploma vitalício, sem validade a expirar. É o objetivo realista e forte deste plano.</p></div>
+      <div class="mile"><div class="when">Semana 78 · mês 18</div><h3>Simulado DALF C1 + plano de manutenção</h3><p>Avalie honestamente as quatro competências. Se leitura e escuta estiverem em C1 e a fala em B2 alto, inscreva-se no DALF para 3–6 meses depois e siga com a rotina de manutenção.</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="head"><h2>Biblioteca de recursos</h2><span class="fr">La boîte à outils</span></div>
+    <p class="sub">Tudo que o plano cita, reunido. Não tente usar todos: escolha um de cada categoria e troque só quando cansar.</p>
+    <div class="lib">
+      <div class="libcard"><h3>Curso e gramática</h3><ul>
+        <li><b>Kwiziq French</b> — gramática adaptativa, testa e escolhe seu próximo ponto fraco. O melhor investimento pago do plano.</li>
+        <li><b>Grammaire Progressive du Français</b> (CLE) — débutant → intermédiaire → perfectionnement. É a espinha dorsal escrita.</li>
+        <li><b>Assimil — O Novo Francês sem Esforço</b> para os 6 primeiros meses, 1 lição por dia.</li>
+        <li><b>Lawless French</b> e <b>Le Point du FLE</b> — explicações e exercícios grátis para qualquer dúvida pontual.</li>
+        <li><b>TV5Monde Apprendre</b> e <b>Bonjour de France</b> — exercícios por nível, com vídeo autêntico.</li>
+      </ul></div>
+      <div class="libcard"><h3>Vocabulário</h3><ul>
+        <li><b>Anki</b> — insubstituível. Deck de frequência (French Frequency 5000) + seus próprios cartões com frases de contexto, nunca palavras soltas.</li>
+        <li><b>Clozemaster</b> — vocabulário em frases com lacuna; ótimo para os 5000–10000 mais frequentes.</li>
+        <li><b>Drops / Memrise</b> — para os dias de 30 minutos no celular.</li>
+        <li><b>Forvo</b> — ouvir qualquer palavra por nativos antes de gravar no Anki.</li>
+        <li><b>Reverso Context</b> e <b>Le Robert</b> — sempre em vez de tradutor simples.</li>
+      </ul></div>
+      <div class="libcard"><h3>YouTube por nível</h3><ul>
+        <li><b>A1–A2:</b> Easy French (e Super Easy French), Learn French with Alexa, Alice Ayel, HelloFrench, Français avec Pierre.</li>
+        <li><b>A2–B1:</b> Piece of French, Comme une Française, Français Authentique, Extra French (sitcom didática).</li>
+        <li><b>B1–B2:</b> InnerFrench (o canal mais importante da fase), HugoDécrypte, Brut, Konbini.</li>
+        <li><b>B2–C1:</b> Arte, Thinkerview, Cyrus North, Monsieur Phi, Nota Bene, ScienceEtonnante, La Grande Librairie.</li>
+      </ul></div>
+      <div class="libcard"><h3>Podcasts</h3><ul>
+        <li><b>Iniciante:</b> Coffee Break French, Duolingo French Podcast, Little Talk in Slow French, One Thing In A French Day, News in Slow French.</li>
+        <li><b>Intermediário:</b> InnerFrench, Journal en français facile (RFI, diário de 10 min), Choses à Savoir.</li>
+        <li><b>Avançado:</b> Transfert, Affaires sensibles, Les Couilles sur la table, Le Code a changé, France Culture (Avec philosophie, Le Cours de l'histoire, LSD).</li>
+      </ul></div>
+      <div class="libcard"><h3>Séries e filmes</h3><ul>
+        <li><b>A1–A2:</b> Extra French, Peppa Pig em francês, Les Grandes Grandes Vacances, Miraculous.</li>
+        <li><b>B1:</b> Dix pour cent, Family Business, Lupin, HPI, Plan Cœur.</li>
+        <li><b>B2–C1:</b> Le Bureau des Légendes, Engrenages, Baron Noir.</li>
+        <li><b>Filmes:</b> Intouchables, Le Fabuleux Destin d'Amélie Poulain, Les Choristes, Qu'est-ce qu'on a fait au Bon Dieu ?, La Haine, Portrait de la jeune fille en feu, Les Misérables (2019).</li>
+      </ul></div>
+      <div class="libcard"><h3>Jogos</h3><ul>
+        <li><b>LyricsTraining</b> — preencher lacunas cantando; o melhor uso das músicas do plano.</li>
+        <li><b>Sutom / Le Mot</b> — o Wordle francês, 3 minutos por dia.</li>
+        <li><b>Babadum</b> — vocabulário visual rápido, 5 modos de jogo.</li>
+        <li><b>Influent</b> (Steam) — caçar objetos e aprender substantivos e adjetivos.</li>
+        <li><b>Duolingo</b> — só como manutenção de streak e revisão leve, nunca como curso principal.</li>
+        <li><b>Jogos do TV5Monde</b> e <b>Quizlet Match</b> — conjugação e campos lexicais.</li>
+      </ul></div>
+      <div class="libcard"><h3>Leitura progressiva</h3><ul>
+        <li><b>A1–A2:</b> Short Stories in French (Olly Richards), 1jour1actu, Le Petit Nicolas.</li>
+        <li><b>B1:</b> Le Petit Prince, No et moi (Delphine de Vigan), BD: Astérix, Titeuf.</li>
+        <li><b>B2:</b> Kiffe Kiffe demain (Faïza Guène), Ensemble c'est tout (Gavalda), Persepolis, L'Arabe du futur.</li>
+        <li><b>C1:</b> L'Étranger (Camus), La Gloire de mon père (Pagnol), Le Monde e Courrier International diariamente.</li>
+      </ul></div>
+      <div class="libcard"><h3>Falar com gente</h3><ul>
+        <li><b>iTalki / Preply</b> — 1 aula por semana a partir da semana 12, 2 por semana a partir da 40. É o item que decide se você chega ao C1.</li>
+        <li><b>Tandem / HelloTalk / Speaky</b> — troca gratuita, texto e áudio.</li>
+        <li><b>Speechling</b> — grava sua fala e um nativo corrige.</li>
+        <li><b>Aliança Francesa</b> local — clubes de conversação e as provas DELF/DALF.</li>
+      </ul></div>
+      <div class="libcard"><h3>Ferramentas</h3><ul>
+        <li><b>Language Reactor</b> — legenda dupla no Netflix e YouTube, exporta vocabulário direto para o Anki.</li>
+        <li><b>Readlang</b> — clicar para traduzir enquanto lê na web.</li>
+        <li><b>Le Conjugueur</b> — tabela de conjugação de qualquer verbo.</li>
+        <li><b>BonPatron / Antidote</b> — corretor de francês para seus textos.</li>
+        <li><b>ABC DELF</b> (A1 a C1) — livros oficiais de simulado, um por fase.</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>Três regras que valem mais que o plano.</b> 1) Nunca dois dias seguidos sem nada — se falhar um dia, o dia seguinte é obrigatório, mesmo em 10 minutos. 2) Fale desde a primeira semana, em voz alta, sozinho se preciso; vergonha adiada vira sotaque fossilizado. 3) Input com prazer conta como estudo: uma série em francês vale mais que meia hora de exercício feito com raiva.</p>
+    <p>Suas marcações ficam salvas no navegador deste aparelho. Use o backup logo abaixo para levá-las a outro celular ou computador.</p>
+  </footer>
+</main>
+
+<script>
+(function(){
+  "use strict";
+
+  var PHASES = [
+    {id:"A1", name:"Fundamentos", fr:"Les bases", from:1, to:14,
+     desc:"Sons, presente, passado e futuro próximo. No fim desta fase você conversa sobre si, sua rotina e seu fim de semana."},
+    {id:"A2", name:"Sobrevivência", fr:"L'autonomie de base", from:15, to:30,
+     desc:"Imparfait, pronomes, futuro, condicional e relativos. Você narra, compara, opina e resolve problemas práticos."},
+    {id:"B1", name:"Autonomia", fr:"L'indépendance", from:31, to:48,
+     desc:"Subjonctif, hipóteses, voz passiva e conectores. Você acompanha conteúdo nativo e argumenta com estrutura."},
+    {id:"B2", name:"Fluência", fr:"La maîtrise", from:49, to:66,
+     desc:"Registros, relativos compostos, discurso indireto, idiomatismos e debate. O nível que abre universidade e trabalho."},
+    {id:"C1", name:"Domínio", fr:"L'aisance", from:67, to:78,
+     desc:"Tempos literários, estilística, síntese de documentos e vocabulário abstrato. Precisão, nuance e velocidade real."}
+  ];
+
+  var W = [
+    {w:1,p:"A1",t:"Sons, alfabeto e primeiras frases",g:"Alfabeto e os sons do francês (vogais nasais, R, U); être e avoir no presente; pronomes sujeito; números 0–20",l:"Saudações, apresentar-se, objetos da sala de aula",v:"Easy French — Super Easy French #1 a #3",a:"Coffee Break French — temporada 1, lições 1 a 3",m:"Indila — Dernière danse",pr:"Gravar 45s se apresentando: nome, idade, nacionalidade, profissão"},
+    {w:2,p:"A1",t:"Artigos, gênero e número",g:"Artigos definidos e indefinidos; gênero dos substantivos; plural; diferença entre c'est e il est",l:"Países, nacionalidades, línguas, números 20–100",v:"Learn French with Alexa — playlist de iniciante (artigos e gênero)",a:"Duolingo French Podcast — 2 episódios com transcrição",m:"Zaz — Je veux",pr:"Escrever 10 frases com 'Je suis…' e 'Il est…' e ler em voz alta gravando"},
+    {w:3,p:"A1",t:"Verbos em -ER e negação",g:"Conjugação dos verbos regulares em -ER; negação ne… pas; advérbios de frequência",l:"Profissões, gostos, atividades cotidianas",v:"Français avec Pierre — Les verbes du 1er groupe",a:"Little Talk in Slow French — episódios 1 e 2",m:"Louane — Avenir",pr:"Texto de 60 palavras: 'Ma journée typique'"},
+    {w:4,p:"A1",t:"Fazer perguntas",g:"As três formas de pergunta (entonação, est-ce que, inversão); qui, que, où, quand, comment, pourquoi, combien",l:"Família, adjetivos possessivos, estado civil",v:"Easy French — entrevistas de rua #1 e #2, com legendas",a:"Coffee Break French — lições 4 a 6",m:"Stromae — Papaoutai",pr:"Escrever 10 perguntas, respondê-las e testá-las com alguém no HelloTalk"},
+    {w:5,p:"A1",t:"Descrever pessoas",g:"Adjetivos: gênero, número e posição; os irregulares beau, nouveau, vieux",l:"Cores, aparência física, personalidade, roupas básicas",v:"Alice Ayel — histórias com input compreensível (3 vídeos)",a:"One Thing In A French Day — 3 episódios",m:"Angèle — Balance ton quoi",pr:"Descrever três pessoas da sua família em 100 palavras"},
+    {w:6,p:"A1",t:"Cidade e deslocamentos",g:"aller, venir, faire, prendre; preposições de lugar (à, au, aux, en, chez); il y a",l:"Cidade, lojas, transporte, pedir e dar direções",v:"Extra French — episódios 1 e 2",a:"Français avec Pierre — podcast para iniciantes, 2 episódios",m:"Vianney — Je m'en vais",pr:"Gravar o caminho da sua casa até o mercado, com nomes de ruas e direções"},
+    {w:7,p:"A1",t:"Rotina e horas",g:"Verbos em -IR e -RE (finir, partir, attendre); verbos pronominais (se lever, se coucher); dizer as horas",l:"Rotina, momentos do dia, dias da semana",v:"HelloFrench — la routine quotidienne",a:"Little Talk in Slow French — episódios 3 a 5",m:"Julien Doré — Nous",pr:"Gravar 90s descrevendo sua rotina de segunda a sexta"},
+    {w:8,p:"A1",t:"Comida e quantidades",g:"Artigos partitivos (du, de la, de l', des); expressões de quantidade; o 'de' da negação",l:"Alimentos, refeições, restaurante, mercado",v:"Français avec Pierre — Au restaurant + vocabulário de comida",a:"Duolingo French Podcast — 2 episódios sobre comida e viagem",m:"Stromae — Alors on danse",pr:"Escrever e gravar um diálogo completo de restaurante, fazendo as duas vozes"},
+    {w:9,p:"A1",t:"Falar do futuro",g:"Futur proche (aller + infinitivo); passé récent (venir de); expressões de tempo futuro",l:"Meses, estações, clima, feriados, planos",v:"Extra French — episódios 3 e 4",a:"Coffee Break French — lições 7 a 9",m:"Clara Luciani — La grenade",pr:"120 palavras: 'Mes projets pour l'année prochaine'"},
+    {w:10,p:"A1",t:"Passé composé com avoir",g:"Passé composé com avoir; participes passés regulares e os 10 irregulares mais frequentes",l:"Fim de semana, lazer, esportes",v:"Français avec Pierre — Le passé composé (1)",a:"Little Talk in Slow French — episódios 6 a 8",m:"Kyo — Dernière danse",pr:"Contar por escrito seu último fim de semana, 120 palavras"},
+    {w:11,p:"A1",t:"Passé composé com être",g:"Os verbos de movimento com être; concordância do participe; passé composé dos pronominais",l:"Viagens curtas, deslocamentos, biografia básica",v:"Easy French — 'Racontez-nous votre week-end'",a:"News in Slow French — 2 episódios",m:"Édith Piaf — Non, je ne regrette rien",pr:"Biografia de 150 palavras de alguém que você admira"},
+    {w:12,p:"A1",t:"Compras e comparações",g:"Adjetivos demonstrativos (ce, cet, cette, ces); comparativo com plus, moins e aussi… que; bon e meilleur",l:"Roupas, tamanhos, preços, formas de pagamento",v:"Comme une Française — faire les courses en France",a:"Coffee Break French — lições 10 a 12",m:"Aya Nakamura — Djadja",pr:"Primeira aula com tutor no iTalki: diálogo de loja, 30 minutos"},
+    {w:13,p:"A1",t:"Conselhos e saúde",g:"Impératif afirmativo e negativo; il faut + infinitivo; devoir, pouvoir, vouloir",l:"Corpo humano, sintomas, avoir mal à, farmácia, consulta médica",v:"Français avec Pierre — Chez le médecin",a:"Little Talk in Slow French — episódios 9 a 11",m:"Soprano — Cosmo",pr:"Escrever cinco conselhos para alguém resfriado e gravar em voz alta"},
+    {w:14,p:"A1",t:"Consolidação A1 e simulado",g:"Revisão geral: presente, passé composé, futur proche, negação, perguntas, artigos",l:"Reciclar todos os cartões acumulados e apagar os cartões mortos",v:"Extra French — episódios 5 e 6, sem legenda nenhuma",a:"Refazer três podcasts antigos sem olhar a transcrição",m:"Playlist A1: as 13 músicas das semanas anteriores, cantando",pr:"Simulado DELF A1 completo (ABC DELF A1) + 30 min de conversa com tutor"},
+
+    {w:15,p:"A2",t:"Imparfait: descrever o passado",g:"Formação do imparfait; usos descritivo e habitual; 'quand j'étais petit'",l:"Infância, escola, brincadeiras, memórias",v:"Français avec Pierre — L'imparfait",a:"InnerFrench — episódio 1, com transcrição aberta",m:"Renaud — Mistral gagnant",pr:"150 palavras: 'Quand j'étais enfant…'"},
+    {w:16,p:"A2",t:"Imparfait contra passé composé",g:"Cenário e ação; ruptura; verbos de estado; expressões que disparam cada tempo",l:"Narrativa: encontros, acidentes, histórias engraçadas",v:"Piece of French — raconter une histoire au passé",a:"One Thing In A French Day — 4 episódios",m:"Francis Cabrel — Je l'aime à mourir",pr:"Contar uma história sua em 200 palavras usando os dois tempos alternadamente"},
+    {w:17,p:"A2",t:"Pronomes COD e COI",g:"le, la, les e lui, leur; posição com infinitivo e com imperativo",l:"Relações, presentes, favores, telefone",v:"Français avec Pierre — Les pronoms COD et COI",a:"Journal en français facile (RFI) — 3 edições com transcrição",m:"Barbara Pravi — Voilà",pr:"Reescrever 15 frases substituindo todos os complementos por pronomes"},
+    {w:18,p:"A2",t:"Os pronomes Y e EN",g:"y (lugar e à + coisa); en (de + coisa e quantidade); ordem quando há dois pronomes",l:"Lugares, quantidades, opiniões sobre coisas",v:"HelloFrench — Y et EN expliqués",a:"InnerFrench — episódios 2 e 3",m:"Christine and the Queens — Christine",pr:"Gravar 10 perguntas e respostas usando y e en naturalmente"},
+    {w:19,p:"A2",t:"Futur simple",g:"Futur simple: radicais regulares e os irregulares; futur simple contra futur proche",l:"Carreira, tecnologia, previsões, clima",v:"Français avec Pierre — Le futur simple",a:"Choses à Savoir — 3 episódios",m:"Calogero — En apesanteur",pr:"200 palavras: 'Le monde en 2050'"},
+    {w:20,p:"A2",t:"Marcadores de tempo",g:"depuis, pendant, il y a, dans, en, jusqu'à, dès; pronomes tônicos (moi, toi, lui…)",l:"Biografia, duração, trajetórias",v:"Easy French — 'Depuis quand habitez-vous ici ?'",a:"InnerFrench — episódios 4 e 5",m:"Alain Souchon — Foule sentimentale",pr:"Escrever sua linha do tempo pessoal em 200 palavras, usando todos os marcadores"},
+    {w:21,p:"A2",t:"Moradia e vizinhança",g:"Preposições de lugar detalhadas; introdução aos relativos qui e que",l:"Casa, móveis, bairro, anúncios imobiliários",v:"Comme une Française — chercher un appartement",a:"Journal en français facile — 3 edições",m:"Hoshi — Ta marinière",pr:"Escrever e gravar uma ligação para agendar a visita a um apartamento"},
+    {w:22,p:"A2",t:"Trabalho e estudos",g:"Discurso indireto no presente (il dit que, elle demande si); depuis e il y a aplicados",l:"Empregos, currículo, entrevista, formação",v:"Français Authentique — le travail et les études",a:"Transfert (Slate) — 1 episódio, ouvido duas vezes",m:"Grand Corps Malade — Mesdames",pr:"CV curto em francês + carta de motivação de 150 palavras"},
+    {w:23,p:"A2",t:"Viagem e imprevistos",g:"Condicional de cortesia (je voudrais, pourriez-vous); reconhecer o futur antérieur",l:"Hotel, aeroporto, reservas, reclamações",v:"Piece of French — voyager en France",a:"Coffee Break French — temporada 2, 3 lições",m:"Gims — Est-ce que tu m'aimes ?",pr:"E-mail de reclamação a um hotel, 150 palavras, tom formal"},
+    {w:24,p:"A2",t:"Gostos e opiniões",g:"Superlativo; aimer, adorer e détester + infinitivo; ça me plaît; penser que e trouver que",l:"Cinema, música, séries, restaurantes",v:"Konbini — Fast & Curious, 2 episódios",a:"InnerFrench — episódios 6 e 7",m:"Juliette Armanet — L'amour en solitaire",pr:"Crítica de 200 palavras de um filme francês que você assistiu inteiro"},
+    {w:25,p:"A2",t:"Pronomes relativos simples",g:"qui, que, où e introdução a dont; construir frases longas",l:"Definições, descrições de pessoas e lugares",v:"Français avec Pierre — Les pronoms relatifs",a:"Journal en français facile — 4 edições, sem transcrição",m:"Noir Désir — Le vent nous portera",pr:"Definir 15 palavras em francês usando somente pronomes relativos"},
+    {w:26,p:"A2",t:"Conditionnel présent",g:"Formação do conditionnel; pedidos polidos, desejos e conselhos ('à ta place, je…')",l:"Hipóteses, sonhos, conselhos",v:"HelloFrench — Le conditionnel présent",a:"InnerFrench — episódios 8 e 9",m:"Céline Dion — Pour que tu m'aimes encore",pr:"Dez conselhos escritos para um amigo em crise, depois gravados"},
+    {w:27,p:"A2",t:"Hipóteses com si",g:"si + présent → futur (hipótese real) e si + imparfait → conditionnel (hipótese irreal)",l:"Dinheiro, escolhas de vida, 'e se…?'",v:"Easy French — 'Si vous gagniez au loto ?'",a:"Transfert — 1 episódio",m:"Téléphone — Cendrillon",pr:"200 palavras: 'Si j'avais plus de temps…'"},
+    {w:28,p:"A2",t:"Advérbios e nuances",g:"Formação dos advérbios em -ment; posição na frase; advérbios de intensidade e de dúvida",l:"Avaliar, nuançar, moderar afirmações",v:"Comme une Française — parler plus naturellement",a:"InnerFrench — episódios 10 e 11",m:"-M- — Je dis aime",pr:"Pegar um texto seu da semana 16 e reescrevê-lo com 15 advérbios"},
+    {w:29,p:"A2",t:"Escrever em francês",g:"Registros tu e vous; fórmulas de e-mail formal e informal; conectores básicos",l:"E-mails, cartas, mensagens, redes sociais",v:"Français avec Pierre — écrire un mail formel",a:"Journal en français facile — 4 edições",m:"Eddy de Pretto — Kid",pr:"Três e-mails: a um amigo, a um professor e a uma empresa"},
+    {w:30,p:"A2",t:"Consolidação A2 e simulado",g:"Revisão: imparfait, pronomes, futuro, condicional, relativos, hipóteses",l:"Reciclar o Anki inteiro (~2000 cartões) e depurar os cartões ruins",v:"Um filme francês completo com legenda em francês: Intouchables",a:"Refazer três InnerFrench antigos sem transcrição",m:"Playlist A2 completa, cantada em voz alta",pr:"Simulado DELF A2 (ABC DELF A2) + 45 min de conversa com tutor"},
+
+    {w:31,p:"B1",t:"Subjonctif présent: formação",g:"Formação do subjonctif; il faut que, je veux que, avant que; os irregulares être, avoir, aller, faire, pouvoir, savoir",l:"Obrigações, necessidades, regras",v:"Français avec Pierre — Le subjonctif (parte 1)",a:"InnerFrench — episódios 12 e 13",m:"Orelsan — Basique",pr:"15 frases com 'il faut que' sobre aprender idiomas"},
+    {w:32,p:"B1",t:"Subjonctif: emoção e dúvida",g:"Subjonctif após emoção, vontade, dúvida e negação de opinião; quando volta o indicativo",l:"Sentimentos, reações, incerteza",v:"InnerFrench — vídeo sobre o subjonctif na fala real",a:"Journal en français facile — 5 edições",m:"Pomme — Les cours d'eau",pr:"200 palavras reagindo a uma notícia francesa desta semana"},
+    {w:33,p:"B1",t:"Plus-que-parfait",g:"Plus-que-parfait; anterioridade no passado; 'déjà' e 'pas encore' no passado",l:"Narrativa complexa, arrependimentos",v:"Piece of French — le plus-que-parfait",a:"Affaires sensibles — 1 episódio, com pausas",m:"Jacques Brel — Ne me quitte pas",pr:"Reescrever uma história sua com três planos temporais encaixados"},
+    {w:34,p:"B1",t:"Narrativa em três tempos",g:"Concordância entre passé composé, imparfait e plus-que-parfait; conectores narrativos",l:"Contar histórias longas, anedotas",v:"Dix pour cent — 1 episódio com legendas em francês",a:"Transfert — 2 episódios",m:"Bigflo & Oli — Dommage",pr:"Conto de 300 palavras com começo, meio e fim"},
+    {w:35,p:"B1",t:"Hipóteses completas",g:"Os três tipos de si; conditionnel passé; si + plus-que-parfait",l:"Arrependimentos, mundos alternativos, história",v:"HugoDécrypte — Actus du jour, 3 vídeos",a:"InnerFrench — episódios 14 e 15",m:"Zazie — Je suis un homme",pr:"250 palavras: 'Si j'avais pris une autre décision…'"},
+    {w:36,p:"B1",t:"Voz passiva e impessoal",g:"Voz passiva; 'on' como sujeito; se faire + infinitivo; construções impessoais",l:"Jornalismo, processos, fatos",v:"Brut — 3 reportagens curtas",a:"Journal en français facile — 5 edições, escrevendo um resumo de cada",m:"Zaz — Éblouie par la nuit",pr:"Reescrever cinco manchetes de jornal na ativa e na passiva"},
+    {w:37,p:"B1",t:"Gérondif e particípio presente",g:"en + participe présent; simultaneidade, causa e condição; 'tout en…'",l:"Ações simultâneas, causas",v:"Français avec Pierre — Le gérondif",a:"Choses à Savoir Culture — 4 episódios",m:"Fauve — Blizzard",pr:"Descrever seu dia inteiro usando dez gerúndios"},
+    {w:38,p:"B1",t:"Conectores lógicos",g:"Causa (car, puisque, comme, étant donné que); consequência (donc, ainsi, si bien que); finalidade (pour que, afin que)",l:"Argumentação, textos estruturados",v:"InnerFrench — como estruturar uma opinião",a:"Le Code a changé — 1 episódio",m:"Stromae — Formidable",pr:"Texto argumentativo de 250 palavras com dez conectores destacados"},
+    {w:39,p:"B1",t:"Opor e conceder",g:"mais, pourtant, cependant, néanmoins, bien que + subjonctif, malgré, en revanche",l:"Debate, prós e contras",v:"Easy French — debates de rua sobre temas polêmicos",a:"Les Couilles sur la table — 1 episódio",m:"Camille — Ta douleur",pr:"Texto 'pour et contre' de 300 palavras sobre um tema atual"},
+    {w:40,p:"B1",t:"Defender uma opinião",g:"Opinião nuançada: il me semble que, j'ai l'impression que, quant à moi, force est de constater",l:"Temas sociais: educação, trabalho, cidade",v:"Thinkerview — 20 minutos de uma entrevista",a:"InnerFrench — episódios 16 e 17",m:"Grand Corps Malade — Sixième sens",pr:"Exposé gravado de 4 minutos sobre um tema polêmico, sem ler"},
+    {w:41,p:"B1",t:"Mídia e atualidades",g:"Estilo jornalístico: nominalização, títulos sem verbo, discurso relatado",l:"Política, instituições francesas, eleições, imprensa",v:"HugoDécrypte — Actus du jour, 5 vídeos na semana",a:"Le Nouvel Esprit Public — 1 episódio",m:"Soprano — Mon Everest",pr:"Resumo de 200 palavras de uma reportagem lida no Le Monde"},
+    {w:42,p:"B1",t:"Meio ambiente",g:"Futur simple e conditionnel em contexto argumentativo; 'il faudrait que'",l:"Ecologia, clima, energia, consumo",v:"Arte e Data Gueule — 3 vídeos curtos",a:"La Terre au carré (France Inter) — 1 episódio",m:"Tryo — L'hymne de nos campagnes",pr:"Carta aberta de 300 palavras defendendo uma causa ambiental"},
+    {w:43,p:"B1",t:"Tecnologia e redes",g:"Revisão dos pronomes com ordem dupla: je le lui ai donné, il m'en a parlé",l:"Internet, inteligência artificial, privacidade, redes sociais",v:"Cyrus North e DirtyBiology — 2 vídeos",a:"Le Code a changé — 2 episódios",m:"Orelsan — La pluie",pr:"Debate escrito de 300 palavras: 'Les réseaux sociaux nous isolent-ils ?'"},
+    {w:44,p:"B1",t:"Saúde e bem-estar",g:"Expressões fixas com avoir e être; verbos pronominais de sentido passivo",l:"Corpo, esporte, alimentação, saúde mental",v:"Arte — uma reportagem longa sobre saúde",a:"Sur les épaules de Darwin — 1 episódio",m:"Louane — Donne-moi ton cœur",pr:"Gravar 5 minutos sobre seus hábitos e o que quer mudar"},
+    {w:45,p:"B1",t:"Cultura francesa",g:"Passé simple: reconhecer e entender na leitura, sem produzir",l:"Cinema, literatura, pintura, história essencial da França",v:"La Grande Librairie — um programa de 30 minutos",a:"Le Cours de l'histoire (France Culture) — 1 episódio",m:"Charles Aznavour — La bohème",pr:"Ler Le Petit Nicolas inteiro e escrever uma ficha de 250 palavras"},
+    {w:46,p:"B1",t:"Francês falado de verdade",g:"Elisões e reduções (t'as, y a, chuis, j'sais pas); o 'ne' que desaparece; interrogativa familiar",l:"Argot, verlan, expressões do dia a dia",v:"Easy French — vídeos de rua sem legenda nenhuma",a:"Dois episódios de um podcast de conversa livre entre nativos",m:"PNL — Au DD (estudando o argot da letra)",pr:"Transcrever 2 minutos de fala real e reescrever em francês padrão"},
+    {w:47,p:"B1",t:"Escrita nível B1",g:"Essai estruturado, lettre formelle e compte rendu; conectores de plano",l:"Vocabulário de redação",v:"Français avec Pierre — DELF B1 production écrite",a:"Journal en français facile — 5 edições",m:"Vianney — Beau-papa",pr:"Essai de 350 palavras cronometrado em 45 minutos"},
+    {w:48,p:"B1",t:"Consolidação B1 e exame",g:"Revisão: subjonctif, hipóteses, passiva, conectores, os quatro tempos do passado",l:"Reciclar o Anki (~4000 cartões) e refazer os cartões que sempre erra",v:"Um filme francês completo sem legendas: Le Fabuleux Destin d'Amélie Poulain",a:"Um podcast nativo de uma hora, sem apoio de transcrição",m:"Playlist B1 completa",pr:"Simulado DELF B1 completo + 1h de conversa com tutor. Inscreva-se no exame oficial."},
+
+    {w:49,p:"B2",t:"Subjonctif passé e nuances",g:"Subjonctif passé; concordância; sans que, à moins que, de peur que",l:"Julgamentos, hipóteses sobre o passado",v:"Français avec Pierre — subjonctif avancé",a:"Affaires sensibles — 1 episódio sem apoio",m:"Barbara — Göttingen",pr:"200 palavras usando dez estruturas diferentes que exigem subjonctif"},
+    {w:50,p:"B2",t:"Relativos compostos",g:"lequel, laquelle, lesquels; auquel, duquel; ce dont, ce à quoi; dont de posse",l:"Linguagem formal, descrições precisas",v:"InnerFrench — um episódio avançado em vídeo",a:"Le Masque et la Plume — 1 episódio",m:"Serge Gainsbourg — La javanaise",pr:"Fundir 15 pares de frases simples usando relativos compostos"},
+    {w:51,p:"B2",t:"Nominalização e estilo",g:"Transformar verbos em substantivos; frases nominais; escrito contra falado",l:"Títulos de imprensa, relatórios",v:"Le Monde — 2 vídeos de análise",a:"Avec philosophie (France Culture) — 1 episódio",m:"Feu! Chatterton — Souvenir",pr:"Reescrever uma transcrição de fala em estilo escrito formal"},
+    {w:52,p:"B2",t:"Discurso indireto completo",g:"Concordância de tempos no relato; mudança de marcadores temporais e de pronomes",l:"Relatar reuniões, entrevistas, conflitos",v:"Le Bureau des Légendes — 1 episódio com legendas em francês",a:"Transfert — 2 episódios",m:"France Gall — Évidemment",pr:"Relatar por escrito uma entrevista de 5 minutos que você ouviu"},
+    {w:53,p:"B2",t:"Negações e restrições",g:"ne… que, ne… guère, ne… aucun, ne… nul, o 'ne' explétif; dupla negação",l:"Precisão, restrição, ironia",v:"Karim Duval — 2 vídeos de humor",a:"Le Nouvel Esprit Public — 1 episódio",m:"Brigitte Fontaine — Comme à la radio",pr:"15 frases restritivas sobre seu próprio progresso no francês"},
+    {w:54,p:"B2",t:"Expressões idiomáticas",g:"Locuções verbais; expressões com avoir, faire, mettre e prendre; provérbios",l:"200 expressões idiomáticas frequentes, em cartões com contexto",v:"Comme une Française — expressions françaises courantes",a:"Choses à Savoir — 5 episódios",m:"Oldelaf — Le café",pr:"Diálogo de 300 palavras usando 20 expressões idiomáticas"},
+    {w:55,p:"B2",t:"Debater",g:"Refutar, conceder e reformular: c'est-à-dire, autrement dit, en d'autres termes, n'empêche que",l:"Argumentação avançada, falácias",v:"Thinkerview — uma entrevista inteira, em três sessões",a:"Les Couilles sur la table — 2 episódios",m:"Bigflo & Oli — Sur la lune",pr:"Debate ao vivo de 30 minutos com tutor sobre um tema sorteado na hora"},
+    {w:56,p:"B2",t:"Trabalho e economia",g:"Futur antérieur; conditionnel jornalístico (il aurait dit, le bilan serait de)",l:"Empresa, reuniões, negociação, economia",v:"Heu?reka e Xerfi Canal — 2 vídeos",a:"Um podcast de economia francês — 1 episódio",m:"Starmania — Le blues du businessman",pr:"Simular por escrito uma reunião e escrever sua ata, 350 palavras"},
+    {w:57,p:"B2",t:"Sociedade francesa",g:"Estruturas formais e impessoais: il convient de, il s'agit de, force est de",l:"Laicidade, imigração, banlieues, sistema social francês",v:"Arte — Le Dessous des Cartes, 2 episódios",a:"LSD, la série documentaire — 1 série de episódios",m:"Médine — Grand Paris",pr:"Synthèse de 350 palavras a partir de dois textos com posições opostas"},
+    {w:58,p:"B2",t:"Arte e crítica",g:"Vocabulário da apreciação; comparativos complexos; hipóteses estilísticas",l:"Pintura, arquitetura, fotografia, crítica cultural",v:"Arte — Tracks, 2 episódios",a:"Le Masque et la Plume — 2 episódios",m:"Jacques Higelin — Champagne",pr:"Crítica de 350 palavras de uma exposição, filme ou álbum"},
+    {w:59,p:"B2",t:"Ciência e ideias",g:"Conectores acadêmicos; causa e consequência em registro formal",l:"Ciência, divulgação, método, dados",v:"ScienceEtonnante e Nota Bene — 2 vídeos",a:"Sur les épaules de Darwin — 2 episódios",m:"Alain Bashung — La nuit je mens",pr:"Explicar em 5 minutos gravados um conceito científico, sem roteiro escrito"},
+    {w:60,p:"B2",t:"Humor e ironia",g:"Ironia, litote, hipérbole, subentendido; jogos de palavras",l:"Humor francês, stand-up, sátira",v:"Um espetáculo de Blanche Gardin ou Fary, em três sessões",a:"Um podcast de humor francês — 2 episódios",m:"Georges Brassens — Les copains d'abord",pr:"Escrever um texto humorístico de 250 palavras e testá-lo com o tutor"},
+    {w:61,p:"B2",t:"Escrita nível B2",g:"Essai argumentatif e synthèse de documents; plano dialético e plano temático",l:"Vocabulário de dissertação",v:"Vídeos de método para a production écrite do DELF B2",a:"Journal en français facile — 5 edições com resumo escrito de cada",m:"Véronique Sanson — Amoureuse",pr:"Essai de 500 palavras cronometrado em 60 minutos"},
+    {w:62,p:"B2",t:"Oral nível B2",g:"Estruturar um exposé; sustentar contraditório; reformular sob pressão",l:"Temas de atualidade típicos de exame",v:"Gravações de orais reais de DELF B2, com comentário",a:"Gravar-se e reouvir criticamente três vezes o mesmo exposé",m:"Clara Luciani — Le reste",pr:"Dois exposés de 10 minutos com debate, gravados e analisados"},
+    {w:63,p:"B2",t:"A francofonia",g:"Variações gramaticais e lexicais regionais; particularidades do Quebec",l:"Quebec, Bélgica, Suíça, Senegal, Marrocos, Antilhas",v:"Radio-Canada e Solange te parle — 3 vídeos",a:"Dois episódios de podcasts quebequenses",m:"Cœur de pirate — Comme des enfants",pr:"Comparar por escrito 20 diferenças entre o francês do Quebec e o da França"},
+    {w:64,p:"B2",t:"Áudio difícil e velocidade real",g:"Sem conteúdo novo: tudo em compreensão auditiva sem apoio",l:"Vocabulário de baixa frequência capturado em contexto",v:"France 5 — C dans l'air, 2 programas inteiros",a:"Rádio ao vivo 30 min por dia: France Inter, RFI, France Info",m:"Alain Souchon — La ballade de Jim",pr:"Uma dictée de 10 minutos por dia, transcrevendo áudio nativo"},
+    {w:65,p:"B2",t:"Ler um romance inteiro",g:"Passé simple, imparfait du subjonctif e estilo literário na prática",l:"Vocabulário literário e campos semânticos",v:"La Grande Librairie — um programa",a:"Audiolivro do mesmo romance, em leitura sincronizada",m:"Barbara Pravi — Louis",pr:"Ler L'Étranger (Camus) inteiro e escrever uma análise de 400 palavras"},
+    {w:66,p:"B2",t:"Consolidação B2 e exame",g:"Revisão: subjonctif passé, relativos compostos, discurso indireto, passiva, estilo",l:"Depuração do Anki (~7000 cartões) e lista dos erros recorrentes",v:"Um filme sem legendas e um documentário longo",a:"Um podcast nativo de uma hora, sem apoio",m:"Playlist B2 completa",pr:"Simulado DELF B2 completo, as quatro provas, + correção com tutor"},
+
+    {w:67,p:"C1",t:"Tempos literários",g:"Passé simple ativo na leitura; imparfait du subjonctif; passé antérieur",l:"Literatura clássica, contos",v:"Lectures de France Culture — 2 episódios",a:"Duas horas de audiolivro literário",m:"Léo Ferré — Avec le temps",pr:"Reescrever uma página em passé simple para passé composé e comparar o efeito"},
+    {w:68,p:"C1",t:"Estilística e ênfase",g:"Mise en relief (c'est… que, ce que… c'est); inversões; adjetivo anteposto",l:"Retórica e figuras de estilo",v:"Apostrophes (arquivo do INA) — um programa",a:"Avec philosophie — 2 episódios",m:"Jean Ferrat — La montagne",pr:"Reescrever 20 frases neutras em versões enfáticas diferentes"},
+    {w:69,p:"C1",t:"Argumentação C1",g:"Conectores acadêmicos avançados; concessão dupla; modalização",l:"Filosofia, ética, argumentação erudita",v:"Les Chemins de la philosophie — 2 episódios",a:"Le Cours de l'histoire — 2 episódios",m:"Anne Sylvestre — Une sorcière comme les autres",pr:"Dissertação de 700 palavras com plano dialético completo"},
+    {w:70,p:"C1",t:"Síntese de documentos",g:"Técnica da synthèse: confrontar fontes sem opinar; reformulação integral",l:"Vocabulário de reformulação",v:"Vídeos de método da synthèse do DALF C1",a:"Ler e ouvir quatro fontes sobre o mesmo tema",m:"Yves Montand — Les feuilles mortes",pr:"Duas synthèses de 250 palavras na semana, a partir de três textos cada"},
+    {w:71,p:"C1",t:"Vocabulário abstrato",g:"Prefixos e sufixos eruditos; famílias lexicais de raiz latina e grega",l:"Filosofia, psicologia, sociologia, direito",v:"Monsieur Phi e Cyrus North — 3 vídeos",a:"Le Nouvel Esprit Public — 2 episódios",m:"Barbara — L'aigle noir",pr:"Criar 100 cartões de palavras abstratas, cada um com frase própria"},
+    {w:72,p:"C1",t:"Registros extremos",g:"Registro literário, jurídico e administrativo; fórmulas fixas",l:"Documentos oficiais, contratos, textos de lei",v:"Vídeos explicativos do service-public.fr",a:"Um podcast jurídico ou administrativo francês",m:"Juliette — Rimes féminines",pr:"Uma lettre administrative formal e um texto literário curto, no mesmo dia"},
+    {w:73,p:"C1",t:"Prosódia e fluência",g:"Ritmo, liaisons obrigatórias e proibidas, acento de grupo, entonação",l:"Sem léxico novo: só precisão fonética",v:"Vídeos de fonética francesa, com espelho e gravador",a:"Shadowing: 20 minutos por dia sobre o mesmo áudio",m:"Cantar três músicas em sincronia exata com o original",pr:"Gravar o mesmo texto no dia 1 e no dia 7 e comparar lado a lado"},
+    {w:74,p:"C1",t:"Oral longo",g:"Estruturar exposição de 10 minutos; improvisar com plano mental",l:"Temas de exame do DALF C1",v:"Exemplos comentados de orais de DALF C1",a:"Ouvir e resumir oralmente um podcast por dia",m:"Charles Aznavour — Emmenez-moi",pr:"Três exposições de 10 minutos com defesa de 10 minutos, gravadas"},
+    {w:75,p:"C1",t:"Escrita C1",g:"Essai e rapport de 1000 palavras; coesão, progressão temática, elegância",l:"Vocabulário de precisão e conectores raros",v:"Corrigés comentados de provas de DALF C1",a:"Jornal diário com resumo escrito",m:"Jacques Brel — Amsterdam",pr:"Dois textos de 1000 palavras, revisados pelo tutor"},
+    {w:76,p:"C1",t:"Semana de imersão total",g:"Sem conteúdo novo: 100% do tempo de estudo e de lazer em francês",l:"Consolidação por uso, sem listas",v:"Séries e vídeos só em francês, sem legendas, a semana inteira",a:"Rádio francesa de fundo ao longo do dia",m:"Playlist exclusivamente francesa por sete dias",pr:"Diário pessoal em francês, 300 palavras por dia"},
+    {w:77,p:"C1",t:"Simulado DALF C1",g:"Estratégia de prova: gestão de tempo nas quatro competências",l:"Revisão dos seus erros mais frequentes ao longo dos 18 meses",v:"Rever suas próprias gravações da semana 1 e da semana 40",a:"Compréhension orale cronometrada, em condições de exame",m:"Pausa: música francesa só por prazer",pr:"Simulado DALF C1 completo em condições reais, com correção"},
+    {w:78,p:"C1",t:"Plano de manutenção vitalícia",g:"Mapear as lacunas que restaram e montar a rotina de manutenção",l:"Anki em modo manutenção: 20 cartões por dia, para sempre",v:"Escolher três canais para seguir indefinidamente",a:"Escolher dois podcasts semanais definitivos",m:"Montar sua playlist francesa definitiva",pr:"Escrever em francês uma carta ao seu eu de 18 meses atrás e inscrever-se no próximo exame"}
+  ];
+
+  var DAYS = ["lun.","mar.","mer.","jeu.","ven.","sam.","dim."];
+  var KINDS = ["Gramática","Vocabulário","Vídeo","Áudio","Música","Produção","Revisão"];
+
+  function tasksOf(wk){
+    return [
+      wk.g,
+      wk.l + " — 30 cartões novos no Anki, sempre com frase de contexto",
+      wk.v,
+      wk.a,
+      wk.m + " — letra, tradução e uma rodada no LyricsTraining",
+      wk.pr,
+      "Anki atrasado, 20 min de Kwiziq ou Clozemaster e um jogo: Sutom, Babadum ou LyricsTraining"
+    ];
+  }
+
+  var TOTAL = W.length * 7;
+
+  // ---------- state ----------
+  var state = { start: null, done: {} };
+  var LS = "fr78.v1";
+  var dbRef = null, docExists = false, dirty = null, flushing = false, dbErr = false;
+
+  function readLocal(){
+    try{
+      var raw = localStorage.getItem(LS);
+      if(raw){ var o = JSON.parse(raw); if(o && typeof o === "object"){
+        state.start = o.start || null; state.done = o.done || {};
+      }}
+    }catch(e){}
+  }
+  function writeLocal(){
+    try{ localStorage.setItem(LS, JSON.stringify(state)); }catch(e){}
+  }
+
+  function isDone(w,i){ var d = state.done["w"+w]; return !!(d && d["t"+i]); }
+  function weekCount(w){ var n=0; for(var i=0;i<7;i++) if(isDone(w,i)) n++; return n; }
+  function totalDone(){ var n=0; for(var k=0;k<W.length;k++) n+=weekCount(W[k].w); return n; }
+
+  function setSync(s, txt){
+    var el = document.getElementById("sync");
+    el.setAttribute("data-s", s); el.textContent = txt;
+  }
+
+  function markDirty(path, val){
+    if(!dirty) dirty = {};
+    if(path.k === "done"){
+      dirty.done = dirty.done || {};
+      dirty.done["w"+path.w] = dirty.done["w"+path.w] || {};
+      dirty.done["w"+path.w]["t"+path.i] = val;
+    } else {
+      dirty.start = val;
+    }
+    writeLocal();
+    scheduleFlush();
+  }
+
+  var flushTimer = null;
+  function scheduleFlush(){
+    if(!dbRef) return;
+    if(flushTimer) clearTimeout(flushTimer);
+    flushTimer = setTimeout(flush, 400);
+  }
+
+  function flush(){
+    if(!dbRef || flushing || !dirty) return;
+    flushing = true;
+    var payload = dirty; dirty = null;
+    setSync("wait","salvando…");
+    var op = docExists ? dbRef.update(payload) : dbRef.set(state);
+    op.then(function(){
+      docExists = true; dbErr = false; flushing = false;
+      setSync("ok","salvo");
+      if(dirty) scheduleFlush();
+    }).catch(function(err){
+      flushing = false;
+      if(err && err.code === "invalid_argument" && !docExists){
+        // document absent: fall back to a full write
+        dbRef.set(state).then(function(){
+          docExists = true; setSync("ok","salvo");
+        }).catch(function(){ dbErr = true; setSync("err","só neste aparelho"); });
+        return;
+      }
+      dbErr = true;
+      setSync("err","só neste aparelho");
+    });
+  }
+
+  // ---------- date helpers ----------
+  function todayISO(){
+    var d = new Date();
+    return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+  }
+  function parseISO(s){
+    if(!s) return null;
+    var p = s.split("-"); if(p.length !== 3) return null;
+    var d = new Date(Number(p[0]), Number(p[1])-1, Number(p[2]));
+    return isNaN(d.getTime()) ? null : d;
+  }
+  function currentWeek(){
+    var st = parseISO(state.start); if(!st) return null;
+    var now = parseISO(todayISO());
+    var days = Math.floor((now - st) / 86400000);
+    if(days < 0) return null;
+    var n = Math.floor(days/7) + 1;
+    return n > W.length ? null : n;
+  }
+  function todayIndex(){
+    var st = parseISO(state.start); if(!st) return 0;
+    var now = parseISO(todayISO());
+    var days = Math.floor((now - st) / 86400000);
+    if(days < 0) return 0;
+    return ((days % 7) + 7) % 7;
+  }
+
+  // ---------- rendering ----------
+  var filter = "all";
+  var open = {};
+
+  function el(tag, cls, txt){
+    var n = document.createElement(tag);
+    if(cls) n.className = cls;
+    if(txt != null) n.textContent = txt;
+    return n;
+  }
+
+  function renderMeter(){
+    var n = totalDone();
+    document.getElementById("bar").style.width = (n/TOTAL*100).toFixed(1) + "%";
+    document.getElementById("pct").textContent = n + " / " + TOTAL;
+  }
+
+  function renderPhases(){
+    var box = document.getElementById("phases");
+    box.textContent = "";
+    PHASES.forEach(function(ph){
+      var weeks = W.filter(function(x){ return x.p === ph.id; });
+      var done = 0; weeks.forEach(function(x){ done += weekCount(x.w); });
+      var tot = weeks.length * 7;
+
+      var row = el("div","phase-row");
+      row.appendChild(el("div","badge", ph.id));
+
+      var right = el("div");
+      var h = el("div");
+      h.appendChild(el("h3", null, ph.name + " · " + ph.fr));
+      h.appendChild(el("div","rng","Semanas " + ph.from + "–" + ph.to + " · " + weeks.length + " semanas"));
+      right.appendChild(h);
+      right.appendChild(el("p", null, ph.desc));
+
+      var mb = el("div","minibar");
+      var tr = el("div","track"); var fill = el("i");
+      fill.style.width = (tot ? done/tot*100 : 0).toFixed(1) + "%";
+      tr.appendChild(fill); mb.appendChild(tr);
+      mb.appendChild(el("span", null, done + "/" + tot));
+      right.appendChild(mb);
+
+      row.appendChild(right);
+      box.appendChild(row);
+    });
+  }
+
+  function renderFilters(){
+    var box = document.getElementById("filters");
+    box.textContent = "";
+    var opts = [{k:"all",lbl:"Todas as 78"}];
+    PHASES.forEach(function(p){ opts.push({k:p.id, lbl:p.id + " · " + p.name}); });
+    opts.push({k:"todo",lbl:"Só o que falta"});
+    opts.forEach(function(o){
+      var b = el("button","chip", o.lbl);
+      b.type = "button";
+      b.setAttribute("aria-pressed", filter === o.k ? "true" : "false");
+      b.addEventListener("click", function(){ filter = o.k; renderFilters(); renderWeeks(); });
+      box.appendChild(b);
+    });
+  }
+
+  function taskRow(wk, i, done){
+    var row = el("div","task");
+    var cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.id = "t-" + wk.w + "-" + i;
+    cb.checked = done;
+    cb.setAttribute("aria-label", KINDS[i] + ", semana " + wk.w);
+    cb.addEventListener("change", function(){
+      var key = "w" + wk.w;
+      if(!state.done[key]) state.done[key] = {};
+      state.done[key]["t"+i] = cb.checked;
+      markDirty({k:"done", w:wk.w, i:i}, cb.checked);
+      renderMeter(); renderPhases(); renderToday();
+      var card = document.getElementById("wk-" + wk.w);
+      if(card){
+        var c = weekCount(wk.w);
+        card.querySelector(".count").textContent = c + "/7";
+        card.classList.toggle("is-done", c === 7);
+      }
+    });
+    row.appendChild(cb);
+    row.appendChild(el("div","dw", DAYS[i]));
+    var tx = el("div","tx");
+    tx.appendChild(el("b", null, KINDS[i]));
+    tx.appendChild(document.createTextNode(tasksOf(wk)[i]));
+    row.appendChild(tx);
+    return row;
+  }
+
+  function renderWeeks(){
+    var box = document.getElementById("weeks");
+    box.textContent = "";
+    var cw = currentWeek();
+    var list = W.filter(function(wk){
+      if(filter === "all") return true;
+      if(filter === "todo") return weekCount(wk.w) < 7;
+      return wk.p === filter;
+    });
+
+    if(!list.length){
+      var empty = el("p","sub","Tudo marcado nesta seleção. Bravo.");
+      box.appendChild(empty);
+      return;
+    }
+
+    list.forEach(function(wk){
+      var c = weekCount(wk.w);
+      var card = el("div","week");
+      card.id = "wk-" + wk.w;
+      if(c === 7) card.classList.add("is-done");
+      if(cw === wk.w) card.classList.add("is-now");
+
+      var btn = el("button","week-btn");
+      btn.type = "button";
+      btn.setAttribute("aria-expanded", open[wk.w] ? "true" : "false");
+      btn.appendChild(el("div","wno", String(wk.w).padStart(2,"0")));
+
+      var mid = el("div");
+      mid.appendChild(el("div","wtitle", wk.t));
+      var tags = el("div","wtags");
+      tags.appendChild(el("span","lvl", wk.p));
+      if(cw === wk.w) tags.appendChild(el("span","now-tag","semana atual"));
+      mid.appendChild(tags);
+      btn.appendChild(mid);
+      btn.appendChild(el("div","count", c + "/7"));
+
+      var body = el("div","week-body");
+      body.hidden = !open[wk.w];
+      var tl = el("div","tasks");
+      for(var i=0;i<7;i++) tl.appendChild(taskRow(wk, i, isDone(wk.w, i)));
+      body.appendChild(tl);
+
+      btn.addEventListener("click", function(){
+        open[wk.w] = !open[wk.w];
+        body.hidden = !open[wk.w];
+        btn.setAttribute("aria-expanded", open[wk.w] ? "true" : "false");
+      });
+
+      card.appendChild(btn);
+      card.appendChild(body);
+      box.appendChild(card);
+    });
+  }
+
+  function renderToday(){
+    var box = document.getElementById("today");
+    box.textContent = "";
+    var cw = currentWeek();
+
+    var top = el("div","today-top");
+    var info = el("div");
+
+    if(cw){
+      var wk = W[cw-1];
+      var ph = PHASES.filter(function(p){ return p.id === wk.p; })[0];
+      top.appendChild(el("div","today-wk","S" + String(cw).padStart(2,"0")));
+      info.appendChild(el("h3", null, wk.t));
+      info.appendChild(el("p", null, "Fase " + wk.p + " · " + ph.name + " · " + weekCount(cw) + " de 7 tarefas feitas"));
+      top.appendChild(info);
+      box.appendChild(top);
+
+      var body = el("div","today-body");
+      var tl = el("div","tasks");
+      var ti = todayIndex();
+      tl.appendChild(taskRow(wk, ti, isDone(cw, ti)));
+      body.appendChild(tl);
+      var hint = el("p","sub", "Tarefa de hoje (" + DAYS[ti] + "). Se estiver atrasado, abra a semana abaixo e faça a primeira não marcada.");
+      hint.style.marginTop = "12px"; hint.style.marginBottom = "4px"; hint.style.fontSize = ".86rem";
+      body.appendChild(hint);
+      box.appendChild(body);
+    } else {
+      top.appendChild(el("div","today-wk","—"));
+      info.appendChild(el("h3", null, state.start ? "Fora do período do plano" : "Defina a data de início"));
+      info.appendChild(el("p", null, state.start ? "A data de início está fora da janela de 78 semanas. Ajuste abaixo." : "Escolha o dia em que você começa e a página passa a mostrar a semana e a tarefa do dia."));
+      top.appendChild(info);
+      box.appendChild(top);
+    }
+
+    var df = el("div","datefield");
+    var lab = el("label", null, "Início do plano:");
+    lab.setAttribute("for","startdate");
+    var inp = document.createElement("input");
+    inp.type = "date"; inp.id = "startdate";
+    inp.value = state.start || "";
+    inp.addEventListener("change", function(){
+      state.start = inp.value || null;
+      markDirty({k:"start"}, state.start);
+      renderToday(); renderWeeks();
+    });
+    df.appendChild(lab); df.appendChild(inp);
+    var setToday = el("button","chip","Começar hoje");
+    setToday.type = "button";
+    setToday.addEventListener("click", function(){
+      state.start = todayISO();
+      markDirty({k:"start"}, state.start);
+      renderToday(); renderWeeks();
+    });
+    df.appendChild(setToday);
+    box.appendChild(df);
+  }
+
+  function renderAll(){
+    renderMeter(); renderPhases(); renderFilters(); renderWeeks(); renderToday();
+  }
+
+  readLocal();
+  renderAll();
+
+  // ---------- db ----------
+  if(window.claude && typeof window.claude.use === "function"){
+    window.claude.use("db").then(function(db){
+      if(!db) return;
+      try{ dbRef = db.doc("progress/plan"); }catch(e){ return; }
+      dbRef.onSnapshot(function(snap){
+        docExists = snap.exists;
+        if(snap.exists && !snap.metadata.hasPendingWrites){
+          var d = snap.data() || {};
+          state.start = d.start || state.start || null;
+          state.done = (d.done && typeof d.done === "object") ? d.done : (state.done || {});
+          writeLocal();
+          renderAll();
+        }
+        if(!dbErr) setSync("ok", snap.exists ? "salvo" : "pronto");
+      }, function(){
+        dbErr = true; setSync("err","só neste aparelho");
+      });
+      // If a local-only state existed before db was available, push it up.
+      if(state.start || Object.keys(state.done).length){
+        dirty = { start: state.start, done: state.done };
+        scheduleFlush();
+      }
+    }).catch(function(){});
+  }
+})();
+</script>
+
+<style>
+.io{padding-block:0 60px}
+.io-card{
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px 20px;
+}
+.io-card h3{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--garance);margin-bottom:9px}
+.io-card p{font-size:.92rem;color:var(--ink-2);max-width:62ch}
+.io-btns{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:15px}
+.io-btns label.chip{cursor:pointer}
+#io-msg{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.04em;color:var(--ink-3)}
+</style>
+
+<section class="wrap io">
+  <div class="io-card">
+    <h3>Backup do progresso</h3>
+    <p>Nesta versão hospedada, suas marcações ficam salvas no navegador deste aparelho. Para levar o progresso para outro celular ou computador, exporte o arquivo aqui e importe-o lá.</p>
+    <div class="io-btns">
+      <button type="button" id="io-exp" class="chip">Exportar progresso</button>
+      <label class="chip" for="io-imp">Importar progresso</label>
+      <input type="file" id="io-imp" accept="application/json,.json" hidden>
+      <span id="io-msg"></span>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  "use strict";
+  var KEY = "fr78.v1";
+  var msg = document.getElementById("io-msg");
+  function say(txt, ok){
+    msg.textContent = txt;
+    msg.style.color = ok ? "var(--vert)" : "var(--garance)";
+  }
+
+  document.getElementById("io-exp").addEventListener("click", function(){
+    var raw = "{}";
+    try{ raw = localStorage.getItem(KEY) || "{}"; }catch(e){}
+    if(raw === "{}"){ say("Nada marcado para exportar ainda.", false); return; }
+    var url = URL.createObjectURL(new Blob([raw], {type:"application/json"}));
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "francais-78-progresso-" + new Date().toISOString().slice(0,10) + ".json";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
+    say("Arquivo baixado.", true);
+  });
+
+  document.getElementById("io-imp").addEventListener("change", function(ev){
+    var f = ev.target.files && ev.target.files[0];
+    if(!f) return;
+    var r = new FileReader();
+    r.onload = function(){
+      try{
+        var o = JSON.parse(String(r.result));
+        if(!o || typeof o !== "object" || Array.isArray(o)) throw new Error("shape");
+        if(o.done != null && (typeof o.done !== "object" || Array.isArray(o.done))) throw new Error("shape");
+        localStorage.setItem(KEY, JSON.stringify({ start: o.start || null, done: o.done || {} }));
+        say("Importado. Recarregando…", true);
+        setTimeout(function(){ location.reload(); }, 700);
+      }catch(err){
+        say("Arquivo inválido — use um exportado por esta página.", false);
+      }
+    };
+    r.onerror = function(){ say("Não foi possível ler o arquivo.", false); };
+    r.readAsText(f);
+    ev.target.value = "";
+  });
+})();
+</script>
+
+</body>
+</html>

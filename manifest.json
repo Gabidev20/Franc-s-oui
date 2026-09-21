@@ -1,0 +1,20 @@
+{
+  "name": "78 Semanas de Francês",
+  "short_name": "Français",
+  "description": "Plano de estudo de francês do zero ao avançado em 78 semanas, com sete tarefas por semana.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#EFF1F5",
+  "theme_color": "#20356F",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
