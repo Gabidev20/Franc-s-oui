@@ -225,6 +225,8 @@ h2{font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:clamp(1.6rem,4.4vw,2.
 }
 .subs li.sdone .vid{opacity:.6}
 .myslot{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:7px}
+.myslot .vid{margin-top:0}
+.addlink.res:hover{border-color:var(--vert);color:var(--vert);border-style:solid}
 .myrow{display:inline-flex;align-items:center;gap:3px}
 .vid.mine{color:var(--vert);border-bottom-color:color-mix(in srgb, var(--vert) 45%, transparent)}
 .vid.mine::before{content:"▶";color:var(--vert)}
@@ -415,7 +417,7 @@ footer p + p{margin-top:10px}
 
   <section class="block">
     <div class="head"><h2>O plano, semana por semana</h2><span class="fr">Le programme détaillé</span></div>
-    <p class="sub">Sete tarefas por semana, uma por dia. Cliquem na semana para abrir e marcar. Cada subtópico tem o seu próprio check: se hoje vocês só deram conta do alfabeto, marquem só ele — o dia fecha sozinho quando todos os tópicos dele estiverem marcados, e o contador ao lado do dia mostra quanto falta. Se atrasarem, não reorganizem nada: façam o próximo tópico não marcado e sigam. Cada subtópico tem a sua própria aula: em média três por semana na gramática e duas no vocabulário, todas do mesmo professor, Pierre, para vocês se acostumarem com uma voz e um método só. E em cada tópico há um <b>+ meu link</b>: se acharem um vídeo melhor, colem o endereço ali e ele fica salvo junto com o progresso.</p>
+    <p class="sub">Sete tarefas por semana, uma por dia. Cliquem na semana para abrir e marcar. Cada subtópico tem o seu próprio check: se hoje vocês só deram conta do alfabeto, marquem só ele — o dia fecha sozinho quando todos os tópicos dele estiverem marcados, e o contador ao lado do dia mostra quanto falta. Se atrasarem, não reorganizem nada: façam o próximo tópico não marcado e sigam. Cada subtópico tem a sua própria aula: em média três por semana na gramática e duas no vocabulário, todas do mesmo professor, Pierre, para vocês se acostumarem com uma voz e um método só. E nada aqui é fixo: cada link tem um <b>×</b> para remover e cada tópico tem um <b>+ meu link</b> para colar outro no lugar. Se removerem uma aula sugerida e se arrependerem, aparece um <b>↺ aula original</b> para trazê-la de volta. Tudo fica salvo junto com o progresso.</p>
     <div class="filters" id="filters"></div>
     <div class="weeks" id="weeks"></div>
   </section>
@@ -1524,12 +1526,13 @@ footer p + p{margin-top:10px}
   function plUrl(id){ return "https://www.youtube.com/playlist?list=" + id; }
   function chUrl(q){ return "https://www.youtube.com/@Francaisavecpierre/search?query=" + q; }
 
-  /* Links próprios: um espaço em cada tópico para colar qualquer vídeo. */
-  var mineHosts = [];
+  /* Área de links de cada tópico: a aula sugerida (removível) e os links de vocês. */
+  var linkHosts = [];
   var SLASHES = String.fromCharCode(47, 47);
 
   function mineKey(w, ti, si){ return "w" + w + "t" + ti + (si == null ? "x" : "s" + si); }
   function getMine(key){ var a = state.mine && state.mine[key]; return (a && a.length) ? a : []; }
+  function isHidden(key){ return !!(state.hide && state.hide[key] === true); }
 
   function isSafeUrl(u){
     var low = String(u).toLowerCase();
@@ -1541,47 +1544,87 @@ footer p + p{margin-top:10px}
     if(!state.mine) state.mine = {};
     state.mine[key] = arr;
     markDirty({k:"mine", key:key}, arr);
-    refreshMine(key);
+    refreshLinks(key);
   }
 
-  function attachMine(host, key){
+  function setHidden(key, val){
+    if(!state.hide) state.hide = {};
+    state.hide[key] = val;
+    markDirty({k:"hide", key:key}, val);
+    refreshLinks(key);
+  }
+
+  function attachLinks(host, key, def){
     host.setAttribute("data-mk", key);
-    mineHosts.push(host);
-    renderMine(host, key);
+    host.__def = def || null;
+    linkHosts.push(host);
+    renderLinks(host, key);
   }
 
-  function refreshMine(key){
-    mineHosts = mineHosts.filter(function(h){ return h.isConnected; });
-    mineHosts.forEach(function(h){
-      if(h.getAttribute("data-mk") === key) renderMine(h, key);
+  function refreshLinks(key){
+    linkHosts = linkHosts.filter(function(h){ return h.isConnected; });
+    linkHosts.forEach(function(h){
+      if(h.getAttribute("data-mk") === key) renderLinks(h, key);
     });
   }
 
-  function renderMine(host, key){
+  function linkChip(url, label, cls, rmTitle, rmLabel, onRemove){
+    var row = el("span","myrow");
+    var a = document.createElement("a");
+    a.className = cls;
+    a.href = url;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.textContent = label;
+    row.appendChild(a);
+    var rm = el("button","rmlink","×");
+    rm.type = "button";
+    rm.title = rmTitle;
+    rm.setAttribute("aria-label", rmLabel);
+    rm.addEventListener("click", onRemove);
+    row.appendChild(rm);
+    return row;
+  }
+
+  function renderLinks(host, key){
     host.textContent = "";
+    var def = host.__def;
     var list = getMine(key);
 
+    if(def && !isHidden(key)){
+      host.appendChild(linkChip(
+        def.u,
+        def.n,
+        "vid" + (def.search ? " srch" : ""),
+        "Remover a aula sugerida e colocar outra no lugar",
+        "Remover a aula sugerida: " + def.n,
+        function(){ setHidden(key, true); }
+      ));
+    }
+
     list.forEach(function(item, idx){
-      var row = el("span","myrow");
-      var a = document.createElement("a");
-      a.className = "vid mine";
-      a.href = item.u;
-      a.target = "_blank";
-      a.rel = "noopener";
-      a.textContent = item.n || "Meu vídeo";
-      row.appendChild(a);
-      var rm = el("button","rmlink","×");
-      rm.type = "button";
-      rm.title = "Remover este link";
-      rm.setAttribute("aria-label", "Remover o link " + (item.n || "meu vídeo"));
-      rm.addEventListener("click", function(){
-        var arr = getMine(key).slice();
-        arr.splice(idx, 1);
-        saveMine(key, arr);
-      });
-      row.appendChild(rm);
-      host.appendChild(row);
+      host.appendChild(linkChip(
+        item.u,
+        item.n || "Meu vídeo",
+        "vid mine",
+        "Remover este link",
+        "Remover o link " + (item.n || "meu vídeo"),
+        function(){
+          var arr = getMine(key).slice();
+          arr.splice(idx, 1);
+          saveMine(key, arr);
+        }
+      ));
     });
+
+    if(def && isHidden(key)){
+      var res = el("button","addlink res","↺ aula original");
+      res.type = "button";
+      res.title = "Trazer de volta a aula que vinha no plano";
+      res.setAttribute("aria-label", "Restaurar a aula sugerida: " + def.n);
+      res.addEventListener("click", function(){ setHidden(key, false); });
+      host.appendChild(res);
+    }
 
     var add = el("button","addlink", list.length ? "+ outro link" : "+ meu link");
     add.type = "button";
@@ -1658,7 +1701,7 @@ footer p + p{margin-top:10px}
 
   var TOTAL = W.length * 7;
 
-  var state = { start: null, done: {}, mine: {}, subs: {} };
+  var state = { start: null, done: {}, mine: {}, subs: {}, hide: {} };
   var LS = "fr78.v1";
   var dbRef = null, docExists = false, dirty = null, flushing = false, dbErr = false;
 
@@ -1666,7 +1709,7 @@ footer p + p{margin-top:10px}
     try{
       var raw = localStorage.getItem(LS);
       if(raw){ var o = JSON.parse(raw); if(o && typeof o === "object"){
-        state.start = o.start || null; state.done = o.done || {}; state.mine = o.mine || {}; state.subs = o.subs || {};
+        state.start = o.start || null; state.done = o.done || {}; state.mine = o.mine || {}; state.subs = o.subs || {}; state.hide = o.hide || {};
       }}
     }catch(e){}
   }
@@ -1695,6 +1738,9 @@ footer p + p{margin-top:10px}
     } else if(path.k === "subs"){
       dirty.subs = dirty.subs || {};
       dirty.subs[path.key] = val;
+    } else if(path.k === "hide"){
+      dirty.hide = dirty.hide || {};
+      dirty.hide[path.key] = val;
     } else {
       dirty.start = val;
     }
@@ -1906,10 +1952,8 @@ footer p + p{margin-top:10px}
     cb.addEventListener("change", function(){
       if(n){
         for(var k = 0; k < n; k++) setSub(wk.w, i, k, cb.checked);
-        setTaskDone(wk.w, i, cb.checked);
-      } else {
-        setTaskDone(wk.w, i, cb.checked);
       }
+      setTaskDone(wk.w, i, cb.checked);
       syncTask(wk.w, i);
     });
     row.appendChild(cb);
@@ -1950,16 +1994,9 @@ footer p + p{margin-top:10px}
 
         var body = el("div","sbody");
         body.appendChild(el("span","st", sb.t));
-        if(sb.u){
-          var sa = document.createElement("a");
-          sa.className = "vid" + (sb.search ? " srch" : "");
-          sa.href = sb.u; sa.target = "_blank"; sa.rel = "noopener";
-          sa.textContent = sb.n;
-          body.appendChild(sa);
-        }
         var slot = el("div","myslot");
         body.appendChild(slot);
-        attachMine(slot, mineKey(wk.w, i, si));
+        attachLinks(slot, mineKey(wk.w, i, si), sb.u ? {u:sb.u, n:sb.n, search:sb.search} : null);
         li.appendChild(body);
 
         ul.appendChild(li);
@@ -1967,20 +2004,9 @@ footer p + p{margin-top:10px}
       tx.appendChild(ul);
     }
 
-    if(t.l){
-      tx.appendChild(document.createElement("br"));
-      var a = document.createElement("a");
-      a.className = "vid";
-      a.href = t.l.u;
-      a.target = "_blank";
-      a.rel = "noopener";
-      a.textContent = t.l.n;
-      tx.appendChild(a);
-    }
-
     var taskSlot = el("div","myslot");
     tx.appendChild(taskSlot);
-    attachMine(taskSlot, mineKey(wk.w, i, null));
+    attachLinks(taskSlot, mineKey(wk.w, i, null), t.l ? {u:t.l.u, n:t.l.n} : null);
 
     row.appendChild(tx);
     return row;
@@ -2119,6 +2145,7 @@ footer p + p{margin-top:10px}
           state.done = (d.done && typeof d.done === "object") ? d.done : (state.done || {});
           state.mine = (d.mine && typeof d.mine === "object") ? d.mine : (state.mine || {});
           state.subs = (d.subs && typeof d.subs === "object") ? d.subs : (state.subs || {});
+          state.hide = (d.hide && typeof d.hide === "object") ? d.hide : (state.hide || {});
           writeLocal();
           renderAll();
         }
@@ -2126,8 +2153,8 @@ footer p + p{margin-top:10px}
       }, function(){
         dbErr = true; setSync("err","só neste aparelho");
       });
-      if(state.start || Object.keys(state.done).length || Object.keys(state.mine || {}).length || Object.keys(state.subs || {}).length){
-        dirty = { start: state.start, done: state.done, mine: state.mine || {}, subs: state.subs || {} };
+      if(state.start || Object.keys(state.done).length || Object.keys(state.mine || {}).length || Object.keys(state.subs || {}).length || Object.keys(state.hide || {}).length){
+        dirty = { start: state.start, done: state.done, mine: state.mine || {}, subs: state.subs || {}, hide: state.hide || {} };
         scheduleFlush();
       }
     }).catch(function(){});
@@ -2196,7 +2223,8 @@ footer p + p{margin-top:10px}
         if(o.done != null && (typeof o.done !== "object" || Array.isArray(o.done))) throw new Error("shape");
         if(o.mine != null && (typeof o.mine !== "object" || Array.isArray(o.mine))) throw new Error("shape");
         if(o.subs != null && (typeof o.subs !== "object" || Array.isArray(o.subs))) throw new Error("shape");
-        localStorage.setItem(KEY, JSON.stringify({ start: o.start || null, done: o.done || {}, mine: o.mine || {}, subs: o.subs || {} }));
+        if(o.hide != null && (typeof o.hide !== "object" || Array.isArray(o.hide))) throw new Error("shape");
+        localStorage.setItem(KEY, JSON.stringify({ start: o.start || null, done: o.done || {}, mine: o.mine || {}, subs: o.subs || {}, hide: o.hide || {} }));
         say("Importado. Recarregando…", true);
         setTimeout(function(){ location.reload(); }, 700);
       }catch(err){
