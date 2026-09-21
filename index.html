@@ -201,6 +201,21 @@ h2{font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:clamp(1.6rem,4.4vw,2.
 .vid{display:inline-flex;align-items:baseline;gap:6px;margin-top:5px;font-size:.88rem;border-bottom:1px solid color-mix(in srgb, var(--outremer) 30%, transparent)}
 .vid::before{content:"▶";font-size:.62rem;color:var(--garance);position:relative;top:-1px}
 
+.myslot{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:7px}
+.myrow{display:inline-flex;align-items:center;gap:3px}
+.vid.mine{color:var(--vert);border-bottom-color:color-mix(in srgb, var(--vert) 45%, transparent)}
+.vid.mine::before{content:"▶";color:var(--vert)}
+.rmlink{border:0;background:none;color:var(--ink-3);cursor:pointer;font-size:15px;line-height:1;padding:0 3px;font-family:inherit}
+.rmlink:hover{color:var(--garance)}
+.addlink{border:1px dashed var(--rule);background:none;color:var(--ink-3);cursor:pointer;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.06em;padding:3px 9px;border-radius:4px}
+.addlink:hover{border-color:var(--outremer);color:var(--outremer);border-style:solid}
+.linkform{display:flex;flex-wrap:wrap;gap:6px;align-items:center;width:100%}
+.linkform input{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;padding:5px 7px;border:1px solid var(--rule);border-radius:4px;background:var(--surface-2);color:var(--ink)}
+.linkform .lf-u{flex:1 1 230px;min-width:0}
+.linkform .lf-n{flex:0 1 145px;min-width:0}
+.chip.mini{font-size:10.5px;padding:4px 10px}
+.chip.ghost{background:none;border-style:dashed;color:var(--ink-3)}
+.lf-err{font-size:11px;color:var(--garance);flex:1 1 100%}
 .subs{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
 .subs li{padding-left:13px;position:relative}
 .subs li::before{content:"";position:absolute;left:0;top:.66em;width:5px;height:1px;background:var(--ink-3)}
@@ -377,7 +392,7 @@ footer p + p{margin-top:10px}
 
   <section class="block">
     <div class="head"><h2>O plano, semana por semana</h2><span class="fr">Le programme détaillé</span></div>
-    <p class="sub">Sete tarefas por semana, uma por dia. Cliquem na semana para abrir e marcar. Se atrasarem, não reorganizem nada: façam a próxima tarefa não marcada e sigam. Cada subtópico tem a sua própria aula: em média três por semana na gramática e duas no vocabulário, todas do mesmo professor, Pierre, para vocês se acostumarem com uma voz e um método só.</p>
+    <p class="sub">Sete tarefas por semana, uma por dia. Cliquem na semana para abrir e marcar. Se atrasarem, não reorganizem nada: façam a próxima tarefa não marcada e sigam. Cada subtópico tem a sua própria aula: em média três por semana na gramática e duas no vocabulário, todas do mesmo professor, Pierre, para vocês se acostumarem com uma voz e um método só. E em cada tópico há um <b>+ meu link</b>: se acharem um vídeo melhor, colem o endereço ali e ele fica salvo junto com o progresso.</p>
     <div class="filters" id="filters"></div>
     <div class="weeks" id="weeks"></div>
   </section>
@@ -483,7 +498,7 @@ footer p + p{margin-top:10px}
   <footer>
     <p><b>Quatro regras que valem mais que o plano.</b> 1) Nunca dois dias seguidos sem nada — se falharem um dia, o seguinte é obrigatório, mesmo em 10 minutos. 2) Cronometrem quarta e sábado sempre; a prova é contra o relógio e o relógio se treina. 3) Falem desde a primeira semana, um com o outro, em voz alta; vergonha adiada vira sotaque fossilizado. 4) Input com prazer conta como estudo: uma série em francês vale mais que meia hora de exercício feito com raiva.</p>
     <p>As lacunas que este plano assume: o canal do Pierre não tem aula dedicada a <em>gérondif</em>, <em>voz passiva</em>, <em>plus-que-parfait</em>, <em>discurso indireto</em>, <em>plural dos substantivos</em>, <em>comparativo e superlativo</em>, <em>as horas</em> e <em>nominalização</em>. Nesses oito subtópicos o link aparece pontilhado e leva à busca dentro do canal, em vez de a um vídeo específico — a gramática escrita do Kwiziq e da Grammaire Progressive cobre cada um deles. Todos os outros links são vídeos verificados um a um.</p>
-    <p>Suas marcações ficam salvas no navegador deste aparelho. Use o backup logo abaixo para levá-las a outro celular ou computador.</p>
+    <p>Suas marcações e os links que vocês colarem ficam salvos no navegador deste aparelho. Use o backup logo abaixo para levá-los a outro celular ou computador.</p>
   </footer>
 </main>
 
@@ -1486,6 +1501,110 @@ footer p + p{margin-top:10px}
   function plUrl(id){ return "https://www.youtube.com/playlist?list=" + id; }
   function chUrl(q){ return "https://www.youtube.com/@Francaisavecpierre/search?query=" + q; }
 
+  /* Links próprios: um espaço em cada tópico para colar qualquer vídeo. */
+  var mineHosts = [];
+  var SLASHES = String.fromCharCode(47, 47);
+
+  function mineKey(w, ti, si){ return "w" + w + "t" + ti + (si == null ? "x" : "s" + si); }
+  function getMine(key){ var a = state.mine && state.mine[key]; return (a && a.length) ? a : []; }
+
+  function isSafeUrl(u){
+    var low = String(u).toLowerCase();
+    var starts = low.indexOf("http:" + SLASHES) === 0 || low.indexOf("https:" + SLASHES) === 0;
+    return starts && u.length > 12 && !/\s/.test(u);
+  }
+
+  function saveMine(key, arr){
+    if(!state.mine) state.mine = {};
+    state.mine[key] = arr;
+    markDirty({k:"mine", key:key}, arr);
+    refreshMine(key);
+  }
+
+  function attachMine(host, key){
+    host.setAttribute("data-mk", key);
+    mineHosts.push(host);
+    renderMine(host, key);
+  }
+
+  function refreshMine(key){
+    mineHosts = mineHosts.filter(function(h){ return h.isConnected; });
+    mineHosts.forEach(function(h){
+      if(h.getAttribute("data-mk") === key) renderMine(h, key);
+    });
+  }
+
+  function renderMine(host, key){
+    host.textContent = "";
+    var list = getMine(key);
+
+    list.forEach(function(item, idx){
+      var row = el("span","myrow");
+      var a = document.createElement("a");
+      a.className = "vid mine";
+      a.href = item.u;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = item.n || "Meu vídeo";
+      row.appendChild(a);
+      var rm = el("button","rmlink","×");
+      rm.type = "button";
+      rm.title = "Remover este link";
+      rm.setAttribute("aria-label", "Remover o link " + (item.n || "meu vídeo"));
+      rm.addEventListener("click", function(){
+        var arr = getMine(key).slice();
+        arr.splice(idx, 1);
+        saveMine(key, arr);
+      });
+      row.appendChild(rm);
+      host.appendChild(row);
+    });
+
+    var add = el("button","addlink", list.length ? "+ outro link" : "+ meu link");
+    add.type = "button";
+    add.setAttribute("aria-label", "Adicionar um link meu neste tópico");
+    add.addEventListener("click", function(){
+      add.hidden = true;
+      var form = el("div","linkform");
+      var safe = key.replace(/[^A-Za-z0-9]/g, "");
+      var iu = document.createElement("input");
+      iu.type = "url"; iu.className = "lf-u"; iu.id = "lfu-" + safe;
+      iu.placeholder = "Cole aqui o link do vídeo";
+      iu.setAttribute("aria-label", "Endereço do vídeo");
+      var inm = document.createElement("input");
+      inm.type = "text"; inm.className = "lf-n"; inm.id = "lfn-" + safe;
+      inm.placeholder = "Nome (opcional)"; inm.maxLength = 80;
+      inm.setAttribute("aria-label", "Nome do vídeo, opcional");
+      var ok = el("button","chip mini","Salvar"); ok.type = "button";
+      var no = el("button","chip mini ghost","Cancelar"); no.type = "button";
+      var err = el("span","lf-err");
+      function close(){
+        if(form.parentNode) form.parentNode.removeChild(form);
+        add.hidden = false;
+      }
+      ok.addEventListener("click", function(){
+        var u = iu.value.trim();
+        if(!isSafeUrl(u)){
+          err.textContent = "Cole um endereço que comece com http ou https";
+          return;
+        }
+        var arr = getMine(key).slice();
+        arr.push({u:u, n:inm.value.trim().slice(0,80)});
+        close();
+        saveMine(key, arr);
+      });
+      no.addEventListener("click", close);
+      function onEnter(e){ if(e.key === "Enter"){ e.preventDefault(); ok.click(); } }
+      iu.addEventListener("keydown", onEnter);
+      inm.addEventListener("keydown", onEnter);
+      form.appendChild(iu); form.appendChild(inm);
+      form.appendChild(ok); form.appendChild(no); form.appendChild(err);
+      host.insertBefore(form, add);
+      iu.focus();
+    });
+    host.appendChild(add);
+  }
+
   function vLink(key){
     var v = V[key];
     if(!v) return null;
@@ -1516,7 +1635,7 @@ footer p + p{margin-top:10px}
 
   var TOTAL = W.length * 7;
 
-  var state = { start: null, done: {} };
+  var state = { start: null, done: {}, mine: {} };
   var LS = "fr78.v1";
   var dbRef = null, docExists = false, dirty = null, flushing = false, dbErr = false;
 
@@ -1524,7 +1643,7 @@ footer p + p{margin-top:10px}
     try{
       var raw = localStorage.getItem(LS);
       if(raw){ var o = JSON.parse(raw); if(o && typeof o === "object"){
-        state.start = o.start || null; state.done = o.done || {};
+        state.start = o.start || null; state.done = o.done || {}; state.mine = o.mine || {};
       }}
     }catch(e){}
   }
@@ -1547,6 +1666,9 @@ footer p + p{margin-top:10px}
       dirty.done = dirty.done || {};
       dirty.done["w"+path.w] = dirty.done["w"+path.w] || {};
       dirty.done["w"+path.w]["t"+path.i] = val;
+    } else if(path.k === "mine"){
+      dirty.mine = dirty.mine || {};
+      dirty.mine[path.key] = val;
     } else {
       dirty.start = val;
     }
@@ -1697,7 +1819,7 @@ footer p + p{margin-top:10px}
     tx.appendChild(document.createTextNode(t.x));
     if(t.subs){
       var ul = el("ul","subs");
-      t.subs.forEach(function(sb){
+      t.subs.forEach(function(sb, si){
         var li = document.createElement("li");
         li.appendChild(el("span","st", sb.t));
         if(sb.u){
@@ -1707,6 +1829,9 @@ footer p + p{margin-top:10px}
           sa.textContent = sb.n;
           li.appendChild(sa);
         }
+        var slot = el("div","myslot");
+        li.appendChild(slot);
+        attachMine(slot, mineKey(wk.w, i, si));
         ul.appendChild(li);
       });
       tx.appendChild(ul);
@@ -1721,6 +1846,9 @@ footer p + p{margin-top:10px}
       a.textContent = t.l.n;
       tx.appendChild(a);
     }
+    var taskSlot = el("div","myslot");
+    tx.appendChild(taskSlot);
+    attachMine(taskSlot, mineKey(wk.w, i, null));
     row.appendChild(tx);
     return row;
   }
@@ -1856,6 +1984,7 @@ footer p + p{margin-top:10px}
           var d = snap.data() || {};
           state.start = d.start || state.start || null;
           state.done = (d.done && typeof d.done === "object") ? d.done : (state.done || {});
+          state.mine = (d.mine && typeof d.mine === "object") ? d.mine : (state.mine || {});
           writeLocal();
           renderAll();
         }
@@ -1863,8 +1992,8 @@ footer p + p{margin-top:10px}
       }, function(){
         dbErr = true; setSync("err","só neste aparelho");
       });
-      if(state.start || Object.keys(state.done).length){
-        dirty = { start: state.start, done: state.done };
+      if(state.start || Object.keys(state.done).length || Object.keys(state.mine || {}).length){
+        dirty = { start: state.start, done: state.done, mine: state.mine || {} };
         scheduleFlush();
       }
     }).catch(function(){});
@@ -1887,7 +2016,7 @@ footer p + p{margin-top:10px}
 <section class="wrap io">
   <div class="io-card">
     <h3>Backup do progresso</h3>
-    <p>Nesta versão hospedada, suas marcações ficam salvas no navegador deste aparelho. Para levar o progresso para outro celular ou computador, exporte o arquivo aqui e importe-o lá.</p>
+    <p>Nesta versão hospedada, suas marcações e os links que vocês colarem nos tópicos ficam salvos no navegador deste aparelho. Para levar tudo para outro celular ou computador, exporte o arquivo aqui e importe-o lá.</p>
     <div class="io-btns">
       <button type="button" id="io-exp" class="chip">Exportar progresso</button>
       <label class="chip" for="io-imp">Importar progresso</label>
@@ -1931,7 +2060,8 @@ footer p + p{margin-top:10px}
         var o = JSON.parse(String(r.result));
         if(!o || typeof o !== "object" || Array.isArray(o)) throw new Error("shape");
         if(o.done != null && (typeof o.done !== "object" || Array.isArray(o.done))) throw new Error("shape");
-        localStorage.setItem(KEY, JSON.stringify({ start: o.start || null, done: o.done || {} }));
+        if(o.mine != null && (typeof o.mine !== "object" || Array.isArray(o.mine))) throw new Error("shape");
+        localStorage.setItem(KEY, JSON.stringify({ start: o.start || null, done: o.done || {}, mine: o.mine || {} }));
         say("Importado. Recarregando…", true);
         setTimeout(function(){ location.reload(); }, 700);
       }catch(err){
