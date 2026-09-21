@@ -224,6 +224,81 @@ h2{font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:clamp(1.6rem,4.4vw,2.
   text-decoration-color:color-mix(in srgb, var(--ink-3) 45%, transparent);
 }
 .subs li.sdone .vid{opacity:.6}
+/* ---- jogos embutidos ---- */
+.gplayrow{margin-top:6px}
+.gplaywrap{display:inline-flex;align-items:center;gap:7px;flex-wrap:wrap}
+.gplay{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.06em;
+  padding:4px 10px;border-radius:4px;border:1px solid var(--vert);
+  background:var(--vert-soft);color:var(--vert);cursor:pointer;
+}
+.gplay:hover{background:var(--vert);color:var(--paper)}
+.gbadge{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+.gmodal{
+  position:fixed;inset:0;z-index:80;display:flex;align-items:flex-end;justify-content:center;
+  background:color-mix(in srgb, #0B0D12 62%, transparent);
+  padding:0;
+}
+@media (min-width:620px){ .gmodal{align-items:center;padding:24px} }
+.gsheet{
+  background:var(--surface);border:1px solid var(--rule);
+  border-radius:10px 10px 0 0;width:100%;max-width:560px;
+  max-height:92vh;display:flex;flex-direction:column;
+  box-shadow:0 -8px 40px -12px rgba(0,0,0,.45);
+  padding-bottom:env(safe-area-inset-bottom, 0px);
+}
+@media (min-width:620px){ .gsheet{border-radius:10px} }
+.ghead{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:15px 18px;border-bottom:1px solid var(--rule);
+}
+.ghead h3{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--outremer)}
+.gclose{border:0;background:none;color:var(--ink-3);font-size:24px;line-height:1;cursor:pointer;padding:0 4px;font-family:inherit}
+.gclose:hover{color:var(--ink)}
+.gbody{padding:18px;overflow-y:auto;flex:1}
+.gfoot{padding:0 18px 18px;display:flex;gap:8px;flex-wrap:wrap}
+
+.gprog{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;font-variant-numeric:tabular-nums}
+.gcard{display:flex;flex-direction:column;gap:12px}
+.glabel{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--garance)}
+.gask{font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:clamp(1.3rem,5vw,1.75rem);line-height:1.2;font-weight:500}
+.gsub{font-size:.88rem;color:var(--ink-2)}
+.ginput{
+  font-family:"Spectral",Georgia,serif;font-size:1.05rem;padding:11px 13px;width:100%;
+  border:1px solid var(--rule);border-radius:5px;background:var(--surface-2);color:var(--ink);
+}
+.ginput:disabled{opacity:.75}
+.growb{display:flex;gap:8px;flex-wrap:wrap}
+.gfb{font-size:.92rem;line-height:1.45}
+.gfb.ok{color:var(--vert)}
+.gfb.warn{color:var(--garance)}
+.gfb.bad{color:var(--garance)}
+.gscore{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:2.4rem;font-weight:600;color:var(--outremer);font-variant-numeric:tabular-nums}
+.gmiss{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;font-size:.9rem;color:var(--ink-2)}
+.gmiss li{padding-left:13px;position:relative}
+.gmiss li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:1px;background:var(--ink-3)}
+.gmiss b{color:var(--ink)}
+
+.gopts{display:flex;gap:10px;flex-wrap:wrap}
+.gopt{
+  flex:1 1 130px;font-family:"Spectral",Georgia,serif;font-size:1.15rem;padding:14px 12px;
+  border:1px solid var(--rule);border-radius:6px;background:var(--surface-2);color:var(--ink);cursor:pointer;
+}
+.gopt:hover:not(:disabled){border-color:var(--outremer)}
+.gopt.good{border-color:var(--vert);background:var(--vert-soft);color:var(--vert)}
+.gopt.wrong{border-color:var(--garance);background:var(--garance-soft);color:var(--garance)}
+.chip.on{border-color:var(--outremer);color:var(--outremer)}
+
+.gdiff{display:flex;flex-wrap:wrap;gap:6px;font-size:1rem;line-height:1.6}
+.dw{padding:1px 5px;border-radius:3px}
+.dw.ok{background:var(--vert-soft);color:var(--vert)}
+.dw.accent{background:var(--garance-soft);color:var(--garance);text-decoration:underline dotted}
+.dw.miss{background:var(--garance-soft);color:var(--garance);text-decoration:line-through}
+
+.gnote{font-size:.92rem;color:var(--ink-2);display:flex;flex-direction:column;gap:10px}
+.gnote b{color:var(--ink)}
+
 .myslot{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:7px}
 .myslot .vid{margin-top:0}
 .addlink.res:hover{border-color:var(--vert);color:var(--vert);border-style:solid}
@@ -407,7 +482,8 @@ footer p + p{margin-top:10px}
       <div class="day"><div class="d">Dimanche</div><div class="n">Jogos</div><div class="h">escrita, pronúncia, escuta</div></div>
     </div>
 
-    <p class="note blue" style="margin-top:26px"><b>Por que duas vezes por semana no formato da prova?</b> Porque CO e CE são múltipla escolha contra o relógio, e EE e EO têm formato fixo. São habilidades treináveis, independentes do seu nível de francês: dá para saber francês e perder pontos por não conhecer o formato. Quarta e sábado existem justamente para isso não acontecer.</p>
+    <p class="note blue" style="margin-top:26px"><b>Os jogos de domingo rodam dentro desta página.</b> Cada semana tem três: escrita (traduzir e completar frases), pronúncia (ouvir e repetir, mais um teste de pares parecidos como <i>vin</i> e <i>vent</i>) e escuta (ditado com controle de velocidade, que aponta palavra por palavra onde escapou). Usam a voz em francês do próprio aparelho, então funcionam sem internet depois que a página abriu. A melhor pontuação de cada um fica salva ao lado do botão, e terminar um jogo marca sozinho o tópico dele.</p>
+    <p class="note blue"><b>Por que duas vezes por semana no formato da prova?</b> Porque CO e CE são múltipla escolha contra o relógio, e EE e EO têm formato fixo. São habilidades treináveis, independentes do seu nível de francês: dá para saber francês e perder pontos por não conhecer o formato. Quarta e sábado existem justamente para isso não acontecer.</p>
   </section>
 
   <section class="block">
@@ -541,7 +617,7 @@ footer p + p{margin-top:10px}
   <footer>
     <p><b>Quatro regras que valem mais que o plano.</b> 1) Nunca dois dias seguidos sem nada — se falharem um dia, o seguinte é obrigatório, mesmo em 10 minutos. 2) Cronometrem quarta e sábado sempre; a prova é contra o relógio e o relógio se treina. 3) Falem desde a primeira semana, um com o outro, em voz alta; vergonha adiada vira sotaque fossilizado. 4) Input com prazer conta como estudo: uma série em francês vale mais que meia hora de exercício feito com raiva.</p>
     <p>As lacunas que este plano assume: o canal do Pierre não tem aula dedicada a <em>gérondif</em>, <em>voz passiva</em>, <em>plus-que-parfait</em>, <em>discurso indireto</em>, <em>plural dos substantivos</em>, <em>comparativo e superlativo</em>, <em>as horas</em> e <em>nominalização</em>. Nesses oito subtópicos o link aparece pontilhado e leva à busca dentro do canal, em vez de a um vídeo específico — a gramática escrita do Kwiziq e da Grammaire Progressive cobre cada um deles. Todos os outros links são vídeos verificados um a um. Os jogos e sites de exercício do domingo aparecem com uma seta (↗) em vez do ▶, e também foram abertos e testados um por um — um deles saiu da lista no meio do caminho porque o domínio havia sido vendido e hoje é outra coisa. Os jogos e sites de exercício do domingo aparecem com uma seta (↗) em vez do ▶, e também foram abertos e testados um por um — um deles saiu da lista no meio do caminho porque o domínio havia sido vendido e virou outra coisa.</p>
-    <p>Suas marcações e os links que vocês colarem ficam salvos no navegador deste aparelho. Use o backup logo abaixo para levá-los a outro celular ou computador.</p>
+    <p>Suas marcações, os links que vocês colarem e as pontuações dos jogos ficam salvos no navegador deste aparelho. Use o backup logo abaixo para levá-los a outro celular ou computador.</p>
   </footer>
 </main>
 
@@ -1659,6 +1735,662 @@ footer p + p{margin-top:10px}
   78: J3("Escrever: frases com lacuna, 20 por dia para sempre","jCloze","Pronúncia: « continuer » — a última palavra do plano","@continuer|continuer","Escuta: música francesa, para sempre","jLyrics")
   };
 
+  /* Pares mínimos para o jogo de discriminação auditiva. */
+  var PAIRS = {
+    nasal:[["vin","vent"],["bon","banc"],["main","mont"],["cent","sont"],["lent","long"],["teint","temps"]],
+    uou:[["vu","vous"],["su","sous"],["tu","tout"],["rue","roue"],["pur","pour"],["bu","boue"]],
+    sz:[["poisson","poison"],["dessert","désert"],["cousin","coussin"],["russe","ruse"],["basse","base"],["casse","case"]],
+    chj:[["chou","joue"],["cache","cage"],["bouche","bouge"],["hache","âge"],["chaud","jaune"],["chien","jean"]],
+    bv:[["bon","vont"],["bu","vu"],["boire","voir"],["bain","vain"],["bien","viens"],["balai","valet"]],
+    eeu:[["des","deux"],["ces","ceux"],["fée","feu"],["nez","nœud"],["ses","sœurs"],["mes","meurs"]],
+    rl:[["rue","lu"],["riz","lit"],["rond","long"],["rire","lire"],["roue","loup"],["rat","las"]],
+    oo:[["paume","pomme"],["saute","sotte"],["côte","cotte"],["haute","hotte"],["môle","molle"],["rôle","rhum"]],
+    pb:[["pain","bain"],["poire","boire"],["pont","bon"],["pu","bu"],["pas","bas"],["peau","beau"]],
+    td:[["temps","dans"],["ton","don"],["tout","doux"],["thé","dé"],["tu","du"],["tort","dort"]],
+    fv:[["fer","ver"],["faux","veau"],["fin","vin"],["folle","vole"],["fou","vous"],["fais","vais"]],
+    ie:[["lit","les"],["mie","mes"],["riz","ré"],["pis","paix"],["vie","vais"],["si","ses"]]
+  };
+
+  /* Banco de conteúdo de cada semana: palavras (fr/pt), frases e foco fonético. */
+  var B = {
+  1:{p:"nasal",w:[["bonjour","bom dia, olá"],["salut","oi (informal)"],["merci","obrigado"],["au revoir","até logo"],["je m'appelle","eu me chamo"],["oui","sim"],["non","não"],["s'il vous plaît","por favor"]],s:["Bonjour, je m'appelle Marie.","J'ai vingt ans.","Merci beaucoup et au revoir."]},
+  2:{p:"nasal",w:[["le pays","o país"],["la langue","a língua"],["le Brésil","o Brasil"],["la France","a França"],["un homme","um homem"],["une femme","uma mulher"],["les enfants","as crianças"],["cinquante","cinquenta"]],s:["Je viens du Brésil.","Elle parle trois langues.","Il y a cent personnes ici."]},
+  3:{p:"uou",w:[["parler","falar"],["habiter","morar"],["travailler","trabalhar"],["aimer","gostar, amar"],["étudier","estudar"],["écouter","escutar"],["regarder","olhar, assistir"],["le travail","o trabalho"]],s:["Nous habitons à Paris.","Elle travaille beaucoup.","J'aime écouter la radio."]},
+  4:{p:"uou",w:[["jamais","nunca"],["rien","nada"],["personne","ninguém"],["plus","mais, não mais"],["toujours","sempre"],["souvent","frequentemente"],["parfois","às vezes"],["encore","ainda, de novo"]],s:["Je ne parle pas anglais.","Il ne travaille jamais le dimanche.","Elle n'aime plus le café."]},
+  5:{p:"ie",w:[["pourquoi","por que"],["comment","como"],["quand","quando"],["où","onde"],["qui","quem"],["combien","quanto"],["quoi","o quê"],["quel","qual"]],s:["Où habites-tu ?","Pourquoi es-tu en retard ?","Comment allez-vous aujourd'hui ?"]},
+  6:{p:"eeu",w:[["la famille","a família"],["le père","o pai"],["la mère","a mãe"],["le frère","o irmão"],["la sœur","a irmã"],["les parents","os pais"],["le fils","o filho"],["la fille","a filha"]],s:["Ma sœur habite en France.","Mes parents sont brésiliens.","Son frère a deux enfants."]},
+  7:{p:"ie",w:[["grand","grande, alto"],["petit","pequeno"],["jeune","jovem"],["vieux","velho"],["gentil","gentil"],["beau","bonito"],["blond","louro"],["les yeux","os olhos"]],s:["Elle est grande et blonde.","C'est un homme très gentil.","Il a les yeux verts."]},
+  8:{p:"td",w:[["prendre","pegar, tomar"],["finir","terminar"],["partir","partir"],["attendre","esperar"],["comprendre","compreender"],["sortir","sair"],["dormir","dormir"],["l'heure","a hora"]],s:["Je prends le bus à huit heures.","Nous finissons à midi.","Ils partent demain matin."]},
+  9:{p:"eeu",w:[["se lever","levantar-se"],["se coucher","deitar-se"],["se laver","lavar-se"],["s'habiller","vestir-se"],["se reposer","descansar"],["le matin","a manhã"],["le soir","a noite"],["la journée","o dia"]],s:["Je me lève à six heures.","Elle se couche très tard.","Nous nous reposons le dimanche."]},
+  10:{p:"rl",w:[["la rue","a rua"],["le quartier","o bairro"],["à gauche","à esquerda"],["à droite","à direita"],["tout droit","em frente"],["la gare","a estação"],["le magasin","a loja"],["près de","perto de"]],s:["Tournez à gauche après la gare.","Le magasin est près d'ici.","Il y a une pharmacie dans la rue."]},
+  11:{p:"sz",w:[["le pain","o pão"],["le poisson","o peixe"],["la viande","a carne"],["le fromage","o queijo"],["l'eau","a água"],["le vin","o vinho"],["l'addition","a conta"],["délicieux","delicioso"]],s:["Je voudrais du poisson, s'il vous plaît.","Nous prenons de l'eau et du vin.","L'addition, s'il vous plaît."]},
+  12:{p:"sz",w:[["beaucoup de","muito(s)"],["un peu de","um pouco de"],["assez de","o bastante de"],["trop de","demais"],["un kilo","um quilo"],["une bouteille","uma garrafa"],["le prix","o preço"],["cher","caro"]],s:["Il y a trop de sucre dans ce gâteau.","J'achète un kilo de pommes.","Ce n'est pas très cher."]},
+  13:{p:"nasal",w:[["demain","amanhã"],["la semaine","a semana"],["le mois","o mês"],["l'année","o ano"],["l'hiver","o inverno"],["l'été","o verão"],["il fait chaud","está calor"],["il pleut","está chovendo"]],s:["Demain, je vais travailler.","Il va pleuvoir cet après-midi.","L'été prochain, nous allons en France."]},
+  14:{p:"oo",w:[["le week-end","o fim de semana"],["hier","ontem"],["manger","comer"],["voir","ver"],["faire","fazer"],["dire","dizer"],["mettre","colocar"],["prendre","pegar"]],s:["Hier, j'ai mangé au restaurant.","Nous avons vu un bon film.","Elle a pris le train à Lyon."]},
+  15:{p:"oo",w:[["aller","ir"],["venir","vir"],["arriver","chegar"],["partir","partir"],["rester","ficar"],["rentrer","voltar para casa"],["monter","subir"],["descendre","descer"]],s:["Elle est arrivée à minuit.","Nous sommes allés au cinéma.","Ils se sont couchés très tôt."]},
+  16:{p:"nasal",w:[["toujours","sempre"],["déjà","já"],["pas encore","ainda não"],["souvent","frequentemente"],["maintenant","agora"],["aujourd'hui","hoje"],["ensuite","em seguida"],["enfin","finalmente"]],s:["Je n'ai pas encore fini.","Elle est déjà partie.","Maintenant, nous parlons français."]},
+
+  17:{p:"eeu",w:[["arrivé","chegado"],["venu","vindo"],["sorti","saído"],["descendu","descido"],["né","nascido"],["mort","morto"],["devenu","tornado"],["revenu","voltado"]],s:["Elles sont venues hier soir.","Ma sœur est née en janvier.","Nous nous sommes levés tôt."]},
+  18:{p:"nasal",w:[["l'enfance","a infância"],["l'école","a escola"],["jouer","brincar, jogar"],["le jouet","o brinquedo"],["le souvenir","a lembrança"],["autrefois","antigamente"],["à l'époque","na época"],["chaque jour","todo dia"]],s:["Quand j'étais petit, je jouais dehors.","Nous allions à l'école à pied.","Il y avait un grand jardin."]},
+  19:{p:"td",w:[["soudain","de repente"],["tout à coup","de repente"],["pendant que","enquanto"],["l'accident","o acidente"],["tomber","cair"],["se passer","acontecer"],["rencontrer","encontrar"],["étonné","surpreso"]],s:["Je marchais quand il a commencé à pleuvoir.","Soudain, elle a entendu un bruit.","Nous dormions pendant l'orage."]},
+  20:{p:"rl",w:[["l'histoire","a história"],["raconter","contar"],["ensuite","em seguida"],["puis","depois"],["alors","então"],["enfin","por fim"],["le début","o começo"],["la fin","o fim"]],s:["Au début, personne ne parlait.","Puis il a raconté toute l'histoire.","À la fin, tout le monde riait."]},
+  21:{p:"ie",w:[["meilleur","melhor"],["pire","pior"],["plus grand","maior"],["moins cher","menos caro"],["aussi","também, tão"],["autant","tanto"],["ce livre","este livro"],["cette ville","esta cidade"]],s:["Ce quartier est plus calme que l'autre.","C'est le meilleur restaurant de la ville.","Elle travaille autant que moi."]},
+  22:{p:"bv",w:[["expliquer","explicar"],["offrir","oferecer"],["prêter","emprestar"],["rendre","devolver"],["montrer","mostrar"],["demander","pedir"],["répondre","responder"],["le cadeau","o presente"]],s:["Je lui ai offert un cadeau.","Elle me l'a expliqué hier.","Nous leur avons répondu tout de suite."]},
+  23:{p:"sz",w:[["l'endroit","o lugar"],["y aller","ir lá"],["penser à","pensar em"],["réfléchir","refletir"],["s'habituer","acostumar-se"],["participer","participar"],["renoncer","renunciar"],["le projet","o projeto"]],s:["J'y pense tous les jours.","Nous y sommes allés en été.","Elle s'y habitue vite."]},
+  24:{p:"nasal",w:[["assez","o bastante"],["plusieurs","vários"],["quelques","alguns"],["aucun","nenhum"],["la plupart","a maioria"],["en avoir besoin","precisar disso"],["en parler","falar disso"],["s'en souvenir","lembrar-se disso"]],s:["J'en ai besoin demain.","Elle en a parlé à sa mère.","Nous en avons acheté trois."]},
+  25:{p:"td",w:[["le téléphone","o telefone"],["appeler","ligar, chamar"],["rappeler","ligar de volta"],["laisser","deixar"],["le message","a mensagem"],["répéter","repetir"],["patienter","aguardar"],["raccrocher","desligar"]],s:["Donne-le-lui demain matin.","Je le lui ai déjà dit.","Rappelle-moi après le déjeuner."]},
+  26:{p:"bv",w:[["l'avenir","o futuro"],["le métier","a profissão"],["réussir","ter sucesso"],["changer","mudar"],["devenir","tornar-se"],["l'entreprise","a empresa"],["le collègue","o colega"],["le salaire","o salário"]],s:["Nous partirons au Canada l'année prochaine.","Elle deviendra médecin.","Ils auront besoin de français."]},
+  27:{p:"eeu",w:[["je voudrais","eu gostaria"],["pourriez-vous","o senhor poderia"],["j'aimerais","eu gostaria"],["il faudrait","seria preciso"],["le rendez-vous","a consulta, o encontro"],["la lettre","a carta"],["le poste","o cargo"],["candidat","candidato"]],s:["Je voudrais prendre rendez-vous.","Pourriez-vous m'aider, s'il vous plaît ?","Nous aimerions visiter l'appartement."]},
+  28:{p:"eeu",w:[["serait","seria"],["sera","será"],["aurait","teria"],["aura","terá"],["pourrait","poderia"],["devrait","deveria"],["faudrait","seria preciso"],["voudrait","gostaria"]],s:["Ce serait une bonne idée.","Il sera là dans une heure.","Nous devrions partir maintenant."]},
+  29:{p:"uou",w:[["depuis","desde, há"],["pendant","durante"],["il y a","há (tempo)"],["dans","dentro de"],["jusqu'à","até"],["dès","a partir de"],["encore","ainda"],["bientôt","em breve"]],s:["J'apprends le français depuis six mois.","Nous partons dans trois semaines.","Elle a travaillé pendant dix ans."]},
+  30:{p:"sz",w:[["la santé","a saúde"],["le médecin","o médico"],["avoir mal","doer"],["la douleur","a dor"],["le rendez-vous","a consulta"],["l'ordonnance","a receita"],["guérir","curar"],["fatigué","cansado"]],s:["Le médecin qui m'a soigné est très gentil.","C'est la pharmacie où j'achète mes médicaments.","J'ai mal à la tête depuis hier."]},
+  31:{p:"eeu",w:[["monsieur","senhor"],["madame","senhora"],["veuillez","tenha a gentileza de"],["cordialement","atenciosamente"],["excusez-moi","desculpe-me"],["volontiers","com prazer"],["de rien","de nada"],["je vous en prie","por favor, imagine"]],s:["Veuillez agréer mes salutations.","Excusez-moi de vous déranger.","Je vous en prie, asseyez-vous."]},
+  32:{p:"rl",w:[["le progrès","o progresso"],["améliorer","melhorar"],["la faute","o erro"],["corriger","corrigir"],["réviser","revisar"],["apprendre","aprender"],["retenir","retê-lo, memorizar"],["oublier","esquecer"]],s:["J'ai fait beaucoup de progrès.","Il faut corriger mes fautes.","Nous révisons tout ce week-end."]},
+
+  33:{p:"ie",w:[["dont","do qual, cujo"],["lequel","o qual"],["auquel","ao qual"],["ce dont","aquilo de que"],["ce qui","o que"],["ce que","o que"],["celui","aquele"],["celle","aquela"]],s:["C'est le livre dont je t'ai parlé.","La personne à laquelle je pense est absente.","Ce dont il a besoin, c'est de temps."]},
+  34:{p:"fv",w:[["il faut que","é preciso que"],["vouloir que","querer que"],["avant que","antes que"],["pour que","para que"],["être","ser, estar"],["avoir","ter"],["aller","ir"],["savoir","saber"]],s:["Il faut que tu viennes demain.","Je veux qu'elle soit prête.","Nous partirons avant qu'il pleuve."]},
+  35:{p:"td",w:[["douter","duvidar"],["craindre","temer"],["regretter","lamentar"],["être content","estar contente"],["être triste","estar triste"],["avoir peur","ter medo"],["souhaiter","desejar"],["il est possible","é possível"]],s:["Je doute qu'il vienne.","Nous sommes contents que tu sois là.","Il est possible qu'elle ait raison."]},
+  36:{p:"nasal",w:[["après que","depois que"],["bien que","embora"],["quoique","embora"],["à moins que","a menos que"],["de peur que","com medo de que"],["jusqu'à ce que","até que"],["pourvu que","desde que"],["sans que","sem que"]],s:["Bien qu'il soit fatigué, il travaille.","Attends jusqu'à ce que je revienne.","Elle est partie sans que personne le sache."]},
+  37:{p:"ie",w:[["l'hypothèse","a hipótese"],["si","se"],["au cas où","caso"],["à ta place","no seu lugar"],["sinon","senão"],["peut-être","talvez"],["probablement","provavelmente"],["le regret","o arrependimento"]],s:["Si j'avais plus de temps, je lirais davantage.","À ta place, je partirais tout de suite.","Nous serions venus si tu nous avais prévenus."]},
+  38:{p:"rl",w:[["raconter","contar"],["déclarer","declarar"],["affirmer","afirmar"],["ajouter","acrescentar"],["préciser","precisar"],["prétendre","alegar"],["l'entretien","a entrevista"],["le témoin","a testemunha"]],s:["Il a dit qu'il viendrait plus tard.","Elle a expliqué qu'elle était malade.","Le témoin a affirmé qu'il avait tout vu."]},
+  39:{p:"rl",w:[["la littérature","a literatura"],["le roman","o romance"],["l'auteur","o autor"],["le personnage","o personagem"],["le chapitre","o capítulo"],["lire","ler"],["il fut","ele foi"],["ils eurent","eles tiveram"]],s:["Ce roman fut publié en 1942.","L'auteur décrit une ville imaginaire.","Le personnage principal ne parle presque pas."]},
+  40:{p:"pb",w:[["parce que","porque"],["car","pois"],["puisque","já que"],["comme","como"],["donc","portanto"],["ainsi","assim"],["c'est pourquoi","é por isso que"],["grâce à","graças a"]],s:["Il est resté parce qu'il pleuvait.","Puisque tu insistes, j'accepte.","Elle a réussi grâce à son travail."]},
+  41:{p:"fv",w:[["afin de","a fim de"],["pour que","para que"],["afin que","a fim de que"],["de manière à","de modo a"],["le but","o objetivo"],["l'objectif","o objetivo"],["viser","visar"],["chercher à","procurar"]],s:["Nous étudions afin de réussir l'examen.","Je parle lentement pour qu'ils comprennent.","Elle travaille dur afin d'obtenir le poste."]},
+  42:{p:"pb",w:[["cependant","no entanto"],["pourtant","contudo"],["néanmoins","todavia"],["en revanche","em contrapartida"],["malgré","apesar de"],["au contraire","ao contrário"],["toutefois","porém"],["alors que","enquanto"]],s:["Il fait froid, cependant elle sort.","Malgré la pluie, nous avons marché.","Je suis d'accord, toutefois j'ai une question."]},
+  43:{p:"nasal",w:[["quoique","embora"],["quoi que","o que quer que"],["bien que","embora"],["même si","mesmo se"],["tout de même","mesmo assim"],["quand même","apesar disso"],["admettre","admitir"],["concéder","conceder"]],s:["Quoi qu'il arrive, nous continuons.","Bien que ce soit difficile, ça vaut la peine.","Même si tu pars, je resterai."]},
+  44:{p:"ie",w:[["tellement","tão, tanto"],["si","tão"],["tant","tanto"],["autant","tanto quanto"],["davantage","mais"],["de plus en plus","cada vez mais"],["de moins en moins","cada vez menos"],["à peine","apenas"]],s:["Il parle si vite que je ne comprends rien.","Elle travaille tellement qu'elle est épuisée.","Nous avons de plus en plus de travail."]},
+  45:{p:"fv",w:[["en effet","de fato"],["en fait","na verdade"],["au fait","a propósito"],["d'ailleurs","aliás"],["par ailleurs","além disso"],["autrement dit","em outras palavras"],["c'est-à-dire","isto é"],["bref","em resumo"]],s:["En effet, le problème est plus large.","D'ailleurs, personne ne l'avait prévu.","Autrement dit, il faut tout recommencer."]},
+  46:{p:"pb",w:[["on","a gente, se"],["être construit","ser construído"],["être vendu","ser vendido"],["se faire","fazer-se"],["paraître","parecer"],["l'annonce","o anúncio"],["le titre","o título"],["la mesure","a medida"]],s:["On parle français au Québec.","Ce pont a été construit en 1950.","La nouvelle loi sera votée demain."]},
+  47:{p:"nasal",w:[["en marchant","andando"],["en attendant","enquanto espera"],["en arrivant","ao chegar"],["tout en","ao mesmo tempo que"],["le participe","o particípio"],["simultané","simultâneo"],["en sortant","ao sair"],["en lisant","lendo"]],s:["Il écoute la radio en conduisant.","En arrivant, elle a compris le problème.","Tout en travaillant, il étudie le soir."]},
+  48:{p:"rl",w:[["rapidement","rapidamente"],["lentement","lentamente"],["vraiment","realmente"],["évidemment","evidentemente"],["heureusement","felizmente"],["malheureusement","infelizmente"],["mieux","melhor"],["bien","bem"]],s:["Elle parle vraiment bien français.","Heureusement, tout s'est bien passé.","Il conduit beaucoup trop rapidement."]},
+  49:{p:"oo",w:[["tout","tudo, todo"],["tous","todos"],["toute","toda"],["toutes","todas"],["chacun","cada um"],["n'importe quel","qualquer"],["quelconque","qualquer um"],["l'ensemble","o conjunto"]],s:["Tous les élèves sont arrivés.","Toutes ces questions sont importantes.","Il a travaillé toute la nuit."]},
+  50:{p:"td",w:[["la conjugaison","a conjugação"],["le temps verbal","o tempo verbal"],["le radical","o radical"],["la terminaison","a terminação"],["irrégulier","irregular"],["l'accord","a concordância"],["la règle","a regra"],["l'exception","a exceção"]],s:["Cette règle a beaucoup d'exceptions.","Le radical change au subjonctif.","Nous révisons tous les temps verbaux."]},
+
+  51:{p:"uou",w:[["soutenu","formal, culto"],["courant","corrente"],["familier","familiar"],["le registre","o registro"],["convenable","adequado"],["s'exprimer","expressar-se"],["la nuance","a nuance"],["le ton","o tom"]],s:["Ce mot appartient au registre soutenu.","Il convient de préciser ce point.","Nous devons adapter notre ton au contexte."]},
+  52:{p:"pb",w:[["la préposition","a preposição"],["au sujet de","a respeito de"],["à propos de","acerca de"],["en ce qui concerne","no que diz respeito a"],["par rapport à","em relação a"],["au lieu de","em vez de"],["à cause de","por causa de"],["en dehors de","fora de"]],s:["En ce qui concerne le dossier, tout est prêt.","Il a réussi par rapport à l'année dernière.","Au lieu de partir, restons encore un peu."]},
+  53:{p:"pb",w:[["par","por, através de"],["pour","para, por"],["par exemple","por exemplo"],["par conséquent","por consequência"],["pour ainsi dire","por assim dizer"],["pour l'instant","por enquanto"],["par hasard","por acaso"],["pour toujours","para sempre"]],s:["Ce texte a été écrit par un Québécois.","Nous partons pour deux semaines.","Par conséquent, la réunion est annulée."]},
+  54:{p:"bv",w:[["manquer","faltar, sentir falta"],["se rendre compte","dar-se conta"],["s'apercevoir","perceber"],["se douter","suspeitar"],["s'attendre à","esperar"],["se plaindre","reclamar"],["se méfier","desconfiar"],["s'en aller","ir embora"]],s:["Tu me manques beaucoup.","Elle s'est rendu compte de son erreur.","Ils s'attendaient à une autre réponse."]},
+  55:{p:"sz",w:[["le résumé","o resumo"],["résumer","resumir"],["reformuler","reformular"],["synthétiser","sintetizar"],["l'essentiel","o essencial"],["l'idée principale","a ideia principal"],["en somme","em suma"],["pour conclure","para concluir"]],s:["Il faut résumer le texte en dix lignes.","L'idée principale apparaît au début.","En somme, les deux auteurs se contredisent."]},
+  56:{p:"sz",w:[["connaître","conhecer"],["savoir","saber"],["ignorer","ignorar, não saber"],["reconnaître","reconhecer"],["apprendre","aprender"],["retenir","retê-lo"],["se rappeler","recordar-se"],["se souvenir","lembrar-se"]],s:["Je connais bien cette ville.","Savez-vous où se trouve la gare ?","Elle ne se souvient plus de son nom."]},
+  57:{p:"sz",w:[["la laïcité","a laicidade"],["l'immigration","a imigração"],["la citoyenneté","a cidadania"],["l'intégration","a integração"],["l'égalité","a igualdade"],["la loi","a lei"],["le droit","o direito"],["le devoir","o dever"]],s:["La laïcité est un principe républicain.","Les nouveaux arrivants ont des droits et des devoirs.","Cette loi a été votée l'an dernier."]},
+  58:{p:"sz",w:[["l'orthographe","a ortografia"],["l'accent aigu","o acento agudo"],["l'accent grave","o acento grave"],["la cédille","a cedilha"],["le trait d'union","o hífen"],["l'apostrophe","o apóstrofo"],["la majuscule","a maiúscula"],["la ponctuation","a pontuação"]],s:["Ces mots sont des homophones.","Il ne faut pas confondre ces et ses.","L'accent change complètement le sens."]},
+  59:{p:"nasal",w:[["l'accent","o acento"],["la dictée","o ditado"],["relire","reler"],["la relecture","a revisão"],["la coquille","o erro de digitação"],["la virgule","a vírgula"],["le point","o ponto"],["souligner","sublinhar"]],s:["Relisez toujours votre texte avant de rendre.","Cette virgule change le sens de la phrase.","J'ai corrigé six fautes d'orthographe."]},
+  60:{p:"rl",w:[["l'erreur","o erro"],["se tromper","enganar-se"],["confondre","confundir"],["rectifier","retificar"],["la confusion","a confusão"],["le piège","a armadilha"],["fréquent","frequente"],["courant","comum"]],s:["C'est une erreur très fréquente.","Même les Français se trompent là-dessus.","Ne confondez pas ces deux verbes."]},
+  61:{p:"uou",w:[["quelques","alguns"],["certains","certos"],["plusieurs","vários"],["la plupart","a maioria"],["chaque","cada"],["nul","nenhum"],["divers","diversos"],["maint","muitos"]],s:["Certains préfèrent partir plus tôt.","La plupart des candidats ont réussi.","Il ne reste que quelques places."]},
+  62:{p:"nasal",w:[["qu'on","que a gente"],["que l'on","que se"],["ne serait-ce que","ainda que só"],["avant qu'il ne","antes que"],["à moins qu'il ne","a menos que"],["le registre écrit","o registro escrito"],["soigné","cuidado, apurado"],["élégant","elegante"]],s:["Il faut que l'on comprenne bien ce point.","Je crains qu'il ne soit trop tard.","On dirait qu'elle a tout oublié."]},
+  63:{p:"chj",w:[["avoir le cafard","estar na fossa"],["tomber dans le panneau","cair no conto"],["coûter les yeux de la tête","custar os olhos da cara"],["poser un lapin","dar o bolo"],["avoir un coup de foudre","ter um amor à primeira vista"],["mettre les pieds dans le plat","meter os pés pelas mãos"],["en avoir marre","estar de saco cheio"],["ça marche","funciona, combinado"]],s:["J'en ai vraiment marre de ce bruit.","Elle m'a posé un lapin hier soir.","Ce voyage coûte les yeux de la tête."]},
+  64:{p:"chj",w:[["du coup","então, por isso"],["carrément","completamente"],["grave","muito (informal)"],["truc","coisa"],["machin","troço"],["bref","resumindo"],["genre","tipo"],["quoi","né"]],s:["Du coup, on y va ou pas ?","C'est carrément impossible.","Je sais pas trop, genre, c'est bizarre."]},
+  65:{p:"td",w:[["conjuguer","conjugar"],["le mode","o modo"],["l'indicatif","o indicativo"],["le subjonctif","o subjuntivo"],["l'impératif","o imperativo"],["le participe","o particípio"],["l'infinitif","o infinitivo"],["la voix passive","a voz passiva"]],s:["Conjuguez ce verbe au subjonctif.","L'impératif n'a que trois personnes.","Ce temps s'emploie surtout à l'écrit."]},
+  66:{p:"nasal",w:[["l'examen","o exame"],["l'épreuve","a prova"],["le niveau","o nível"],["la note","a nota"],["réussir","ser aprovado"],["le candidat","o candidato"],["la salle","a sala"],["le chronomètre","o cronômetro"]],s:["L'épreuve dure une heure.","Chaque candidat reçoit une note par compétence.","Nous passons l'examen samedi matin."]},
+
+  67:{p:"eeu",w:[["la liaison","a ligação"],["les amis","os amigos"],["un petit enfant","uma criança pequena"],["très intéressant","muito interessante"],["ils ont","eles têm"],["nous avons","nós temos"],["c'est une","é uma"],["dans un an","dentro de um ano"]],s:["Ils ont un très grand appartement.","Nous avons attendu pendant deux heures.","C'est un excellent exemple."]},
+  68:{p:"ie",w:[["l'intonation","a entonação"],["le rythme","o ritmo"],["la syllabe","a sílaba"],["l'accent tonique","o acento tônico"],["la pause","a pausa"],["monter","subir"],["descendre","descer"],["insister","insistir"]],s:["C'est moi qui ai écrit ce texte.","Ce que je veux, c'est comprendre.","Ce n'est pas lui qui a téléphoné."]},
+  69:{p:"eeu",w:[["maintenant","agora"],["je ne sais pas","eu não sei"],["il n'y a pas","não há"],["tu as","você tem"],["je suis","eu sou"],["qu'est-ce que","o que"],["s'il te plaît","por favor"],["à tout à l'heure","até logo"]],s:["Je ne sais pas ce qu'il veut.","Il n'y a plus de place maintenant.","Qu'est-ce que tu fais ce soir ?"]},
+  70:{p:"nasal",w:[["cinq","cinco"],["quinze","quinze"],["important","importante"],["intéressant","interessante"],["ensemble","juntos"],["bientôt","em breve"],["comprendre","compreender"],["impossible","impossível"]],s:["Cinq étudiants sont venus ensemble.","C'est important de bien comprendre.","Il rentre dans quinze jours."]},
+  71:{p:"uou",w:[["un truc","uma coisa"],["ouais","é (informal)"],["y a","tem (informal)"],["t'as","você tem"],["chais pas","não sei"],["c'est bon","tá bom"],["laisse tomber","deixa pra lá"],["n'importe quoi","qualquer coisa"]],s:["Y a un truc que je comprends pas.","T'as vu ce qu'il a dit ?","Laisse tomber, c'est pas grave."]},
+  72:{p:"chj",w:[["le verlan","o verlan"],["meuf","mulher (verlan)"],["ouf","louco (verlan)"],["relou","chato (verlan)"],["chelou","estranho (verlan)"],["le mec","o cara"],["le boulot","o trabalho"],["la bagnole","o carro"]],s:["C'est un truc de ouf.","Ce mec est vraiment relou.","Je vais au boulot en bagnole."]},
+  73:{p:"rl",w:[["rapide","rápido"],["à toute vitesse","a toda velocidade"],["articuler","articular"],["avaler les mots","engolir as palavras"],["le débit","a velocidade da fala"],["répéter","repetir"],["ralentir","desacelerar"],["saisir","captar"]],s:["Il parle tellement vite que je perds le fil.","Pourriez-vous répéter plus lentement ?","J'ai saisi l'essentiel de la conversation."]},
+  74:{p:"td",w:[["abstrait","abstrato"],["la pensée","o pensamento"],["le raisonnement","o raciocínio"],["la conscience","a consciência"],["l'enjeu","o desafio em jogo"],["la portée","o alcance"],["la démarche","a abordagem"],["le postulat","o postulado"]],s:["Cette notion reste très abstraite.","Son raisonnement repose sur un postulat fragile.","L'enjeu dépasse la simple question technique."]},
+  75:{p:"sz",w:[["désormais","de agora em diante"],["dorénavant","doravante"],["auparavant","anteriormente"],["en outre","além disso"],["par conséquent","consequentemente"],["toutefois","no entanto"],["à cet égard","a esse respeito"],["il convient de","cabe, é adequado"]],s:["Désormais, la procédure sera différente.","Il convient de rappeler les faits.","En outre, aucun document n'a été fourni."]},
+  76:{p:"uou",w:[["l'immersion","a imersão"],["quotidien","cotidiano"],["se plonger","mergulhar"],["s'entourer","cercar-se"],["l'habitude","o hábito"],["la routine","a rotina"],["le déclic","o estalo"],["penser en français","pensar em francês"]],s:["Cette semaine, tout se passe en français.","Je commence à penser en français.","L'immersion change complètement le rythme."]},
+  77:{p:"sz",w:[["réussir","ter sucesso"],["l'épreuve","a prova"],["gérer le temps","gerir o tempo"],["la stratégie","a estratégia"],["se concentrer","concentrar-se"],["respirer","respirar"],["la confiance","a confiança"],["le résultat","o resultado"]],s:["Gérez votre temps pendant l'épreuve.","Respirez avant de commencer à parler.","Le résultat arrive dans quatre semaines."]},
+  78:{p:"td",w:[["continuer","continuar"],["entretenir","manter"],["la maintenance","a manutenção"],["durable","durável"],["progresser","progredir"],["s'installer","instalar-se"],["la nouvelle vie","a vida nova"],["à bientôt","até breve"]],s:["Nous continuerons à pratiquer chaque jour.","Il faut entretenir ce qu'on a appris.","Notre nouvelle vie commence maintenant."]}
+  };
+
+  /* ================= Jogos embutidos ================= */
+
+  var TTS = {
+    voice:null, ready:false,
+    init:function(){
+      if(!("speechSynthesis" in window)) return;
+      function pick(){
+        var vs = [];
+        try{ vs = window.speechSynthesis.getVoices() || []; }catch(e){ return; }
+        var fr = vs.filter(function(v){ return /^fr/i.test(v.lang || ""); });
+        var fra = fr.filter(function(v){ return /fr[-_]?FR/i.test(v.lang); });
+        var frc = fr.filter(function(v){ return /fr[-_]?CA/i.test(v.lang); });
+        TTS.voice = fra[0] || frc[0] || fr[0] || null;
+        TTS.ready = !!TTS.voice;
+      }
+      pick();
+      try{ window.speechSynthesis.onvoiceschanged = pick; }catch(e){}
+      setTimeout(pick, 400);
+      setTimeout(pick, 1500);
+    },
+    say:function(text, rate){
+      if(!("speechSynthesis" in window)) return false;
+      try{
+        window.speechSynthesis.cancel();
+        var u = new SpeechSynthesisUtterance(text);
+        if(TTS.voice) u.voice = TTS.voice;
+        u.lang = (TTS.voice && TTS.voice.lang) || "fr-FR";
+        u.rate = rate || 0.9;
+        u.pitch = 1;
+        window.speechSynthesis.speak(u);
+        return true;
+      }catch(e){ return false; }
+    }
+  };
+  TTS.init();
+
+  function gnorm(s){
+    return String(s).toLowerCase()
+      .replace(/[’ʼ`]/g, "'")
+      .replace(/[.,!?;:«»"]/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+  function gflat(s){
+    var t = gnorm(s);
+    try{ t = t.normalize("NFD").replace(/[̀-ͯ]/g, ""); }catch(e){}
+    return t;
+  }
+  function shuffle(a){
+    var r = a.slice();
+    for(var i = r.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = r[i]; r[i] = r[j]; r[j] = t;
+    }
+    return r;
+  }
+
+  /* Alinhamento por LCS, para o ditado apontar erro palavra por palavra. */
+  function alignWords(target, typed){
+    var a = gnorm(target).split(" ").filter(Boolean);
+    var b = gnorm(typed).split(" ").filter(Boolean);
+    var n = a.length, m = b.length, i, j;
+    var d = [];
+    for(i = 0; i <= n; i++){ d.push(new Array(m + 1).fill(0)); }
+    for(i = 1; i <= n; i++){
+      for(j = 1; j <= m; j++){
+        d[i][j] = (gflat(a[i-1]) === gflat(b[j-1])) ? d[i-1][j-1] + 1 : Math.max(d[i-1][j], d[i][j-1]);
+      }
+    }
+    var out = []; i = n; j = m;
+    while(i > 0 && j > 0){
+      if(gflat(a[i-1]) === gflat(b[j-1])){
+        out.unshift({w:a[i-1], s:(a[i-1] === b[j-1]) ? "ok" : "accent"});
+        i--; j--;
+      } else if(d[i-1][j] >= d[i][j-1]){
+        out.unshift({w:a[i-1], s:"miss"}); i--;
+      } else { j--; }
+    }
+    while(i > 0){ out.unshift({w:a[i-1], s:"miss"}); i--; }
+    var right = out.filter(function(x){ return x.s === "ok"; }).length;
+    return {words:out, right:right, total:a.length};
+  }
+
+  /* ---- pontuação salva ---- */
+  function gameKey(w, g){ return "w" + w + "g" + g; }
+  function getScore(w, g){ return (state.games && state.games[gameKey(w,g)]) || null; }
+  function saveScore(w, g, right, total){
+    if(!state.games) state.games = {};
+    var k = gameKey(w, g);
+    var cur = state.games[k] || {best:0, of:total, plays:0};
+    var rec = {best: Math.max(cur.best || 0, right), of: total, plays: (cur.plays || 0) + 1};
+    state.games[k] = rec;
+    markDirty({k:"games", key:k}, rec);
+    refreshBadges(w, g);
+    /* Terminar o jogo marca o tópico de domingo correspondente. */
+    if(g < 3 && !isSubDone(w, 6, g, 3)){
+      if(!hasAnySub(w, 6, 3)){
+        var base = isDone(w, 6);
+        for(var k2 = 0; k2 < 3; k2++) if(k2 !== g) setSub(w, 6, k2, base);
+      }
+      setSub(w, 6, g, true);
+      rollupTask(w, 6, 3);
+      syncTask(w, 6);
+    }
+  }
+  function refreshBadges(w, g){
+    var sc = getScore(w, g);
+    if(!sc) return;
+    document.querySelectorAll('[data-badge="' + gameKey(w,g) + '"]').forEach(function(el){
+      el.textContent = "melhor " + sc.best + "/" + sc.of;
+      el.hidden = false;
+    });
+  }
+
+  /* ---- janela do jogo ---- */
+  var GM = {el:null, title:null, body:null, foot:null, opener:null};
+
+  function gmEnsure(){
+    if(GM.el) return;
+    var back = el("div","gmodal");
+    back.hidden = true;
+    var sheet = el("div","gsheet");
+    sheet.setAttribute("role","dialog");
+    sheet.setAttribute("aria-modal","true");
+    sheet.setAttribute("aria-labelledby","gm-title");
+
+    var head = el("div","ghead");
+    var h = el("h3", null, "");
+    h.id = "gm-title";
+    var x = el("button","gclose","×");
+    x.type = "button";
+    x.setAttribute("aria-label","Fechar o jogo");
+    x.addEventListener("click", gmClose);
+    head.appendChild(h); head.appendChild(x);
+
+    var body = el("div","gbody");
+    var foot = el("div","gfoot");
+
+    sheet.appendChild(head); sheet.appendChild(body); sheet.appendChild(foot);
+    back.appendChild(sheet);
+    back.addEventListener("click", function(e){ if(e.target === back) gmClose(); });
+    document.body.appendChild(back);
+
+    GM.el = back; GM.title = h; GM.body = body; GM.foot = foot;
+  }
+
+  function gmOpen(title, opener){
+    gmEnsure();
+    GM.opener = opener || null;
+    GM.title.textContent = title;
+    GM.body.textContent = "";
+    GM.foot.textContent = "";
+    GM.el.hidden = false;
+    document.addEventListener("keydown", gmKey);
+  }
+  function gmClose(){
+    if(!GM.el) return;
+    try{ if("speechSynthesis" in window) window.speechSynthesis.cancel(); }catch(e){}
+    GM.el.hidden = true;
+    GM.body.textContent = "";
+    GM.foot.textContent = "";
+    document.removeEventListener("keydown", gmKey);
+    if(GM.opener && GM.opener.isConnected) GM.opener.focus();
+  }
+  function gmKey(e){ if(e.key === "Escape") gmClose(); }
+
+  function noVoiceNotice(){
+    var box = el("div","gnote");
+    box.appendChild(el("b", null, "Este aparelho não tem voz em francês instalada."));
+    box.appendChild(el("p", null, "Os jogos de áudio precisam de uma voz francesa do sistema. No Windows: Configurações → Hora e idioma → Idioma e região → adicionar « Français (France) » e, em Voz, instalar a voz. No Android e no iPhone, basta adicionar o francês nos idiomas do teclado ou da leitura em voz alta. No Chrome de computador as vozes costumam aparecer sozinhas depois de recarregar a página."));
+    box.appendChild(el("p", null, "Enquanto isso, o jogo de escrita funciona normalmente, e os links de pronúncia e escuta da semana continuam valendo."));
+    return box;
+  }
+
+  /* ================= Jogo 1: escrita ================= */
+  function gameEscrita(w, opener){
+    var bank = B[w];
+    if(!bank) return;
+    gmOpen("Escrita — semana " + w, opener);
+
+    var items = shuffle(bank.w).map(function(p){
+      return {ask:p[1], answer:p[0], kind:"palavra"};
+    });
+    bank.s.forEach(function(sent){
+      var parts = sent.split(" ");
+      var idx = -1, best = 0;
+      parts.forEach(function(tok, k){
+        var clean = tok.replace(/[.,!?;:]/g,"");
+        if(clean.length > best && clean.length > 3){ best = clean.length; idx = k; }
+      });
+      if(idx < 0) return;
+      var missing = parts[idx].replace(/[.,!?;:]/g,"");
+      var shown = parts.slice();
+      shown[idx] = "______";
+      items.push({ask:shown.join(" "), answer:missing, kind:"lacuna"});
+    });
+
+    var i = 0, right = 0, misses = [];
+    var prog = el("div","gprog");
+    var card = el("div","gcard");
+    GM.body.appendChild(prog);
+    GM.body.appendChild(card);
+
+    function render(){
+      if(i >= items.length) return finish();
+      prog.textContent = "Questão " + (i + 1) + " de " + items.length + " · acertos: " + right;
+      card.textContent = "";
+
+      var it = items[i];
+      card.appendChild(el("div","glabel", it.kind === "palavra" ? "Escreva em francês" : "Complete a frase"));
+      card.appendChild(el("div","gask", it.ask));
+
+      var inp = document.createElement("input");
+      inp.type = "text";
+      inp.className = "ginput";
+      inp.id = "gi-" + w + "-" + i;
+      inp.setAttribute("autocomplete","off");
+      inp.setAttribute("autocapitalize","off");
+      inp.setAttribute("spellcheck","false");
+      inp.placeholder = "escreva aqui, com acentos";
+      inp.setAttribute("aria-label","Sua resposta em francês");
+      card.appendChild(inp);
+
+      var fb = el("div","gfb");
+      card.appendChild(fb);
+
+      var send = el("button","chip","Conferir");
+      send.type = "button";
+      var next = el("button","chip ghost","Próxima");
+      next.type = "button";
+      next.hidden = true;
+      var row = el("div","growb");
+      row.appendChild(send); row.appendChild(next);
+      card.appendChild(row);
+
+      function check(){
+        var typed = inp.value.trim();
+        if(!typed) return;
+        send.hidden = true; next.hidden = false;
+        inp.disabled = true;
+        if(gnorm(typed) === gnorm(it.answer)){
+          right++;
+          fb.className = "gfb ok";
+          fb.textContent = "Certo: " + it.answer;
+        } else if(gflat(typed) === gflat(it.answer)){
+          right++;
+          fb.className = "gfb warn";
+          fb.textContent = "Quase — faltou o acento. O certo é: " + it.answer;
+          misses.push([it.ask, it.answer, typed]);
+        } else {
+          fb.className = "gfb bad";
+          fb.textContent = "O certo é: " + it.answer;
+          misses.push([it.ask, it.answer, typed]);
+        }
+        if(TTS.ready) TTS.say(it.answer, 0.85);
+        prog.textContent = "Questão " + (i + 1) + " de " + items.length + " · acertos: " + right;
+        next.focus();
+      }
+      send.addEventListener("click", check);
+      next.addEventListener("click", function(){ i++; render(); });
+      inp.addEventListener("keydown", function(e){
+        if(e.key === "Enter"){ e.preventDefault(); if(!inp.disabled) check(); else { i++; render(); } }
+      });
+      inp.focus();
+    }
+
+    function finish(){
+      saveScore(w, 0, right, items.length);
+      prog.textContent = "";
+      card.textContent = "";
+      card.appendChild(el("div","gscore", right + " / " + items.length));
+      card.appendChild(el("p","gsub", right === items.length ? "Tudo certo. Podem passar para a pronúncia." : "Os que escaparam ficam abaixo — vale refazer amanhã."));
+      if(misses.length){
+        var ul = el("ul","gmiss");
+        misses.forEach(function(m){
+          var li = document.createElement("li");
+          li.appendChild(el("b", null, m[1]));
+          li.appendChild(document.createTextNode(" — você escreveu « " + (m[2] || "nada") + " »"));
+          ul.appendChild(li);
+        });
+        card.appendChild(ul);
+      }
+      var again = el("button","chip","Jogar de novo");
+      again.type = "button";
+      again.addEventListener("click", function(){ gameEscrita(w, GM.opener); });
+      GM.foot.appendChild(again);
+    }
+
+    render();
+  }
+
+  /* ================= Jogo 2: pronúncia ================= */
+  function gamePronuncia(w, opener){
+    var bank = B[w];
+    if(!bank) return;
+    gmOpen("Pronúncia — semana " + w, opener);
+
+    if(!TTS.ready){
+      GM.body.appendChild(noVoiceNotice());
+      return;
+    }
+
+    var words = shuffle(bank.w).slice(0, 6);
+    var pairs = shuffle(PAIRS[bank.p] || PAIRS.nasal).slice(0, 6);
+    var phase = 0, i = 0, right = 0;
+    var total = words.length + pairs.length;
+
+    var prog = el("div","gprog");
+    var card = el("div","gcard");
+    GM.body.appendChild(prog);
+    GM.body.appendChild(card);
+
+    function render(){
+      card.textContent = "";
+      var done = (phase === 0) ? i : words.length + i;
+      prog.textContent = "Etapa " + (done + 1) + " de " + total + " · acertos: " + right;
+
+      if(phase === 0) return renderRepeat();
+      return renderPair();
+    }
+
+    function renderRepeat(){
+      if(i >= words.length){ phase = 1; i = 0; return render(); }
+      var pair = words[i];
+      card.appendChild(el("div","glabel","Ouça e repita em voz alta"));
+      card.appendChild(el("div","gask", pair[0]));
+      card.appendChild(el("div","gsub", pair[1]));
+
+      var play = el("button","chip","▶ Ouvir");
+      play.type = "button";
+      play.addEventListener("click", function(){ TTS.say(pair[0], 0.8); });
+      var slow = el("button","chip ghost","▶ Bem devagar");
+      slow.type = "button";
+      slow.addEventListener("click", function(){ TTS.say(pair[0], 0.55); });
+      var row = el("div","growb");
+      row.appendChild(play); row.appendChild(slow);
+      card.appendChild(row);
+
+      var ok = el("button","chip","Consegui repetir");
+      ok.type = "button";
+      ok.addEventListener("click", function(){ right++; i++; render(); });
+      var no = el("button","chip ghost","Ainda difícil");
+      no.type = "button";
+      no.addEventListener("click", function(){ i++; render(); });
+      var row2 = el("div","growb");
+      row2.appendChild(ok); row2.appendChild(no);
+      card.appendChild(row2);
+
+      TTS.say(pair[0], 0.8);
+      play.focus();
+    }
+
+    function renderPair(){
+      if(i >= pairs.length) return finish();
+      var p = pairs[i];
+      var target = Math.random() < 0.5 ? 0 : 1;
+      card.appendChild(el("div","glabel","Qual das duas você ouviu?"));
+      card.appendChild(el("div","gsub","Os dois sons são parecidos de propósito. Ouça quantas vezes quiser."));
+
+      var play = el("button","chip","▶ Ouvir de novo");
+      play.type = "button";
+      play.addEventListener("click", function(){ TTS.say(p[target], 0.75); });
+      var row = el("div","growb");
+      row.appendChild(play);
+      card.appendChild(row);
+
+      var fb = el("div","gfb");
+      var opts = el("div","gopts");
+      [0,1].forEach(function(k){
+        var b = el("button","gopt", p[k]);
+        b.type = "button";
+        b.addEventListener("click", function(){
+          if(fb.textContent) return;
+          opts.querySelectorAll(".gopt").forEach(function(o){ o.disabled = true; });
+          if(k === target){
+            right++;
+            b.classList.add("good");
+            fb.className = "gfb ok";
+            fb.textContent = "Isso. Era « " + p[target] + " ».";
+          } else {
+            b.classList.add("wrong");
+            opts.querySelectorAll(".gopt")[target].classList.add("good");
+            fb.className = "gfb bad";
+            fb.textContent = "Era « " + p[target] + " ».";
+          }
+          var nx = el("button","chip","Próxima");
+          nx.type = "button";
+          nx.addEventListener("click", function(){ i++; render(); });
+          card.appendChild(nx);
+          nx.focus();
+        });
+        opts.appendChild(b);
+      });
+      card.appendChild(opts);
+      card.appendChild(fb);
+
+      TTS.say(p[target], 0.75);
+      play.focus();
+    }
+
+    function finish(){
+      saveScore(w, 1, right, total);
+      prog.textContent = "";
+      card.textContent = "";
+      card.appendChild(el("div","gscore", right + " / " + total));
+      card.appendChild(el("p","gsub","Na prova oral o que conta é ser entendido de primeira. Repetir em voz alta todo dia é o que move essa agulha."));
+      var again = el("button","chip","Jogar de novo");
+      again.type = "button";
+      again.addEventListener("click", function(){ gamePronuncia(w, GM.opener); });
+      GM.foot.appendChild(again);
+    }
+
+    render();
+  }
+
+  /* ================= Jogo 3: escuta ================= */
+  function gameEscuta(w, opener){
+    var bank = B[w];
+    if(!bank) return;
+    gmOpen("Escuta — semana " + w, opener);
+
+    if(!TTS.ready){
+      GM.body.appendChild(noVoiceNotice());
+      return;
+    }
+
+    var items = shuffle(bank.w).slice(0, 4).map(function(p){ return {t:p[0], kind:"palavra"}; })
+      .concat(bank.s.map(function(s){ return {t:s, kind:"frase"}; }));
+    var i = 0, right = 0, rate = 0.85;
+
+    var prog = el("div","gprog");
+    var card = el("div","gcard");
+    GM.body.appendChild(prog);
+    GM.body.appendChild(card);
+
+    function render(){
+      if(i >= items.length) return finish();
+      card.textContent = "";
+      prog.textContent = "Ditado " + (i + 1) + " de " + items.length + " · acertos: " + right;
+
+      var it = items[i];
+      card.appendChild(el("div","glabel", it.kind === "palavra" ? "Escreva a palavra que ouvir" : "Escreva a frase que ouvir"));
+
+      var play = el("button","chip","▶ Ouvir");
+      play.type = "button";
+      play.addEventListener("click", function(){ TTS.say(it.t, rate); });
+      var row = el("div","growb");
+      row.appendChild(play);
+      [["0,6×",0.6],["0,85×",0.85],["1×",1]].forEach(function(sp){
+        var b = el("button","chip ghost", sp[0]);
+        b.type = "button";
+        if(rate === sp[1]) b.classList.add("on");
+        b.addEventListener("click", function(){
+          rate = sp[1];
+          row.querySelectorAll(".chip.ghost").forEach(function(o){ o.classList.remove("on"); });
+          b.classList.add("on");
+          TTS.say(it.t, rate);
+        });
+        row.appendChild(b);
+      });
+      card.appendChild(row);
+
+      var inp = document.createElement("input");
+      inp.type = "text";
+      inp.className = "ginput";
+      inp.id = "ge-" + w + "-" + i;
+      inp.setAttribute("autocomplete","off");
+      inp.setAttribute("autocapitalize","off");
+      inp.setAttribute("spellcheck","false");
+      inp.placeholder = "escreva o que ouviu";
+      inp.setAttribute("aria-label","O que você ouviu");
+      card.appendChild(inp);
+
+      var fb = el("div","gfb");
+      card.appendChild(fb);
+
+      var send = el("button","chip","Conferir");
+      send.type = "button";
+      var next = el("button","chip ghost","Próximo");
+      next.type = "button";
+      next.hidden = true;
+      var row2 = el("div","growb");
+      row2.appendChild(send); row2.appendChild(next);
+      card.appendChild(row2);
+
+      function check(){
+        var typed = inp.value.trim();
+        if(!typed) return;
+        send.hidden = true; next.hidden = false;
+        inp.disabled = true;
+        var al = alignWords(it.t, typed);
+        var exact = gnorm(typed) === gnorm(it.t);
+        if(exact) right++;
+
+        fb.className = "gfb " + (exact ? "ok" : (al.right === al.total ? "warn" : "bad"));
+        fb.textContent = exact ? "Perfeito." : (al.right === al.total ? "Todas as palavras certas, mas faltou acento ou pontuação." : "Veja onde escapou:");
+
+        var line = el("div","gdiff");
+        al.words.forEach(function(x){
+          var sp = el("span","dw " + x.s, x.w);
+          line.appendChild(sp);
+        });
+        card.insertBefore(line, row2);
+        if(!exact) card.insertBefore(el("div","gsub","Original: " + it.t), row2);
+        prog.textContent = "Ditado " + (i + 1) + " de " + items.length + " · acertos: " + right;
+        next.focus();
+      }
+      send.addEventListener("click", check);
+      next.addEventListener("click", function(){ i++; render(); });
+      inp.addEventListener("keydown", function(e){
+        if(e.key === "Enter"){ e.preventDefault(); if(!inp.disabled) check(); else { i++; render(); } }
+      });
+
+      TTS.say(it.t, rate);
+      inp.focus();
+    }
+
+    function finish(){
+      saveScore(w, 2, right, items.length);
+      prog.textContent = "";
+      card.textContent = "";
+      card.appendChild(el("div","gscore", right + " / " + items.length));
+      card.appendChild(el("p","gsub","O ditado é o exercício que mais se parece com a compreensão oral do TCF: o áudio passa uma vez e você tem que decidir rápido."));
+      var again = el("button","chip","Jogar de novo");
+      again.type = "button";
+      again.addEventListener("click", function(){ gameEscuta(w, GM.opener); });
+      GM.foot.appendChild(again);
+    }
+
+    render();
+  }
+
+  var GAMES = [
+    {n:"Escrita", run:gameEscrita},
+    {n:"Pronúncia", run:gamePronuncia},
+    {n:"Escuta", run:gameEscuta}
+  ];
+
+  function playButton(w, g){
+    var wrap = el("span","gplaywrap");
+    var b = el("button","gplay","▶ jogar aqui");
+    b.type = "button";
+    b.setAttribute("aria-label","Abrir o jogo de " + GAMES[g].n + " da semana " + w);
+    b.addEventListener("click", function(){ GAMES[g].run(w, b); });
+    wrap.appendChild(b);
+    var badge = el("span","gbadge","");
+    badge.setAttribute("data-badge", gameKey(w, g));
+    badge.hidden = true;
+    var sc = getScore(w, g);
+    if(sc){ badge.textContent = "melhor " + sc.best + "/" + sc.of; badge.hidden = false; }
+    wrap.appendChild(badge);
+    return wrap;
+  }
+
   var DAYS = ["lun.","mar.","mer.","jeu.","ven.","sam.","dim."];
   var KINDS = ["Gramática","Vocabulário","Formato TCF","Imersão","Música + pronúncia","Produção TCF","Jogos"];
   var EXAM_WEEKS = {16:1, 32:1, 50:1, 62:1, 66:1, 77:1, 78:1};
@@ -1840,13 +2572,13 @@ footer p + p{margin-top:10px}
       {x:wk.a, l:wk.av ? vLink(wk.av) : null},
       {x:wk.m + " — letra, tradução e uma rodada no LyricsTraining", l:wk.mv ? vLink(wk.mv) : null},
       {x:wk.pr, l:ppl ? {u:plUrl(ppl[0]), n:ppl[1]} : null},
-      {x:"Anki atrasado e um jogo para cada habilidade:", subs:subsOf(GJ[wk.w])}
+      {x:"Anki atrasado e três jogos, um por habilidade — dá para jogar aqui mesmo, com o vocabulário desta semana:", subs:subsOf(GJ[wk.w])}
     ];
   }
 
   var TOTAL = W.length * 7;
 
-  var state = { start: null, done: {}, mine: {}, subs: {}, hide: {} };
+  var state = { start: null, done: {}, mine: {}, subs: {}, hide: {}, games: {} };
   var LS = "fr78.v1";
   var dbRef = null, docExists = false, dirty = null, flushing = false, dbErr = false;
 
@@ -1854,7 +2586,7 @@ footer p + p{margin-top:10px}
     try{
       var raw = localStorage.getItem(LS);
       if(raw){ var o = JSON.parse(raw); if(o && typeof o === "object"){
-        state.start = o.start || null; state.done = o.done || {}; state.mine = o.mine || {}; state.subs = o.subs || {}; state.hide = o.hide || {};
+        state.start = o.start || null; state.done = o.done || {}; state.mine = o.mine || {}; state.subs = o.subs || {}; state.hide = o.hide || {}; state.games = o.games || {};
       }}
     }catch(e){}
   }
@@ -1886,6 +2618,9 @@ footer p + p{margin-top:10px}
     } else if(path.k === "hide"){
       dirty.hide = dirty.hide || {};
       dirty.hide[path.key] = val;
+    } else if(path.k === "games"){
+      dirty.games = dirty.games || {};
+      dirty.games[path.key] = val;
     } else {
       dirty.start = val;
     }
@@ -2139,6 +2874,11 @@ footer p + p{margin-top:10px}
 
         var body = el("div","sbody");
         body.appendChild(el("span","st", sb.t));
+        if(i === 6 && si < GAMES.length && B[wk.w]){
+          var prow = el("div","gplayrow");
+          prow.appendChild(playButton(wk.w, si));
+          body.appendChild(prow);
+        }
         var slot = el("div","myslot");
         body.appendChild(slot);
         attachLinks(slot, mineKey(wk.w, i, si), sb.u ? {u:sb.u, n:sb.n, search:sb.search, ext:sb.ext} : null);
@@ -2291,6 +3031,7 @@ footer p + p{margin-top:10px}
           state.mine = (d.mine && typeof d.mine === "object") ? d.mine : (state.mine || {});
           state.subs = (d.subs && typeof d.subs === "object") ? d.subs : (state.subs || {});
           state.hide = (d.hide && typeof d.hide === "object") ? d.hide : (state.hide || {});
+          state.games = (d.games && typeof d.games === "object") ? d.games : (state.games || {});
           writeLocal();
           renderAll();
         }
@@ -2298,8 +3039,8 @@ footer p + p{margin-top:10px}
       }, function(){
         dbErr = true; setSync("err","só neste aparelho");
       });
-      if(state.start || Object.keys(state.done).length || Object.keys(state.mine || {}).length || Object.keys(state.subs || {}).length || Object.keys(state.hide || {}).length){
-        dirty = { start: state.start, done: state.done, mine: state.mine || {}, subs: state.subs || {}, hide: state.hide || {} };
+      if(state.start || Object.keys(state.done).length || Object.keys(state.mine || {}).length || Object.keys(state.subs || {}).length || Object.keys(state.hide || {}).length || Object.keys(state.games || {}).length){
+        dirty = { start: state.start, done: state.done, mine: state.mine || {}, subs: state.subs || {}, hide: state.hide || {}, games: state.games || {} };
         scheduleFlush();
       }
     }).catch(function(){});
@@ -2369,7 +3110,8 @@ footer p + p{margin-top:10px}
         if(o.mine != null && (typeof o.mine !== "object" || Array.isArray(o.mine))) throw new Error("shape");
         if(o.subs != null && (typeof o.subs !== "object" || Array.isArray(o.subs))) throw new Error("shape");
         if(o.hide != null && (typeof o.hide !== "object" || Array.isArray(o.hide))) throw new Error("shape");
-        localStorage.setItem(KEY, JSON.stringify({ start: o.start || null, done: o.done || {}, mine: o.mine || {}, subs: o.subs || {}, hide: o.hide || {} }));
+        if(o.games != null && (typeof o.games !== "object" || Array.isArray(o.games))) throw new Error("shape");
+        localStorage.setItem(KEY, JSON.stringify({ start: o.start || null, done: o.done || {}, mine: o.mine || {}, subs: o.subs || {}, hide: o.hide || {}, games: o.games || {} }));
         say("Importado. Recarregando…", true);
         setTimeout(function(){ location.reload(); }, 700);
       }catch(err){
