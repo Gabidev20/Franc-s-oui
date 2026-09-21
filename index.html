@@ -245,6 +245,7 @@ h2{font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:clamp(1.6rem,4.4vw,2.
 .subs li{padding-left:13px;position:relative}
 .subs li::before{content:"";position:absolute;left:0;top:.66em;width:5px;height:1px;background:var(--ink-3)}
 .subs .st{display:block;line-height:1.4}
+.vid.ext::before{content:"↗";font-size:.72rem;color:var(--outremer-2)}
 .vid.srch::before{content:"⌕";font-size:.78rem;color:var(--ink-3)}
 .vid.srch{color:var(--ink-2);border-bottom-style:dashed}
 .miles{display:flex;flex-direction:column;border-left:2px solid var(--rule)}
@@ -403,7 +404,7 @@ footer p + p{margin-top:10px}
       <div class="day"><div class="d">Jeudi</div><div class="n">Imersão</div><div class="h">podcast, rádio, série</div></div>
       <div class="day"><div class="d">Vendredi</div><div class="n">Música</div><div class="h">letra + pronúncia</div></div>
       <div class="day"><div class="d">Samedi</div><div class="n">Produção TCF</div><div class="h">EE ou EO cronometrada</div></div>
-      <div class="day"><div class="d">Dimanche</div><div class="n">Revisão</div><div class="h">jogos + atrasados</div></div>
+      <div class="day"><div class="d">Dimanche</div><div class="n">Jogos</div><div class="h">escrita, pronúncia, escuta</div></div>
     </div>
 
     <p class="note blue" style="margin-top:26px"><b>Por que duas vezes por semana no formato da prova?</b> Porque CO e CE são múltipla escolha contra o relógio, e EE e EO têm formato fixo. São habilidades treináveis, independentes do seu nível de francês: dá para saber francês e perder pontos por não conhecer o formato. Quarta e sábado existem justamente para isso não acontecer.</p>
@@ -489,12 +490,29 @@ footer p + p{margin-top:10px}
         <li><b>Filmes:</b> Intouchables, Amélie Poulain, Les Choristes, Qu'est-ce qu'on a fait au Bon Dieu ?, Portrait de la jeune fille en feu.</li>
       </ul></div>
 
-      <div class="libcard"><h3>Jogos</h3><ul>
-        <li><b>LyricsTraining</b> — preencher lacunas cantando; o melhor uso das músicas do plano.</li>
-        <li><b>Sutom / Le Mot</b> — o Wordle francês, 3 minutos por dia.</li>
-        <li><b>Babadum</b> — vocabulário visual rápido, 5 modos de jogo.</li>
-        <li><b>Influent</b> (Steam) — caçar objetos e aprender substantivos e adjetivos.</li>
-        <li><b>Duolingo</b> — só manutenção de streak, nunca como curso principal.</li>
+
+
+      <div class="libcard"><h3>Jogos de escrita</h3><ul>
+        <li><b><a href="https://sutom.nocle.fr/" target="_blank" rel="noopener">SUTOM</a></b> — o Wordle francês: seis tentativas para a palavra do dia, de 6 a 10 letras. Três minutos, todo dia, e o vocabulário passivo vira ativo.</li>
+        <li><b><a href="https://www.ortholud.com/" target="_blank" rel="noopener">Ortholud</a></b> — jogos de ortografia, conjugação e gramática, corrigidos na hora. É o mais próximo de um videogame de francês escrito.</li>
+        <li><b><a href="https://www.podcastfrancaisfacile.com/dictee-2" target="_blank" rel="noopener">Dictées</a></b> — ditados com áudio, transcrição e correção. Treina escrita e escuta ao mesmo tempo, e é o exercício que mais derruba erro bobo na EE.</li>
+        <li><b><a href="https://www.francaisfacile.com/exercices/" target="_blank" rel="noopener">Français facile</a></b> — 11 mil exercícios com correção automática, indexados por tema gramatical.</li>
+        <li><b><a href="https://babadum.com/" target="_blank" rel="noopener">Ba Ba Dum</a></b> — vocabulário ilustrado em cinco modos, um deles de digitar a palavra. Rápido e viciante.</li>
+        <li><b><a href="https://www.clozemaster.com/" target="_blank" rel="noopener">Clozemaster</a></b> — milhares de frases com lacuna. O melhor jogo para sair dos 2000 e ir aos 10000 mais frequentes.</li>
+      </ul></div>
+
+      <div class="libcard"><h3>Jogos de pronúncia</h3><ul>
+        <li><b><a href="https://youglish.com/french" target="_blank" rel="noopener">YouGlish</a></b> — digitem qualquer palavra e ela toca dentro de vídeos reais, uma voz depois da outra. « Bonjour » tem mais de 24 mil ocorrências. É o item do plano com um link diferente em cada semana.</li>
+        <li><b><a href="https://forvo.com/languages/fr/" target="_blank" rel="noopener">Forvo</a></b> — a mesma palavra dita por vários nativos, com o sotaque de cada um identificado. Use antes de gravar um cartão no Anki.</li>
+        <li><b><a href="https://www.podcastfrancaisfacile.com/apprendre-le-francais/prononciation" target="_blank" rel="noopener">Percurso de fonética</a></b> — som por som, com áudio e PDF. É a base das semanas 67 a 73.</li>
+        <li><b><a href="https://speechling.com/" target="_blank" rel="noopener">Speechling</a></b> — vocês gravam, um nativo corrige e devolve. Interface em português. O único da lista que dá retorno humano de graça.</li>
+      </ul></div>
+
+      <div class="libcard"><h3>Jogos de escuta</h3><ul>
+        <li><b><a href="https://lyricstraining.com/fr" target="_blank" rel="noopener">LyricsTraining</a></b> — preencher a letra enquanto a música toca, em quatro níveis de dificuldade. É o que transforma o dia de música em treino real de ouvido.</li>
+        <li><b><a href="https://apprendre.tv5monde.com/fr" target="_blank" rel="noopener">TV5Monde Apprendre</a></b> — exercícios com vídeo autêntico, organizados por nível (A1 a B2) e por tema: vida cotidiana, gastronomia, esporte e turismo, direitos humanos. É a fonte da maioria dos domingos.</li>
+        <li><b><a href="https://francaisfacile.rfi.fr/fr/" target="_blank" rel="noopener">RFI — Le français facile</a></b> — exercícios a partir do noticiário do dia. O mais parecido com a compreensão oral do TCF.</li>
+        <li><b><a href="https://www.podcastfrancaisfacile.com/apprendre-le-francais/french-communication-dialogues-fle-daily-life-listen-mp3" target="_blank" rel="noopener">Diálogos do cotidiano</a></b> — situações reais com áudio e transcrição, para treinar a tarefa 2 da expressão oral.</li>
       </ul></div>
 
       <div class="libcard"><h3>Leitura progressiva</h3><ul>
@@ -522,7 +540,7 @@ footer p + p{margin-top:10px}
 
   <footer>
     <p><b>Quatro regras que valem mais que o plano.</b> 1) Nunca dois dias seguidos sem nada — se falharem um dia, o seguinte é obrigatório, mesmo em 10 minutos. 2) Cronometrem quarta e sábado sempre; a prova é contra o relógio e o relógio se treina. 3) Falem desde a primeira semana, um com o outro, em voz alta; vergonha adiada vira sotaque fossilizado. 4) Input com prazer conta como estudo: uma série em francês vale mais que meia hora de exercício feito com raiva.</p>
-    <p>As lacunas que este plano assume: o canal do Pierre não tem aula dedicada a <em>gérondif</em>, <em>voz passiva</em>, <em>plus-que-parfait</em>, <em>discurso indireto</em>, <em>plural dos substantivos</em>, <em>comparativo e superlativo</em>, <em>as horas</em> e <em>nominalização</em>. Nesses oito subtópicos o link aparece pontilhado e leva à busca dentro do canal, em vez de a um vídeo específico — a gramática escrita do Kwiziq e da Grammaire Progressive cobre cada um deles. Todos os outros links são vídeos verificados um a um.</p>
+    <p>As lacunas que este plano assume: o canal do Pierre não tem aula dedicada a <em>gérondif</em>, <em>voz passiva</em>, <em>plus-que-parfait</em>, <em>discurso indireto</em>, <em>plural dos substantivos</em>, <em>comparativo e superlativo</em>, <em>as horas</em> e <em>nominalização</em>. Nesses oito subtópicos o link aparece pontilhado e leva à busca dentro do canal, em vez de a um vídeo específico — a gramática escrita do Kwiziq e da Grammaire Progressive cobre cada um deles. Todos os outros links são vídeos verificados um a um. Os jogos e sites de exercício do domingo aparecem com uma seta (↗) em vez do ▶, e também foram abertos e testados um por um — um deles saiu da lista no meio do caminho porque o domínio havia sido vendido e hoje é outra coisa. Os jogos e sites de exercício do domingo aparecem com uma seta (↗) em vez do ▶, e também foram abertos e testados um por um — um deles saiu da lista no meio do caminho porque o domínio havia sido vendido e virou outra coisa.</p>
     <p>Suas marcações e os links que vocês colarem ficam salvos no navegador deste aparelho. Use o backup logo abaixo para levá-los a outro celular ou computador.</p>
   </footer>
 </main>
@@ -888,7 +906,32 @@ footer p + p{margin-top:10px}
     best2025:["-GgvRe5GGBc","Le meilleur de l'année (1h30 de cours)"],
     fr1h:["WoErjUnHag0","Apprendre le français en 1 heure"],
     frAZ:["25E1gteX1XU","Apprendre le français de A à Z"],
-    coursInterm:["SfdcUTfZRpo","Cours de français (intermédiaire et avancé)"]
+    coursInterm:["SfdcUTfZRpo","Cours de français (intermédiaire et avancé)"],
+    /* Jogos e exercícios interativos — todos os endereços verificados. */
+    jSutom:["https://sutom.nocle.fr/","SUTOM — o Wordle francês"],
+    jOrtholud:["https://www.ortholud.com/","Ortholud — jogos de ortografia e gramática"],
+    jDictee:["https://www.podcastfrancaisfacile.com/dictee-2","Dictées com áudio e correção"],
+    jFFexo:["https://www.francaisfacile.com/exercices/","Français facile — 11 000 exercícios corrigidos"],
+    jBabadum:["https://babadum.com/","Ba Ba Dum — vocabulário em 5 modos de jogo"],
+    jCloze:["https://www.clozemaster.com/","Clozemaster — frases com lacuna"],
+    jForvo:["https://forvo.com/languages/fr/","Forvo — dicionário de pronúncia nativa"],
+    jPFFpron:["https://www.podcastfrancaisfacile.com/apprendre-le-francais/prononciation","Percurso de fonética com áudio e PDF"],
+    jSpeechling:["https://speechling.com/","Speechling — grave e receba correção"],
+    jLyrics:["https://lyricstraining.com/fr","LyricsTraining — letras com lacunas"],
+    jTV5prem:["https://apprendre.tv5monde.com/fr/exercices/premiere-classe","TV5Monde — Première classe (grande iniciante)"],
+    jTV5a1:["https://apprendre.tv5monde.com/fr/exercices/a1-debutant","TV5Monde — exercícios A1"],
+    jTV5a2:["https://apprendre.tv5monde.com/fr/exercices/a2-elementaire","TV5Monde — exercícios A2"],
+    jTV5b1:["https://apprendre.tv5monde.com/fr/exercices/b1-intermediaire","TV5Monde — exercícios B1"],
+    jTV5b2:["https://apprendre.tv5monde.com/fr/exercices/b2-avance","TV5Monde — exercícios B2"],
+    jTV5vie:["https://apprendre.tv5monde.com/fr/exercices/vie-quotidienne","TV5Monde — Vida cotidiana"],
+    jTV5gastro:["https://apprendre.tv5monde.com/fr/exercices/gastronomie-mode","TV5Monde — Gastronomia e moda"],
+    jTV5sport:["https://apprendre.tv5monde.com/fr/exercices/sport-et-tourisme","TV5Monde — Esporte e turismo"],
+    jTV5droits:["https://apprendre.tv5monde.com/fr/exercices/droits-humains","TV5Monde — Direitos humanos"],
+    jTV5gram:["https://apprendre.tv5monde.com/fr/exercices/la-grammaire-en-a2","TV5Monde — A gramática em A2"],
+    jTV5compr:["https://apprendre.tv5monde.com/fr/exercices/mieux-se-comprendre","TV5Monde — Mieux se comprendre (B1)"],
+    jRFI:["https://francaisfacile.rfi.fr/fr/","RFI — exercícios com a atualidade"],
+    jPFFdial:["https://www.podcastfrancaisfacile.com/apprendre-le-francais/french-communication-dialogues-fle-daily-life-listen-mp3","Diálogos do cotidiano com áudio"]
+
   };
 
   // gs = subtópicos de gramática, cada um com sua aula. ls = subtópicos de vocabulário.
@@ -1518,8 +1561,106 @@ footer p + p{margin-top:10px}
    pr:"Escrever em francês uma carta ao seu eu de 18 meses atrás — e montar o perfil de Entrada Expressa"}
   ];
 
+  /* Jogos do domingo: um para escrita, um para pronúncia, um para escuta,
+     escolhidos pelo tema e pelo nível da semana. */
+  function yg(word, label){
+    return ["https://youglish.com/pronounce/" + word + "/french", "YouGlish: " + label];
+  }
+  function J3(esc, escKey, pron, pronKey, esct, esctKey){
+    var p = (pronKey.charAt(0) === "@") ? yg(pronKey.slice(1).split("|")[0], pronKey.slice(1).split("|")[1]) : [pronKey];
+    var out = [[esc, escKey]];
+    if(p.length === 2) out.push([pron, p[0], p[1]]); else out.push([pron, p[0]]);
+    out.push([esct, esctKey]);
+    return out;
+  }
+
+  var GJ = {
+  1:  J3("Escrever: digitar as 20 primeiras palavras nos 5 modos do jogo","jBabadum","Pronúncia: ouvir « bonjour » dito por nativos em vídeos reais","@bonjour|bonjour","Escuta: primeiros diálogos para quem nunca ouviu francês","jTV5prem"),
+  2:  J3("Escrever: exercícios de artigos e gênero, com correção na hora","jFFexo","Pronúncia: « nationalité » e as nasais dentro dela","@nationalit%C3%A9|nationalité","Escuta: continuar a Première classe","jTV5prem"),
+  3:  J3("Escrever: jogos de conjugação do presente","jOrtholud","Pronúncia: « travailler » e o R francês","@travailler|travailler","Escuta: exercícios A1 com vídeo","jTV5a1"),
+  4:  J3("Escrever: exercícios de negação","jFFexo","Pronúncia: « jamais » — o J francês","@jamais|jamais","Escuta: exercícios A1 com vídeo","jTV5a1"),
+  5:  J3("Escrever: exercícios de frase interrogativa","jFFexo","Pronúncia: « pourquoi » e o OI","@pourquoi|pourquoi","Escuta: vida cotidiana, diálogos reais","jTV5vie"),
+  6:  J3("Escrever: vocabulário da família nos 5 modos","jBabadum","Pronúncia: buscar « famille » e ouvir várias vozes","jForvo","Escuta: exercícios A1","jTV5a1"),
+  7:  J3("Escrever: adjetivos e cores nos 5 modos","jBabadum","Pronúncia: « gentil » — consoante final muda","@gentil|gentil","Escuta: exercícios A1","jTV5a1"),
+  8:  J3("Escrever: jogos de conjugação, 2º e 3º grupos","jOrtholud","Pronúncia: « prendre » e o grupo -DRE","@prendre|prendre","Escuta: exercícios A1","jTV5a1"),
+  9:  J3("Escrever: ditado curto sobre rotina","jDictee","Pronúncia: « réveiller » — dois E diferentes","@r%C3%A9veiller|réveiller","Escuta: vida cotidiana","jTV5vie"),
+  10: J3("Escrever: exercícios de preposição de lugar","jFFexo","Pronúncia: « quartier » e o TI","@quartier|quartier","Escuta: vida cotidiana","jTV5vie"),
+  11: J3("Escrever: vocabulário de comida nos 5 modos","jBabadum","Pronúncia: « restaurant » e a nasal final","@restaurant|restaurant","Escuta: gastronomia e moda","jTV5gastro"),
+  12: J3("Escrever: exercícios de quantidade e partitivo","jFFexo","Pronúncia: gravar-se e receber correção de um nativo","jSpeechling","Escuta: gastronomia e moda","jTV5gastro"),
+  13: J3("Escrever: jogos de futuro","jOrtholud","Pronúncia: « demain » e a nasal AIN","@demain|demain","Escuta: exercícios A1","jTV5a1"),
+  14: J3("Escrever: ditado no passé composé","jDictee","Pronúncia: « week-end » — empréstimo do inglês","@week-end|week-end","Escuta: exercícios A2","jTV5a2"),
+  15: J3("Escrever: jogos de concordância do particípio","jOrtholud","Pronúncia: « voyage » e o som [ʒ]","@voyage|voyage","Escuta: esporte e turismo","jTV5sport"),
+  16: J3("Escrever: SUTOM, o Wordle francês — 6 tentativas por dia","jSutom","Pronúncia: « toujours » e o OU","@toujours|toujours","Escuta: música com lacunas, nível fácil","jLyrics"),
+
+  17: J3("Escrever: jogos de concordância do particípio","jOrtholud","Pronúncia: « arrivé » e o E fechado final","@arriv%C3%A9|arrivé","Escuta: exercícios A2","jTV5a2"),
+  18: J3("Escrever: ditado no imparfait","jDictee","Pronúncia: « enfance » — duas nasais seguidas","@enfance|enfance","Escuta: exercícios A2","jTV5a2"),
+  19: J3("Escrever: exercícios de imparfait contra passé composé","jFFexo","Pronúncia: « soudain » e o OU seguido de nasal","@soudain|soudain","Escuta: exercícios A2","jTV5a2"),
+  20: J3("Escrever: ditado narrativo","jDictee","Pronúncia: « histoire » e o H mudo","@histoire|histoire","Escuta: diálogos do cotidiano com áudio","jPFFdial"),
+  21: J3("Escrever: exercícios de comparativo","jFFexo","Pronúncia: buscar « meilleur » e ouvir várias vozes","jForvo","Escuta: gastronomia e moda","jTV5gastro"),
+  22: J3("Escrever: exercícios de pronomes COD e COI","jFFexo","Pronúncia: « expliquer » e o grupo -PLI","@expliquer|expliquer","Escuta: exercícios A2","jTV5a2"),
+  23: J3("Escrever: frases com lacuna usando Y","jCloze","Pronúncia: « endroit » — nasal mais OI","@endroit|endroit","Escuta: exercícios A2","jTV5a2"),
+  24: J3("Escrever: frases com lacuna usando EN","jCloze","Pronúncia: « assez » e o Z final mudo","@assez|assez","Escuta: vida cotidiana","jTV5vie"),
+  25: J3("Escrever: exercícios de ordem dos pronomes","jFFexo","Pronúncia: « téléphone » e os dois É","@t%C3%A9l%C3%A9phone|téléphone","Escuta: diálogos do cotidiano","jPFFdial"),
+  26: J3("Escrever: jogos de futur simple","jOrtholud","Pronúncia: « avenir » e o E caduco no meio","@avenir|avenir","Escuta: a gramática em A2","jTV5gram"),
+  27: J3("Escrever: ditado de carta de motivação","jDictee","Pronúncia: « voudrais » e o R depois de D","@voudrais|voudrais","Escuta: a gramática em A2","jTV5gram"),
+  28: J3("Escrever: exercícios de futuro contra condicional","jFFexo","Pronúncia: « serait » — o AI aberto","@serait|serait","Escuta: exercícios A2","jTV5a2"),
+  29: J3("Escrever: ditado de e-mail","jDictee","Pronúncia: « depuis » e o UI","@depuis|depuis","Escuta: a gramática em A2","jTV5gram"),
+  30: J3("Escrever: exercícios de pronomes relativos","jFFexo","Pronúncia: buscar « santé » e comparar sotaques","jForvo","Escuta: exercícios A2","jTV5a2"),
+  31: J3("Escrever: exercícios de registro e cortesia","jFFexo","Pronúncia: « monsieur » — a palavra mais traiçoeira do francês","@monsieur|monsieur","Escuta: diálogos do cotidiano","jPFFdial"),
+  32: J3("Escrever: SUTOM todos os dias da semana","jSutom","Pronúncia: « progrès » e o È aberto","@progr%C3%A8s|progrès","Escuta: música com lacunas, nível médio","jLyrics"),
+
+  33: J3("Escrever: exercícios de relativos compostos","jFFexo","Pronúncia: « dont » e o T final mudo","@dont|dont","Escuta: exercícios B1","jTV5b1"),
+  34: J3("Escrever: jogos de subjonctif","jOrtholud","Pronúncia: « falloir » e o duplo L","@falloir|falloir","Escuta: exercícios B1","jTV5b1"),
+  35: J3("Escrever: exercícios de subjonctif contra indicativo","jFFexo","Pronúncia: « douter » e o OU fechado","@douter|douter","Escuta: exercícios B1","jTV5b1"),
+  36: J3("Escrever: frases com lacuna no subjonctif","jCloze","Pronúncia: « bien » e a nasal IEN","@bien|bien","Escuta: Mieux se comprendre (B1)","jTV5compr"),
+  37: J3("Escrever: exercícios de hipótese com si","jFFexo","Pronúncia: « hypothèse » e o Y","@hypoth%C3%A8se|hypothèse","Escuta: exercícios B1","jTV5b1"),
+  38: J3("Escrever: ditado em discurso indireto","jDictee","Pronúncia: « raconter » e a nasal ON","@raconter|raconter","Escuta: exercícios B1","jTV5b1"),
+  39: J3("Escrever: SUTOM com palavras longas","jSutom","Pronúncia: « littérature » — quatro sílabas para encaixar","@litt%C3%A9rature|littérature","Escuta: exercícios B1","jTV5b1"),
+  40: J3("Escrever: exercícios de causa e consequência","jFFexo","Pronúncia: « parce que » na velocidade real","@parce%20que|parce que","Escuta: exercícios com a atualidade (RFI)","jRFI"),
+  41: J3("Escrever: exercícios de finalidade","jFFexo","Pronúncia: « afin de » ligado","@afin%20de|afin de","Escuta: exercícios B1","jTV5b1"),
+  42: J3("Escrever: exercícios de oposição","jFFexo","Pronúncia: « cependant » e as duas nasais","@cependant|cependant","Escuta: exercícios com a atualidade (RFI)","jRFI"),
+  43: J3("Escrever: exercícios de concessão","jFFexo","Pronúncia: « quoique » e o QU","@quoique|quoique","Escuta: Mieux se comprendre (B1)","jTV5compr"),
+  44: J3("Escrever: frases com lacuna de intensidade","jCloze","Pronúncia: « tellement » e o E caduco","@tellement|tellement","Escuta: esporte e turismo","jTV5sport"),
+  45: J3("Escrever: ditado com conectores","jDictee","Pronúncia: « en effet » e a liaison obrigatória","@en%20effet|en effet","Escuta: exercícios com a atualidade (RFI)","jRFI"),
+  46: J3("Escrever: exercícios de voz passiva e ON","jFFexo","Pronúncia: « on » contra « ont »","@on|on","Escuta: exercícios B1","jTV5b1"),
+  47: J3("Escrever: exercícios de particípio presente","jFFexo","Pronúncia: « en marchant » — a terminação -ANT","@en%20marchant|en marchant","Escuta: Mieux se comprendre (B1)","jTV5compr"),
+  48: J3("Escrever: jogos de advérbios","jOrtholud","Pronúncia: buscar « rapidement » e ouvir o ritmo","jForvo","Escuta: exercícios B1","jTV5b1"),
+  49: J3("Escrever: exercícios com tout, tous, toute","jFFexo","Pronúncia: « tous » — quando o S soa e quando não","@tous|tous","Escuta: exercícios B2","jTV5b2"),
+  50: J3("Escrever: SUTOM e uma rodada de Ortholud","jSutom","Pronúncia: « conjugaison » e a nasal final","@conjugaison|conjugaison","Escuta: música com lacunas, nível difícil","jLyrics"),
+
+  51: J3("Escrever: ditado em registro formal","jDictee","Pronúncia: « soutenu » e o U francês","@soutenu|soutenu","Escuta: exercícios B2","jTV5b2"),
+  52: J3("Escrever: exercícios de preposição","jFFexo","Pronúncia: « préposition » e os dois O","@pr%C3%A9position|préposition","Escuta: exercícios B2","jTV5b2"),
+  53: J3("Escrever: exercícios com PAR e POUR","jFFexo","Pronúncia: « pour » contra « par »","@pour|pour","Escuta: exercícios B2","jTV5b2"),
+  54: J3("Escrever: frases com lacuna de pronominais","jCloze","Pronúncia: « manquer » e o grupo -QU","@manquer|manquer","Escuta: exercícios B2","jTV5b2"),
+  55: J3("Escrever: ditado longo, depois resumir em 3 linhas","jDictee","Pronúncia: « résumé » e os três É","@r%C3%A9sum%C3%A9|résumé","Escuta: exercícios com a atualidade (RFI)","jRFI"),
+  56: J3("Escrever: exercícios com savoir e connaître","jFFexo","Pronúncia: « connaître » e o Î","@conna%C3%AEtre|connaître","Escuta: exercícios B2","jTV5b2"),
+  57: J3("Escrever: exercícios de vocabulário de sociedade","jFFexo","Pronúncia: « laïcité » e o trema","@la%C3%AFcit%C3%A9|laïcité","Escuta: direitos humanos (B1-B2)","jTV5droits"),
+  58: J3("Escrever: jogos de homófonos gramaticais","jOrtholud","Pronúncia: « orthographe » e o TH","@orthographe|orthographe","Escuta: exercícios B2","jTV5b2"),
+  59: J3("Escrever: um ditado por dia, cronometrado","jDictee","Pronúncia: percurso de fonética, com áudio e PDF","jPFFpron","Escuta: exercícios B2","jTV5b2"),
+  60: J3("Escrever: jogos dos erros que até franceses cometem","jOrtholud","Pronúncia: « erreur » e os dois R","@erreur|erreur","Escuta: exercícios B2","jTV5b2"),
+  61: J3("Escrever: exercícios de quantificadores","jFFexo","Pronúncia: « quelques » e o E caduco que cai","@quelques|quelques","Escuta: exercícios B2","jTV5b2"),
+  62: J3("Escrever: ditado em registro culto","jDictee","Pronúncia: « qu'on » contra « con » — cuidado","@qu%27on|qu'on","Escuta: direitos humanos","jTV5droits"),
+  63: J3("Escrever: as 100 expressões nos 5 modos do jogo","jBabadum","Pronúncia: « expression » e o duplo S","@expression|expression","Escuta: música com lacunas, sem olhar a letra","jLyrics"),
+  64: J3("Escrever: frases de nativo com lacuna","jCloze","Pronúncia: « vraiment » na velocidade real","@vraiment|vraiment","Escuta: diálogos do cotidiano","jPFFdial"),
+  65: J3("Escrever: jogos de conjugação, revisão final","jOrtholud","Pronúncia: buscar « conjuguer » e imitar o ritmo","jForvo","Escuta: exercícios B2","jTV5b2"),
+  66: J3("Escrever: SUTOM, só por diversão nesta semana","jSutom","Pronúncia: « examen » — o EN que soa como AIN","@examen|examen","Escuta: música francesa, sem estudar nada","jLyrics"),
+
+  67: J3("Escrever: ditado longo, atenção às liaisons escritas","jDictee","Pronúncia: percurso completo de fonética","jPFFpron","Escuta: exercícios B2","jTV5b2"),
+  68: J3("Escrever: exercícios de ênfase e estilo","jFFexo","Pronúncia: percurso de fonética — ritmo e entonação","jPFFpron","Escuta: exercícios com a atualidade (RFI)","jRFI"),
+  69: J3("Escrever: ditado na velocidade natural","jDictee","Pronúncia: gravar e receber correção de um nativo","jSpeechling","Escuta: exercícios B2","jTV5b2"),
+  70: J3("Escrever: exercícios de ortografia avançada","jFFexo","Pronúncia: percurso de fonética — as nasais e o R","jPFFpron","Escuta: diálogos do cotidiano, sem transcrição","jPFFdial"),
+  71: J3("Escrever: frases de francês falado com lacuna","jCloze","Pronúncia: gravar-se e comparar com o nativo","jSpeechling","Escuta: música com lacunas, modo expert","jLyrics"),
+  72: J3("Escrever: expressões e argot nos 5 modos","jBabadum","Pronúncia: « verlan » e as palavras invertidas","@verlan|verlan","Escuta: música com argot, modo expert","jLyrics"),
+  73: J3("Escrever: um ditado por dia, sem pausar o áudio","jDictee","Pronúncia: gravar 2 min corridos e ouvir de volta","jSpeechling","Escuta: exercícios com a atualidade (RFI)","jRFI"),
+  74: J3("Escrever: SUTOM com palavras abstratas","jSutom","Pronúncia: « abstrait » e o grupo -AIT","@abstrait|abstrait","Escuta: direitos humanos (vocabulário abstrato)","jTV5droits"),
+  75: J3("Escrever: ditado de texto administrativo","jDictee","Pronúncia: « désormais » e o S sonoro","@d%C3%A9sormais|désormais","Escuta: exercícios com a atualidade (RFI)","jRFI"),
+  76: J3("Escrever: exercícios livres, só em francês esta semana","jFFexo","Pronúncia: « immersion » e o duplo M","@immersion|immersion","Escuta: música francesa o dia inteiro","jLyrics"),
+  77: J3("Escrever: SUTOM como aquecimento antes do simulado","jSutom","Pronúncia: « réussir » e o Ü tenso","@r%C3%A9ussir|réussir","Escuta: exercícios com a atualidade, cronometrado","jRFI"),
+  78: J3("Escrever: frases com lacuna, 20 por dia para sempre","jCloze","Pronúncia: « continuer » — a última palavra do plano","@continuer|continuer","Escuta: música francesa, para sempre","jLyrics")
+  };
+
   var DAYS = ["lun.","mar.","mer.","jeu.","ven.","sam.","dim."];
-  var KINDS = ["Gramática","Vocabulário","Formato TCF","Imersão","Música + pronúncia","Produção TCF","Revisão + jogo"];
+  var KINDS = ["Gramática","Vocabulário","Formato TCF","Imersão","Música + pronúncia","Produção TCF","Jogos"];
   var EXAM_WEEKS = {16:1, 32:1, 50:1, 62:1, 66:1, 77:1, 78:1};
 
   function ytUrl(id){ return "https://www.youtube.com/watch?v=" + id; }
@@ -1595,7 +1736,7 @@ footer p + p{margin-top:10px}
       host.appendChild(linkChip(
         def.u,
         def.n,
-        "vid" + (def.search ? " srch" : ""),
+        "vid" + (def.search ? " srch" : (def.ext ? " ext" : "")),
         "Remover a aula sugerida e colocar outra no lugar",
         "Remover a aula sugerida: " + def.n,
         function(){ setHidden(key, true); }
@@ -1676,13 +1817,17 @@ footer p + p{margin-top:10px}
     if(!v) return null;
     var id = v[0];
     if(id.charAt(0) === "?") return {u:chUrl(id.slice(1)), n:v[1], search:true};
+    if(id.indexOf("http") === 0) return {u:id, n:v[1], ext:true};
     return {u:ytUrl(id), n:v[1]};
   }
   function subsOf(arr){
     if(!arr) return null;
     return arr.map(function(p){
+      if(p.length > 2 && String(p[1]).indexOf("http") === 0){
+        return {t:p[0], u:p[1], n:p[2], search:false, ext:true};
+      }
       var l = vLink(p[1]);
-      return {t:p[0], u:l?l.u:null, n:l?l.n:null, search:l?!!l.search:false};
+      return {t:p[0], u:l?l.u:null, n:l?l.n:null, search:l?!!l.search:false, ext:l?!!l.ext:false};
     });
   }
   function tasksOf(wk){
@@ -1695,7 +1840,7 @@ footer p + p{margin-top:10px}
       {x:wk.a, l:wk.av ? vLink(wk.av) : null},
       {x:wk.m + " — letra, tradução e uma rodada no LyricsTraining", l:wk.mv ? vLink(wk.mv) : null},
       {x:wk.pr, l:ppl ? {u:plUrl(ppl[0]), n:ppl[1]} : null},
-      {x:"Anki atrasado, 20 min de Kwiziq ou Clozemaster e um jogo: Sutom, Babadum ou LyricsTraining", l:null}
+      {x:"Anki atrasado e um jogo para cada habilidade:", subs:subsOf(GJ[wk.w])}
     ];
   }
 
@@ -1996,7 +2141,7 @@ footer p + p{margin-top:10px}
         body.appendChild(el("span","st", sb.t));
         var slot = el("div","myslot");
         body.appendChild(slot);
-        attachLinks(slot, mineKey(wk.w, i, si), sb.u ? {u:sb.u, n:sb.n, search:sb.search} : null);
+        attachLinks(slot, mineKey(wk.w, i, si), sb.u ? {u:sb.u, n:sb.n, search:sb.search, ext:sb.ext} : null);
         li.appendChild(body);
 
         ul.appendChild(li);
