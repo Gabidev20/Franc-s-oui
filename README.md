@@ -1,7 +1,8 @@
-# 78 Semanas de Francês
+# 78 Semanas para o TCF Canada
 
-Plano de estudo de francês do zero ao avançado em 78 semanas (18 meses), com sete tarefas por
-semana — gramática, vocabulário, vídeo, áudio, música, produção e revisão — e progresso marcável.
+Plano de estudo de francês do zero ao TCF Canada em 78 semanas (18 meses), com sete tarefas por
+semana — gramática em vídeo, vocabulário, simulado de compreensão, imersão, música, produção
+cronometrada e revisão — e progresso marcável. Meta: NCLC 7 nas quatro provas.
 
 Site estático: um único `index.html`, sem build, sem dependências de servidor.
 
@@ -61,16 +62,29 @@ O currículo está no array `W`, dentro do `<script>` no fim do `index.html`. Ca
 
 ```js
 {
-  w: 1,            // número da semana
-  p: "A1",         // fase
-  t: "título",     // tema da semana
-  g: "…",          // gramática (tarefa de segunda)
-  l: "…",          // vocabulário (terça)
-  v: "…",          // vídeo (quarta)
-  a: "…",          // áudio (quinta)
-  m: "…",          // música (sexta)
-  pr: "…"          // produção (sábado)
+  w: 1,             // número da semana
+  p: "A1",          // fase
+  t: "título",      // tema da semana
+  g: "…",           // gramática — tarefa de segunda
+  y: "akKplmnr01M", // id do vídeo do YouTube que ensina o tema
+  yt: "…",          // título mostrado no link do vídeo
+  l: "…",           // vocabulário — terça
+  yv: "…", yvt: "…",// vídeo de vocabulário (opcional)
+  c: "…",           // simulado no formato TCF — quarta
+  cp: "ceA1",       // chave da playlist de simulado, no objeto PL
+  a: "…",           // imersão em áudio — quinta
+  m: "…",           // música — sexta
+  pr: "…",          // produção TCF — sábado
+  pp: "ee2"         // playlist de modelos de produção (opcional)
 }
 ```
 
 A tarefa de domingo (revisão) é igual em todas as semanas e fica na função `tasksOf()`.
+
+As playlists de simulado TCF ficam no objeto `PL`, no mesmo script. Os campos `c`/`cp` definem
+o simulado de quarta e `pr`/`pp` a produção de sábado.
+
+## Créditos das aulas
+
+- Aulas de gramática, vocabulário e pronúncia: [Français avec Pierre](https://www.youtube.com/@Francaisavecpierre) — 137 vídeos, todos verificados.
+- Simulados por nível: [TCF CANDA C2](https://www.youtube.com/@TCFCANDAC2-f1e) e [TCF Lab](https://www.youtube.com/@TCFLab).

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Plano de estudo de francês do zero ao avançado em 78 semanas: gramática, vocabulário, vídeos, podcasts, músicas e jogos, com sete tarefas por semana.">
+<meta name="description" content="Plano de estudo de francês em 78 semanas orientado ao TCF Canada: gramática em vídeo, simulados por nível, músicas e jogos, com sete tarefas por semana.">
 <meta name="theme-color" content="#EFF1F5" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0F14" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -21,7 +21,7 @@
   img{max-width:100%}
   [hidden]{display:none !important}
 </style>
-<title>78 Semanas de Francês</title>
+<title>78 Semanas para o TCF Canada</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -47,52 +47,30 @@
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --paper:#0D0F14;
-    --surface:#161A22;
-    --surface-2:#1C212C;
-    --ink:#E9ECF4;
-    --ink-2:#A6AEC0;
-    --ink-3:#798195;
-    --rule:#2A3040;
-    --rule-soft:#222835;
-    --outremer:#93A7F5;
-    --outremer-2:#A9B9F8;
-    --outremer-soft:#1B2340;
-    --garance:#E98F97;
-    --garance-soft:#332023;
-    --vert:#5DC5A3;
-    --vert-soft:#142A26;
+    --paper:#0D0F14; --surface:#161A22; --surface-2:#1C212C;
+    --ink:#E9ECF4; --ink-2:#A6AEC0; --ink-3:#798195;
+    --rule:#2A3040; --rule-soft:#222835;
+    --outremer:#93A7F5; --outremer-2:#A9B9F8; --outremer-soft:#1B2340;
+    --garance:#E98F97; --garance-soft:#332023;
+    --vert:#5DC5A3; --vert-soft:#142A26;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.7);
   }
 }
 :root[data-theme="dark"]{
-  --paper:#0D0F14;
-  --surface:#161A22;
-  --surface-2:#1C212C;
-  --ink:#E9ECF4;
-  --ink-2:#A6AEC0;
-  --ink-3:#798195;
-  --rule:#2A3040;
-  --rule-soft:#222835;
-  --outremer:#93A7F5;
-  --outremer-2:#A9B9F8;
-  --outremer-soft:#1B2340;
-  --garance:#E98F97;
-  --garance-soft:#332023;
-  --vert:#5DC5A3;
-  --vert-soft:#142A26;
+  --paper:#0D0F14; --surface:#161A22; --surface-2:#1C212C;
+  --ink:#E9ECF4; --ink-2:#A6AEC0; --ink-3:#798195;
+  --rule:#2A3040; --rule-soft:#222835;
+  --outremer:#93A7F5; --outremer-2:#A9B9F8; --outremer-soft:#1B2340;
+  --garance:#E98F97; --garance-soft:#332023;
+  --vert:#5DC5A3; --vert-soft:#142A26;
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.7);
 }
 
 *{box-sizing:border-box}
 body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
+  margin:0;background:var(--paper);color:var(--ink);
   font-family:"Spectral",Georgia,"Times New Roman",serif;
-  font-size:16px;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
 }
 .wrap{max-width:1000px;margin:0 auto;padding-inline:18px}
 h1,h2,h3{margin:0;text-wrap:balance}
@@ -101,12 +79,10 @@ a{color:var(--outremer);text-decoration:none;border-bottom:1px solid color-mix(i
 a:hover{border-bottom-color:var(--outremer)}
 :focus-visible{outline:2px solid var(--outremer);outline-offset:2px;border-radius:3px}
 
-/* ---------- topbar ---------- */
 .topbar{
   position:sticky;top:env(safe-area-inset-top, 0px);z-index:30;
   background:color-mix(in srgb, var(--paper) 88%, transparent);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--rule);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);
 }
 .topbar .wrap{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
 .brand{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
@@ -118,48 +94,44 @@ a:hover{border-bottom-color:var(--outremer)}
 .sync[data-s="ok"]{color:var(--vert)}
 .sync[data-s="err"]{color:var(--garance)}
 
-/* ---------- masthead ---------- */
 .masthead{padding-block:54px 34px;border-bottom:1px solid var(--rule)}
 .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--outremer);margin-bottom:18px}
-h1{font-family:"Bodoni Moda",Didot,Georgia,serif;font-weight:700;font-size:clamp(2.5rem,8vw,4.4rem);line-height:.98;letter-spacing:-.015em}
+h1{font-family:"Bodoni Moda",Didot,Georgia,serif;font-weight:700;font-size:clamp(2.4rem,7.4vw,4.1rem);line-height:.99;letter-spacing:-.015em}
 h1 em{font-style:italic;font-weight:500;color:var(--outremer)}
-.lede{margin-top:20px;max-width:60ch;font-size:1.06rem;color:var(--ink-2)}
+.lede{margin-top:20px;max-width:62ch;font-size:1.06rem;color:var(--ink-2)}
 .facts{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
 .fact{background:var(--surface);padding:14px 16px}
 .fact dt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
 .fact dd{margin:5px 0 0;font-size:1.02rem;font-weight:600}
 .fact dd small{display:block;font-weight:400;font-size:.82rem;color:var(--ink-2);margin-top:2px}
 
-.note{
-  margin-top:26px;padding:16px 18px;border-left:3px solid var(--garance);
-  background:var(--garance-soft);border-radius:0 4px 4px 0;font-size:.95rem;color:var(--ink-2);
-}
+.note{margin-top:26px;padding:16px 18px;border-left:3px solid var(--garance);background:var(--garance-soft);border-radius:0 4px 4px 0;font-size:.95rem;color:var(--ink-2)}
+.note + .note{margin-top:14px}
 .note b{color:var(--ink)}
+.note.blue{border-left-color:var(--outremer);background:var(--outremer-soft)}
 
-/* ---------- sections ---------- */
 section.block{padding-block:46px;border-bottom:1px solid var(--rule)}
 .head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:8px}
 h2{font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:clamp(1.6rem,4.4vw,2.2rem);font-weight:700;letter-spacing:-.01em}
 .fr{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
 .sub{max-width:62ch;color:var(--ink-2);font-size:.98rem;margin-bottom:26px}
 
-/* ---------- today ---------- */
-.today{
-  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
-  box-shadow:var(--shadow);overflow:hidden;
-}
-.today-top{display:flex;gap:18px;align-items:center;flex-wrap:wrap;padding:18px 20px;background:var(--outremer-soft);border-bottom:1px solid var(--rule)}
-.today-wk{font-family:"IBM Plex Mono",monospace;font-size:2.1rem;font-weight:600;line-height:1;color:var(--outremer);font-variant-numeric:tabular-nums}
-.today-top div h3{font-family:"Spectral",serif;font-size:1.05rem;font-weight:600}
-.today-top div p{font-size:.86rem;color:var(--ink-2)}
-.today-body{padding:6px 20px 18px}
-.datefield{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 20px;border-top:1px solid var(--rule-soft);font-size:.86rem;color:var(--ink-2)}
-.datefield input{
-  font-family:"IBM Plex Mono",monospace;font-size:.86rem;padding:6px 8px;
-  border:1px solid var(--rule);border-radius:4px;background:var(--surface-2);color:var(--ink);
-}
+/* exam epreuves */
+.epreuves{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.ep{background:var(--surface);padding:16px 17px}
+.ep .code{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--garance);margin-bottom:6px}
+.ep h3{font-size:1rem;font-weight:600;line-height:1.25}
+.ep .spec{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);margin-top:7px;font-variant-numeric:tabular-nums}
+.ep p{font-size:.88rem;color:var(--ink-2);margin-top:9px}
 
-/* ---------- routine ---------- */
+.nclc{margin-top:22px;overflow-x:auto}
+.nclc table{width:100%;border-collapse:collapse;min-width:440px;font-size:.92rem}
+.nclc th,.nclc td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--rule-soft)}
+.nclc th{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+.nclc td:first-child{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--outremer);white-space:nowrap}
+.nclc tr.key td{background:var(--outremer-soft)}
+.nclc tr:last-child td{border-bottom:0}
+
 .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px}
 .tier{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px}
 .tier h3{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.06em;color:var(--outremer);margin-bottom:4px}
@@ -174,17 +146,18 @@ h2{font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:clamp(1.6rem,4.4vw,2.
 .day .n{font-size:.92rem;font-weight:600}
 .day .h{font-size:.78rem;color:var(--ink-3);margin-top:3px}
 
-/* ---------- phase overview ---------- */
+.today{background:var(--surface);border:1px solid var(--rule);border-radius:6px;box-shadow:var(--shadow);overflow:hidden}
+.today-top{display:flex;gap:18px;align-items:center;flex-wrap:wrap;padding:18px 20px;background:var(--outremer-soft);border-bottom:1px solid var(--rule)}
+.today-wk{font-family:"IBM Plex Mono",monospace;font-size:2.1rem;font-weight:600;line-height:1;color:var(--outremer);font-variant-numeric:tabular-nums}
+.today-top div h3{font-family:"Spectral",serif;font-size:1.05rem;font-weight:600}
+.today-top div p{font-size:.86rem;color:var(--ink-2)}
+.today-body{padding:6px 20px 18px}
+.datefield{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 20px;border-top:1px solid var(--rule-soft);font-size:.86rem;color:var(--ink-2)}
+.datefield input{font-family:"IBM Plex Mono",monospace;font-size:.86rem;padding:6px 8px;border:1px solid var(--rule);border-radius:4px;background:var(--surface-2);color:var(--ink)}
+
 .phases{display:flex;flex-direction:column;gap:12px}
-.phase-row{
-  display:grid;grid-template-columns:62px 1fr;gap:16px;align-items:start;
-  background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px 18px;
-}
-.badge{
-  font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:1.05rem;
-  display:grid;place-items:center;height:44px;border-radius:4px;
-  background:var(--outremer-soft);color:var(--outremer);
-}
+.phase-row{display:grid;grid-template-columns:62px 1fr;gap:16px;align-items:start;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px 18px}
+.badge{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:1.05rem;display:grid;place-items:center;height:44px;border-radius:4px;background:var(--outremer-soft);color:var(--outremer)}
 .phase-row h3{font-family:"Spectral",serif;font-size:1.06rem;font-weight:600}
 .phase-row .rng{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);letter-spacing:.05em}
 .phase-row p{font-size:.92rem;color:var(--ink-2);margin-top:6px;max-width:64ch}
@@ -192,24 +165,15 @@ h2{font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:clamp(1.6rem,4.4vw,2.
 .minibar .track{height:5px}
 .minibar span{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);font-variant-numeric:tabular-nums}
 
-/* ---------- filters + weeks ---------- */
 .filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
-.chip{
-  font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.04em;
-  padding:7px 13px;border-radius:99px;border:1px solid var(--rule);
-  background:var(--surface);color:var(--ink-2);cursor:pointer;
-}
+.chip{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.04em;padding:7px 13px;border-radius:99px;border:1px solid var(--rule);background:var(--surface);color:var(--ink-2);cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--outremer);border-color:var(--outremer);color:var(--paper)}
 
 .weeks{display:flex;flex-direction:column;gap:8px}
 .week{background:var(--surface);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
 .week.is-done{border-color:color-mix(in srgb, var(--vert) 45%, var(--rule))}
 .week.is-now{border-color:var(--outremer);box-shadow:0 0 0 1px var(--outremer)}
-.week-btn{
-  width:100%;display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;
-  padding:13px 16px;background:none;border:0;cursor:pointer;text-align:left;
-  font-family:inherit;color:inherit;
-}
+.week-btn{width:100%;display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;padding:13px 16px;background:none;border:0;cursor:pointer;text-align:left;font-family:inherit;color:inherit}
 .week-btn:hover{background:var(--surface-2)}
 .wno{font-family:"IBM Plex Mono",monospace;font-size:1.02rem;font-weight:600;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .week.is-done .wno{color:var(--vert)}
@@ -217,6 +181,7 @@ h2{font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:clamp(1.6rem,4.4vw,2.
 .wtitle{font-size:1rem;font-weight:600;line-height:1.3}
 .wtags{display:flex;gap:8px;align-items:center;margin-top:3px;flex-wrap:wrap}
 .lvl{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;padding:2px 6px;border-radius:3px;background:var(--outremer-soft);color:var(--outremer)}
+.exam-tag{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;padding:2px 6px;border-radius:3px;background:var(--garance);color:var(--paper)}
 .now-tag{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;padding:2px 6px;border-radius:3px;background:var(--outremer);color:var(--paper)}
 .count{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums;white-space:nowrap}
 .week.is-done .count{color:var(--vert)}
@@ -225,36 +190,30 @@ h2{font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:clamp(1.6rem,4.4vw,2.
 .tasks{display:flex;flex-direction:column}
 .task{display:grid;grid-template-columns:22px 52px 1fr;gap:12px;align-items:start;padding:11px 0;border-bottom:1px solid var(--rule-soft)}
 .task:last-child{border-bottom:0}
-.task input{
-  appearance:none;-webkit-appearance:none;width:18px;height:18px;margin:2px 0 0;
-  border:1.5px solid var(--rule);border-radius:4px;background:var(--surface-2);cursor:pointer;position:relative;
-}
+.task input{appearance:none;-webkit-appearance:none;width:18px;height:18px;margin:2px 0 0;border:1.5px solid var(--rule);border-radius:4px;background:var(--surface-2);cursor:pointer;position:relative}
 .task input:checked{background:var(--vert);border-color:var(--vert)}
-.task input:checked::after{
-  content:"";position:absolute;left:5px;top:1.5px;width:5px;height:10px;
-  border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg);
-}
+.task input:checked::after{content:"";position:absolute;left:5px;top:1.5px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg)}
 .task .dw{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);padding-top:4px}
 .task .tx{font-size:.94rem;line-height:1.5}
-.task .tx b{display:block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--outremer);font-weight:500;margin-bottom:2px}
+.task .tx > b{display:block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--outremer);font-weight:500;margin-bottom:2px}
 .task input:checked ~ .tx{color:var(--ink-3)}
 .task input:checked ~ .tx > b{color:var(--ink-3)}
+.vid{display:inline-flex;align-items:baseline;gap:6px;margin-top:5px;font-size:.88rem;border-bottom:1px solid color-mix(in srgb, var(--outremer) 30%, transparent)}
+.vid::before{content:"▶";font-size:.62rem;color:var(--garance);position:relative;top:-1px}
 
-/* ---------- milestones ---------- */
-.miles{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--rule);padding-left:0}
+.miles{display:flex;flex-direction:column;border-left:2px solid var(--rule)}
 .mile{position:relative;padding:0 0 26px 26px}
 .mile:last-child{padding-bottom:0}
-.mile::before{
-  content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:99px;
-  background:var(--paper);border:2px solid var(--outremer);
-}
+.mile::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:99px;background:var(--paper);border:2px solid var(--outremer)}
+.mile.hot::before{border-color:var(--garance);background:var(--garance)}
 .mile .when{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--outremer)}
+.mile.hot .when{color:var(--garance)}
 .mile h3{font-size:1.02rem;font-weight:600;margin-top:3px}
 .mile p{font-size:.92rem;color:var(--ink-2);margin-top:4px;max-width:62ch}
 
-/* ---------- library ---------- */
 .lib{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:14px}
 .libcard{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:17px 19px}
+.libcard.wide{grid-column:1/-1}
 .libcard h3{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--garance);margin-bottom:11px}
 .libcard ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
 .libcard li{font-size:.9rem;line-height:1.45;padding-left:13px;position:relative;color:var(--ink-2)}
@@ -280,7 +239,7 @@ footer p + p{margin-top:10px}
 <body>
 <header class="topbar">
   <div class="wrap">
-    <div class="brand">Objectif&nbsp;C1 · 18&nbsp;mois</div>
+    <div class="brand">TCF&nbsp;Canada · NCLC&nbsp;7 · 18&nbsp;mois</div>
     <div class="meter">
       <div class="track"><i id="bar"></i></div>
       <div class="pct" id="pct">0 / 546</div>
@@ -292,28 +251,76 @@ footer p + p{margin-top:10px}
 <main class="wrap">
 
   <section class="masthead">
-    <div class="eyebrow">Plan d'étude · 78 semaines</div>
-    <h1>Do zero ao <em>francês avançado</em> em 78 semanas</h1>
-    <p class="lede">Um currículo semanal completo — gramática, vocabulário, vídeo, áudio, música, escrita e fala — com 7 tarefas por semana, uma para cada dia. Marque o que fizer: o progresso fica salvo.</p>
+    <div class="eyebrow">Plan d'étude · 78 semaines · objectif NCLC 7</div>
+    <h1>Do zero ao <em>TCF Canada</em> em 78 semanas</h1>
+    <p class="lede">Um currículo semanal completo, construído em torno das quatro provas do TCF Canada. Sete tarefas por semana, uma para cada dia, cada tema com uma aula em vídeo do mesmo professor. Marquem o que fizerem: o progresso fica salvo.</p>
 
     <dl class="facts">
       <div class="fact"><dt>Duração</dt><dd>78 semanas<small>18 meses, 5 fases</small></dd></div>
       <div class="fact"><dt>Carga diária</dt><dd>30 a 90 min<small>~30 min é o piso, 60 min o padrão</small></dd></div>
-      <div class="fact"><dt>Total estimado</dt><dd>≈ 600 horas<small>1 tarefa por dia, 7 por semana</small></dd></div>
-      <div class="fact"><dt>Meta final</dt><dd>B2 sólido → C1<small>DELF B2 no mês 15, DALF C1 no 18</small></dd></div>
+      <div class="fact"><dt>Prova</dt><dd>TCF Canada<small>4 provas obrigatórias, semana 66</small></dd></div>
+      <div class="fact"><dt>Meta</dt><dd>NCLC 7 nas 4<small>NCLC 9 como alvo esticado</small></dd></div>
     </dl>
 
-    <p class="note"><b>Um ajuste honesto de expectativa antes de começar.</b> As referências oficiais (CEFR e o Foreign Service Institute) estimam 600–750 horas de estudo para chegar ao nível profissional em francês. Com 1h/dia você terá ~550–600 horas em 18 meses — o suficiente para um <b>B2 muito sólido</b>, com leitura e compreensão auditiva já em C1, e o C1 completo ao alcance se você somar conversação frequente. O plano abaixo mira exatamente isso: B2 certificável no mês 15 e ataque ao C1 nos últimos três meses. Se quiser o C1 garantido, o que muda não é o conteúdo — é dobrar o tempo de fala com um tutor.</p>
+    <p class="note blue"><b>Confirmem qual é a prova certa antes de pagar.</b> <b>TCF Canada</b> é a versão aceita pelo IRCC para residência permanente federal — Entrada Expressa, PNPs fora do Quebec, e também para cidadania. Se o processo de vocês for pelos programas <b>do próprio Quebec</b> (PSTQ/Arrima), a prova exigida é o <b>TCF Québec</b>, que é outra inscrição. Os dois são aplicados pela France Éducation international, e o formato das provas é praticamente o mesmo — então este plano serve para os dois casos. O que muda é qual você agenda.</p>
+
+    <p class="note"><b>Um ajuste honesto de expectativa.</b> As referências de carga horária (CEFR, FSI) apontam 600–750 horas de estudo para atingir nível profissional em francês. Com 1h/dia vocês terão ~550–600 horas em 18 meses: isso é suficiente para <b>NCLC 7 nas quatro competências</b>, que é o patamar que desbloqueia os sorteios da categoria de francês na Entrada Expressa. Chegar a <b>NCLC 9</b> (pontuação máxima de idioma) é possível, mas depende de uma coisa só: horas de fala com gente de verdade. O plano coloca tutor a partir da semana 12 e dobra a dose na semana 40. Se cortarem essa parte, a leitura e a escuta chegam lá e a fala fica atrás.</p>
   </section>
 
   <section class="block">
-    <div class="head"><h2>Onde você está hoje</h2><span class="fr">La semaine en cours</span></div>
+    <div class="head"><h2>A prova, em detalhe</h2><span class="fr">Les quatre épreuves</span></div>
+    <p class="sub">As quatro provas são obrigatórias para imigração. Não existe aprovado ou reprovado: cada prova devolve um nível, e é o nível mais baixo das quatro que define o que vocês podem usar no processo. Por isso o plano treina as quatro em paralelo desde o começo, em vez de deixar a produção para o fim.</p>
+
+    <div class="epreuves">
+      <div class="ep">
+        <div class="code">CO</div>
+        <h3>Compréhension orale</h3>
+        <div class="spec">39 questões · 35 min</div>
+        <p>Múltipla escolha, dificuldade crescente do A1 ao C2. Áudio toca uma única vez. O inimigo aqui é o relógio, não o vocabulário.</p>
+      </div>
+      <div class="ep">
+        <div class="code">CE</div>
+        <h3>Compréhension écrite</h3>
+        <div class="spec">39 questões · 60 min</div>
+        <p>Múltipla escolha, também progressiva. Anúncios e mensagens curtas no início, textos argumentativos e literários no fim.</p>
+      </div>
+      <div class="ep">
+        <div class="code">EE</div>
+        <h3>Expression écrite</h3>
+        <div class="spec">3 tarefas · 60 min</div>
+        <p>Tarefa 1: mensagem curta. Tarefa 2: relato ou artigo com opinião. Tarefa 3: confrontar dois pontos de vista e posicionar-se. Formato rígido — treinável.</p>
+      </div>
+      <div class="ep">
+        <div class="code">EO</div>
+        <h3>Expression orale</h3>
+        <div class="spec">3 tarefas · 12 min</div>
+        <p>Tarefa 1: entrevista dirigida, sem preparo. Tarefa 2: simulação em interação, com perguntas suas. Tarefa 3: ponto de vista sobre um tema, monólogo.</p>
+      </div>
+    </div>
+
+    <div class="nclc">
+      <table>
+        <thead><tr><th>Nível</th><th>CEFR aprox.</th><th>O que isso significa no processo</th></tr></thead>
+        <tbody>
+          <tr><td>NCLC 4–5</td><td>A2 / B1</td><td>Pontos parciais de segundo idioma no CRS. Ainda fora das categorias de francês.</td></tr>
+          <tr><td>NCLC 6</td><td>B1+</td><td>Melhora o CRS, mas não atinge o corte das categorias de francês.</td></tr>
+          <tr class="key"><td>NCLC 7</td><td>B2</td><td>O patamar-alvo deste plano. Nas quatro competências, é o que habilita a categoria de competência em francês da Entrada Expressa.</td></tr>
+          <tr><td>NCLC 9–10</td><td>C1</td><td>Pontuação máxima de idioma no CRS. O alvo esticado das últimas 12 semanas.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note"><b>Verifiquem os números na fonte antes de decidir qualquer coisa.</b> As regras de pontuação e os cortes das categorias mudam de ano para ano, e as tabelas de equivalência TCF → NCLC são publicadas oficialmente. Confiram em <a href="https://www.canada.ca/fr/immigration-refugies-citoyennete.html" target="_blank" rel="noopener">canada.ca</a> (equivalências e pontuação) e em <a href="https://www.france-education-international.fr/test/tcf-canada" target="_blank" rel="noopener">france-education-international.fr</a> (formato, datas e centros). Os resultados valem 2 anos e existe um prazo mínimo entre tentativas — confirmem com o centro onde forem se inscrever.</p>
+  </section>
+
+  <section class="block">
+    <div class="head"><h2>Onde vocês estão hoje</h2><span class="fr">La semaine en cours</span></div>
     <div class="today" id="today"></div>
   </section>
 
   <section class="block">
     <div class="head"><h2>A rotina diária</h2><span class="fr">Le rythme quotidien</span></div>
-    <p class="sub">Escolha o bloco pelo tempo que o dia permite. O essencial é nunca zerar: um dia de 30 minutos vale muito mais que um dia pulado, porque o que consolida idioma é frequência, não volume.</p>
+    <p class="sub">Escolham o bloco pelo tempo que o dia permite. O essencial é nunca zerar: um dia de 30 minutos vale muito mais que um dia pulado, porque o que consolida idioma é frequência, não volume.</p>
     <div class="tiers">
       <div class="tier">
         <h3>30 min</h3><div class="when">dia corrido — o mínimo inegociável</div>
@@ -324,128 +331,152 @@ footer p + p{margin-top:10px}
         </ul>
       </div>
       <div class="tier">
-        <h3>60 min</h3><div class="when">o padrão — mire aqui</div>
+        <h3>60 min</h3><div class="when">o padrão — mirem aqui</div>
         <ul>
           <li><b>10 min</b><span>Anki completo</span></li>
-          <li><b>25 min</b><span>A tarefa do dia + exercícios</span></li>
+          <li><b>25 min</b><span>A tarefa do dia, inteira e cronometrada</span></li>
           <li><b>15 min</b><span>Input livre: vídeo, podcast, série</span></li>
-          <li><b>10 min</b><span>Produção: escrever ou falar em voz alta</span></li>
+          <li><b>10 min</b><span>Falar em voz alta sobre o que acabou de ver</span></li>
         </ul>
       </div>
       <div class="tier">
         <h3>90 min</h3><div class="when">fim de semana e dias livres</div>
         <ul>
           <li><b>15 min</b><span>Anki + cartões novos da semana</span></li>
-          <li><b>30 min</b><span>Gramática do dia com exercícios escritos</span></li>
-          <li><b>25 min</b><span>Input longo com anotação de vocabulário</span></li>
-          <li><b>20 min</b><span>Produção escrita ou conversa com tutor</span></li>
+          <li><b>30 min</b><span>A tarefa do dia com exercícios escritos</span></li>
+          <li><b>25 min</b><span>Simulado no formato da prova</span></li>
+          <li><b>20 min</b><span>Produção: escrita corrigida ou tutor</span></li>
         </ul>
       </div>
     </div>
 
     <div class="rhythm">
-      <div class="day"><div class="d">Lundi</div><div class="n">Gramática</div><div class="h">curso + exercícios</div></div>
+      <div class="day"><div class="d">Lundi</div><div class="n">Gramática</div><div class="h">aula em vídeo + exercícios</div></div>
       <div class="day"><div class="d">Mardi</div><div class="n">Vocabulário</div><div class="h">30 cartões novos</div></div>
-      <div class="day"><div class="d">Mercredi</div><div class="n">Vídeo</div><div class="h">canal do bloco</div></div>
-      <div class="day"><div class="d">Jeudi</div><div class="n">Áudio</div><div class="h">podcast / rádio</div></div>
+      <div class="day"><div class="d">Mercredi</div><div class="n">Formato TCF</div><div class="h">CO ou CE cronometrada</div></div>
+      <div class="day"><div class="d">Jeudi</div><div class="n">Imersão</div><div class="h">podcast, rádio, série</div></div>
       <div class="day"><div class="d">Vendredi</div><div class="n">Música</div><div class="h">letra + pronúncia</div></div>
-      <div class="day"><div class="d">Samedi</div><div class="n">Produção</div><div class="h">escrever ou falar</div></div>
+      <div class="day"><div class="d">Samedi</div><div class="n">Produção TCF</div><div class="h">EE ou EO cronometrada</div></div>
       <div class="day"><div class="d">Dimanche</div><div class="n">Revisão</div><div class="h">jogos + atrasados</div></div>
     </div>
+
+    <p class="note blue" style="margin-top:26px"><b>Por que duas vezes por semana no formato da prova?</b> Porque CO e CE são múltipla escolha contra o relógio, e EE e EO têm formato fixo. São habilidades treináveis, independentes do seu nível de francês: dá para saber francês e perder pontos por não conhecer o formato. Quarta e sábado existem justamente para isso não acontecer.</p>
   </section>
 
   <section class="block">
     <div class="head"><h2>As cinco fases</h2><span class="fr">Les cinq étapes</span></div>
-    <p class="sub">Cada fase termina em uma semana de consolidação com simulado do exame correspondente. Só avance depois de fazer o simulado — ele é o que mostra se a base está de pé.</p>
+    <p class="sub">Cada fase termina em uma semana de consolidação com simulado no formato TCF. Só avancem depois de fazer o simulado — ele é o que mostra se a base está de pé.</p>
     <div class="phases" id="phases"></div>
   </section>
 
   <section class="block">
     <div class="head"><h2>O plano, semana por semana</h2><span class="fr">Le programme détaillé</span></div>
-    <p class="sub">Sete tarefas por semana, uma por dia. Clique na semana para abrir e marcar. Se atrasar, não reorganize nada: faça a próxima tarefa não marcada e siga.</p>
+    <p class="sub">Sete tarefas por semana, uma por dia. Cliquem na semana para abrir e marcar. Se atrasarem, não reorganizem nada: façam a próxima tarefa não marcada e sigam. As aulas de gramática são todas do mesmo professor, Pierre, para vocês se acostumarem com uma voz e um método só.</p>
     <div class="filters" id="filters"></div>
     <div class="weeks" id="weeks"></div>
   </section>
 
   <section class="block">
-    <div class="head"><h2>Marcos e exames</h2><span class="fr">Les jalons</span></div>
-    <p class="sub">Os exames DELF/DALF são aplicados no Brasil pela Aliança Francesa e pelos Institutos Franceses, em várias datas por ano. Inscrever-se com antecedência funciona como prazo real e muda a qualidade do estudo.</p>
+    <div class="head"><h2>Marcos e datas</h2><span class="fr">Les jalons</span></div>
+    <p class="sub">O TCF Canada tem sessões em várias datas por ano, no Brasil pelas Alianças Francesas e centros credenciados. Vagas esgotam com antecedência — agendem a prova da semana 66 com pelo menos três meses de folga.</p>
     <div class="miles">
-      <div class="mile"><div class="when">Semana 14 · mês 3</div><h3>Simulado DELF A1</h3><p>Você sobrevive a uma conversa básica: apresentar-se, pedir comida, dar direções, falar do passado recente. ~600 palavras ativas.</p></div>
-      <div class="mile"><div class="when">Semana 30 · mês 7</div><h3>Simulado DELF A2 + primeira conversa longa</h3><p>15 minutos de conversa sem travar sobre rotina, passado, planos e opiniões simples. É aqui que a maioria desiste — passe dessa semana e o resto flui.</p></div>
-      <div class="mile"><div class="when">Semana 48 · mês 11</div><h3>DELF B1 — exame oficial</h3><p>Autonomia: você entende conteúdo nativo com apoio, defende uma opinião e escreve textos estruturados. Vale inscrever-se de verdade nesta etapa.</p></div>
-      <div class="mile"><div class="when">Semana 66 · mês 15</div><h3>DELF B2 — exame oficial (o marco que importa)</h3><p>Nível aceito por universidades francesas e para imigração. Diploma vitalício, sem validade a expirar. É o objetivo realista e forte deste plano.</p></div>
-      <div class="mile"><div class="when">Semana 78 · mês 18</div><h3>Simulado DALF C1 + plano de manutenção</h3><p>Avalie honestamente as quatro competências. Se leitura e escuta estiverem em C1 e a fala em B2 alto, inscreva-se no DALF para 3–6 meses depois e siga com a rotina de manutenção.</p></div>
+      <div class="mile"><div class="when">Semana 16 · mês 3</div><h3>Diagnóstico A1</h3><p>Primeiro contato com o formato: uma CE de nível A1 cronometrada. O objetivo não é acertar, é entender como a prova pergunta.</p></div>
+      <div class="mile"><div class="when">Semana 32 · mês 7</div><h3>Simulado A2/B1 + EE tarefa 1</h3><p>CO e CE de nível B1 cronometradas e a primeira tarefa de expressão escrita no formato oficial. Expectativa realista: NCLC 4–5.</p></div>
+      <div class="mile"><div class="when">Semana 50 · mês 11</div><h3>Simulado B1/B2 completo</h3><p>As quatro provas em condições reais, num sábado. Expectativa: NCLC 5–6. É aqui que se descobre qual das quatro está atrasada — e o resto do plano se ajusta a ela.</p></div>
+      <div class="mile"><div class="when">Semana 62 · mês 14</div><h3>Simulado de confirmação</h3><p>Se as quatro baterem NCLC 7 aqui, confirmem a inscrição. Se uma ficar atrás, as semanas 63–65 viram treino exclusivo dela.</p></div>
+      <div class="mile hot"><div class="when">Semana 66 · mês 15</div><h3>TCF Canada — prova oficial</h3><p>As quatro provas. Meta: NCLC 7 em todas. Com resultado em mãos, já dá para montar o perfil de Entrada Expressa enquanto se estuda para melhorar a nota.</p></div>
+      <div class="mile"><div class="when">Semanas 67–77 · meses 16–18</div><h3>Empurrão para NCLC 9</h3><p>Prosódia, francês falado real, vocabulário abstrato e simulados de nível C1/C2. Cada nível acima do 7 vale pontos no CRS.</p></div>
+      <div class="mile hot"><div class="when">Semana 78 · mês 18</div><h3>Segunda tentativa (se valer a pena)</h3><p>Com NCLC 7 garantido no bolso, a segunda prova é só upside. Respeitem o prazo mínimo entre tentativas e reservem a data com antecedência.</p></div>
     </div>
   </section>
 
   <section class="block">
     <div class="head"><h2>Biblioteca de recursos</h2><span class="fr">La boîte à outils</span></div>
-    <p class="sub">Tudo que o plano cita, reunido. Não tente usar todos: escolha um de cada categoria e troque só quando cansar.</p>
+    <p class="sub">Tudo que o plano cita, reunido. Não tentem usar todos: escolham um de cada categoria e troquem só quando cansarem.</p>
     <div class="lib">
+      <div class="libcard wide"><h3>Os três canais que sustentam o plano</h3><ul>
+        <li><b><a href="https://www.youtube.com/@Francaisavecpierre" target="_blank" rel="noopener">Français avec Pierre</a></b> — o professor de todas as aulas de gramática, vocabulário e pronúncia das 78 semanas. Uma voz, um método, do alfabeto ao registro literário. Tem site com PDFs e exercícios para cada vídeo.</li>
+        <li><b><a href="https://www.youtube.com/@TCFCANDAC2-f1e" target="_blank" rel="noopener">TCF CANDA C2</a></b> — banco de simulados no formato oficial, organizado por prova e por nível: CE de A1 a C2, CO de B1 a C2, EE e EO por tarefa. É a fonte das tarefas de quarta e de sábado.</li>
+        <li><b><a href="https://www.youtube.com/@TCFLab" target="_blank" rel="noopener">TCF Lab</a></b> — simulações comentadas de expressão oral e escrita, com respostas-modelo por nível. Use para calibrar o que é resposta de NCLC 7 e o que é de NCLC 9.</li>
+      </ul></div>
+
+      <div class="libcard"><h3>Simulados e material oficial</h3><ul>
+        <li><b>France Éducation international</b> — provas de exemplo oficiais e a única descrição do formato em que se deve confiar.</li>
+        <li><b>RFI Savoirs / TV5Monde</b> — exercícios de CO e CE gratuitos por nível, no mesmo estilo de múltipla escolha.</li>
+        <li><b>Réussir le TCF</b> e <b>ABC TCF</b> (Didier / CLE) — livros de preparação com áudios e correções.</li>
+        <li><b>PrepMyFrench</b> — simulados cronometrados de TCF com correção automática.</li>
+      </ul></div>
+
       <div class="libcard"><h3>Curso e gramática</h3><ul>
         <li><b>Kwiziq French</b> — gramática adaptativa, testa e escolhe seu próximo ponto fraco. O melhor investimento pago do plano.</li>
-        <li><b>Grammaire Progressive du Français</b> (CLE) — débutant → intermédiaire → perfectionnement. É a espinha dorsal escrita.</li>
-        <li><b>Assimil — O Novo Francês sem Esforço</b> para os 6 primeiros meses, 1 lição por dia.</li>
-        <li><b>Lawless French</b> e <b>Le Point du FLE</b> — explicações e exercícios grátis para qualquer dúvida pontual.</li>
-        <li><b>TV5Monde Apprendre</b> e <b>Bonjour de France</b> — exercícios por nível, com vídeo autêntico.</li>
+        <li><b>Grammaire Progressive du Français</b> (CLE) — débutant → intermédiaire → perfectionnement.</li>
+        <li><b>Assimil — O Novo Francês sem Esforço</b> nos 6 primeiros meses, uma lição por dia.</li>
+        <li><b>Lawless French</b> e <b>Le Point du FLE</b> — consulta rápida para qualquer dúvida pontual.</li>
       </ul></div>
+
       <div class="libcard"><h3>Vocabulário</h3><ul>
-        <li><b>Anki</b> — insubstituível. Deck de frequência (French Frequency 5000) + seus próprios cartões com frases de contexto, nunca palavras soltas.</li>
-        <li><b>Clozemaster</b> — vocabulário em frases com lacuna; ótimo para os 5000–10000 mais frequentes.</li>
-        <li><b>Drops / Memrise</b> — para os dias de 30 minutos no celular.</li>
-        <li><b>Forvo</b> — ouvir qualquer palavra por nativos antes de gravar no Anki.</li>
-        <li><b>Reverso Context</b> e <b>Le Robert</b> — sempre em vez de tradutor simples.</li>
+        <li><b>Anki</b> — insubstituível. Deck de frequência (French Frequency 5000) mais os seus cartões, sempre com frase de contexto.</li>
+        <li><b>Clozemaster</b> — vocabulário em frases com lacuna, ótimo para os 5000–10000 mais frequentes.</li>
+        <li><b>Forvo</b> — ouvir a palavra por nativos antes de gravar no Anki.</li>
+        <li><b>Reverso Context</b>, <b>Le Robert</b>, <b>Usito</b> (dicionário do francês do Quebec).</li>
       </ul></div>
-      <div class="libcard"><h3>YouTube por nível</h3><ul>
-        <li><b>A1–A2:</b> Easy French (e Super Easy French), Learn French with Alexa, Alice Ayel, HelloFrench, Français avec Pierre.</li>
-        <li><b>A2–B1:</b> Piece of French, Comme une Française, Français Authentique, Extra French (sitcom didática).</li>
-        <li><b>B1–B2:</b> InnerFrench (o canal mais importante da fase), HugoDécrypte, Brut, Konbini.</li>
-        <li><b>B2–C1:</b> Arte, Thinkerview, Cyrus North, Monsieur Phi, Nota Bene, ScienceEtonnante, La Grande Librairie.</li>
+
+      <div class="libcard"><h3>Francês do Canadá</h3><ul>
+        <li><b>Radio-Canada</b> e <b>Télé-Québec</b> — jornais, documentários e podcasts. A partir da semana 51, vire a chave: rádio canadense em vez de francesa.</li>
+        <li><b>Séries:</b> District 31, M'entends-tu?, Les Pays d'en haut, Plan B.</li>
+        <li><b>Filmes:</b> C.R.A.Z.Y., Monsieur Lazhar, La Grande Séduction, Mommy.</li>
+        <li><b>Música:</b> Les Cowboys Fringants, Cœur de pirate, Pierre Lapointe, Charlotte Cardin, Klô Pelgag, Louis-Jean Cormier, Fouki.</li>
+        <li><b>Por quê:</b> não é sobre a prova, é sobre depois dela. Chegar no Canadá entendendo o sotaque de lá economiza meses de adaptação.</li>
       </ul></div>
+
       <div class="libcard"><h3>Podcasts</h3><ul>
-        <li><b>Iniciante:</b> Coffee Break French, Duolingo French Podcast, Little Talk in Slow French, One Thing In A French Day, News in Slow French.</li>
-        <li><b>Intermediário:</b> InnerFrench, Journal en français facile (RFI, diário de 10 min), Choses à Savoir.</li>
-        <li><b>Avançado:</b> Transfert, Affaires sensibles, Les Couilles sur la table, Le Code a changé, France Culture (Avec philosophie, Le Cours de l'histoire, LSD).</li>
+        <li><b>Iniciante:</b> Coffee Break French, Duolingo French Podcast, Little Talk in Slow French, One Thing In A French Day.</li>
+        <li><b>Intermediário:</b> InnerFrench, Journal en français facile (RFI, 10 min por dia), Choses à Savoir.</li>
+        <li><b>Avançado:</b> Transfert, Affaires sensibles, Le Code a changé, France Culture.</li>
+        <li><b>Canadense:</b> Les Années lumière, La Soirée est encore jeune, os balados da Radio-Canada.</li>
       </ul></div>
-      <div class="libcard"><h3>Séries e filmes</h3><ul>
-        <li><b>A1–A2:</b> Extra French, Peppa Pig em francês, Les Grandes Grandes Vacances, Miraculous.</li>
-        <li><b>B1:</b> Dix pour cent, Family Business, Lupin, HPI, Plan Cœur.</li>
+
+      <div class="libcard"><h3>Séries e filmes franceses</h3><ul>
+        <li><b>A1–A2:</b> Extra French, Peppa Pig em francês, Les Grandes Grandes Vacances.</li>
+        <li><b>B1:</b> Dix pour cent, Family Business, Lupin, HPI.</li>
         <li><b>B2–C1:</b> Le Bureau des Légendes, Engrenages, Baron Noir.</li>
-        <li><b>Filmes:</b> Intouchables, Le Fabuleux Destin d'Amélie Poulain, Les Choristes, Qu'est-ce qu'on a fait au Bon Dieu ?, La Haine, Portrait de la jeune fille en feu, Les Misérables (2019).</li>
+        <li><b>Filmes:</b> Intouchables, Amélie Poulain, Les Choristes, Qu'est-ce qu'on a fait au Bon Dieu ?, Portrait de la jeune fille en feu.</li>
       </ul></div>
+
       <div class="libcard"><h3>Jogos</h3><ul>
         <li><b>LyricsTraining</b> — preencher lacunas cantando; o melhor uso das músicas do plano.</li>
         <li><b>Sutom / Le Mot</b> — o Wordle francês, 3 minutos por dia.</li>
         <li><b>Babadum</b> — vocabulário visual rápido, 5 modos de jogo.</li>
         <li><b>Influent</b> (Steam) — caçar objetos e aprender substantivos e adjetivos.</li>
-        <li><b>Duolingo</b> — só como manutenção de streak e revisão leve, nunca como curso principal.</li>
-        <li><b>Jogos do TV5Monde</b> e <b>Quizlet Match</b> — conjugação e campos lexicais.</li>
+        <li><b>Duolingo</b> — só manutenção de streak, nunca como curso principal.</li>
       </ul></div>
+
       <div class="libcard"><h3>Leitura progressiva</h3><ul>
         <li><b>A1–A2:</b> Short Stories in French (Olly Richards), 1jour1actu, Le Petit Nicolas.</li>
-        <li><b>B1:</b> Le Petit Prince, No et moi (Delphine de Vigan), BD: Astérix, Titeuf.</li>
-        <li><b>B2:</b> Kiffe Kiffe demain (Faïza Guène), Ensemble c'est tout (Gavalda), Persepolis, L'Arabe du futur.</li>
-        <li><b>C1:</b> L'Étranger (Camus), La Gloire de mon père (Pagnol), Le Monde e Courrier International diariamente.</li>
+        <li><b>B1:</b> Le Petit Prince, No et moi, BD: Astérix, Titeuf.</li>
+        <li><b>B2:</b> Kiffe Kiffe demain, Ensemble c'est tout, Persepolis.</li>
+        <li><b>C1:</b> L'Étranger (Camus), Le Monde, Le Devoir e La Presse (jornais canadenses).</li>
       </ul></div>
+
       <div class="libcard"><h3>Falar com gente</h3><ul>
-        <li><b>iTalki / Preply</b> — 1 aula por semana a partir da semana 12, 2 por semana a partir da 40. É o item que decide se você chega ao C1.</li>
-        <li><b>Tandem / HelloTalk / Speaky</b> — troca gratuita, texto e áudio.</li>
-        <li><b>Speechling</b> — grava sua fala e um nativo corrige.</li>
-        <li><b>Aliança Francesa</b> local — clubes de conversação e as provas DELF/DALF.</li>
+        <li><b>iTalki / Preply</b> — 1 aula por semana da semana 12, 2 por semana da 40. É o item que decide se vocês chegam ao NCLC 9. Procurem tutores que preparam para TCF e, se possível, quebequenses.</li>
+        <li><b>Entre vocês dois</b> — uma refeição por semana só em francês, desde a semana 8. Ridículo no começo, decisivo no fim.</li>
+        <li><b>Tandem / HelloTalk</b> — troca gratuita, texto e áudio.</li>
+        <li><b>Aliança Francesa</b> local — clubes de conversação e a inscrição na prova.</li>
       </ul></div>
+
       <div class="libcard"><h3>Ferramentas</h3><ul>
-        <li><b>Language Reactor</b> — legenda dupla no Netflix e YouTube, exporta vocabulário direto para o Anki.</li>
-        <li><b>Readlang</b> — clicar para traduzir enquanto lê na web.</li>
+        <li><b>Language Reactor</b> — legenda dupla no Netflix e YouTube, exporta vocabulário para o Anki.</li>
         <li><b>Le Conjugueur</b> — tabela de conjugação de qualquer verbo.</li>
-        <li><b>BonPatron / Antidote</b> — corretor de francês para seus textos.</li>
-        <li><b>ABC DELF</b> (A1 a C1) — livros oficiais de simulado, um por fase.</li>
+        <li><b>BonPatron / Antidote</b> — corretor para os textos de sábado.</li>
+        <li><b>Cronômetro</b> — o mais subestimado de todos. Toda tarefa de quarta e sábado é cronometrada.</li>
       </ul></div>
     </div>
   </section>
 
   <footer>
-    <p><b>Três regras que valem mais que o plano.</b> 1) Nunca dois dias seguidos sem nada — se falhar um dia, o dia seguinte é obrigatório, mesmo em 10 minutos. 2) Fale desde a primeira semana, em voz alta, sozinho se preciso; vergonha adiada vira sotaque fossilizado. 3) Input com prazer conta como estudo: uma série em francês vale mais que meia hora de exercício feito com raiva.</p>
+    <p><b>Quatro regras que valem mais que o plano.</b> 1) Nunca dois dias seguidos sem nada — se falharem um dia, o seguinte é obrigatório, mesmo em 10 minutos. 2) Cronometrem quarta e sábado sempre; a prova é contra o relógio e o relógio se treina. 3) Falem desde a primeira semana, um com o outro, em voz alta; vergonha adiada vira sotaque fossilizado. 4) Input com prazer conta como estudo: uma série em francês vale mais que meia hora de exercício feito com raiva.</p>
+    <p>As duas lacunas que este plano assume: o canal do Pierre não tem aula dedicada a <em>gérondif</em> nem a <em>voz passiva</em> — nessas duas semanas o link leva à busca dentro do canal, e o material escrito supre. Todo o resto são vídeos verificados um a um.</p>
     <p>Suas marcações ficam salvas no navegador deste aparelho. Use o backup logo abaixo para levá-las a outro celular ou computador.</p>
   </footer>
 </main>
@@ -455,121 +486,159 @@ footer p + p{margin-top:10px}
   "use strict";
 
   var PHASES = [
-    {id:"A1", name:"Fundamentos", fr:"Les bases", from:1, to:14,
-     desc:"Sons, presente, passado e futuro próximo. No fim desta fase você conversa sobre si, sua rotina e seu fim de semana."},
-    {id:"A2", name:"Sobrevivência", fr:"L'autonomie de base", from:15, to:30,
-     desc:"Imparfait, pronomes, futuro, condicional e relativos. Você narra, compara, opina e resolve problemas práticos."},
-    {id:"B1", name:"Autonomia", fr:"L'indépendance", from:31, to:48,
-     desc:"Subjonctif, hipóteses, voz passiva e conectores. Você acompanha conteúdo nativo e argumenta com estrutura."},
-    {id:"B2", name:"Fluência", fr:"La maîtrise", from:49, to:66,
-     desc:"Registros, relativos compostos, discurso indireto, idiomatismos e debate. O nível que abre universidade e trabalho."},
-    {id:"C1", name:"Domínio", fr:"L'aisance", from:67, to:78,
-     desc:"Tempos literários, estilística, síntese de documentos e vocabulário abstrato. Precisão, nuance e velocidade real."}
+    {id:"A1", name:"Fundamentos", fr:"Les bases", from:1, to:16,
+     desc:"Sons, presente, passado e futuro. No fim da fase vocês falam de si, da rotina e do fim de semana — e já sabem como o TCF pergunta."},
+    {id:"A2", name:"Autonomia básica", fr:"La survie", from:17, to:32,
+     desc:"Imparfait, pronomes, futuro, condicional e relativos. Primeira tarefa de expressão escrita no formato oficial. Alvo: NCLC 4–5."},
+    {id:"B1", name:"Independência", fr:"L'indépendance", from:33, to:50,
+     desc:"Subjonctif, hipóteses, conectores e argumentação. Primeiro simulado completo das quatro provas. Alvo: NCLC 5–6."},
+    {id:"B2", name:"O patamar NCLC 7", fr:"Le palier", from:51, to:66,
+     desc:"Registros, síntese, idiomatismos e treino intensivo das quatro provas. Termina com o TCF Canada oficial. Alvo: NCLC 7."},
+    {id:"C1", name:"Empurrão final", fr:"L'aisance", from:67, to:78,
+     desc:"Prosódia, francês falado real, vocabulário abstrato e simulados C1/C2. Cada nível acima do 7 vale pontos. Alvo: NCLC 9."}
   ];
 
+  // Playlists verificadas dos canais de simulado TCF Canada
+  var PL = {
+    ceA1:["PLL9piQUPwm11ioSQEbXU92S9yAdjT807S","Simulados CE — nível A1"],
+    ceA2:["PLL9piQUPwm11fkiNpcubR-b4830GucsU1","Simulados CE — nível A2"],
+    ceB1:["PLL9piQUPwm11bY-EtEDymfn2hfZn0gN2D","Simulados CE — nível B1"],
+    ceB2:["PLL9piQUPwm11BhmosrNj86QEcb3MaveSW","Simulados CE — nível B2"],
+    ceC1:["PLL9piQUPwm11PGi7ckZE9KkYpsoDcQ2Rz","Simulados CE — nível C1"],
+    ceC2:["PLL9piQUPwm123e_J7o8RG5rwIDJYo8xLV","Simulados CE — nível C2"],
+    coB1:["PLL9piQUPwm13Zmy8Yao32i_WiozTWgpDq","Simulados CO — nível B1"],
+    coB2:["PLL9piQUPwm13J7pZfsdSDM6KZnTs0uc_K","Simulados CO — nível B2"],
+    coC1:["PLL9piQUPwm13eYAiaejyzgIQCWM-aDXEc","Simulados CO — nível C1"],
+    coC2:["PLL9piQUPwm12r6h2GxzvPZyVHrqe1Vizs","Simulados CO — nível C2"],
+    ee2:["PLL9piQUPwm13M8Ts_XcG_BzvGAMgrIDSr","Modelos de EE — tarefa 2"],
+    ee3:["PLL9piQUPwm102rcEaxEvEa0rvsUUc-I5Q","Modelos de EE — tarefa 3"],
+    eeLab:["PLrfznrpDzUBl18CweVb-dtqS2koloPppS","EE comentada — TCF Lab"],
+    eo2:["PLrfznrpDzUBm3XfYtD42znv0g58eXzVOn","Modelos de EO — tarefa 2"],
+    eo3:["PLL9piQUPwm13aNCNC2pd8b8ljN2nCm6XB","Modelos de EO — tarefa 3"],
+    eo3b:["PLrfznrpDzUBmUyW8RqnU_Mb4LwQucLgr-","EO tarefa 3 comentada — TCF Lab"],
+    eoAll:["PLrfznrpDzUBlLC6cHmODvOXYMmMm-25jF","EO completa comentada — TCF Lab"],
+    method:["PLcoQWyFpRIxia__8_HhpiyvI41ZC1eEu3","Como aprender francês — Pierre"]
+  };
+
+  // w=semana p=fase t=tema g=gramática y=vídeo yt=título do vídeo
+  // l=vocabulário yv/yvt=vídeo de vocabulário c=tarefa TCF cp=playlist
+  // a=imersão m=música pr=produção pp=playlist de produção
   var W = [
-    {w:1,p:"A1",t:"Sons, alfabeto e primeiras frases",g:"Alfabeto e os sons do francês (vogais nasais, R, U); être e avoir no presente; pronomes sujeito; números 0–20",l:"Saudações, apresentar-se, objetos da sala de aula",v:"Easy French — Super Easy French #1 a #3",a:"Coffee Break French — temporada 1, lições 1 a 3",m:"Indila — Dernière danse",pr:"Gravar 45s se apresentando: nome, idade, nacionalidade, profissão"},
-    {w:2,p:"A1",t:"Artigos, gênero e número",g:"Artigos definidos e indefinidos; gênero dos substantivos; plural; diferença entre c'est e il est",l:"Países, nacionalidades, línguas, números 20–100",v:"Learn French with Alexa — playlist de iniciante (artigos e gênero)",a:"Duolingo French Podcast — 2 episódios com transcrição",m:"Zaz — Je veux",pr:"Escrever 10 frases com 'Je suis…' e 'Il est…' e ler em voz alta gravando"},
-    {w:3,p:"A1",t:"Verbos em -ER e negação",g:"Conjugação dos verbos regulares em -ER; negação ne… pas; advérbios de frequência",l:"Profissões, gostos, atividades cotidianas",v:"Français avec Pierre — Les verbes du 1er groupe",a:"Little Talk in Slow French — episódios 1 e 2",m:"Louane — Avenir",pr:"Texto de 60 palavras: 'Ma journée typique'"},
-    {w:4,p:"A1",t:"Fazer perguntas",g:"As três formas de pergunta (entonação, est-ce que, inversão); qui, que, où, quand, comment, pourquoi, combien",l:"Família, adjetivos possessivos, estado civil",v:"Easy French — entrevistas de rua #1 e #2, com legendas",a:"Coffee Break French — lições 4 a 6",m:"Stromae — Papaoutai",pr:"Escrever 10 perguntas, respondê-las e testá-las com alguém no HelloTalk"},
-    {w:5,p:"A1",t:"Descrever pessoas",g:"Adjetivos: gênero, número e posição; os irregulares beau, nouveau, vieux",l:"Cores, aparência física, personalidade, roupas básicas",v:"Alice Ayel — histórias com input compreensível (3 vídeos)",a:"One Thing In A French Day — 3 episódios",m:"Angèle — Balance ton quoi",pr:"Descrever três pessoas da sua família em 100 palavras"},
-    {w:6,p:"A1",t:"Cidade e deslocamentos",g:"aller, venir, faire, prendre; preposições de lugar (à, au, aux, en, chez); il y a",l:"Cidade, lojas, transporte, pedir e dar direções",v:"Extra French — episódios 1 e 2",a:"Français avec Pierre — podcast para iniciantes, 2 episódios",m:"Vianney — Je m'en vais",pr:"Gravar o caminho da sua casa até o mercado, com nomes de ruas e direções"},
-    {w:7,p:"A1",t:"Rotina e horas",g:"Verbos em -IR e -RE (finir, partir, attendre); verbos pronominais (se lever, se coucher); dizer as horas",l:"Rotina, momentos do dia, dias da semana",v:"HelloFrench — la routine quotidienne",a:"Little Talk in Slow French — episódios 3 a 5",m:"Julien Doré — Nous",pr:"Gravar 90s descrevendo sua rotina de segunda a sexta"},
-    {w:8,p:"A1",t:"Comida e quantidades",g:"Artigos partitivos (du, de la, de l', des); expressões de quantidade; o 'de' da negação",l:"Alimentos, refeições, restaurante, mercado",v:"Français avec Pierre — Au restaurant + vocabulário de comida",a:"Duolingo French Podcast — 2 episódios sobre comida e viagem",m:"Stromae — Alors on danse",pr:"Escrever e gravar um diálogo completo de restaurante, fazendo as duas vozes"},
-    {w:9,p:"A1",t:"Falar do futuro",g:"Futur proche (aller + infinitivo); passé récent (venir de); expressões de tempo futuro",l:"Meses, estações, clima, feriados, planos",v:"Extra French — episódios 3 e 4",a:"Coffee Break French — lições 7 a 9",m:"Clara Luciani — La grenade",pr:"120 palavras: 'Mes projets pour l'année prochaine'"},
-    {w:10,p:"A1",t:"Passé composé com avoir",g:"Passé composé com avoir; participes passés regulares e os 10 irregulares mais frequentes",l:"Fim de semana, lazer, esportes",v:"Français avec Pierre — Le passé composé (1)",a:"Little Talk in Slow French — episódios 6 a 8",m:"Kyo — Dernière danse",pr:"Contar por escrito seu último fim de semana, 120 palavras"},
-    {w:11,p:"A1",t:"Passé composé com être",g:"Os verbos de movimento com être; concordância do participe; passé composé dos pronominais",l:"Viagens curtas, deslocamentos, biografia básica",v:"Easy French — 'Racontez-nous votre week-end'",a:"News in Slow French — 2 episódios",m:"Édith Piaf — Non, je ne regrette rien",pr:"Biografia de 150 palavras de alguém que você admira"},
-    {w:12,p:"A1",t:"Compras e comparações",g:"Adjetivos demonstrativos (ce, cet, cette, ces); comparativo com plus, moins e aussi… que; bon e meilleur",l:"Roupas, tamanhos, preços, formas de pagamento",v:"Comme une Française — faire les courses en France",a:"Coffee Break French — lições 10 a 12",m:"Aya Nakamura — Djadja",pr:"Primeira aula com tutor no iTalki: diálogo de loja, 30 minutos"},
-    {w:13,p:"A1",t:"Conselhos e saúde",g:"Impératif afirmativo e negativo; il faut + infinitivo; devoir, pouvoir, vouloir",l:"Corpo humano, sintomas, avoir mal à, farmácia, consulta médica",v:"Français avec Pierre — Chez le médecin",a:"Little Talk in Slow French — episódios 9 a 11",m:"Soprano — Cosmo",pr:"Escrever cinco conselhos para alguém resfriado e gravar em voz alta"},
-    {w:14,p:"A1",t:"Consolidação A1 e simulado",g:"Revisão geral: presente, passé composé, futur proche, negação, perguntas, artigos",l:"Reciclar todos os cartões acumulados e apagar os cartões mortos",v:"Extra French — episódios 5 e 6, sem legenda nenhuma",a:"Refazer três podcasts antigos sem olhar a transcrição",m:"Playlist A1: as 13 músicas das semanas anteriores, cantando",pr:"Simulado DELF A1 completo (ABC DELF A1) + 30 min de conversa com tutor"},
+  {w:1,p:"A1",t:"Sons, alfabeto e primeiras frases",g:"O alfabeto e os sons do francês; être e avoir no presente; pronomes sujeito; números 0–20",y:"akKplmnr01M",yt:"Alphabet français",l:"Saudações, apresentar-se, nacionalidades",yv:"BWpuzDQuoWM",yvt:"Se présenter en français",c:"Abram a playlist de CE nível A1 e façam o primeiro exercício sem se preocupar com acerto: o objetivo é ver como a prova pergunta",cp:"ceA1",a:"Coffee Break French — temporada 1, lições 1 a 3",m:"Indila — Dernière danse",pr:"Gravar 45s cada um se apresentando: nome, idade, profissão, por que quer ir ao Canadá"},
+  {w:2,p:"A1",t:"Gênero, artigos e plural",g:"Artigos definidos e indefinidos; gênero dos substantivos; plural; c'est e il est",y:"f3BAe1zeRMM",yt:"Le genre en français (masculin / féminin)",l:"Países, línguas, números 20–100",yv:"juqHxdEF0dU",yvt:"Les nombres en français",c:"CE nível A1: um exercício completo, marcando o tempo que levou",cp:"ceA1",a:"Duolingo French Podcast — 2 episódios com transcrição",m:"Zaz — Je veux",pr:"Escrever 10 frases com 'Je suis…' e 'C'est…' e ler em voz alta um para o outro"},
+  {w:3,p:"A1",t:"Verbos em -ER no presente",g:"Conjugação dos verbos do 1º grupo; advérbios de frequência",y:"94GZJjxGslE",yt:"Présent de l'indicatif — 1er groupe",l:"Profissões, atividades do dia a dia",yv:"k2fHb8nYXIE",yvt:"Os 30 verbos mais usados em francês",c:"CE nível A1: dois exercícios, 15 min cada",cp:"ceA1",a:"Little Talk in Slow French — episódios 1 e 2",m:"Louane — Avenir",pr:"Texto de 60 palavras: 'Ma journée typique'"},
+  {w:4,p:"A1",t:"A negação",g:"ne… pas, ne… plus, ne… jamais; posição dos advérbios negativos",y:"ygO9WmfZUyA",yt:"La négation en français",l:"Gostos e rejeições; as 100 palavras mais frequentes",yv:"JBBGBeXbswY",yvt:"Les 100 mots français les plus utilisés",c:"CE nível A1: dois exercícios cronometrados",cp:"ceA1",a:"Coffee Break French — lições 4 a 6",m:"Stromae — Papaoutai",pr:"20 frases afirmativas transformadas em negativas, lidas em voz alta"},
+  {w:5,p:"A1",t:"Fazer perguntas",g:"As três formas de pergunta (entonação, est-ce que, inversão); qui, que, où, quand, comment, pourquoi, combien",y:"A_wePDr8ABo",yt:"Comment poser une question en français",l:"Perguntas do cotidiano e respostas prontas",yv:"UD-ibCsl5-8",yvt:"10 façons de répondre à « Comment ça va ? »",c:"CE nível A1 inteira, cronometrada: 20 questões em 25 min",cp:"ceA1",a:"Français avec Pierre — podcast Saluer en français (A1)",m:"Angèle — Balance ton quoi",pr:"Entrevistem-se: 10 perguntas cada, gravadas, sem ler"},
+  {w:6,p:"A1",t:"Família e possessivos",g:"Adjetivos possessivos (mon, ma, mes, notre, votre…); laços de parentesco",y:"79KJQcy76Eo",yt:"Les adjectifs possessifs en français",l:"Família, estado civil, idades",yv:"OdGl0SW088Q",yvt:"Vocabulaire français : la famille",c:"CE nível A1: revisar os erros dos exercícios anteriores e refazê-los",cp:"ceA1",a:"Little Talk in Slow French — episódios 3 a 5",m:"Vianney — Je m'en vais",pr:"Descrever a família um do outro em 100 palavras e comparar"},
+  {w:7,p:"A1",t:"Descrever pessoas e coisas",g:"C'est ou il est; adjetivos: gênero, número e posição; beau, nouveau, vieux",y:"3yrB3cU47Po",yt:"C'est ou Il est ?",l:"Físico, personalidade, cores, roupas",yv:"HVNo43JkwFs",yvt:"Se décrire en français (A1/A2)",c:"CE nível A2: primeiro contato com o nível seguinte",cp:"ceA2",a:"Easy French — entrevistas de rua #1 e #2, com legendas",m:"Clara Luciani — La grenade",pr:"Descrever três pessoas em 120 palavras, usando 15 adjetivos diferentes"},
+  {w:8,p:"A1",t:"Presente do 2º e 3º grupos",g:"Verbos em -IR e -RE (finir, partir, prendre, attendre); os irregulares de alta frequência",y:"IbgI1xlqDRY",yt:"Présent de l'indicatif — 2e et 3e groupe",l:"Dias, meses, horas, momentos do dia",yv:"rKNRl9gK7TA",yvt:"Les jours de la semaine en français",c:"CE nível A2: dois exercícios cronometrados",cp:"ceA2",a:"Duolingo French Podcast — 2 episódios",m:"Julien Doré — Nous",pr:"Começa agora: uma refeição por semana falando só francês. Hoje é a primeira."},
+  {w:9,p:"A1",t:"Verbos pronominais e rotina",g:"Se lever, se coucher, s'appeler; conjugação e negação dos pronominais; dizer as horas",y:"q03k2PbUyw0",yt:"Les verbes pronominaux en français",l:"Rotina, higiene, tarefas de casa",yv:"3NgqPiAW8sE",yvt:"Comment raconter sa journée en français",c:"CE nível A2: dois exercícios",cp:"ceA2",a:"Little Talk in Slow French — episódios 6 a 8",m:"Kyo — Dernière danse",pr:"Gravar 90s descrevendo a rotina da casa, de segunda a sexta"},
+  {w:10,p:"A1",t:"Cidade e preposições de lugar",g:"Preposições à, dans, sur, chez, en, au, aux; il y a; pedir e dar direções",y:"Y9pvfnAOBX4",yt:"Les prépositions de lieu : à, dans, sur",l:"Cidade, lojas, transporte, gestos",yv:"feUFTvRbWPA",yvt:"Gestes et expressions indispensables",c:"CE nível A2: dois exercícios cronometrados",cp:"ceA2",a:"Extra French — episódios 1 e 2",m:"Aya Nakamura — Djadja",pr:"Explicar em áudio o caminho de casa até o mercado, com nomes de rua"},
+  {w:11,p:"A1",t:"Comida e artigos partitivos",g:"Du, de la, de l', des; quando usar partitivo e quando usar definido",y:"pz1xJMgAfGQ",yt:"L'article partitif en français",l:"Alimentos, refeições, restaurante",yv:"b7yEUEw3UOo",yvt:"Commander au restaurant",c:"CE nível A2: dois exercícios",cp:"ceA2",a:"Français avec Pierre — podcast Les courses (A1/A2)",m:"Stromae — Alors on danse",pr:"Diálogo completo de restaurante, escrito e gravado com as duas vozes"},
+  {w:12,p:"A1",t:"Quantidades",g:"Expressões de quantidade; o 'de' da negação; quando DE substitui un, une, des, du, de la",y:"3uQypXPg-6A",yt:"Quand DE remplace UN, UNE, DES, DU, DE LA",l:"Mercado, medidas, preços",yv:"4ILYCdTLEuI",yvt:"Podcast : les courses (A1/A2)",c:"CE nível A2 inteira, cronometrada",cp:"ceA2",a:"Coffee Break French — lições 7 a 9",m:"Soprano — Cosmo",pr:"Primeira aula com tutor no iTalki, 30 min. Peçam um tutor que prepare para TCF."},
+  {w:13,p:"A1",t:"Falar do futuro",g:"Futur proche (aller + infinitivo) e futur simple: diferença de uso; venir de para o passado recente",y:"yYoOXFX_PMY",yt:"Futur ou futur proche ?",l:"Clima, estações, planos, feriados",yv:"bbkrK1piatU",yvt:"Le temps et la météo en français",c:"CE nível A2: refazer os exercícios em que erraram mais",cp:"ceA2",a:"Extra French — episódios 3 e 4",m:"Gims — Est-ce que tu m'aimes ?",pr:"120 palavras: 'Notre projet d'immigration au Canada'"},
+  {w:14,p:"A1",t:"Passé composé com avoir",g:"Formação do passé composé; participes passés regulares e os 12 irregulares mais frequentes",y:"mpeHI3zbPWk",yt:"Le passé composé en français",l:"Fim de semana, lazer, esportes",yv:"behyDqmnLDo",yvt:"Vocabulaire du football et des sports",c:"CE nível A2: dois exercícios cronometrados",cp:"ceA2",a:"Little Talk in Slow French — episódios 9 a 11",m:"Édith Piaf — Non, je ne regrette rien",pr:"Contar por escrito o último fim de semana, 120 palavras, um corrigindo o do outro"},
+  {w:15,p:"A1",t:"Auxiliar être ou avoir",g:"Os verbos de movimento com être; concordância do participe; passé composé dos pronominais",y:"dH82lWRAOpQ",yt:"Auxiliaire ÊTRE ou AVOIR ?",l:"Viagens, deslocamentos, biografia",yv:"9S4GmYTNtPs",yvt:"Podcast : agence de voyages",c:"CE nível A2 e uma primeira CE nível B1, para sentir o salto",cp:"ceB1",a:"News in Slow French — 2 episódios",m:"Barbara Pravi — Voilà",pr:"Biografia de 150 palavras de alguém que vocês admiram"},
+  {w:16,p:"A1",t:"Consolidação A1 e diagnóstico",g:"Revisão de todos os tempos vistos até aqui, num vídeo só: presente, passé composé, futuro",y:"QGWjKpV9U_w",yt:"Tous les temps verbaux en 1 vidéo",l:"Reciclar os ~900 cartões acumulados e apagar os cartões mortos",yv:"XOrea8T6n0o",yvt:"Les 100 adjectifs les plus utilisés",c:"Diagnóstico: uma CE nível A1 e uma A2 completas, cronometradas, anotando o placar de cada",cp:"ceA2",a:"Extra French — episódios 5 e 6, sem legenda nenhuma",m:"Playlist A1: as 15 músicas anteriores, cantadas",pr:"45 min de conversa com tutor, 100% em francês, sem preparo"},
 
-    {w:15,p:"A2",t:"Imparfait: descrever o passado",g:"Formação do imparfait; usos descritivo e habitual; 'quand j'étais petit'",l:"Infância, escola, brincadeiras, memórias",v:"Français avec Pierre — L'imparfait",a:"InnerFrench — episódio 1, com transcrição aberta",m:"Renaud — Mistral gagnant",pr:"150 palavras: 'Quand j'étais enfant…'"},
-    {w:16,p:"A2",t:"Imparfait contra passé composé",g:"Cenário e ação; ruptura; verbos de estado; expressões que disparam cada tempo",l:"Narrativa: encontros, acidentes, histórias engraçadas",v:"Piece of French — raconter une histoire au passé",a:"One Thing In A French Day — 4 episódios",m:"Francis Cabrel — Je l'aime à mourir",pr:"Contar uma história sua em 200 palavras usando os dois tempos alternadamente"},
-    {w:17,p:"A2",t:"Pronomes COD e COI",g:"le, la, les e lui, leur; posição com infinitivo e com imperativo",l:"Relações, presentes, favores, telefone",v:"Français avec Pierre — Les pronoms COD et COI",a:"Journal en français facile (RFI) — 3 edições com transcrição",m:"Barbara Pravi — Voilà",pr:"Reescrever 15 frases substituindo todos os complementos por pronomes"},
-    {w:18,p:"A2",t:"Os pronomes Y e EN",g:"y (lugar e à + coisa); en (de + coisa e quantidade); ordem quando há dois pronomes",l:"Lugares, quantidades, opiniões sobre coisas",v:"HelloFrench — Y et EN expliqués",a:"InnerFrench — episódios 2 e 3",m:"Christine and the Queens — Christine",pr:"Gravar 10 perguntas e respostas usando y e en naturalmente"},
-    {w:19,p:"A2",t:"Futur simple",g:"Futur simple: radicais regulares e os irregulares; futur simple contra futur proche",l:"Carreira, tecnologia, previsões, clima",v:"Français avec Pierre — Le futur simple",a:"Choses à Savoir — 3 episódios",m:"Calogero — En apesanteur",pr:"200 palavras: 'Le monde en 2050'"},
-    {w:20,p:"A2",t:"Marcadores de tempo",g:"depuis, pendant, il y a, dans, en, jusqu'à, dès; pronomes tônicos (moi, toi, lui…)",l:"Biografia, duração, trajetórias",v:"Easy French — 'Depuis quand habitez-vous ici ?'",a:"InnerFrench — episódios 4 e 5",m:"Alain Souchon — Foule sentimentale",pr:"Escrever sua linha do tempo pessoal em 200 palavras, usando todos os marcadores"},
-    {w:21,p:"A2",t:"Moradia e vizinhança",g:"Preposições de lugar detalhadas; introdução aos relativos qui e que",l:"Casa, móveis, bairro, anúncios imobiliários",v:"Comme une Française — chercher un appartement",a:"Journal en français facile — 3 edições",m:"Hoshi — Ta marinière",pr:"Escrever e gravar uma ligação para agendar a visita a um apartamento"},
-    {w:22,p:"A2",t:"Trabalho e estudos",g:"Discurso indireto no presente (il dit que, elle demande si); depuis e il y a aplicados",l:"Empregos, currículo, entrevista, formação",v:"Français Authentique — le travail et les études",a:"Transfert (Slate) — 1 episódio, ouvido duas vezes",m:"Grand Corps Malade — Mesdames",pr:"CV curto em francês + carta de motivação de 150 palavras"},
-    {w:23,p:"A2",t:"Viagem e imprevistos",g:"Condicional de cortesia (je voudrais, pourriez-vous); reconhecer o futur antérieur",l:"Hotel, aeroporto, reservas, reclamações",v:"Piece of French — voyager en France",a:"Coffee Break French — temporada 2, 3 lições",m:"Gims — Est-ce que tu m'aimes ?",pr:"E-mail de reclamação a um hotel, 150 palavras, tom formal"},
-    {w:24,p:"A2",t:"Gostos e opiniões",g:"Superlativo; aimer, adorer e détester + infinitivo; ça me plaît; penser que e trouver que",l:"Cinema, música, séries, restaurantes",v:"Konbini — Fast & Curious, 2 episódios",a:"InnerFrench — episódios 6 e 7",m:"Juliette Armanet — L'amour en solitaire",pr:"Crítica de 200 palavras de um filme francês que você assistiu inteiro"},
-    {w:25,p:"A2",t:"Pronomes relativos simples",g:"qui, que, où e introdução a dont; construir frases longas",l:"Definições, descrições de pessoas e lugares",v:"Français avec Pierre — Les pronoms relatifs",a:"Journal en français facile — 4 edições, sem transcrição",m:"Noir Désir — Le vent nous portera",pr:"Definir 15 palavras em francês usando somente pronomes relativos"},
-    {w:26,p:"A2",t:"Conditionnel présent",g:"Formação do conditionnel; pedidos polidos, desejos e conselhos ('à ta place, je…')",l:"Hipóteses, sonhos, conselhos",v:"HelloFrench — Le conditionnel présent",a:"InnerFrench — episódios 8 e 9",m:"Céline Dion — Pour que tu m'aimes encore",pr:"Dez conselhos escritos para um amigo em crise, depois gravados"},
-    {w:27,p:"A2",t:"Hipóteses com si",g:"si + présent → futur (hipótese real) e si + imparfait → conditionnel (hipótese irreal)",l:"Dinheiro, escolhas de vida, 'e se…?'",v:"Easy French — 'Si vous gagniez au loto ?'",a:"Transfert — 1 episódio",m:"Téléphone — Cendrillon",pr:"200 palavras: 'Si j'avais plus de temps…'"},
-    {w:28,p:"A2",t:"Advérbios e nuances",g:"Formação dos advérbios em -ment; posição na frase; advérbios de intensidade e de dúvida",l:"Avaliar, nuançar, moderar afirmações",v:"Comme une Française — parler plus naturellement",a:"InnerFrench — episódios 10 e 11",m:"-M- — Je dis aime",pr:"Pegar um texto seu da semana 16 e reescrevê-lo com 15 advérbios"},
-    {w:29,p:"A2",t:"Escrever em francês",g:"Registros tu e vous; fórmulas de e-mail formal e informal; conectores básicos",l:"E-mails, cartas, mensagens, redes sociais",v:"Français avec Pierre — écrire un mail formel",a:"Journal en français facile — 4 edições",m:"Eddy de Pretto — Kid",pr:"Três e-mails: a um amigo, a um professor e a uma empresa"},
-    {w:30,p:"A2",t:"Consolidação A2 e simulado",g:"Revisão: imparfait, pronomes, futuro, condicional, relativos, hipóteses",l:"Reciclar o Anki inteiro (~2000 cartões) e depurar os cartões ruins",v:"Um filme francês completo com legenda em francês: Intouchables",a:"Refazer três InnerFrench antigos sem transcrição",m:"Playlist A2 completa, cantada em voz alta",pr:"Simulado DELF A2 (ABC DELF A2) + 45 min de conversa com tutor"},
+  {w:17,p:"A2",t:"Concordância do participe passé",g:"Concordância com être, com avoir e com os pronominais; os casos que caem na prova",y:"lHivCFkdmZ0",yt:"L'accord du participe passé en 5 minutes",l:"Infância, memórias, narrativa em 1ª pessoa",yv:"ilIzSaO3I0g",yvt:"Raconter une histoire à la 1re personne",c:"CE nível B1: dois exercícios cronometrados",cp:"ceB1",a:"InnerFrench — episódio 1, com transcrição aberta",m:"Renaud — Mistral gagnant",pr:"EE tarefa 1: mensagem de 60–120 palavras convidando um amigo para um evento. 20 min.",pp:"eeLab"},
+  {w:18,p:"A2",t:"O imparfait",g:"Formação do imparfait; uso descritivo e habitual; os tempos do passado em panorama",y:"H50xTU6ZCcI",yt:"Les temps du passé en français",l:"Escola, formação, hábitos antigos",c:"CE nível B1: dois exercícios",cp:"ceB1",a:"One Thing In A French Day — 4 episódios",m:"Francis Cabrel — Je l'aime à mourir",pr:"EE tarefa 1: mensagem de desculpas por um compromisso desmarcado. 20 min.",pp:"eeLab"},
+  {w:19,p:"A2",t:"Imparfait contra passé composé",g:"Cenário e ação; ruptura; verbos de estado; as expressões que disparam cada tempo",y:"oXICx3IvvDY",yt:"La différence entre l'imparfait et le passé composé",l:"Acidentes, imprevistos, histórias",yv:"WRAnY_IbnWc",yvt:"La peur — histoire en français",c:"CO nível B1: primeiro simulado de compreensão oral. O áudio toca uma vez só.",cp:"coB1",a:"InnerFrench — episódios 2 e 3",m:"Téléphone — Cendrillon",pr:"EE tarefa 1: recado narrando um imprevisto. 20 min.",pp:"eeLab"},
+  {w:20,p:"A2",t:"Narrar no passado",g:"Alternância entre os dois tempos num texto longo; conectores narrativos (puis, ensuite, alors)",y:"zsBJ2qtBzhw",yt:"Passé composé ou imparfait ?",l:"Contos e histórias",yv:"pUBtUFSyOu0",yvt:"Histoire de deux frères",c:"CO nível B1: dois exercícios, marcando quantas questões sobraram sem resposta",cp:"coB1",a:"Journal en français facile (RFI) — 3 edições com transcrição",m:"Noir Désir — Le vent nous portera",pr:"Contar uma história de 200 palavras usando os dois tempos alternadamente"},
+  {w:21,p:"A2",t:"Demonstrativos e comparações",g:"Ce, cet, cette, ces; comparativo com plus, moins, aussi… que; bon e meilleur",y:"oNfTB-_xWbY",yt:"Ce, cet, cette, ces : les adjectifs démonstratifs",l:"Roupas, compras, cores",yv:"ek3wOHCISq8",yvt:"12 expressions avec des couleurs",c:"CE nível B1: dois exercícios cronometrados",cp:"ceB1",a:"InnerFrench — episódios 4 e 5",m:"Alain Souchon — Foule sentimentale",pr:"EE tarefa 1: mensagem comparando duas opções de moradia. 20 min.",pp:"eeLab"},
+  {w:22,p:"A2",t:"Pronomes COD e COI",g:"le, la, les e lui, leur; posição com infinitivo e imperativo; panorama dos pronomes",y:"mgO24iuq068",yt:"Les pronoms français",l:"Relações, conflitos, reconciliação",yv:"X3R1y5GH3Co",yvt:"Se disputer et se réconcilier en français",c:"CO nível B1: dois exercícios",cp:"coB1",a:"Journal en français facile — 3 edições",m:"Hoshi — Ta marinière",pr:"Reescrever 15 frases substituindo os complementos por pronomes, em voz alta"},
+  {w:23,p:"A2",t:"O pronome Y",g:"y para lugar e para à + coisa; y nas expressões fixas (il y a, ça y est, s'y faire)",y:"_XmCI6d9TQY",yt:"Le pronom Y en français",l:"Lugares, quantidades, expressões com frutas e legumes",yv:"Ea0vCf-gJxk",yvt:"Expressions avec des fruits et des légumes",c:"CE nível B1: dois exercícios",cp:"ceB1",a:"InnerFrench — episódios 6 e 7",m:"Christine and the Queens — Christine",pr:"EE tarefa 1: e-mail curto pedindo informações a uma escola. 20 min.",pp:"eeLab"},
+  {w:24,p:"A2",t:"O pronome EN",g:"en para de + coisa e para quantidade; en com números e expressões de quantidade",y:"AJt1vxCmRus",yt:"Le pronom EN en français",l:"Casa, móveis, bairro, anúncios",c:"CO nível B1: dois exercícios cronometrados",cp:"coB1",a:"Journal en français facile — 4 edições, sem transcrição",m:"Juliette Armanet — L'amour en solitaire",pr:"EE tarefa 1: anúncio de aluguel do próprio apartamento. 20 min.",pp:"eeLab"},
+  {w:25,p:"A2",t:"Y e EN juntos",g:"Ordem dos pronomes quando há dois; combinações frequentes (je lui en ai parlé, il y en a)",y:"PdmqkbuGUII",yt:"Y et EN : comment utiliser ces pronoms",l:"Viagem, hotel, aeroporto, reclamações",yv:"j23PZlfQuN4",yvt:"Situation pratique : à l'hôtel",c:"CE nível B1: dois exercícios",cp:"ceB1",a:"Coffee Break French — temporada 2, 3 lições",m:"Zaz — Éblouie par la nuit",pr:"EE tarefa 1: reclamação a um hotel. 20 min. Corrigir no BonPatron depois.",pp:"eeLab"},
+  {w:26,p:"A2",t:"O futur simple",g:"Radicais regulares e irregulares; futur simple contra futur proche em uso real; panorama dos tempos",y:"pWGEmeU7IM4",yt:"Utilisation de tous les temps verbaux",l:"Trabalho, carreira, previsões",yv:"otolVUVBETg",yvt:"Vocabulaire du travail en français",c:"CO nível B1: dois exercícios",cp:"coB1",a:"InnerFrench — episódios 8 e 9",m:"Calogero — En apesanteur",pr:"EE tarefa 2: relato de 120–150 palavras sobre uma experiência de trabalho, com opinião. 25 min.",pp:"ee2"},
+  {w:27,p:"A2",t:"O conditionnel présent",g:"Formação; pedidos polidos (je voudrais, pourriez-vous); conselhos (à ta place, je…)",y:"XhF9TCjAJ78",yt:"Le conditionnel — conjugaison française",l:"Currículo, entrevista, formação",yv:"YNEo5dxFvyI",yvt:"Faire un CV en français",c:"CE nível B1 inteira, cronometrada: 25 questões em 35 min",cp:"ceB1",a:"Transfert (Slate) — 1 episódio, ouvido duas vezes",m:"Grand Corps Malade — Mesdames",pr:"Currículo em francês + carta de motivação de 150 palavras, um revisando o do outro"},
+  {w:28,p:"A2",t:"Futuro ou condicional",g:"A diferença entre -rai e -rais; erros de audição e de escrita que isso causa na prova",y:"YlARhnIFmqE",yt:"-RAI ou -RAIS ? Futur ou conditionnel",l:"Telefone, atendimento, agendamentos",yv:"j7EB4gNHb1U",yvt:"Comment parler au téléphone en français",c:"CO nível B1: dois exercícios, focando nas questões de tempo verbal",cp:"coB1",a:"InnerFrench — episódios 10 e 11",m:"Céline Dion — Pour que tu m'aimes encore",pr:"EO tarefa 2: simulação de interação — marcar uma consulta por telefone, fazendo as perguntas. 6 min.",pp:"eo2"},
+  {w:29,p:"A2",t:"Marcadores de tempo",g:"depuis, pendant, il y a, dans, en, ça fait… que; jusqu'à, dès",y:"Q5t0UdDwM9E",yt:"Depuis, il y a, ça fait… que",l:"E-mails formais e informais, cartas",yv:"lbfHJrlB3QA",yvt:"Écrire un mail en français",c:"CE nível B1: dois exercícios",cp:"ceB1",a:"Journal en français facile — 4 edições",m:"Eddy de Pretto — Kid",pr:"EE tarefa 2: e-mail formal a uma prefeitura canadense pedindo informações. 25 min.",pp:"ee2"},
+  {w:30,p:"A2",t:"Pronomes relativos simples",g:"qui e que: a regra que resolve 90% dos casos; où e a introdução a dont",y:"A5suHLcb6AA",yt:"QUI ou QUE en français ?",l:"Saúde, corpo, sintomas, médico",yv:"RRmWoBPAC_k",yvt:"Expressions sur la santé et la maladie",c:"CO nível B1: dois exercícios cronometrados",cp:"coB1",a:"InnerFrench — episódios 12 e 13",m:"Pomme — Les cours d'eau",pr:"EO tarefa 2: simulação — descrever sintomas a um médico e fazer perguntas. 6 min.",pp:"eo2"},
+  {w:31,p:"A2",t:"Tu ou vous: registros",g:"Quando usar cada um; o vous da prova; fórmulas de cortesia que valem pontos na EE e na EO",y:"mF9mw22qct8",yt:"Tu ou Vous en français ?",l:"Cortesia, fórmulas fixas, pedidos formais",yv:"Rwt_gVuAcgo",yvt:"Expressions de politesse en français",c:"CE nível B1: refazer os exercícios com pior placar",cp:"ceB1",a:"Journal en français facile — 5 edições",m:"Vianney — Beau-papa",pr:"EE tarefa 2: três versões do mesmo pedido — a um amigo, a um colega, a uma autoridade. 30 min.",pp:"ee2"},
+  {w:32,p:"A2",t:"Consolidação A2 e simulado",g:"Os cinco erros de gramática que mais custam pontos, revisados de uma vez",y:"UwPZzMz6Ky8",yt:"5 erreurs de grammaire à éviter",l:"Reciclar o Anki inteiro (~2200 cartões) e depurar os cartões ruins",yv:"xvyP9Tlv08w",yvt:"Top 100 des adverbes en français",c:"Simulado parcial: CO e CE nível B1 completas, cronometradas, num sábado. Anotem o placar — é a linha de base de vocês.",cp:"coB1",a:"Um filme francês completo com legenda em francês: Intouchables",m:"Playlist A2 completa",pr:"EE tarefa 1 e 2 na sequência, 45 min cronometrados, corrigidas por um tutor",pp:"eeLab"},
 
-    {w:31,p:"B1",t:"Subjonctif présent: formação",g:"Formação do subjonctif; il faut que, je veux que, avant que; os irregulares être, avoir, aller, faire, pouvoir, savoir",l:"Obrigações, necessidades, regras",v:"Français avec Pierre — Le subjonctif (parte 1)",a:"InnerFrench — episódios 12 e 13",m:"Orelsan — Basique",pr:"15 frases com 'il faut que' sobre aprender idiomas"},
-    {w:32,p:"B1",t:"Subjonctif: emoção e dúvida",g:"Subjonctif após emoção, vontade, dúvida e negação de opinião; quando volta o indicativo",l:"Sentimentos, reações, incerteza",v:"InnerFrench — vídeo sobre o subjonctif na fala real",a:"Journal en français facile — 5 edições",m:"Pomme — Les cours d'eau",pr:"200 palavras reagindo a uma notícia francesa desta semana"},
-    {w:33,p:"B1",t:"Plus-que-parfait",g:"Plus-que-parfait; anterioridade no passado; 'déjà' e 'pas encore' no passado",l:"Narrativa complexa, arrependimentos",v:"Piece of French — le plus-que-parfait",a:"Affaires sensibles — 1 episódio, com pausas",m:"Jacques Brel — Ne me quitte pas",pr:"Reescrever uma história sua com três planos temporais encaixados"},
-    {w:34,p:"B1",t:"Narrativa em três tempos",g:"Concordância entre passé composé, imparfait e plus-que-parfait; conectores narrativos",l:"Contar histórias longas, anedotas",v:"Dix pour cent — 1 episódio com legendas em francês",a:"Transfert — 2 episódios",m:"Bigflo & Oli — Dommage",pr:"Conto de 300 palavras com começo, meio e fim"},
-    {w:35,p:"B1",t:"Hipóteses completas",g:"Os três tipos de si; conditionnel passé; si + plus-que-parfait",l:"Arrependimentos, mundos alternativos, história",v:"HugoDécrypte — Actus du jour, 3 vídeos",a:"InnerFrench — episódios 14 e 15",m:"Zazie — Je suis un homme",pr:"250 palavras: 'Si j'avais pris une autre décision…'"},
-    {w:36,p:"B1",t:"Voz passiva e impessoal",g:"Voz passiva; 'on' como sujeito; se faire + infinitivo; construções impessoais",l:"Jornalismo, processos, fatos",v:"Brut — 3 reportagens curtas",a:"Journal en français facile — 5 edições, escrevendo um resumo de cada",m:"Zaz — Éblouie par la nuit",pr:"Reescrever cinco manchetes de jornal na ativa e na passiva"},
-    {w:37,p:"B1",t:"Gérondif e particípio presente",g:"en + participe présent; simultaneidade, causa e condição; 'tout en…'",l:"Ações simultâneas, causas",v:"Français avec Pierre — Le gérondif",a:"Choses à Savoir Culture — 4 episódios",m:"Fauve — Blizzard",pr:"Descrever seu dia inteiro usando dez gerúndios"},
-    {w:38,p:"B1",t:"Conectores lógicos",g:"Causa (car, puisque, comme, étant donné que); consequência (donc, ainsi, si bien que); finalidade (pour que, afin que)",l:"Argumentação, textos estruturados",v:"InnerFrench — como estruturar uma opinião",a:"Le Code a changé — 1 episódio",m:"Stromae — Formidable",pr:"Texto argumentativo de 250 palavras com dez conectores destacados"},
-    {w:39,p:"B1",t:"Opor e conceder",g:"mais, pourtant, cependant, néanmoins, bien que + subjonctif, malgré, en revanche",l:"Debate, prós e contras",v:"Easy French — debates de rua sobre temas polêmicos",a:"Les Couilles sur la table — 1 episódio",m:"Camille — Ta douleur",pr:"Texto 'pour et contre' de 300 palavras sobre um tema atual"},
-    {w:40,p:"B1",t:"Defender uma opinião",g:"Opinião nuançada: il me semble que, j'ai l'impression que, quant à moi, force est de constater",l:"Temas sociais: educação, trabalho, cidade",v:"Thinkerview — 20 minutos de uma entrevista",a:"InnerFrench — episódios 16 e 17",m:"Grand Corps Malade — Sixième sens",pr:"Exposé gravado de 4 minutos sobre um tema polêmico, sem ler"},
-    {w:41,p:"B1",t:"Mídia e atualidades",g:"Estilo jornalístico: nominalização, títulos sem verbo, discurso relatado",l:"Política, instituições francesas, eleições, imprensa",v:"HugoDécrypte — Actus du jour, 5 vídeos na semana",a:"Le Nouvel Esprit Public — 1 episódio",m:"Soprano — Mon Everest",pr:"Resumo de 200 palavras de uma reportagem lida no Le Monde"},
-    {w:42,p:"B1",t:"Meio ambiente",g:"Futur simple e conditionnel em contexto argumentativo; 'il faudrait que'",l:"Ecologia, clima, energia, consumo",v:"Arte e Data Gueule — 3 vídeos curtos",a:"La Terre au carré (France Inter) — 1 episódio",m:"Tryo — L'hymne de nos campagnes",pr:"Carta aberta de 300 palavras defendendo uma causa ambiental"},
-    {w:43,p:"B1",t:"Tecnologia e redes",g:"Revisão dos pronomes com ordem dupla: je le lui ai donné, il m'en a parlé",l:"Internet, inteligência artificial, privacidade, redes sociais",v:"Cyrus North e DirtyBiology — 2 vídeos",a:"Le Code a changé — 2 episódios",m:"Orelsan — La pluie",pr:"Debate escrito de 300 palavras: 'Les réseaux sociaux nous isolent-ils ?'"},
-    {w:44,p:"B1",t:"Saúde e bem-estar",g:"Expressões fixas com avoir e être; verbos pronominais de sentido passivo",l:"Corpo, esporte, alimentação, saúde mental",v:"Arte — uma reportagem longa sobre saúde",a:"Sur les épaules de Darwin — 1 episódio",m:"Louane — Donne-moi ton cœur",pr:"Gravar 5 minutos sobre seus hábitos e o que quer mudar"},
-    {w:45,p:"B1",t:"Cultura francesa",g:"Passé simple: reconhecer e entender na leitura, sem produzir",l:"Cinema, literatura, pintura, história essencial da França",v:"La Grande Librairie — um programa de 30 minutos",a:"Le Cours de l'histoire (France Culture) — 1 episódio",m:"Charles Aznavour — La bohème",pr:"Ler Le Petit Nicolas inteiro e escrever uma ficha de 250 palavras"},
-    {w:46,p:"B1",t:"Francês falado de verdade",g:"Elisões e reduções (t'as, y a, chuis, j'sais pas); o 'ne' que desaparece; interrogativa familiar",l:"Argot, verlan, expressões do dia a dia",v:"Easy French — vídeos de rua sem legenda nenhuma",a:"Dois episódios de um podcast de conversa livre entre nativos",m:"PNL — Au DD (estudando o argot da letra)",pr:"Transcrever 2 minutos de fala real e reescrever em francês padrão"},
-    {w:47,p:"B1",t:"Escrita nível B1",g:"Essai estruturado, lettre formelle e compte rendu; conectores de plano",l:"Vocabulário de redação",v:"Français avec Pierre — DELF B1 production écrite",a:"Journal en français facile — 5 edições",m:"Vianney — Beau-papa",pr:"Essai de 350 palavras cronometrado em 45 minutos"},
-    {w:48,p:"B1",t:"Consolidação B1 e exame",g:"Revisão: subjonctif, hipóteses, passiva, conectores, os quatro tempos do passado",l:"Reciclar o Anki (~4000 cartões) e refazer os cartões que sempre erra",v:"Um filme francês completo sem legendas: Le Fabuleux Destin d'Amélie Poulain",a:"Um podcast nativo de uma hora, sem apoio de transcrição",m:"Playlist B1 completa",pr:"Simulado DELF B1 completo + 1h de conversa com tutor. Inscreva-se no exame oficial."},
+  {w:33,p:"B1",t:"Relativos completos",g:"qui, que, où, dont e a introdução a lequel; frases longas sem perder o fio",y:"ZV8U856rM30",yt:"Les pronoms relatifs simples et composés",l:"Definições e descrições precisas",c:"CE nível B2: primeiro contato com o nível do NCLC 7",cp:"ceB2",a:"InnerFrench — episódios 14 e 15",m:"Orelsan — Basique",pr:"Definir 15 palavras usando só pronomes relativos, em voz alta e gravado"},
+  {w:34,p:"B1",t:"Subjonctif: formação",g:"Como se forma; il faut que, je veux que, avant que; os irregulares être, avoir, aller, faire, pouvoir, savoir",y:"50wuiuvRBcQ",yt:"Le subjonctif en français : conjugaison",l:"Obrigações, necessidades, regras, burocracia",c:"CO nível B2: primeiro simulado no nível-alvo",cp:"coB2",a:"Journal en français facile — 5 edições",m:"Bigflo & Oli — Dommage",pr:"EE tarefa 2: 15 frases com il faut que sobre o processo de imigração. 25 min.",pp:"ee2"},
+  {w:35,p:"B1",t:"Subjonctif contra indicativo",g:"Depois de emoção, vontade, dúvida e negação de opinião; quando o indicativo volta",y:"SrFmzqc1HLk",yt:"Le subjonctif vs l'indicatif : 20 exercices",l:"Emoções, reações, encorajamento",yv:"CUGvB-Ro4M8",yvt:"Comment encourager quelqu'un en français",c:"CE nível B2: dois exercícios cronometrados",cp:"ceB2",a:"InnerFrench — episódios 16 e 17",m:"Zazie — Je suis un homme",pr:"EE tarefa 2: 200 palavras reagindo a uma notícia canadense da semana. 25 min.",pp:"ee2"},
+  {w:36,p:"B1",t:"Subjonctif: casos difíceis",g:"Après que, espérer que, penser que na negativa; as armadilhas que aparecem na CE",y:"Mu7ibBFY8GE",yt:"Après que + subjonctif ou indicatif ?",l:"Ritos, vida social, nascimento, casamento",yv:"00axBy6TVaM",yvt:"Naissance, mort, mariage : que dit-on ?",c:"CO nível B2: dois exercícios",cp:"coB2",a:"Transfert — 2 episódios",m:"Jacques Brel — Ne me quitte pas",pr:"EO tarefa 3: ponto de vista de 4 min sobre um tema social, com 2 min de preparo. Gravado.",pp:"eo3"},
+  {w:37,p:"B1",t:"Hipóteses com si",g:"Os três tipos de si; conditionnel passé; si + plus-que-parfait; 14 exercícios comentados",y:"3VtyH_nr_ZU",yt:"La condition et l'hypothèse : 14 exercices",l:"Escolhas, arrependimentos, cenários",c:"CE nível B2: dois exercícios cronometrados",cp:"ceB2",a:"InnerFrench — episódios 18 e 19",m:"Camille — Ta douleur",pr:"EE tarefa 2: 250 palavras — 'Si nous avions immigré il y a dix ans…'. 25 min.",pp:"ee2"},
+  {w:38,p:"B1",t:"Concordância de tempos",g:"Plus-que-parfait e anterioridade; discurso indireto no passado; mudança de tempos no relato",y:"0y_uNMo5sa4",yt:"La concordance des temps en français",l:"Relatar conversas e reuniões",c:"CO nível B2: dois exercícios",cp:"coB2",a:"Affaires sensibles — 1 episódio, com pausas",m:"France Gall — Évidemment",pr:"Relatar por escrito uma entrevista de 5 min que ouviram, em discurso indireto"},
+  {w:39,p:"B1",t:"Passé simple na leitura",g:"Reconhecer passé simple sem produzi-lo; os três tempos do passado em contraste",y:"xSIv30jdo50",yt:"Passé composé, imparfait ou passé simple ?",l:"Vocabulário literário e jornalístico",c:"CE nível B2: dois exercícios, focando nos textos longos do fim",cp:"ceB2",a:"Le Cours de l'histoire (France Culture) — 1 episódio",m:"Charles Aznavour — La bohème",pr:"EE tarefa 2: resumo de 200 palavras de uma reportagem do Le Devoir. 25 min.",pp:"ee2"},
+  {w:40,p:"B1",t:"Causa e consequência",g:"car, parce que, puisque, comme, étant donné que; donc, ainsi, si bien que",y:"TX0aHIjNQyg",yt:"L'expression de la cause : car, parce que, puisque",l:"Mídia, atualidades, sociedade",yv:"E4Ps5B7vqNo",yvt:"La grève en France — podcast",c:"CO nível B2: dois exercícios cronometrados",cp:"coB2",a:"HugoDécrypte — Actus du jour, 5 vídeos na semana",m:"Soprano — Mon Everest",pr:"Dobra a dose: duas aulas de tutor por semana daqui até o fim. Hoje, EO tarefa 3 com o tutor.",pp:"eo3"},
+  {w:41,p:"B1",t:"Expressar finalidade",g:"pour, pour que, afin de, afin que; infinitivo contra subjonctif depois de cada um",y:"OHX6ar-rNGc",yt:"Exprimer un but : pour, pour que, afin de, afin que",l:"Meio ambiente, energia, consumo",c:"CE nível B2: dois exercícios",cp:"ceB2",a:"La Terre au carré (France Inter) — 1 episódio",m:"Tryo — L'hymne de nos campagnes",pr:"EE tarefa 3: confrontar dois textos sobre ecologia e posicionar-se. 120–180 palavras, 30 min.",pp:"ee3"},
+  {w:42,p:"B1",t:"Oposição e concessão",g:"mais, pourtant, cependant, néanmoins; bien que + subjonctif; malgré e malgré que",y:"6gwhRZ21KRs",yt:"Bien que, malgré et malgré que",l:"Concordar, discordar, nuançar",yv:"fzM6DBRw5FE",yvt:"Exprimer son accord et son désaccord",c:"CO nível B2: dois exercícios",cp:"coB2",a:"Les Couilles sur la table — 1 episódio",m:"Grand Corps Malade — Sixième sens",pr:"EO tarefa 3: debate de 4 min defendendo o lado contrário ao que vocês acreditam",pp:"eo3"},
+  {w:43,p:"B1",t:"Concessão avançada",g:"quoique, quoi que, bien que, malgré: as quatro confusões clássicas resolvidas",y:"K2sJsvuqLas",yt:"Quoique, quoi que, bien que, malgré",l:"Expressões com animais e imagens",yv:"Ie-UaUVyyUU",yvt:"20 expressions françaises avec des animaux",c:"CE nível B2: dois exercícios cronometrados",cp:"ceB2",a:"InnerFrench — episódios 20 e 21",m:"Orelsan — La pluie",pr:"EE tarefa 3: dois pontos de vista sobre trabalho remoto. 30 min.",pp:"ee3"},
+  {w:44,p:"B1",t:"Comparação e intensidade",g:"si, aussi, tant, autant, tellement: qual usar em cada estrutura",y:"FesSha_6Ljs",yt:"Comment utiliser SI, AUSSI, TANT, AUTANT, TELLEMENT",l:"Expressões com o verbo faire",yv:"KmeNQyZcPP8",yvt:"30 expressions avec le verbe FAIRE",c:"CO nível B2: dois exercícios",cp:"coB2",a:"Le Code a changé — 1 episódio",m:"Stromae — Formidable",pr:"EO tarefa 3: comparar Brasil e Canadá num ponto concreto, 4 min, gravado",pp:"eo3"},
+  {w:45,p:"B1",t:"Conectores do discurso",g:"au fait, en fait, en effet, ça fait: marcadores que estruturam a fala e aparecem na CO",y:"ZLhwIjpssyM",yt:"Au fait, en fait, en effet, ça fait…",l:"Expressões com o verbo mettre",yv:"BaggJAGt8lw",yvt:"30 expressions avec le verbe METTRE",c:"CE nível B2: dois exercícios cronometrados",cp:"ceB2",a:"Journal en français facile — 5 edições, com resumo escrito de cada",m:"Fauve — Blizzard",pr:"EE tarefa 3: dois textos sobre imigração, síntese e posição. 30 min.",pp:"ee3"},
+  {w:46,p:"B1",t:"Voz passiva e o pronome ON",g:"O 'on' que substitui a passiva no francês falado; formação da voz passiva no escrito e no jornalismo",y:"R3BzE7vLXL4",yt:"Le pronom ON en français",l:"Tecnologia, internet, privacidade",yv:"G802Zhaq7Ys",yvt:"Vocabulaire de l'informatique et d'internet",c:"CO nível B2: dois exercícios",cp:"coB2",a:"Cyrus North e Monsieur Phi — 2 vídeos",m:"PNL — Au DD (estudando o argot da letra)",pr:"Reescrever 5 manchetes na ativa, na passiva e com 'on', comparando o efeito"},
+  {w:47,p:"B1",t:"Gérondif e particípio presente",g:"en + particípio presente: simultaneidade, causa e condição; tout en… (o canal não tem aula dedicada — o link abre a busca dentro do canal)",ys:"g%C3%A9rondif",yt:"Buscar « gérondif » no canal do Pierre",l:"Corpo e expressões corporais",yv:"4Z96Q30CUC4",yvt:"Expressions avec des parties du corps",c:"CE nível B2: dois exercícios cronometrados",cp:"ceB2",a:"InnerFrench — episódios 22 e 23",m:"Louane — Donne-moi ton cœur",pr:"Descrever o dia inteiro usando dez gerúndios, em voz alta"},
+  {w:48,p:"B1",t:"Advérbios",g:"Formação em -ment; adjetivo ou advérbio (vite ou rapide, mieux ou meilleur); posição na frase",y:"Uyd-D0Seht0",yt:"Adjectif ou adverbe en français ?",l:"Verbos de movimento que confundem",yv:"l2UumReR5qs",yvt:"Rentrer, revenir, retourner, repartir",c:"CO nível B2: dois exercícios",cp:"coB2",a:"Arte — uma reportagem longa",m:"Alain Bashung — La nuit je mens",pr:"EE tarefa 3 cronometrada, 30 min, corrigida pelo tutor",pp:"ee3"},
+  {w:49,p:"B1",t:"Tout, tous, toute, toutes",g:"As quatro formas e a pronúncia de 'tous'; quantificadores que caem em toda CE",y:"3fKevtvr9E8",yt:"TOUT, TOUS, TOUTE ou TOUTES ?",l:"Verbos que confundem: emmener, amener, apporter",yv:"0ijD9R3_0Ww",yvt:"Emmener, amener, apporter, emporter",c:"CE nível B2 inteira, cronometrada",cp:"ceB2",a:"Sur les épaules de Darwin — 1 episódio",m:"Clara Luciani — Le reste",pr:"EO tarefa 1, 2 e 3 na sequência, 12 min cronometrados, gravadas",pp:"eoAll"},
+  {w:50,p:"B1",t:"Consolidação B1 e simulado completo",g:"As armadilhas de conjugação que sobrevivem até o B2, todas de uma vez",y:"uA76g4oj5gg",yt:"Conjugaison : saurez-vous éviter les pièges ?",l:"Reciclar o Anki (~4200 cartões) e listar os erros recorrentes",yv:"26_2tGuFA8M",yvt:"10 expressions françaises courantes",c:"Simulado completo: as quatro provas em condições reais, num sábado, com intervalo real entre elas. Anotem o nível estimado de cada uma.",cp:"coB2",a:"Um filme francês sem legendas: Le Fabuleux Destin d'Amélie Poulain",m:"Playlist B1 completa",pr:"Analisar o simulado com o tutor e decidir qual das quatro provas recebe atenção extra nas próximas 16 semanas",pp:"eoAll"},
 
-    {w:49,p:"B2",t:"Subjonctif passé e nuances",g:"Subjonctif passé; concordância; sans que, à moins que, de peur que",l:"Julgamentos, hipóteses sobre o passado",v:"Français avec Pierre — subjonctif avancé",a:"Affaires sensibles — 1 episódio sem apoio",m:"Barbara — Göttingen",pr:"200 palavras usando dez estruturas diferentes que exigem subjonctif"},
-    {w:50,p:"B2",t:"Relativos compostos",g:"lequel, laquelle, lesquels; auquel, duquel; ce dont, ce à quoi; dont de posse",l:"Linguagem formal, descrições precisas",v:"InnerFrench — um episódio avançado em vídeo",a:"Le Masque et la Plume — 1 episódio",m:"Serge Gainsbourg — La javanaise",pr:"Fundir 15 pares de frases simples usando relativos compostos"},
-    {w:51,p:"B2",t:"Nominalização e estilo",g:"Transformar verbos em substantivos; frases nominais; escrito contra falado",l:"Títulos de imprensa, relatórios",v:"Le Monde — 2 vídeos de análise",a:"Avec philosophie (France Culture) — 1 episódio",m:"Feu! Chatterton — Souvenir",pr:"Reescrever uma transcrição de fala em estilo escrito formal"},
-    {w:52,p:"B2",t:"Discurso indireto completo",g:"Concordância de tempos no relato; mudança de marcadores temporais e de pronomes",l:"Relatar reuniões, entrevistas, conflitos",v:"Le Bureau des Légendes — 1 episódio com legendas em francês",a:"Transfert — 2 episódios",m:"France Gall — Évidemment",pr:"Relatar por escrito uma entrevista de 5 minutos que você ouviu"},
-    {w:53,p:"B2",t:"Negações e restrições",g:"ne… que, ne… guère, ne… aucun, ne… nul, o 'ne' explétif; dupla negação",l:"Precisão, restrição, ironia",v:"Karim Duval — 2 vídeos de humor",a:"Le Nouvel Esprit Public — 1 episódio",m:"Brigitte Fontaine — Comme à la radio",pr:"15 frases restritivas sobre seu próprio progresso no francês"},
-    {w:54,p:"B2",t:"Expressões idiomáticas",g:"Locuções verbais; expressões com avoir, faire, mettre e prendre; provérbios",l:"200 expressões idiomáticas frequentes, em cartões com contexto",v:"Comme une Française — expressions françaises courantes",a:"Choses à Savoir — 5 episódios",m:"Oldelaf — Le café",pr:"Diálogo de 300 palavras usando 20 expressões idiomáticas"},
-    {w:55,p:"B2",t:"Debater",g:"Refutar, conceder e reformular: c'est-à-dire, autrement dit, en d'autres termes, n'empêche que",l:"Argumentação avançada, falácias",v:"Thinkerview — uma entrevista inteira, em três sessões",a:"Les Couilles sur la table — 2 episódios",m:"Bigflo & Oli — Sur la lune",pr:"Debate ao vivo de 30 minutos com tutor sobre um tema sorteado na hora"},
-    {w:56,p:"B2",t:"Trabalho e economia",g:"Futur antérieur; conditionnel jornalístico (il aurait dit, le bilan serait de)",l:"Empresa, reuniões, negociação, economia",v:"Heu?reka e Xerfi Canal — 2 vídeos",a:"Um podcast de economia francês — 1 episódio",m:"Starmania — Le blues du businessman",pr:"Simular por escrito uma reunião e escrever sua ata, 350 palavras"},
-    {w:57,p:"B2",t:"Sociedade francesa",g:"Estruturas formais e impessoais: il convient de, il s'agit de, force est de",l:"Laicidade, imigração, banlieues, sistema social francês",v:"Arte — Le Dessous des Cartes, 2 episódios",a:"LSD, la série documentaire — 1 série de episódios",m:"Médine — Grand Paris",pr:"Synthèse de 350 palavras a partir de dois textos com posições opostas"},
-    {w:58,p:"B2",t:"Arte e crítica",g:"Vocabulário da apreciação; comparativos complexos; hipóteses estilísticas",l:"Pintura, arquitetura, fotografia, crítica cultural",v:"Arte — Tracks, 2 episódios",a:"Le Masque et la Plume — 2 episódios",m:"Jacques Higelin — Champagne",pr:"Crítica de 350 palavras de uma exposição, filme ou álbum"},
-    {w:59,p:"B2",t:"Ciência e ideias",g:"Conectores acadêmicos; causa e consequência em registro formal",l:"Ciência, divulgação, método, dados",v:"ScienceEtonnante e Nota Bene — 2 vídeos",a:"Sur les épaules de Darwin — 2 episódios",m:"Alain Bashung — La nuit je mens",pr:"Explicar em 5 minutos gravados um conceito científico, sem roteiro escrito"},
-    {w:60,p:"B2",t:"Humor e ironia",g:"Ironia, litote, hipérbole, subentendido; jogos de palavras",l:"Humor francês, stand-up, sátira",v:"Um espetáculo de Blanche Gardin ou Fary, em três sessões",a:"Um podcast de humor francês — 2 episódios",m:"Georges Brassens — Les copains d'abord",pr:"Escrever um texto humorístico de 250 palavras e testá-lo com o tutor"},
-    {w:61,p:"B2",t:"Escrita nível B2",g:"Essai argumentatif e synthèse de documents; plano dialético e plano temático",l:"Vocabulário de dissertação",v:"Vídeos de método para a production écrite do DELF B2",a:"Journal en français facile — 5 edições com resumo escrito de cada",m:"Véronique Sanson — Amoureuse",pr:"Essai de 500 palavras cronometrado em 60 minutos"},
-    {w:62,p:"B2",t:"Oral nível B2",g:"Estruturar um exposé; sustentar contraditório; reformular sob pressão",l:"Temas de atualidade típicos de exame",v:"Gravações de orais reais de DELF B2, com comentário",a:"Gravar-se e reouvir criticamente três vezes o mesmo exposé",m:"Clara Luciani — Le reste",pr:"Dois exposés de 10 minutos com debate, gravados e analisados"},
-    {w:63,p:"B2",t:"A francofonia",g:"Variações gramaticais e lexicais regionais; particularidades do Quebec",l:"Quebec, Bélgica, Suíça, Senegal, Marrocos, Antilhas",v:"Radio-Canada e Solange te parle — 3 vídeos",a:"Dois episódios de podcasts quebequenses",m:"Cœur de pirate — Comme des enfants",pr:"Comparar por escrito 20 diferenças entre o francês do Quebec e o da França"},
-    {w:64,p:"B2",t:"Áudio difícil e velocidade real",g:"Sem conteúdo novo: tudo em compreensão auditiva sem apoio",l:"Vocabulário de baixa frequência capturado em contexto",v:"France 5 — C dans l'air, 2 programas inteiros",a:"Rádio ao vivo 30 min por dia: France Inter, RFI, France Info",m:"Alain Souchon — La ballade de Jim",pr:"Uma dictée de 10 minutos por dia, transcrevendo áudio nativo"},
-    {w:65,p:"B2",t:"Ler um romance inteiro",g:"Passé simple, imparfait du subjonctif e estilo literário na prática",l:"Vocabulário literário e campos semânticos",v:"La Grande Librairie — um programa",a:"Audiolivro do mesmo romance, em leitura sincronizada",m:"Barbara Pravi — Louis",pr:"Ler L'Étranger (Camus) inteiro e escrever uma análise de 400 palavras"},
-    {w:66,p:"B2",t:"Consolidação B2 e exame",g:"Revisão: subjonctif passé, relativos compostos, discurso indireto, passiva, estilo",l:"Depuração do Anki (~7000 cartões) e lista dos erros recorrentes",v:"Um filme sem legendas e um documentário longo",a:"Um podcast nativo de uma hora, sem apoio",m:"Playlist B2 completa",pr:"Simulado DELF B2 completo, as quatro provas, + correção com tutor"},
+  {w:51,p:"B2",t:"O registro formal",g:"Langage soutenu: vocabulário, estruturas e inversões que sobem o nível de um texto",y:"ftz9dubkhyM",yt:"Le langage soutenu en français",l:"Registro formal e administrativo",c:"CO nível B2 e a primeira CO nível C1",cp:"coC1",a:"Vira a chave: Radio-Canada Info todos os dias a partir de hoje, 20 min",m:"Les Cowboys Fringants — Les étoiles filantes",pr:"EE tarefa 3: reescrever um texto informal em registro formal. 30 min.",pp:"ee3"},
+  {w:52,p:"B2",t:"Preposições: resumo prático",g:"O mapa completo das preposições, com os regimes verbais que a prova cobra",y:"khjvFxIwoIo",yt:"Les prépositions en français : résumé pratique",l:"Memória e lembrança: se souvenir, se rappeler",yv:"JUpvjvgim8g",yvt:"Se souvenir, se rappeler, rappeler",c:"CE nível C1: primeiro contato",cp:"ceC1",a:"Les Années lumière (Radio-Canada) — 1 episódio",m:"Cœur de pirate — Comme des enfants",pr:"EO tarefa 3 com tema canadense, 4 min, gravado e reouvido criticamente",pp:"eo3b"},
+  {w:53,p:"B2",t:"PAR e POUR",g:"A distinção que o português não faz e que aparece em toda prova; expressões fixas com cada um",y:"XklyHW4VlbA",yt:"PAR et POUR en français",l:"Tempo: soir ou soirée, jour ou journée",yv:"RijtwCek-tc",yvt:"Soir ou soirée, jour ou journée, matin ou matinée",c:"CO nível C1: dois exercícios",cp:"coC1",a:"Télé-Québec — um documentário",m:"Pierre Lapointe — Deux par deux rassemblés",pr:"EE tarefa 3 cronometrada, 30 min",pp:"ee3"},
+  {w:54,p:"B2",t:"Verbos pronominais avançados",g:"Pronominais de sentido passivo e recíproco; se faire + infinitivo",y:"omfE-kwxYyc",yt:"Les verbes pronominaux (2)",l:"Conectores: ailleurs, d'ailleurs, par ailleurs",yv:"WgsdeaAs_jk",yvt:"Ailleurs, d'ailleurs, par ailleurs, à propos",c:"CE nível C1: dois exercícios cronometrados",cp:"ceC1",a:"La Soirée est encore jeune — 1 episódio (sotaque quebequense real)",m:"Klô Pelgag — Mélamine",pr:"EO tarefa 2: simulação em interação com o tutor, tema administrativo canadense",pp:"eo2"},
+  {w:55,p:"B2",t:"Resumir e sintetizar",g:"A técnica do resumo: reformular sem copiar, hierarquizar ideias, cortar sem perder sentido. É a EE tarefa 3 inteira.",y:"218PkXa6Cz4",yt:"6 conseils pour faire un résumé en français",l:"Economia, empresa, entrevista",yv:"1X5CICisiC0",yvt:"Entretien d'embauche et vocabulaire du travail",c:"CO nível C1: dois exercícios",cp:"coC1",a:"Un podcast d'économie — 1 episódio",m:"Starmania — Le blues du businessman",pr:"Três EE tarefa 3 na semana, 30 min cada, comparando com os modelos comentados",pp:"ee3"},
+  {w:56,p:"B2",t:"Savoir e connaître",g:"A dupla que o português resolve com um verbo só; e os outros pares que confundem",y:"3AlIBY-8Dg4",yt:"SAVOIR versus CONNAITRE en français",l:"O verbo tenir e sua família",yv:"6sXrBG4DerY",yvt:"Le verbe TENIR en français",c:"CE nível C1: dois exercícios cronometrados",cp:"ceC1",a:"Radio-Canada — Désautels le dimanche",m:"Louis-Jean Cormier — Tout le monde en même temps",pr:"EO tarefa 3 com tema de atualidade canadense, gravado",pp:"eo3b"},
+  {w:57,p:"B2",t:"Verbos que enganam",g:"Os verbos cujo regime, auxiliar ou sentido muda tudo — os que mais custam pontos na produção",y:"C5uJ83IuTLs",yt:"Ces verbes qui rendent mes étudiants fous",l:"Sociedade: laicidade, imigração, integração",c:"CO nível C1: dois exercícios",cp:"coC1",a:"Arte — Le Dessous des Cartes, 2 episódios",m:"Médine — Grand Paris",pr:"EE tarefa 3 sobre integração de imigrantes. 30 min.",pp:"ee3"},
+  {w:58,p:"B2",t:"Homófonos gramaticais",g:"et ou est, son ou sont, la ou là, ces ou ses ou c'est: o que mais derruba nota na EE",y:"ZynB4DRKBHU",yt:"Homophones grammaticaux : ET ou EST, SON ou SONT…",l:"Arte, crítica, apreciação",c:"CE nível C1: dois exercícios cronometrados",cp:"ceC1",a:"Le Masque et la Plume — 1 episódio",m:"Charlotte Cardin — Passive Aggressive",pr:"Ditado de 10 min por dia esta semana, sobre áudio nativo"},
+  {w:59,p:"B2",t:"Ortografia: método",g:"Um método para parar de errar acentos e concordâncias na escrita sob pressão",y:"r_jbC_eM2Vc",yt:"Comment améliorer son orthographe française",l:"Ciência, divulgação, método",c:"CO nível C1: dois exercícios",cp:"coC1",a:"Sur les épaules de Darwin — 2 episódios",m:"Jean Leloup — 1990",pr:"EE tarefa 2 e 3 na sequência, 55 min cronometrados, sem corretor",pp:"ee3"},
+  {w:60,p:"B2",t:"Erros que até franceses cometem",g:"Doze erros nativos que aparecem em texto real — e que a prova espera que vocês não cometam",y:"Idt1nRGqIyc",yt:"12 erreurs que même les Français commettent",l:"Humor, ironia, subentendido",yv:"dT-VrjX_I6E",yvt:"L'expression « pas mal » en français",c:"CE nível C1: dois exercícios cronometrados",cp:"ceC1",a:"Um espetáculo de humor quebequense, em três sessões",m:"Fouki — Copilote",pr:"EO tarefa 1: entrevista dirigida de 2 min, sem preparo, sobre temas aleatórios. Dez rodadas.",pp:"eoAll"},
+  {w:61,p:"B2",t:"Quantificadores precisos",g:"certains, quelques, des, plusieurs, la plupart: nuances que a CE cobra e a EE recompensa",y:"0D0YP9E-gLA",yt:"CERTAINS, QUELQUES ou DES ?",l:"Argot e francês informal",yv:"YsvOIi1AlPA",yvt:"30 mots d'argot en français",c:"CO nível C1: dois exercícios",cp:"coC1",a:"Podcasts quebequenses — 2 episódios sem apoio",m:"Safia Nolin — Igloo",pr:"EO tarefa 2 e 3 cronometradas com o tutor, analisadas pelo critério oficial",pp:"eo2"},
+  {w:62,p:"B2",t:"Registro escrito avançado",g:"que l'on ou qu'on; o NE explétif; as letras eufônicas: marcas do francês escrito culto",y:"Nn6q9AK47NI",yt:"QUE L'ON ou QU'ON ? Le NE explétif",l:"Verbos familiares da fala",yv:"qUbl_XtF2eY",yvt:"20 verbes français familiers",c:"Simulado de confirmação: as quatro provas completas em condições reais. Se as quatro baterem NCLC 7, confirmem a inscrição.",cp:"coC1",a:"Rádio canadense ao vivo, 30 min por dia",m:"2Frères — Trois cafés",pr:"Análise do simulado com o tutor: o que falta para cada prova e onde atacar nas próximas três semanas",pp:"eoAll"},
+  {w:63,p:"B2",t:"Expressões idiomáticas em bloco",g:"Cem expressões em uma hora: o material que separa NCLC 7 de NCLC 9 na produção",y:"OmOn2mHuYPs",yt:"1 heure avec 100 expressions françaises",l:"Anglicismos e falsos amigos",yv:"j0_oRyewLKE",yvt:"Mots anglais en français",c:"A prova que ficou atrás no simulado da semana 62 — dois exercícios por dia esta semana",cp:"coC1",a:"La Presse e Le Devoir — um artigo por dia, em voz alta",m:"Hubert Lenoir — Fille de personne II",pr:"Três simulações completas de EO (12 min cada), gravadas e cronometradas",pp:"eoAll"},
+  {w:64,p:"B2",t:"Falar como nativo",g:"Sessenta frases prontas que resolvem transições, hesitações e reformulações na EO",y:"Zt_35CrRpGM",yt:"60 phrases pour parler français comme un natif",l:"Palavras cortadas e abreviações da fala",yv:"a0ijagAdiGo",yvt:"Mots coupés ou apocopes en français",c:"A prova mais fraca de vocês, de novo — dois exercícios por dia",cp:"ceC1",a:"Rádio ao vivo, 30 min por dia, sem apoio",m:"Ariane Moffatt — Réverbère",pr:"EE tarefa 1, 2 e 3 na sequência, 60 min cronometrados, como na prova",pp:"eeLab"},
+  {w:65,p:"B2",t:"Conjugação: última revisão",g:"Seis conselhos para consolidar conjugação de uma vez; revisão de todos os tempos sob pressão",y:"qmC89o87f_0",yt:"6 conseils pour améliorer ta conjugaison",l:"Regionalismos e variações",yv:"5i3idQwYPFA",yvt:"10 expressions selon les régions de France",c:"Simulado de ensaio geral: as quatro provas, mesma ordem e mesmos horários da prova real",cp:"coC1",a:"Somente francês esta semana: nada de português em lazer",m:"Marie-Mai — Encore une nuit",pr:"Revisar as gravações de EO da semana 63 e corrigir os três vícios mais frequentes"},
+  {w:66,p:"B2",t:"Semana da prova — TCF Canada",g:"Nada novo. Revisão leve, sono em dia e releitura das suas próprias anotações de erro.",yp:"eoAll",yt:"Revisão final: EO completa comentada (TCF Lab)",l:"Só revisão: zero cartão novo esta semana",c:"Nos dias anteriores à prova: um exercício curto por dia, só para manter o ritmo. Nada de simulado completo.",cp:"coC1",a:"Podcast leve em francês, sem esforço de anotação",m:"A playlist que vocês mais gostam, sem estudar nada",pr:"A prova. As quatro provas, no dia agendado. Depois: comemorem, independentemente do resultado."},
 
-    {w:67,p:"C1",t:"Tempos literários",g:"Passé simple ativo na leitura; imparfait du subjonctif; passé antérieur",l:"Literatura clássica, contos",v:"Lectures de France Culture — 2 episódios",a:"Duas horas de audiolivro literário",m:"Léo Ferré — Avec le temps",pr:"Reescrever uma página em passé simple para passé composé e comparar o efeito"},
-    {w:68,p:"C1",t:"Estilística e ênfase",g:"Mise en relief (c'est… que, ce que… c'est); inversões; adjetivo anteposto",l:"Retórica e figuras de estilo",v:"Apostrophes (arquivo do INA) — um programa",a:"Avec philosophie — 2 episódios",m:"Jean Ferrat — La montagne",pr:"Reescrever 20 frases neutras em versões enfáticas diferentes"},
-    {w:69,p:"C1",t:"Argumentação C1",g:"Conectores acadêmicos avançados; concessão dupla; modalização",l:"Filosofia, ética, argumentação erudita",v:"Les Chemins de la philosophie — 2 episódios",a:"Le Cours de l'histoire — 2 episódios",m:"Anne Sylvestre — Une sorcière comme les autres",pr:"Dissertação de 700 palavras com plano dialético completo"},
-    {w:70,p:"C1",t:"Síntese de documentos",g:"Técnica da synthèse: confrontar fontes sem opinar; reformulação integral",l:"Vocabulário de reformulação",v:"Vídeos de método da synthèse do DALF C1",a:"Ler e ouvir quatro fontes sobre o mesmo tema",m:"Yves Montand — Les feuilles mortes",pr:"Duas synthèses de 250 palavras na semana, a partir de três textos cada"},
-    {w:71,p:"C1",t:"Vocabulário abstrato",g:"Prefixos e sufixos eruditos; famílias lexicais de raiz latina e grega",l:"Filosofia, psicologia, sociologia, direito",v:"Monsieur Phi e Cyrus North — 3 vídeos",a:"Le Nouvel Esprit Public — 2 episódios",m:"Barbara — L'aigle noir",pr:"Criar 100 cartões de palavras abstratas, cada um com frase própria"},
-    {w:72,p:"C1",t:"Registros extremos",g:"Registro literário, jurídico e administrativo; fórmulas fixas",l:"Documentos oficiais, contratos, textos de lei",v:"Vídeos explicativos do service-public.fr",a:"Um podcast jurídico ou administrativo francês",m:"Juliette — Rimes féminines",pr:"Uma lettre administrative formal e um texto literário curto, no mesmo dia"},
-    {w:73,p:"C1",t:"Prosódia e fluência",g:"Ritmo, liaisons obrigatórias e proibidas, acento de grupo, entonação",l:"Sem léxico novo: só precisão fonética",v:"Vídeos de fonética francesa, com espelho e gravador",a:"Shadowing: 20 minutos por dia sobre o mesmo áudio",m:"Cantar três músicas em sincronia exata com o original",pr:"Gravar o mesmo texto no dia 1 e no dia 7 e comparar lado a lado"},
-    {w:74,p:"C1",t:"Oral longo",g:"Estruturar exposição de 10 minutos; improvisar com plano mental",l:"Temas de exame do DALF C1",v:"Exemplos comentados de orais de DALF C1",a:"Ouvir e resumir oralmente um podcast por dia",m:"Charles Aznavour — Emmenez-moi",pr:"Três exposições de 10 minutos com defesa de 10 minutos, gravadas"},
-    {w:75,p:"C1",t:"Escrita C1",g:"Essai e rapport de 1000 palavras; coesão, progressão temática, elegância",l:"Vocabulário de precisão e conectores raros",v:"Corrigés comentados de provas de DALF C1",a:"Jornal diário com resumo escrito",m:"Jacques Brel — Amsterdam",pr:"Dois textos de 1000 palavras, revisados pelo tutor"},
-    {w:76,p:"C1",t:"Semana de imersão total",g:"Sem conteúdo novo: 100% do tempo de estudo e de lazer em francês",l:"Consolidação por uso, sem listas",v:"Séries e vídeos só em francês, sem legendas, a semana inteira",a:"Rádio francesa de fundo ao longo do dia",m:"Playlist exclusivamente francesa por sete dias",pr:"Diário pessoal em francês, 300 palavras por dia"},
-    {w:77,p:"C1",t:"Simulado DALF C1",g:"Estratégia de prova: gestão de tempo nas quatro competências",l:"Revisão dos seus erros mais frequentes ao longo dos 18 meses",v:"Rever suas próprias gravações da semana 1 e da semana 40",a:"Compréhension orale cronometrada, em condições de exame",m:"Pausa: música francesa só por prazer",pr:"Simulado DALF C1 completo em condições reais, com correção"},
-    {w:78,p:"C1",t:"Plano de manutenção vitalícia",g:"Mapear as lacunas que restaram e montar a rotina de manutenção",l:"Anki em modo manutenção: 20 cartões por dia, para sempre",v:"Escolher três canais para seguir indefinidamente",a:"Escolher dois podcasts semanais definitivos",m:"Montar sua playlist francesa definitiva",pr:"Escrever em francês uma carta ao seu eu de 18 meses atrás e inscrever-se no próximo exame"}
+  {w:67,p:"C1",t:"A liaison",g:"Liaisons obrigatórias, proibidas e facultativas: o que mais marca sotaque estrangeiro na EO",y:"tg4jxisSRUc",yt:"La liaison en français",l:"Expressões idiomáticas de nível alto",yv:"_f15lARYd_E",yvt:"10 expressions idiomatiques françaises",c:"CE nível C2: dois exercícios",cp:"ceC2",a:"France Culture — Avec philosophie, 1 episódio",m:"Léo Ferré — Avec le temps",pr:"Shadowing: 20 min por dia sobre o mesmo áudio, a semana inteira"},
+  {w:68,p:"C1",t:"Acento tônico e ritmo",g:"O acento de grupo do francês; por que soar 'brasileiro em francês' é uma questão de ritmo, não de sons",y:"RCH8TSjAEvk",yt:"L'accent tonique en français",l:"Registros: informal, formal e neutro",yv:"ro4WmrkJ8xA",yvt:"Expressions du langage informel, formel et neutre",c:"CO nível C2: dois exercícios",cp:"coC2",a:"Le Nouvel Esprit Public — 1 episódio",m:"Jean Ferrat — La montagne",pr:"EO tarefa 3 de nível C1, 4 min, comparando com os modelos comentados",pp:"eo3b"},
+  {w:69,p:"C1",t:"O e caduc",g:"Fazer cair o 'e' como os nativos: a técnica que mais acelera a fala de uma vez",y:"qfSX9gjz8VU",yt:"Astuce pour parler comme un natif : faire tomber le e caduc",l:"Expressões com ça: ça y est, ça a été, ça promet",yv:"C-hZuRdXXIE",yvt:"Quand utiliser « ça y est », « ça a été », « ça promet »",c:"CE nível C2: dois exercícios cronometrados",cp:"ceC2",a:"Les Chemins de la philosophie — 2 episódios",m:"Barbara — L'aigle noir",pr:"Gravar o mesmo texto no dia 1 e no dia 7 da semana e comparar lado a lado"},
+  {w:70,p:"C1",t:"Vogais nasais",g:"As três nasais do francês, o erro clássico do falante de português e como corrigi-lo",y:"Cr7zrFrdvMc",yt:"As vogais nasais — pronúncia do francês",l:"Ditar números, e-mails, endereços",yv:"gw6C5sS9ync",yvt:"Comment dire les nº de téléphone, @, %, etc.",c:"CO nível C2: dois exercícios",cp:"coC2",a:"LSD, la série documentaire — uma série inteira",m:"Yves Montand — Les feuilles mortes",pr:"EO tarefa 2 de nível C1: simulações administrativas reais (banco, aluguel, seguro no Canadá)",pp:"eo2"},
+  {w:71,p:"C1",t:"Francês da escola, francês real",g:"A distância entre o que se ensina e o que se fala — e como fechar essa distância na CO",y:"YU9ccwaXF_0",yt:"Prononciation française : école versus vie réelle",l:"Expressões para soar francês de verdade",yv:"JLS9fI1rSxs",yvt:"Expressões francesas para falar como um francês",c:"CE nível C2: dois exercícios cronometrados",cp:"ceC2",a:"Rádio canadense ao vivo, sem apoio, 40 min por dia",m:"Richard Desjardins — Tu m'aimes-tu",pr:"Transcrever 3 min de fala nativa rápida e reescrever em francês padrão"},
+  {w:72,p:"C1",t:"Argot e verlan",g:"O verlan e suas expressões consagradas: entender é obrigatório na CO, produzir é opcional",y:"qLMnaS2dRwg",yt:"Le verlan et ses principales expressions",l:"Expressões coloquiais frequentes",yv:"Qjcrp6430lk",yvt:"10 expressões francesas para conhecer",c:"CO nível C2: dois exercícios",cp:"coC2",a:"Séries quebequenses sem legenda: District 31 ou M'entends-tu?",m:"Loud — Fallait y aller",pr:"EO tarefa 3 de nível C2, 4 min, sobre um tema abstrato sorteado",pp:"eo3"},
+  {w:73,p:"C1",t:"Linguagem dos jovens",g:"O registro que aparece em áudio autêntico e que nenhum livro ensina",y:"cGRxw5ZAITY",yt:"Langage des jeunes Français : top 11 des expressions",l:"Expressões coloquiais muito comuns",yv:"vS-St_LSSQk",yvt:"10 expressões coloquiais muito comuns em francês",c:"CE nível C2: dois exercícios cronometrados",cp:"ceC2",a:"Podcasts de conversa livre entre nativos, sem transcrição",m:"Émile Bilodeau — Ça va ça va",pr:"EE tarefa 3 de nível C1: 180 palavras densas, 30 min, revisadas pelo tutor",pp:"ee3"},
+  {w:74,p:"C1",t:"Vocabulário abstrato",g:"Palavras difíceis, prefixos e sufixos eruditos, famílias lexicais de raiz latina e grega",y:"H6nk3QO45Wo",yt:"Mots difficiles en français",l:"Filosofia, psicologia, sociologia, direito",yv:"7Gev6Pv1RO8",yvt:"Linguagem familiar e gíria em francês",c:"CO nível C2: dois exercícios",cp:"coC2",a:"Monsieur Phi e Cyrus North — 3 vídeos",m:"Harmonium — Pour un instant",pr:"Criar 100 cartões de palavras abstratas, cada um com frase própria"},
+  {w:75,p:"C1",t:"Marcadores formais do escrito",g:"auparavant, dorénavant, désormais, en outre, par conséquent: o vocabulário que sobe a nota da EE",y:"UyMx93bKbQc",yt:"Auparavant, dorénavant, désormais…",l:"Gíria e registro familiar (parte 2)",yv:"pHMpWASW3FI",yvt:"Linguagem familiar, gíria em francês (2)",c:"CE nível C2 inteira, cronometrada, em condições de exame",cp:"ceC2",a:"Le Devoir e Radio-Canada — um editorial por dia, resumido em voz alta",m:"Klô Pelgag — La fonte",pr:"EE tarefa 1, 2 e 3 completas, 60 min, no padrão da prova real",pp:"eeLab"},
+  {w:76,p:"C1",t:"Semana de imersão total",g:"Dez truques para soar francês, aplicados em 100% do tempo: nada de português no lazer esta semana",y:"rZGQqyJnp0c",yt:"10 astuces pour parler comme un Français",l:"Consolidação por uso, sem listas novas",yv:"QmIENL5hsik",yvt:"« Mistral gagnant » expliquée",c:"CO nível C2 completa, cronometrada",cp:"coC2",a:"Rádio francesa ou canadense de fundo ao longo do dia inteiro",m:"Playlist exclusivamente francesa por sete dias",pr:"Diário pessoal em francês, 300 palavras por dia, e conversas entre vocês só em francês"},
+  {w:77,p:"C1",t:"Ensaio geral C1/C2",g:"Nada novo. Só estratégia: gestão de tempo, ordem das questões, quando chutar e seguir.",yp:"eoAll",yt:"Revisão: EO completa comentada (TCF Lab)",l:"Revisão dos seus erros mais frequentes dos 18 meses",c:"Simulado completo de nível C1/C2: as quatro provas em condições reais, mesmo horário da prova agendada",cp:"coC2",a:"Compreensão oral cronometrada, sem pausas, sem repetição",m:"Pausa: música francesa só por prazer",pr:"Comparar as quatro notas estimadas com as da semana 62 e decidir: vale refazer a prova?",pp:"eoAll"},
+  {w:78,p:"C1",t:"Segunda prova e plano de manutenção",g:"Como continuar aprendendo francês para sempre, sem plano de estudo: a playlist de método do Pierre",yp:"method",yt:"Comment apprendre le français — playlist completa",l:"Anki em modo manutenção: 20 cartões por dia, indefinidamente",c:"Se a nota de alguma prova ainda estiver abaixo da meta e o prazo permitir, a segunda tentativa do TCF Canada é agora",cp:"coC2",a:"Escolher dois podcasts canadenses definitivos e assinar",m:"Montar a playlist francesa definitiva da casa",pr:"Escrever em francês uma carta ao seu eu de 18 meses atrás — e montar o perfil de Entrada Expressa"}
   ];
 
   var DAYS = ["lun.","mar.","mer.","jeu.","ven.","sam.","dim."];
-  var KINDS = ["Gramática","Vocabulário","Vídeo","Áudio","Música","Produção","Revisão"];
+  var KINDS = ["Gramática","Vocabulário","Formato TCF","Imersão","Música + pronúncia","Produção TCF","Revisão + jogo"];
+  var EXAM_WEEKS = {16:1, 32:1, 50:1, 62:1, 66:1, 77:1, 78:1};
+
+  function ytUrl(id){ return "https://www.youtube.com/watch?v=" + id; }
+  function plUrl(id){ return "https://www.youtube.com/playlist?list=" + id; }
+  function chUrl(q){ return "https://www.youtube.com/@Francaisavecpierre/search?query=" + q; }
 
   function tasksOf(wk){
+    var gl = null;
+    if(wk.y) gl = {u:ytUrl(wk.y), n:wk.yt};
+    else if(wk.yp) gl = {u:plUrl(PL[wk.yp][0]), n:wk.yt};
+    else if(wk.ys) gl = {u:chUrl(wk.ys), n:wk.yt};
+
+    var cpl = PL[wk.cp];
+    var ppl = wk.pp ? PL[wk.pp] : null;
+
     return [
-      wk.g,
-      wk.l + " — 30 cartões novos no Anki, sempre com frase de contexto",
-      wk.v,
-      wk.a,
-      wk.m + " — letra, tradução e uma rodada no LyricsTraining",
-      wk.pr,
-      "Anki atrasado, 20 min de Kwiziq ou Clozemaster e um jogo: Sutom, Babadum ou LyricsTraining"
+      {x:wk.g, l:gl},
+      {x:wk.l + (wk.w > 66 ? "" : " — 30 cartões novos no Anki, sempre com frase de contexto"),
+       l:wk.yv ? {u:ytUrl(wk.yv), n:wk.yvt} : null},
+      {x:wk.c, l:cpl ? {u:plUrl(cpl[0]), n:cpl[1]} : null},
+      {x:wk.a, l:null},
+      {x:wk.m + " — letra, tradução e uma rodada no LyricsTraining", l:null},
+      {x:wk.pr, l:ppl ? {u:plUrl(ppl[0]), n:ppl[1]} : null},
+      {x:"Anki atrasado, 20 min de Kwiziq ou Clozemaster e um jogo: Sutom, Babadum ou LyricsTraining", l:null}
     ];
   }
 
   var TOTAL = W.length * 7;
 
-  // ---------- state ----------
   var state = { start: null, done: {} };
   var LS = "fr78.v1";
   var dbRef = null, docExists = false, dirty = null, flushing = false, dbErr = false;
@@ -628,7 +697,6 @@ footer p + p{margin-top:10px}
     }).catch(function(err){
       flushing = false;
       if(err && err.code === "invalid_argument" && !docExists){
-        // document absent: fall back to a full write
         dbRef.set(state).then(function(){
           docExists = true; setSync("ok","salvo");
         }).catch(function(){ dbErr = true; setSync("err","só neste aparelho"); });
@@ -639,7 +707,6 @@ footer p + p{margin-top:10px}
     });
   }
 
-  // ---------- date helpers ----------
   function todayISO(){
     var d = new Date();
     return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
@@ -652,21 +719,18 @@ footer p + p{margin-top:10px}
   }
   function currentWeek(){
     var st = parseISO(state.start); if(!st) return null;
-    var now = parseISO(todayISO());
-    var days = Math.floor((now - st) / 86400000);
+    var days = Math.floor((parseISO(todayISO()) - st) / 86400000);
     if(days < 0) return null;
     var n = Math.floor(days/7) + 1;
     return n > W.length ? null : n;
   }
   function todayIndex(){
     var st = parseISO(state.start); if(!st) return 0;
-    var now = parseISO(todayISO());
-    var days = Math.floor((now - st) / 86400000);
+    var days = Math.floor((parseISO(todayISO()) - st) / 86400000);
     if(days < 0) return 0;
     return ((days % 7) + 7) % 7;
   }
 
-  // ---------- rendering ----------
   var filter = "all";
   var open = {};
 
@@ -695,10 +759,8 @@ footer p + p{margin-top:10px}
       row.appendChild(el("div","badge", ph.id));
 
       var right = el("div");
-      var h = el("div");
-      h.appendChild(el("h3", null, ph.name + " · " + ph.fr));
-      h.appendChild(el("div","rng","Semanas " + ph.from + "–" + ph.to + " · " + weeks.length + " semanas"));
-      right.appendChild(h);
+      right.appendChild(el("h3", null, ph.name + " · " + ph.fr));
+      right.appendChild(el("div","rng","Semanas " + ph.from + "–" + ph.to + " · " + weeks.length + " semanas"));
       right.appendChild(el("p", null, ph.desc));
 
       var mb = el("div","minibar");
@@ -718,6 +780,7 @@ footer p + p{margin-top:10px}
     box.textContent = "";
     var opts = [{k:"all",lbl:"Todas as 78"}];
     PHASES.forEach(function(p){ opts.push({k:p.id, lbl:p.id + " · " + p.name}); });
+    opts.push({k:"exam",lbl:"Simulados e prova"});
     opts.push({k:"todo",lbl:"Só o que falta"});
     opts.forEach(function(o){
       var b = el("button","chip", o.lbl);
@@ -750,9 +813,21 @@ footer p + p{margin-top:10px}
     });
     row.appendChild(cb);
     row.appendChild(el("div","dw", DAYS[i]));
+
+    var t = tasksOf(wk)[i];
     var tx = el("div","tx");
     tx.appendChild(el("b", null, KINDS[i]));
-    tx.appendChild(document.createTextNode(tasksOf(wk)[i]));
+    tx.appendChild(document.createTextNode(t.x));
+    if(t.l){
+      tx.appendChild(document.createElement("br"));
+      var a = document.createElement("a");
+      a.className = "vid";
+      a.href = t.l.u;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = t.l.n;
+      tx.appendChild(a);
+    }
     row.appendChild(tx);
     return row;
   }
@@ -764,12 +839,12 @@ footer p + p{margin-top:10px}
     var list = W.filter(function(wk){
       if(filter === "all") return true;
       if(filter === "todo") return weekCount(wk.w) < 7;
+      if(filter === "exam") return !!EXAM_WEEKS[wk.w];
       return wk.p === filter;
     });
 
     if(!list.length){
-      var empty = el("p","sub","Tudo marcado nesta seleção. Bravo.");
-      box.appendChild(empty);
+      box.appendChild(el("p","sub","Tudo marcado nesta seleção. Bravo."));
       return;
     }
 
@@ -789,6 +864,8 @@ footer p + p{margin-top:10px}
       mid.appendChild(el("div","wtitle", wk.t));
       var tags = el("div","wtags");
       tags.appendChild(el("span","lvl", wk.p));
+      if(wk.w === 66) tags.appendChild(el("span","exam-tag","prova oficial"));
+      else if(EXAM_WEEKS[wk.w]) tags.appendChild(el("span","exam-tag","simulado"));
       if(cw === wk.w) tags.appendChild(el("span","now-tag","semana atual"));
       mid.appendChild(tags);
       btn.appendChild(mid);
@@ -834,14 +911,14 @@ footer p + p{margin-top:10px}
       var ti = todayIndex();
       tl.appendChild(taskRow(wk, ti, isDone(cw, ti)));
       body.appendChild(tl);
-      var hint = el("p","sub", "Tarefa de hoje (" + DAYS[ti] + "). Se estiver atrasado, abra a semana abaixo e faça a primeira não marcada.");
+      var hint = el("p","sub", "Tarefa de hoje (" + DAYS[ti] + "). Se estiverem atrasados, abram a semana abaixo e façam a primeira não marcada.");
       hint.style.marginTop = "12px"; hint.style.marginBottom = "4px"; hint.style.fontSize = ".86rem";
       body.appendChild(hint);
       box.appendChild(body);
     } else {
       top.appendChild(el("div","today-wk","—"));
-      info.appendChild(el("h3", null, state.start ? "Fora do período do plano" : "Defina a data de início"));
-      info.appendChild(el("p", null, state.start ? "A data de início está fora da janela de 78 semanas. Ajuste abaixo." : "Escolha o dia em que você começa e a página passa a mostrar a semana e a tarefa do dia."));
+      info.appendChild(el("h3", null, state.start ? "Fora do período do plano" : "Definam a data de início"));
+      info.appendChild(el("p", null, state.start ? "A data de início está fora da janela de 78 semanas. Ajustem abaixo." : "Escolham o dia em que começam e a página passa a mostrar a semana e a tarefa do dia."));
       top.appendChild(info);
       box.appendChild(top);
     }
@@ -876,7 +953,6 @@ footer p + p{margin-top:10px}
   readLocal();
   renderAll();
 
-  // ---------- db ----------
   if(window.claude && typeof window.claude.use === "function"){
     window.claude.use("db").then(function(db){
       if(!db) return;
@@ -894,7 +970,6 @@ footer p + p{margin-top:10px}
       }, function(){
         dbErr = true; setSync("err","só neste aparelho");
       });
-      // If a local-only state existed before db was available, push it up.
       if(state.start || Object.keys(state.done).length){
         dirty = { start: state.start, done: state.done };
         scheduleFlush();
