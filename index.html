@@ -201,6 +201,29 @@ h2{font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:clamp(1.6rem,4.4vw,2.
 .vid{display:inline-flex;align-items:baseline;gap:6px;margin-top:5px;font-size:.88rem;border-bottom:1px solid color-mix(in srgb, var(--outremer) 30%, transparent)}
 .vid::before{content:"▶";font-size:.62rem;color:var(--garance);position:relative;top:-1px}
 
+.scount{
+  float:right;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;
+  letter-spacing:.06em;color:var(--ink-3);font-variant-numeric:tabular-nums;
+  border:1px solid var(--rule);border-radius:3px;padding:1px 5px;margin-left:8px;
+}
+.subs li{display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start;padding-left:0}
+.subs li::before{content:none}
+.subs .sbody{min-width:0}
+.subs input[type="checkbox"]{
+  appearance:none;-webkit-appearance:none;width:15px;height:15px;margin:3px 0 0;
+  border:1.5px solid var(--rule);border-radius:3px;background:var(--surface-2);
+  cursor:pointer;position:relative;
+}
+.subs input[type="checkbox"]:checked{background:var(--vert);border-color:var(--vert)}
+.subs input[type="checkbox"]:checked::after{
+  content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;
+  border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg);
+}
+.subs li.sdone .st{
+  color:var(--ink-3);text-decoration:line-through;
+  text-decoration-color:color-mix(in srgb, var(--ink-3) 45%, transparent);
+}
+.subs li.sdone .vid{opacity:.6}
 .myslot{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:7px}
 .myrow{display:inline-flex;align-items:center;gap:3px}
 .vid.mine{color:var(--vert);border-bottom-color:color-mix(in srgb, var(--vert) 45%, transparent)}
@@ -392,7 +415,7 @@ footer p + p{margin-top:10px}
 
   <section class="block">
     <div class="head"><h2>O plano, semana por semana</h2><span class="fr">Le programme détaillé</span></div>
-    <p class="sub">Sete tarefas por semana, uma por dia. Cliquem na semana para abrir e marcar. Se atrasarem, não reorganizem nada: façam a próxima tarefa não marcada e sigam. Cada subtópico tem a sua própria aula: em média três por semana na gramática e duas no vocabulário, todas do mesmo professor, Pierre, para vocês se acostumarem com uma voz e um método só. E em cada tópico há um <b>+ meu link</b>: se acharem um vídeo melhor, colem o endereço ali e ele fica salvo junto com o progresso.</p>
+    <p class="sub">Sete tarefas por semana, uma por dia. Cliquem na semana para abrir e marcar. Cada subtópico tem o seu próprio check: se hoje vocês só deram conta do alfabeto, marquem só ele — o dia fecha sozinho quando todos os tópicos dele estiverem marcados, e o contador ao lado do dia mostra quanto falta. Se atrasarem, não reorganizem nada: façam o próximo tópico não marcado e sigam. Cada subtópico tem a sua própria aula: em média três por semana na gramática e duas no vocabulário, todas do mesmo professor, Pierre, para vocês se acostumarem com uma voz e um método só. E em cada tópico há um <b>+ meu link</b>: se acharem um vídeo melhor, colem o endereço ali e ele fica salvo junto com o progresso.</p>
     <div class="filters" id="filters"></div>
     <div class="weeks" id="weeks"></div>
   </section>
@@ -1635,7 +1658,7 @@ footer p + p{margin-top:10px}
 
   var TOTAL = W.length * 7;
 
-  var state = { start: null, done: {}, mine: {} };
+  var state = { start: null, done: {}, mine: {}, subs: {} };
   var LS = "fr78.v1";
   var dbRef = null, docExists = false, dirty = null, flushing = false, dbErr = false;
 
@@ -1643,7 +1666,7 @@ footer p + p{margin-top:10px}
     try{
       var raw = localStorage.getItem(LS);
       if(raw){ var o = JSON.parse(raw); if(o && typeof o === "object"){
-        state.start = o.start || null; state.done = o.done || {}; state.mine = o.mine || {};
+        state.start = o.start || null; state.done = o.done || {}; state.mine = o.mine || {}; state.subs = o.subs || {};
       }}
     }catch(e){}
   }
@@ -1669,6 +1692,9 @@ footer p + p{margin-top:10px}
     } else if(path.k === "mine"){
       dirty.mine = dirty.mine || {};
       dirty.mine[path.key] = val;
+    } else if(path.k === "subs"){
+      dirty.subs = dirty.subs || {};
+      dirty.subs[path.key] = val;
     } else {
       dirty.start = val;
     }
@@ -1790,52 +1816,157 @@ footer p + p{margin-top:10px}
     });
   }
 
+  /* ---- check por subtópico, com o dia fechando sozinho ---- */
+  function subKey(w, ti, si){ return "w" + w + "t" + ti + "s" + si; }
+
+  function hasAnySub(w, ti, n){
+    for(var k = 0; k < n; k++){
+      if(state.subs[subKey(w, ti, k)] !== undefined) return true;
+    }
+    return false;
+  }
+
+  function isSubDone(w, ti, si, n){
+    var v = state.subs[subKey(w, ti, si)];
+    if(v !== undefined) return !!v;
+    /* Dias marcados antes de existir o check por tópico contam como completos. */
+    return isDone(w, ti) && !hasAnySub(w, ti, n);
+  }
+
+  function subDoneCount(w, ti, n){
+    var c = 0;
+    for(var k = 0; k < n; k++) if(isSubDone(w, ti, k, n)) c++;
+    return c;
+  }
+
+  function setSub(w, ti, si, val){
+    state.subs[subKey(w, ti, si)] = val;
+    markDirty({k:"subs", key:subKey(w, ti, si)}, val);
+  }
+
+  function setTaskDone(w, ti, val){
+    var key = "w" + w;
+    if(!state.done[key]) state.done[key] = {};
+    if(!!state.done[key]["t" + ti] === !!val) return;
+    state.done[key]["t" + ti] = val;
+    markDirty({k:"done", w:w, i:ti}, val);
+  }
+
+  function rollupTask(w, ti, n){
+    var all = true;
+    for(var k = 0; k < n; k++){
+      if(!isSubDone(w, ti, k, n)){ all = false; break; }
+    }
+    setTaskDone(w, ti, all);
+    return all;
+  }
+
+  function syncTask(w, ti){
+    var card = document.getElementById("wk-" + w);
+    if(card){
+      var rows = card.querySelectorAll(".week-body .task");
+      var r = rows[ti];
+      if(r){
+        var cbx = r.querySelector(".task > input[type=checkbox]");
+        if(cbx) cbx.checked = isDone(w, ti);
+        var lis = r.querySelectorAll(".subs li");
+        if(lis.length){
+          for(var k = 0; k < lis.length; k++){
+            var d = isSubDone(w, ti, k, lis.length);
+            var sb = lis[k].querySelector("input[type=checkbox]");
+            if(sb) sb.checked = d;
+            lis[k].classList.toggle("sdone", d);
+          }
+          var sc = r.querySelector(".scount");
+          if(sc) sc.textContent = subDoneCount(w, ti, lis.length) + "/" + lis.length;
+        }
+      }
+      var c = weekCount(w);
+      var cnt = card.querySelector(".count");
+      if(cnt) cnt.textContent = c + "/7";
+      card.classList.toggle("is-done", c === 7);
+    }
+    renderMeter(); renderPhases(); renderToday();
+  }
+
   function taskRow(wk, i, done){
+    var t = tasksOf(wk)[i];
+    var n = t.subs ? t.subs.length : 0;
+
     var row = el("div","task");
+
     var cb = document.createElement("input");
     cb.type = "checkbox";
     cb.id = "t-" + wk.w + "-" + i;
     cb.checked = done;
-    cb.setAttribute("aria-label", KINDS[i] + ", semana " + wk.w);
+    cb.setAttribute("aria-label", n
+      ? ("Marcar todos os " + n + " tópicos de " + KINDS[i] + ", semana " + wk.w)
+      : (KINDS[i] + ", semana " + wk.w));
+    if(n) cb.title = "Marca ou desmarca os " + n + " tópicos de uma vez";
     cb.addEventListener("change", function(){
-      var key = "w" + wk.w;
-      if(!state.done[key]) state.done[key] = {};
-      state.done[key]["t"+i] = cb.checked;
-      markDirty({k:"done", w:wk.w, i:i}, cb.checked);
-      renderMeter(); renderPhases(); renderToday();
-      var card = document.getElementById("wk-" + wk.w);
-      if(card){
-        var c = weekCount(wk.w);
-        card.querySelector(".count").textContent = c + "/7";
-        card.classList.toggle("is-done", c === 7);
+      if(n){
+        for(var k = 0; k < n; k++) setSub(wk.w, i, k, cb.checked);
+        setTaskDone(wk.w, i, cb.checked);
+      } else {
+        setTaskDone(wk.w, i, cb.checked);
       }
+      syncTask(wk.w, i);
     });
     row.appendChild(cb);
     row.appendChild(el("div","dw", DAYS[i]));
 
-    var t = tasksOf(wk)[i];
     var tx = el("div","tx");
-    tx.appendChild(el("b", null, KINDS[i]));
+    var kind = el("b", null, KINDS[i]);
+    if(n){
+      var sc = el("span","scount", subDoneCount(wk.w, i, n) + "/" + n);
+      kind.appendChild(sc);
+    }
+    tx.appendChild(kind);
     tx.appendChild(document.createTextNode(t.x));
+
     if(t.subs){
       var ul = el("ul","subs");
       t.subs.forEach(function(sb, si){
         var li = document.createElement("li");
-        li.appendChild(el("span","st", sb.t));
+        var sdone = isSubDone(wk.w, i, si, n);
+        if(sdone) li.classList.add("sdone");
+
+        var scb = document.createElement("input");
+        scb.type = "checkbox";
+        scb.id = "s-" + wk.w + "-" + i + "-" + si;
+        scb.checked = sdone;
+        scb.setAttribute("aria-label", "Concluí: " + sb.t);
+        scb.addEventListener("change", function(){
+          if(!hasAnySub(wk.w, i, n)){
+            /* Primeira marcação do dia: fixa o estado atual dos outros tópicos. */
+            var base = isDone(wk.w, i);
+            for(var k = 0; k < n; k++) if(k !== si) setSub(wk.w, i, k, base);
+          }
+          setSub(wk.w, i, si, scb.checked);
+          rollupTask(wk.w, i, n);
+          syncTask(wk.w, i);
+        });
+        li.appendChild(scb);
+
+        var body = el("div","sbody");
+        body.appendChild(el("span","st", sb.t));
         if(sb.u){
           var sa = document.createElement("a");
           sa.className = "vid" + (sb.search ? " srch" : "");
           sa.href = sb.u; sa.target = "_blank"; sa.rel = "noopener";
           sa.textContent = sb.n;
-          li.appendChild(sa);
+          body.appendChild(sa);
         }
         var slot = el("div","myslot");
-        li.appendChild(slot);
+        body.appendChild(slot);
         attachMine(slot, mineKey(wk.w, i, si));
+        li.appendChild(body);
+
         ul.appendChild(li);
       });
       tx.appendChild(ul);
     }
+
     if(t.l){
       tx.appendChild(document.createElement("br"));
       var a = document.createElement("a");
@@ -1846,9 +1977,11 @@ footer p + p{margin-top:10px}
       a.textContent = t.l.n;
       tx.appendChild(a);
     }
+
     var taskSlot = el("div","myslot");
     tx.appendChild(taskSlot);
     attachMine(taskSlot, mineKey(wk.w, i, null));
+
     row.appendChild(tx);
     return row;
   }
@@ -1985,6 +2118,7 @@ footer p + p{margin-top:10px}
           state.start = d.start || state.start || null;
           state.done = (d.done && typeof d.done === "object") ? d.done : (state.done || {});
           state.mine = (d.mine && typeof d.mine === "object") ? d.mine : (state.mine || {});
+          state.subs = (d.subs && typeof d.subs === "object") ? d.subs : (state.subs || {});
           writeLocal();
           renderAll();
         }
@@ -1992,8 +2126,8 @@ footer p + p{margin-top:10px}
       }, function(){
         dbErr = true; setSync("err","só neste aparelho");
       });
-      if(state.start || Object.keys(state.done).length || Object.keys(state.mine || {}).length){
-        dirty = { start: state.start, done: state.done, mine: state.mine || {} };
+      if(state.start || Object.keys(state.done).length || Object.keys(state.mine || {}).length || Object.keys(state.subs || {}).length){
+        dirty = { start: state.start, done: state.done, mine: state.mine || {}, subs: state.subs || {} };
         scheduleFlush();
       }
     }).catch(function(){});
@@ -2061,7 +2195,8 @@ footer p + p{margin-top:10px}
         if(!o || typeof o !== "object" || Array.isArray(o)) throw new Error("shape");
         if(o.done != null && (typeof o.done !== "object" || Array.isArray(o.done))) throw new Error("shape");
         if(o.mine != null && (typeof o.mine !== "object" || Array.isArray(o.mine))) throw new Error("shape");
-        localStorage.setItem(KEY, JSON.stringify({ start: o.start || null, done: o.done || {}, mine: o.mine || {} }));
+        if(o.subs != null && (typeof o.subs !== "object" || Array.isArray(o.subs))) throw new Error("shape");
+        localStorage.setItem(KEY, JSON.stringify({ start: o.start || null, done: o.done || {}, mine: o.mine || {}, subs: o.subs || {} }));
         say("Importado. Recarregando…", true);
         setTimeout(function(){ location.reload(); }, 700);
       }catch(err){
