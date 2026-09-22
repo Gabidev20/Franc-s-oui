@@ -224,6 +224,141 @@ h2{font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:clamp(1.6rem,4.4vw,2.
   text-decoration-color:color-mix(in srgb, var(--ink-3) 45%, transparent);
 }
 .subs li.sdone .vid{opacity:.6}
+/* ---- telas, fases, progresso ---- */
+:root{
+  --ph-A1:#2A45A5; --ph-A2:#1E6B55; --ph-B1:#8A6A1F; --ph-B2:#A32E38; --ph-C1:#5B3E8C;
+  --ph-A1-s:#E5EAF8; --ph-A2-s:#E3F0EB; --ph-B1-s:#F6EFDC; --ph-B2-s:#F7E8E9; --ph-C1-s:#EEE8F7;
+  --s1:#3358D4; --s2:#B85C00; --s3:#00937F; --s4:#9B3FA8;
+  --heat0:#E4E7EE; --heat1:#C3D0F0; --heat2:#8FA6E4; --heat3:#5A78D0; --heat4:#2A45A5;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ph-A1:#93A7F5; --ph-A2:#5DC5A3; --ph-B1:#D9B75A; --ph-B2:#E98F97; --ph-C1:#B49AE8;
+    --ph-A1-s:#1B2340; --ph-A2-s:#142A26; --ph-B1-s:#2C2617; --ph-B2-s:#332023; --ph-C1-s:#251E38;
+    --s1:#5F80E2; --s2:#C97B2A; --s3:#17A188; --s4:#A96CC6;
+    --heat0:#20252F; --heat1:#25345C; --heat2:#33488A; --heat3:#4C67BE; --heat4:#7C97F0;
+  }
+}
+:root[data-theme="dark"]{
+  --ph-A1:#93A7F5; --ph-A2:#5DC5A3; --ph-B1:#D9B75A; --ph-B2:#E98F97; --ph-C1:#B49AE8;
+  --ph-A1-s:#1B2340; --ph-A2-s:#142A26; --ph-B1-s:#2C2617; --ph-B2-s:#332023; --ph-C1-s:#251E38;
+  --s1:#5F80E2; --s2:#C97B2A; --s3:#17A188; --s4:#A96CC6;
+  --heat0:#20252F; --heat1:#25345C; --heat2:#33488A; --heat3:#4C67BE; --heat4:#7C97F0;
+}
+
+[data-ph="A1"]{--acc:var(--ph-A1);--acc-s:var(--ph-A1-s)}
+[data-ph="A2"]{--acc:var(--ph-A2);--acc-s:var(--ph-A2-s)}
+[data-ph="B1"]{--acc:var(--ph-B1);--acc-s:var(--ph-B1-s)}
+[data-ph="B2"]{--acc:var(--ph-B2);--acc-s:var(--ph-B2-s)}
+[data-ph="C1"]{--acc:var(--ph-C1);--acc-s:var(--ph-C1-s)}
+[data-ph] .badge,[data-ph] .lvl{background:var(--acc-s);color:var(--acc)}
+[data-ph] .today-top{background:var(--acc-s)}
+[data-ph] .today-wk{color:var(--acc)}
+[data-ph] .track > i{background:var(--acc)}
+.week[data-ph]{border-left:3px solid var(--acc)}
+.week[data-ph].is-now{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc)}
+.week[data-ph].is-now .wno{color:var(--acc)}
+
+.vrow{padding-bottom:8px}
+.views{display:flex;gap:6px;flex-wrap:wrap}
+.vtab{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.06em;
+  padding:6px 14px;border-radius:99px;border:1px solid var(--rule);
+  background:var(--surface);color:var(--ink-2);cursor:pointer;
+}
+.vtab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.hstrip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-bottom:16px}
+.hstat{background:var(--surface);padding:14px 16px;text-align:center}
+.hnum{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:1.7rem;font-weight:600;line-height:1;color:var(--outremer);font-variant-numeric:tabular-nums}
+.hlab{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-top:6px}
+
+.hpace{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 20px;font-size:.88rem;border-bottom:1px solid var(--rule-soft)}
+.hpace.late{background:var(--garance-soft);color:var(--ink-2)}
+.hpace.early{background:var(--vert-soft);color:var(--ink-2)}
+
+.hdays{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--rule);border-bottom:1px solid var(--rule)}
+.hday{
+  background:var(--surface);border:0;padding:9px 4px;cursor:pointer;font-family:inherit;color:var(--ink-3);
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+}
+.hday:hover{background:var(--surface-2)}
+.hday.done{color:var(--vert)}
+.hday.on{background:var(--ink);color:var(--paper)}
+.hday.on .hdk{color:var(--paper)}
+.hdk{font-size:8.5px;opacity:.75;display:none}
+@media (min-width:520px){ .hdk{display:block} }
+
+.hlinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.revcard{margin-top:20px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:17px 19px;display:flex;flex-direction:column;gap:10px}
+
+.pstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-bottom:20px}
+.pstat{background:var(--surface);padding:14px 12px;text-align:center}
+
+.heat{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px;overflow-x:auto}
+.heatmon{display:grid;grid-auto-flow:column;grid-auto-columns:11px;gap:2px;margin-bottom:4px;min-width:340px}
+.heatm{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:8.5px;color:var(--ink-3);white-space:nowrap}
+.heatgrid{display:grid;grid-auto-flow:column;grid-auto-columns:11px;gap:2px;min-width:340px}
+.heatcol{display:grid;grid-template-rows:repeat(7,9px);gap:2px}
+.hcell{width:9px;height:9px;border-radius:2px;background:var(--heat0)}
+.hcell[data-lv="1"]{background:var(--heat1)}
+.hcell[data-lv="2"]{background:var(--heat2)}
+.hcell[data-lv="3"]{background:var(--heat3)}
+.hcell[data-lv="4"]{background:var(--heat4)}
+.hcell.future{background:transparent;border:1px dashed var(--rule-soft)}
+.heatleg{display:flex;align-items:center;gap:4px;margin-top:12px}
+.heatleg .hlab{margin:0}
+
+.pphases{display:flex;flex-direction:column;gap:12px}
+.pphase{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.pprow{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.pphase .badge{height:26px;padding:0 9px;font-size:.85rem}
+.ppn{font-size:.98rem;font-weight:600;flex:1}
+.ppc{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+.chart{margin:0 0 18px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px}
+.chartsvg{width:100%;height:auto;display:block;overflow:visible}
+.cax{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;fill:var(--ink-3)}
+.cax.strong{fill:var(--ink-2);font-size:9.5px}
+.cax.dim{font-size:8.5px;fill:var(--ink-3);opacity:.75}
+.clab{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;font-weight:500}
+
+.etable{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:6px}
+.etable table{width:100%;border-collapse:collapse;min-width:430px;font-size:.92rem}
+.etable th,.etable td{padding:9px 11px;border-bottom:1px solid var(--rule-soft);text-align:left}
+.etable th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+.etable tr:last-child td{border-bottom:0}
+.etable td b{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.etn{display:block;font-size:.78rem;color:var(--ink-3)}
+.enum{
+  width:52px;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.92rem;padding:5px 7px;
+  border:1px solid var(--rule);border-radius:4px;background:var(--surface-2);color:var(--ink);text-align:center;
+}
+.emin{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;padding:3px 8px;border-radius:99px;background:var(--rule-soft);color:var(--ink-2);white-space:nowrap}
+.emin.good{background:var(--vert-soft);color:var(--vert)}
+
+.expout{margin-top:12px;display:flex;flex-direction:column;gap:9px;align-items:flex-start}
+.expta{width:100%;height:150px;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;padding:10px;border:1px solid var(--rule);border-radius:5px;background:var(--surface-2);color:var(--ink)}
+
+.searchrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.searchrow input{
+  flex:1 1 220px;min-width:0;font-family:"Spectral",Georgia,serif;font-size:.95rem;padding:9px 12px;
+  border:1px solid var(--rule);border-radius:5px;background:var(--surface);color:var(--ink);
+}
+.searchcount{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;color:var(--ink-3);white-space:nowrap}
+
+.totop{
+  position:fixed;right:16px;z-index:40;
+  bottom:calc(16px + env(safe-area-inset-bottom, 0px));
+  width:42px;height:42px;border-radius:99px;border:1px solid var(--rule);
+  background:var(--surface);color:var(--ink-2);cursor:pointer;font-size:17px;line-height:1;
+  box-shadow:var(--shadow);
+}
+.totop:hover{color:var(--outremer);border-color:var(--outremer)}
+
+.micbtn.rec{background:var(--garance);border-color:var(--garance);color:var(--paper)}
+
 /* ---- jogos embutidos ---- */
 .gplayrow{margin-top:6px}
 .gplaywrap{display:inline-flex;align-items:center;gap:7px;flex-wrap:wrap}
@@ -368,11 +503,12 @@ footer p + p{margin-top:10px}
     </div>
     <div class="sync" id="sync" data-s="wait">salvo neste aparelho</div>
   </div>
+  <div class="wrap vrow"><nav class="views" id="views"></nav></div>
 </header>
 
 <main class="wrap">
 
-  <section class="masthead">
+  <section class="masthead" data-view="plano">
     <div class="eyebrow">Plan d'étude · 78 semaines · objectif NCLC 7</div>
     <h1>Do zero ao <em>TCF Canada</em> em 78 semanas</h1>
     <p class="lede">Um currículo semanal completo, construído em torno das quatro provas do TCF Canada. Sete tarefas por semana, uma para cada dia, cada tema com uma aula em vídeo do mesmo professor. Marquem o que fizerem: o progresso fica salvo.</p>
@@ -389,7 +525,7 @@ footer p + p{margin-top:10px}
     <p class="note"><b>Um ajuste honesto de expectativa.</b> As referências de carga horária (CEFR, FSI) apontam 600–750 horas de estudo para atingir nível profissional em francês. Com 1h/dia vocês terão ~550–600 horas em 18 meses: isso é suficiente para <b>NCLC 7 nas quatro competências</b>, que é o patamar que desbloqueia os sorteios da categoria de francês na Entrada Expressa. Chegar a <b>NCLC 9</b> (pontuação máxima de idioma) é possível, mas depende de uma coisa só: horas de fala com gente de verdade. O plano coloca tutor a partir da semana 12 e dobra a dose na semana 40. Se cortarem essa parte, a leitura e a escuta chegam lá e a fala fica atrás.</p>
   </section>
 
-  <section class="block">
+  <section class="block" data-view="plano">
     <div class="head"><h2>A prova, em detalhe</h2><span class="fr">Les quatre épreuves</span></div>
     <p class="sub">As quatro provas são obrigatórias para imigração. Não existe aprovado ou reprovado: cada prova devolve um nível, e é o nível mais baixo das quatro que define o que vocês podem usar no processo. Por isso o plano treina as quatro em paralelo desde o começo, em vez de deixar a produção para o fim.</p>
 
@@ -435,12 +571,11 @@ footer p + p{margin-top:10px}
     <p class="note"><b>Verifiquem os números na fonte antes de decidir qualquer coisa.</b> As regras de pontuação e os cortes das categorias mudam de ano para ano, e as tabelas de equivalência TCF → NCLC são publicadas oficialmente. Confiram em <a href="https://www.canada.ca/fr/immigration-refugies-citoyennete.html" target="_blank" rel="noopener">canada.ca</a> (equivalências e pontuação) e em <a href="https://www.france-education-international.fr/test/tcf-canada" target="_blank" rel="noopener">france-education-international.fr</a> (formato, datas e centros). Os resultados valem 2 anos e existe um prazo mínimo entre tentativas — confirmem com o centro onde forem se inscrever.</p>
   </section>
 
-  <section class="block">
-    <div class="head"><h2>Onde vocês estão hoje</h2><span class="fr">La semaine en cours</span></div>
-    <div class="today" id="today"></div>
-  </section>
+  <section class="block" id="sec-hoje" data-view="hoje"></section>
 
-  <section class="block">
+  <section class="block" id="sec-prog" data-view="prog"></section>
+
+  <section class="block" data-view="plano">
     <div class="head"><h2>A rotina diária</h2><span class="fr">Le rythme quotidien</span></div>
     <p class="sub">Escolham o bloco pelo tempo que o dia permite. O essencial é nunca zerar: um dia de 30 minutos vale muito mais que um dia pulado, porque o que consolida idioma é frequência, não volume.</p>
     <div class="tiers">
@@ -486,20 +621,21 @@ footer p + p{margin-top:10px}
     <p class="note blue"><b>Por que duas vezes por semana no formato da prova?</b> Porque CO e CE são múltipla escolha contra o relógio, e EE e EO têm formato fixo. São habilidades treináveis, independentes do seu nível de francês: dá para saber francês e perder pontos por não conhecer o formato. Quarta e sábado existem justamente para isso não acontecer.</p>
   </section>
 
-  <section class="block">
+  <section class="block" data-view="plano">
     <div class="head"><h2>As cinco fases</h2><span class="fr">Les cinq étapes</span></div>
     <p class="sub">Cada fase termina em uma semana de consolidação com simulado no formato TCF. Só avancem depois de fazer o simulado — ele é o que mostra se a base está de pé.</p>
     <div class="phases" id="phases"></div>
   </section>
 
-  <section class="block">
+  <section class="block" data-view="plano">
     <div class="head"><h2>O plano, semana por semana</h2><span class="fr">Le programme détaillé</span></div>
     <p class="sub">Sete tarefas por semana, uma por dia. Cliquem na semana para abrir e marcar. Cada subtópico tem o seu próprio check: se hoje vocês só deram conta do alfabeto, marquem só ele — o dia fecha sozinho quando todos os tópicos dele estiverem marcados, e o contador ao lado do dia mostra quanto falta. Se atrasarem, não reorganizem nada: façam o próximo tópico não marcado e sigam. Cada subtópico tem a sua própria aula: em média três por semana na gramática e duas no vocabulário, todas do mesmo professor, Pierre, para vocês se acostumarem com uma voz e um método só. E nada aqui é fixo: cada link tem um <b>×</b> para remover e cada tópico tem um <b>+ meu link</b> para colar outro no lugar. Se removerem uma aula sugerida e se arrependerem, aparece um <b>↺ aula original</b> para trazê-la de volta. Tudo fica salvo junto com o progresso.</p>
+    <div class="searchrow"><input type="search" id="q" placeholder="Buscar nos 606 tópicos: subjonctif, hotel, argot…" aria-label="Buscar no plano"><span class="searchcount" id="qcount"></span></div>
     <div class="filters" id="filters"></div>
     <div class="weeks" id="weeks"></div>
   </section>
 
-  <section class="block">
+  <section class="block" data-view="plano">
     <div class="head"><h2>Marcos e datas</h2><span class="fr">Les jalons</span></div>
     <p class="sub">O TCF Canada tem sessões em várias datas por ano, no Brasil pelas Alianças Francesas e centros credenciados. Vagas esgotam com antecedência — agendem a prova da semana 66 com pelo menos três meses de folga.</p>
     <div class="miles">
@@ -513,7 +649,7 @@ footer p + p{margin-top:10px}
     </div>
   </section>
 
-  <section class="block">
+  <section class="block" data-view="plano">
     <div class="head"><h2>Biblioteca de recursos</h2><span class="fr">La boîte à outils</span></div>
     <p class="sub">Tudo que o plano cita, reunido. Não tentem usar todos: escolham um de cada categoria e troquem só quando cansarem.</p>
     <div class="lib">
@@ -614,10 +750,10 @@ footer p + p{margin-top:10px}
     </div>
   </section>
 
-  <footer>
+  <footer data-view="plano">
     <p><b>Quatro regras que valem mais que o plano.</b> 1) Nunca dois dias seguidos sem nada — se falharem um dia, o seguinte é obrigatório, mesmo em 10 minutos. 2) Cronometrem quarta e sábado sempre; a prova é contra o relógio e o relógio se treina. 3) Falem desde a primeira semana, um com o outro, em voz alta; vergonha adiada vira sotaque fossilizado. 4) Input com prazer conta como estudo: uma série em francês vale mais que meia hora de exercício feito com raiva.</p>
     <p>As lacunas que este plano assume: o canal do Pierre não tem aula dedicada a <em>gérondif</em>, <em>voz passiva</em>, <em>plus-que-parfait</em>, <em>discurso indireto</em>, <em>plural dos substantivos</em>, <em>comparativo e superlativo</em>, <em>as horas</em> e <em>nominalização</em>. Nesses oito subtópicos o link aparece pontilhado e leva à busca dentro do canal, em vez de a um vídeo específico — a gramática escrita do Kwiziq e da Grammaire Progressive cobre cada um deles. Todos os outros links são vídeos verificados um a um. Os jogos e sites de exercício do domingo aparecem com uma seta (↗) em vez do ▶, e também foram abertos e testados um por um — um deles saiu da lista no meio do caminho porque o domínio havia sido vendido e hoje é outra coisa. Os jogos e sites de exercício do domingo aparecem com uma seta (↗) em vez do ▶, e também foram abertos e testados um por um — um deles saiu da lista no meio do caminho porque o domínio havia sido vendido e virou outra coisa.</p>
-    <p>Suas marcações, os links que vocês colarem e as pontuações dos jogos ficam salvos no navegador deste aparelho. Use o backup logo abaixo para levá-los a outro celular ou computador.</p>
+    <p>Suas marcações, links, pontuações e notas de simulado ficam salvos no navegador deste aparelho. Use o backup logo abaixo para levá-los a outro celular ou computador.</p>
   </footer>
 </main>
 
@@ -1873,6 +2009,41 @@ footer p + p{margin-top:10px}
   };
   TTS.init();
 
+  var SRec = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+
+  function listenFor(target, btn, fbx, done){
+    if(!SRec) return;
+    var rec;
+    try{ rec = new SRec(); }catch(e){ return; }
+    rec.lang = "fr-FR";
+    rec.interimResults = false;
+    rec.maxAlternatives = 4;
+    var settled = false;
+    btn.classList.add("rec");
+    btn.textContent = "🎤 Ouvindo…";
+    function stop(){ btn.classList.remove("rec"); btn.textContent = "🎤 Falar"; }
+    rec.onresult = function(e){
+      settled = true; stop();
+      var alts = [];
+      for(var k = 0; k < e.results[0].length; k++) alts.push(e.results[0][k].transcript);
+      var hit = alts.some(function(t){ return gflat(t) === gflat(target); });
+      fbx.className = "gfb " + (hit ? "ok" : "bad");
+      fbx.textContent = hit
+        ? "Entendi « " + target + " ». Certo."
+        : "Entendi « " + alts[0] + " ». Tente de novo, ou use os botões abaixo.";
+      if(done) done(hit);
+    };
+    rec.onerror = function(e){
+      settled = true; stop();
+      fbx.className = "gfb bad";
+      fbx.textContent = (e && e.error === "not-allowed")
+        ? "O navegador não liberou o microfone nesta página. Use os botões de autoavaliação."
+        : "Não consegui ouvir nada. Tente de novo, ou use os botões abaixo.";
+    };
+    rec.onend = function(){ if(!settled) stop(); };
+    try{ rec.start(); }catch(e){ stop(); }
+  }
+
   function gnorm(s){
     return String(s).toLowerCase()
       .replace(/[’ʼ`]/g, "'")
@@ -2173,7 +2344,19 @@ footer p + p{margin-top:10px}
       slow.addEventListener("click", function(){ TTS.say(pair[0], 0.55); });
       var row = el("div","growb");
       row.appendChild(play); row.appendChild(slow);
+      var micfb = el("div","gfb");
+      if(SRec){
+        var mic = el("button","chip micbtn","🎤 Falar");
+        mic.type = "button";
+        mic.addEventListener("click", function(){
+          listenFor(pair[0], mic, micfb, function(hit){
+            if(hit){ right++; setTimeout(function(){ i++; render(); }, 900); }
+          });
+        });
+        row.appendChild(mic);
+      }
       card.appendChild(row);
+      card.appendChild(micfb);
 
       var ok = el("button","chip","Consegui repetir");
       ok.type = "button";
@@ -2578,7 +2761,7 @@ footer p + p{margin-top:10px}
 
   var TOTAL = W.length * 7;
 
-  var state = { start: null, done: {}, mine: {}, subs: {}, hide: {}, games: {} };
+  var state = { start: null, done: {}, mine: {}, subs: {}, hide: {}, games: {}, days: {}, exams: {} };
   var LS = "fr78.v1";
   var dbRef = null, docExists = false, dirty = null, flushing = false, dbErr = false;
 
@@ -2586,7 +2769,7 @@ footer p + p{margin-top:10px}
     try{
       var raw = localStorage.getItem(LS);
       if(raw){ var o = JSON.parse(raw); if(o && typeof o === "object"){
-        state.start = o.start || null; state.done = o.done || {}; state.mine = o.mine || {}; state.subs = o.subs || {}; state.hide = o.hide || {}; state.games = o.games || {};
+        state.start = o.start || null; state.done = o.done || {}; state.mine = o.mine || {}; state.subs = o.subs || {}; state.hide = o.hide || {}; state.games = o.games || {}; state.days = o.days || {}; state.exams = o.exams || {};
       }}
     }catch(e){}
   }
@@ -2621,6 +2804,12 @@ footer p + p{margin-top:10px}
     } else if(path.k === "games"){
       dirty.games = dirty.games || {};
       dirty.games[path.key] = val;
+    } else if(path.k === "days"){
+      dirty.days = dirty.days || {};
+      dirty.days[path.key] = val;
+    } else if(path.k === "exams"){
+      dirty.exams = dirty.exams || {};
+      dirty.exams[path.key] = val;
     } else {
       dirty.start = val;
     }
@@ -2684,6 +2873,21 @@ footer p + p{margin-top:10px}
 
   var filter = "all";
   var open = {};
+  var query = "";
+  var wtextCache = {};
+
+  function weekText(wk){
+    if(wtextCache[wk.w]) return wtextCache[wk.w];
+    var parts = [wk.w, wk.p, wk.t];
+    tasksOf(wk).forEach(function(t){
+      parts.push(t.x);
+      if(t.l) parts.push(t.l.n);
+      if(t.subs) t.subs.forEach(function(sb){ parts.push(sb.t); if(sb.n) parts.push(sb.n); });
+    });
+    var txt = gflat(parts.join(" "));
+    wtextCache[wk.w] = txt;
+    return txt;
+  }
 
   function el(tag, cls, txt){
     var n = document.createElement(tag);
@@ -2694,8 +2898,9 @@ footer p + p{margin-top:10px}
 
   function renderMeter(){
     var n = totalDone();
+    var w = activeWeek();
     document.getElementById("bar").style.width = (n/TOTAL*100).toFixed(1) + "%";
-    document.getElementById("pct").textContent = n + " / " + TOTAL;
+    document.getElementById("pct").textContent = "S" + w + " · " + weekCount(w) + "/7 · " + n + "/" + TOTAL;
   }
 
   function renderPhases(){
@@ -2707,6 +2912,7 @@ footer p + p{margin-top:10px}
       var tot = weeks.length * 7;
 
       var row = el("div","phase-row");
+      row.setAttribute("data-ph", ph.id);
       row.appendChild(el("div","badge", ph.id));
 
       var right = el("div");
@@ -2766,8 +2972,11 @@ footer p + p{margin-top:10px}
   }
 
   function setSub(w, ti, si, val){
-    state.subs[subKey(w, ti, si)] = val;
-    markDirty({k:"subs", key:subKey(w, ti, si)}, val);
+    var sk = subKey(w, ti, si);
+    var was = state.subs[sk] === true;
+    state.subs[sk] = val;
+    markDirty({k:"subs", key:sk}, val);
+    if(val && !was) bumpDay();
   }
 
   function setTaskDone(w, ti, val){
@@ -2776,6 +2985,7 @@ footer p + p{margin-top:10px}
     if(!!state.done[key]["t" + ti] === !!val) return;
     state.done[key]["t" + ti] = val;
     markDirty({k:"done", w:w, i:ti}, val);
+    if(val) bumpDay();
   }
 
   function rollupTask(w, ti, n){
@@ -2813,6 +3023,7 @@ footer p + p{margin-top:10px}
       card.classList.toggle("is-done", c === 7);
     }
     renderMeter(); renderPhases(); renderToday();
+    if(view === "prog") renderProg();
   }
 
   function taskRow(wk, i, done){
@@ -2901,15 +3112,19 @@ footer p + p{margin-top:10px}
     var box = document.getElementById("weeks");
     box.textContent = "";
     var cw = currentWeek();
+    var q = gflat(query);
     var list = W.filter(function(wk){
+      if(q && weekText(wk).indexOf(q) < 0) return false;
       if(filter === "all") return true;
       if(filter === "todo") return weekCount(wk.w) < 7;
       if(filter === "exam") return !!EXAM_WEEKS[wk.w];
       return wk.p === filter;
     });
+    var qc = document.getElementById("qcount");
+    if(qc) qc.textContent = q ? (list.length + (list.length === 1 ? " semana" : " semanas")) : "";
 
     if(!list.length){
-      box.appendChild(el("p","sub","Tudo marcado nesta seleção. Bravo."));
+      box.appendChild(el("p","sub", query ? ("Nada encontrado para « " + query + " ».") : "Tudo marcado nesta seleção. Bravo."));
       return;
     }
 
@@ -2917,6 +3132,7 @@ footer p + p{margin-top:10px}
       var c = weekCount(wk.w);
       var card = el("div","week");
       card.id = "wk-" + wk.w;
+      card.setAttribute("data-ph", wk.p);
       if(c === 7) card.classList.add("is-done");
       if(cw === wk.w) card.classList.add("is-now");
 
@@ -2954,69 +3170,792 @@ footer p + p{margin-top:10px}
     });
   }
 
+  /* ================= datas, ofensiva e semana ativa ================= */
+
+  function dkey(d){
+    return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+  }
+  function todayKey(){ return dkey(new Date()); }
+  function addDays(d, n){ var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; }
+
+  function bumpDay(){
+    var k = todayKey();
+    if(!state.days) state.days = {};
+    state.days[k] = (state.days[k] || 0) + 1;
+    markDirty({k:"days", key:k}, state.days[k]);
+  }
+
+  function streakDays(){
+    var days = state.days || {};
+    var start = new Date();
+    if(!days[dkey(start)]) start = addDays(start, -1);
+    if(!days[dkey(start)]) return 0;
+    var n = 0, cur = start;
+    while(days[dkey(cur)]){ n++; cur = addDays(cur, -1); }
+    return n;
+  }
+  function daysActive(){ return Object.keys(state.days || {}).length; }
+
+  function firstOpenWeek(){
+    for(var k = 0; k < W.length; k++){
+      if(weekCount(W[k].w) < 7) return W[k].w;
+    }
+    return null;
+  }
+  function activeWeek(){ return firstOpenWeek() || W.length; }
+  function allDone(){ return firstOpenWeek() === null; }
+
+  function plannedWeek(){
+    var st = parseISO(state.start);
+    if(!st) return null;
+    var days = Math.floor((parseISO(todayISO()) - st) / 86400000);
+    if(days < 0) return null;
+    return Math.min(W.length, Math.floor(days/7) + 1);
+  }
+  function weekDelta(){
+    var p = plannedWeek();
+    if(p === null) return null;
+    return p - activeWeek();
+  }
+  function nextOpenTask(w){
+    for(var i = 0; i < 7; i++){ if(!isDone(w, i)) return i; }
+    return 0;
+  }
+
+  /* ================= troca de telas ================= */
+  var VIEWS = [
+    {k:"hoje", n:"Hoje"},
+    {k:"plano", n:"O plano"},
+    {k:"prog", n:"Progresso"}
+  ];
+  var view = "hoje";
+  try{ var vv = localStorage.getItem("fr78.view"); if(vv) view = vv; }catch(e){}
+
+  function setView(v){
+    view = v;
+    try{ localStorage.setItem("fr78.view", v); }catch(e){}
+    applyView();
+    if(v === "prog") renderProg();
+    if(v === "hoje") renderToday();
+    window.scrollTo(0, 0);
+  }
+  function applyView(){
+    document.querySelectorAll("[data-view]").forEach(function(s){
+      s.hidden = (s.getAttribute("data-view") !== view);
+    });
+    document.querySelectorAll("#views .vtab").forEach(function(b){
+      var on = b.getAttribute("data-v") === view;
+      b.setAttribute("aria-selected", on ? "true" : "false");
+    });
+  }
+  function renderViews(){
+    var box = document.getElementById("views");
+    if(!box || box.childNodes.length) return;
+    box.setAttribute("role","tablist");
+    VIEWS.forEach(function(v){
+      var b = el("button","vtab", v.n);
+      b.type = "button";
+      b.setAttribute("data-v", v.k);
+      b.setAttribute("role","tab");
+      b.addEventListener("click", function(){ setView(v.k); });
+      box.appendChild(b);
+    });
+  }
+
+  /* ================= tela HOJE ================= */
+  var hojePick = null;
+
   function renderToday(){
-    var box = document.getElementById("today");
+    var box = document.getElementById("sec-hoje");
+    if(!box) return;
     box.textContent = "";
-    var cw = currentWeek();
 
-    var top = el("div","today-top");
-    var info = el("div");
+    var w = activeWeek();
+    var wk = W[w - 1];
+    var ph = PHASES.filter(function(p){ return p.id === wk.p; })[0];
+    var delta = weekDelta();
 
-    if(cw){
-      var wk = W[cw-1];
-      var ph = PHASES.filter(function(p){ return p.id === wk.p; })[0];
-      top.appendChild(el("div","today-wk","S" + String(cw).padStart(2,"0")));
-      info.appendChild(el("h3", null, wk.t));
-      info.appendChild(el("p", null, "Fase " + wk.p + " · " + ph.name + " · " + weekCount(cw) + " de 7 tarefas feitas"));
-      top.appendChild(info);
-      box.appendChild(top);
+    /* faixa da ofensiva */
+    var strip = el("div","hstrip");
+    var st1 = el("div","hstat");
+    st1.appendChild(el("div","hnum", String(streakDays())));
+    st1.appendChild(el("div","hlab", streakDays() === 1 ? "dia seguido" : "dias seguidos"));
+    var st2 = el("div","hstat");
+    st2.appendChild(el("div","hnum", String(daysActive())));
+    st2.appendChild(el("div","hlab", daysActive() === 1 ? "dia de estudo" : "dias de estudo"));
+    var st3 = el("div","hstat");
+    st3.appendChild(el("div","hnum", weekCount(w) + "/7"));
+    st3.appendChild(el("div","hlab","esta semana"));
+    strip.appendChild(st1); strip.appendChild(st2); strip.appendChild(st3);
+    box.appendChild(strip);
 
-      var body = el("div","today-body");
-      var tl = el("div","tasks");
-      var ti = todayIndex();
-      tl.appendChild(taskRow(wk, ti, isDone(cw, ti)));
-      body.appendChild(tl);
-      var hint = el("p","sub", "Tarefa de hoje (" + DAYS[ti] + "). Se estiverem atrasados, abram a semana abaixo e façam a primeira não marcada.");
-      hint.style.marginTop = "12px"; hint.style.marginBottom = "4px"; hint.style.fontSize = ".86rem";
-      body.appendChild(hint);
-      box.appendChild(body);
-    } else {
-      top.appendChild(el("div","today-wk","—"));
-      info.appendChild(el("h3", null, state.start ? "Fora do período do plano" : "Definam a data de início"));
-      info.appendChild(el("p", null, state.start ? "A data de início está fora da janela de 78 semanas. Ajustem abaixo." : "Escolham o dia em que começam e a página passa a mostrar a semana e a tarefa do dia."));
-      top.appendChild(info);
-      box.appendChild(top);
+    if(allDone()){
+      var end = el("div","today");
+      var etop = el("div","today-top");
+      etop.appendChild(el("div","today-wk","✓"));
+      var einfo = el("div");
+      einfo.appendChild(el("h3", null, "As 78 semanas estão completas."));
+      einfo.appendChild(el("p", null, "Dezoito meses. Vão para a prova — e depois voltem aqui para a revisão acumulada."));
+      etop.appendChild(einfo);
+      end.appendChild(etop);
+      box.appendChild(end);
+      box.appendChild(reviewCard());
+      return;
     }
 
-    var df = el("div","datefield");
-    var lab = el("label", null, "Início do plano:");
-    lab.setAttribute("for","startdate");
-    var inp = document.createElement("input");
-    inp.type = "date"; inp.id = "startdate";
-    inp.value = state.start || "";
-    inp.addEventListener("change", function(){
-      state.start = inp.value || null;
-      markDirty({k:"start"}, state.start);
-      renderToday(); renderWeeks();
+    /* cartão principal */
+    var card = el("div","today");
+    card.setAttribute("data-ph", wk.p);
+
+    var top = el("div","today-top");
+    top.appendChild(el("div","today-wk","S" + String(w).padStart(2,"0")));
+    var info = el("div");
+    info.appendChild(el("h3", null, wk.t));
+    info.appendChild(el("p", null, "Fase " + wk.p + " · " + ph.name + " · " + weekCount(w) + " de 7 dias feitos"));
+    top.appendChild(info);
+    card.appendChild(top);
+
+    /* aviso de ritmo */
+    if(delta !== null && delta !== 0){
+      var pace = el("div","hpace");
+      if(delta > 0){
+        pace.className = "hpace late";
+        pace.appendChild(el("span", null, "Pelo calendário original vocês estariam na semana " + plannedWeek() + ". Sem drama: o plano espera, e a semana atual é sempre a primeira não concluída."));
+        var fix = el("button","chip mini","Reancorar o calendário em hoje");
+        fix.type = "button";
+        fix.addEventListener("click", function(){
+          var d = new Date();
+          d.setDate(d.getDate() - (w - 1) * 7);
+          state.start = dkey(d);
+          markDirty({k:"start"}, state.start);
+          renderToday();
+          renderWeeks();
+        });
+        pace.appendChild(fix);
+      } else {
+        pace.className = "hpace early";
+        pace.appendChild(el("span", null, "Vocês estão " + Math.abs(delta) + (Math.abs(delta) === 1 ? " semana" : " semanas") + " à frente do calendário original. Bom sinal."));
+      }
+      card.appendChild(pace);
+    }
+
+    /* seletor dos sete dias */
+    var picker = el("div","hdays");
+    var pick = (hojePick !== null && hojePick >= 0 && hojePick < 7) ? hojePick : nextOpenTask(w);
+    for(var i = 0; i < 7; i++){
+      (function(i){
+        var b = el("button","hday", DAYS[i].replace(".",""));
+        b.type = "button";
+        if(isDone(w, i)) b.classList.add("done");
+        if(i === pick) b.classList.add("on");
+        b.setAttribute("aria-label", KINDS[i] + ", " + DAYS[i] + (isDone(w,i) ? ", concluído" : ""));
+        b.appendChild(el("span","hdk", KINDS[i]));
+        b.addEventListener("click", function(){ hojePick = i; renderToday(); });
+        picker.appendChild(b);
+      })(i);
+    }
+    card.appendChild(picker);
+
+    var body = el("div","today-body");
+    var tl = el("div","tasks");
+    tl.appendChild(taskRow(wk, pick, isDone(w, pick)));
+    body.appendChild(tl);
+    card.appendChild(body);
+
+    box.appendChild(card);
+
+    /* atalhos */
+    var links = el("div","hlinks");
+    var toPlan = el("button","chip ghost","Ver a semana inteira no plano");
+    toPlan.type = "button";
+    toPlan.addEventListener("click", function(){
+      setView("plano");
+      open[w] = true;
+      renderWeeks();
+      setTimeout(function(){
+        var c = document.getElementById("wk-" + w);
+        if(c) c.scrollIntoView({block:"center"});
+      }, 60);
     });
-    df.appendChild(lab); df.appendChild(inp);
-    var setToday = el("button","chip","Começar hoje");
-    setToday.type = "button";
-    setToday.addEventListener("click", function(){
-      state.start = todayISO();
-      markDirty({k:"start"}, state.start);
-      renderToday(); renderWeeks();
+    links.appendChild(toPlan);
+    box.appendChild(links);
+
+    box.appendChild(reviewCard());
+  }
+
+  function reviewCard(){
+    var done = W.filter(function(x){ return weekCount(x.w) === 7 && B[x.w]; }).length;
+    var card = el("div","revcard");
+    card.appendChild(el("div","glabel","Revisão acumulada"));
+    if(done === 0){
+      card.appendChild(el("p","gsub","Assim que vocês fecharem a primeira semana, aparece aqui um jogo que sorteia palavras de tudo o que já viram — é o que impede a semana 3 de evaporar quando vocês estiverem na 20."));
+      return card;
+    }
+    card.appendChild(el("p","gsub", "Palavras e frases sorteadas entre as " + done + (done === 1 ? " semana concluída" : " semanas concluídas") + ". É a rede que segura o que já foi aprendido."));
+    var row = el("div","growb");
+    var b1 = el("button","gplay","▶ Revisar escrita");
+    b1.type = "button";
+    b1.addEventListener("click", function(){ gameRevisao("escrita", b1); });
+    row.appendChild(b1);
+    if(TTS.ready){
+      var b2 = el("button","gplay","▶ Revisar ditado");
+      b2.type = "button";
+      b2.addEventListener("click", function(){ gameRevisao("ditado", b2); });
+      row.appendChild(b2);
+    }
+    card.appendChild(row);
+    return card;
+  }
+
+  /* ================= revisão acumulada ================= */
+  function reviewPool(){
+    var pool = [];
+    W.forEach(function(x){
+      if(weekCount(x.w) !== 7 || !B[x.w]) return;
+      B[x.w].w.forEach(function(p){ pool.push({fr:p[0], pt:p[1], w:x.w, kind:"palavra"}); });
+      B[x.w].s.forEach(function(s){ pool.push({fr:s, pt:null, w:x.w, kind:"frase"}); });
     });
-    df.appendChild(setToday);
-    box.appendChild(df);
+    return pool;
+  }
+
+  function gameRevisao(mode, opener){
+    var pool = reviewPool();
+    if(!pool.length) return;
+    var isDit = (mode === "ditado");
+    if(isDit && !TTS.ready) return;
+
+    gmOpen(isDit ? "Revisão — ditado" : "Revisão — escrita", opener);
+
+    var items = shuffle(isDit ? pool : pool.filter(function(x){ return x.kind === "palavra"; })).slice(0, 12);
+    var i = 0, right = 0, rate = 0.85, misses = [];
+
+    var prog = el("div","gprog");
+    var card = el("div","gcard");
+    GM.body.appendChild(prog);
+    GM.body.appendChild(card);
+
+    function render(){
+      if(i >= items.length) return finish();
+      card.textContent = "";
+      var it = items[i];
+      prog.textContent = "Item " + (i + 1) + " de " + items.length + " · acertos: " + right + " · da semana " + it.w;
+
+      card.appendChild(el("div","glabel", isDit ? "Escreva o que ouvir" : "Escreva em francês"));
+      if(!isDit) card.appendChild(el("div","gask", it.pt));
+
+      if(isDit){
+        var play = el("button","chip","▶ Ouvir");
+        play.type = "button";
+        play.addEventListener("click", function(){ TTS.say(it.fr, rate); });
+        var row = el("div","growb");
+        row.appendChild(play);
+        [["0,6×",0.6],["0,85×",0.85],["1×",1]].forEach(function(sp){
+          var b = el("button","chip ghost", sp[0]);
+          b.type = "button";
+          if(rate === sp[1]) b.classList.add("on");
+          b.addEventListener("click", function(){
+            rate = sp[1];
+            row.querySelectorAll(".chip.ghost").forEach(function(o){ o.classList.remove("on"); });
+            b.classList.add("on");
+            TTS.say(it.fr, rate);
+          });
+          row.appendChild(b);
+        });
+        card.appendChild(row);
+      }
+
+      var inp = document.createElement("input");
+      inp.type = "text";
+      inp.className = "ginput";
+      inp.id = "gr-" + i;
+      inp.setAttribute("autocomplete","off");
+      inp.setAttribute("autocapitalize","off");
+      inp.setAttribute("spellcheck","false");
+      inp.placeholder = "escreva aqui, com acentos";
+      inp.setAttribute("aria-label","Sua resposta");
+      card.appendChild(inp);
+
+      var fb = el("div","gfb");
+      card.appendChild(fb);
+      var send = el("button","chip","Conferir");
+      send.type = "button";
+      var next = el("button","chip ghost","Próximo");
+      next.type = "button";
+      next.hidden = true;
+      var row2 = el("div","growb");
+      row2.appendChild(send); row2.appendChild(next);
+      card.appendChild(row2);
+
+      function check(){
+        var typed = inp.value.trim();
+        if(!typed) return;
+        send.hidden = true; next.hidden = false;
+        inp.disabled = true;
+        var exact = gnorm(typed) === gnorm(it.fr);
+        var flat = gflat(typed) === gflat(it.fr);
+        if(exact || flat){ right++; }
+        fb.className = "gfb " + (exact ? "ok" : (flat ? "warn" : "bad"));
+        fb.textContent = exact ? "Certo: " + it.fr : (flat ? "Quase — faltou o acento: " + it.fr : "O certo é: " + it.fr);
+        if(!exact) misses.push([it.fr, typed, it.w]);
+        if(TTS.ready && !isDit) TTS.say(it.fr, 0.85);
+        prog.textContent = "Item " + (i + 1) + " de " + items.length + " · acertos: " + right + " · da semana " + it.w;
+        next.focus();
+      }
+      send.addEventListener("click", check);
+      next.addEventListener("click", function(){ i++; render(); });
+      inp.addEventListener("keydown", function(e){
+        if(e.key === "Enter"){ e.preventDefault(); if(!inp.disabled) check(); else { i++; render(); } }
+      });
+      if(isDit) TTS.say(it.fr, rate);
+      inp.focus();
+    }
+
+    function finish(){
+      bumpDay();
+      prog.textContent = "";
+      card.textContent = "";
+      card.appendChild(el("div","gscore", right + " / " + items.length));
+      card.appendChild(el("p","gsub","Revisão não tem pontuação guardada de propósito: o valor está em repetir, não em bater recorde."));
+      if(misses.length){
+        var ul = el("ul","gmiss");
+        misses.forEach(function(m){
+          var li = document.createElement("li");
+          li.appendChild(el("b", null, m[0]));
+          li.appendChild(document.createTextNode(" — semana " + m[2] + ", você escreveu « " + m[1] + " »"));
+          ul.appendChild(li);
+        });
+        card.appendChild(ul);
+      }
+      var again = el("button","chip","De novo");
+      again.type = "button";
+      again.addEventListener("click", function(){ gameRevisao(mode, GM.opener); });
+      GM.foot.appendChild(again);
+      renderToday();
+    }
+
+    render();
+  }
+
+  /* ================= tela PROGRESSO ================= */
+
+  var EXAMS = [
+    {w:16, n:"Diagnóstico A1/A2"},
+    {w:32, n:"Simulado B1 parcial"},
+    {w:50, n:"Simulado completo"},
+    {w:62, n:"Confirmação"},
+    {w:66, n:"TCF Canada oficial"},
+    {w:78, n:"Segunda tentativa"}
+  ];
+  var COMPS = [
+    {k:"co", n:"Compreensão oral", c:"var(--s1)"},
+    {k:"ce", n:"Compreensão escrita", c:"var(--s2)"},
+    {k:"ee", n:"Expressão escrita", c:"var(--s3)"},
+    {k:"eo", n:"Expressão oral", c:"var(--s4)"}
+  ];
+
+  function examVal(w, k){
+    var r = (state.exams || {})["w" + w];
+    var v = r && r[k];
+    return (typeof v === "number" && v >= 1 && v <= 12) ? v : null;
+  }
+  function setExam(w, k, v){
+    if(!state.exams) state.exams = {};
+    var key = "w" + w;
+    var rec = Object.assign({}, state.exams[key] || {});
+    if(v === null) delete rec[k]; else rec[k] = v;
+    state.exams[key] = rec;
+    markDirty({k:"exams", key:key}, rec);
+  }
+
+  function renderProg(){
+    var box = document.getElementById("sec-prog");
+    if(!box) return;
+    if(view !== "prog" && box.hidden) return;
+    box.textContent = "";
+
+    /* --- ofensiva e mapa de dias --- */
+    var h1 = el("div","head");
+    h1.appendChild(el("h2", null, "Constância"));
+    h1.appendChild(el("span","fr","La régularité"));
+    box.appendChild(h1);
+    box.appendChild(el("p","sub","Cada quadradinho é um dia. Quanto mais escuro, mais tarefas marcadas naquele dia. O que constrói um idioma é esta faixa continuar preenchida, não o tamanho de cada dia."));
+
+    var stats = el("div","pstats");
+    [[String(streakDays()), streakDays() === 1 ? "dia seguido" : "dias seguidos"],
+     [String(daysActive()), daysActive() === 1 ? "dia com estudo" : "dias com estudo"],
+     [String(totalDone()), "tarefas de 546"],
+     ["S" + activeWeek(), "semana atual"]].forEach(function(p){
+      var c = el("div","pstat");
+      c.appendChild(el("div","hnum", p[0]));
+      c.appendChild(el("div","hlab", p[1]));
+      stats.appendChild(c);
+    });
+    box.appendChild(stats);
+    box.appendChild(heatmap());
+
+    /* --- fases --- */
+    var h2 = el("div","head");
+    h2.style.marginTop = "42px";
+    h2.appendChild(el("h2", null, "As fases"));
+    h2.appendChild(el("span","fr","Les étapes"));
+    box.appendChild(h2);
+    var pl = el("div","pphases");
+    PHASES.forEach(function(ph){
+      var weeks = W.filter(function(x){ return x.p === ph.id; });
+      var done = 0; weeks.forEach(function(x){ done += weekCount(x.w); });
+      var tot = weeks.length * 7;
+      var row = el("div","pphase");
+      row.setAttribute("data-ph", ph.id);
+      var top = el("div","pprow");
+      top.appendChild(el("span","badge", ph.id));
+      top.appendChild(el("span","ppn", ph.name));
+      top.appendChild(el("span","ppc", done + "/" + tot));
+      row.appendChild(top);
+      var tr = el("div","track");
+      var fi = el("i");
+      fi.style.width = (tot ? done/tot*100 : 0).toFixed(1) + "%";
+      tr.appendChild(fi);
+      row.appendChild(tr);
+      pl.appendChild(row);
+    });
+    box.appendChild(pl);
+
+    /* --- simulados --- */
+    var h3 = el("div","head");
+    h3.style.marginTop = "42px";
+    h3.appendChild(el("h2", null, "As notas dos simulados"));
+    h3.appendChild(el("span","fr","Les résultats"));
+    box.appendChild(h3);
+    box.appendChild(el("p","sub","Anotem o nível NCLC de 1 a 12 em cada competência, a cada simulado. É o dado que decide o processo: vale o menor dos quatro. A linha tracejada é o NCLC 7, o patamar que habilita a categoria de francês."));
+
+    box.appendChild(examChart());
+    box.appendChild(examTable());
+
+    /* --- exportar --- */
+    var h4 = el("div","head");
+    h4.style.marginTop = "42px";
+    h4.appendChild(el("h2", null, "Levar para o Anki"));
+    h4.appendChild(el("span","fr","Exporter"));
+    box.appendChild(h4);
+    box.appendChild(el("p","sub","As 624 palavras dos jogos, em CSV pronto para importar no Anki: frente em francês, verso em português, com a etiqueta da semana. O plano inteiro manda usar Anki — é só jogar o arquivo lá dentro."));
+    var erow = el("div","growb");
+    var e1 = el("button","chip","Baixar tudo (624 palavras)");
+    e1.type = "button";
+    e1.addEventListener("click", function(){ exportCsv(false, e1); });
+    var e2 = el("button","chip ghost","Só as semanas concluídas");
+    e2.type = "button";
+    e2.addEventListener("click", function(){ exportCsv(true, e2); });
+    erow.appendChild(e1); erow.appendChild(e2);
+    box.appendChild(erow);
+    var out = el("div","expout");
+    out.id = "expout";
+    box.appendChild(out);
+  }
+
+  function heatmap(){
+    var wrap = el("div","heat");
+    var days = state.days || {};
+    var today = new Date();
+    var end = addDays(today, 6 - today.getDay());
+    var weeks = 26;
+    var start = addDays(end, -(weeks * 7 - 1));
+
+    var months = el("div","heatmon");
+    var grid = el("div","heatgrid");
+    var lastMon = -1;
+    for(var c = 0; c < weeks; c++){
+      var col = el("div","heatcol");
+      var first = addDays(start, c * 7);
+      var lab = el("div","heatm", (first.getMonth() !== lastMon) ? ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"][first.getMonth()] : "");
+      if(first.getMonth() !== lastMon) lastMon = first.getMonth();
+      months.appendChild(lab);
+      for(var r = 0; r < 7; r++){
+        var d = addDays(start, c * 7 + r);
+        var cell = el("div","hcell");
+        if(d > today){ cell.classList.add("future"); }
+        else {
+          var n = days[dkey(d)] || 0;
+          var lv = n === 0 ? 0 : (n < 3 ? 1 : (n < 6 ? 2 : (n < 10 ? 3 : 4)));
+          cell.setAttribute("data-lv", String(lv));
+          cell.title = dkey(d) + " — " + n + (n === 1 ? " marcação" : " marcações");
+        }
+        col.appendChild(cell);
+      }
+      grid.appendChild(col);
+    }
+    wrap.appendChild(months);
+    wrap.appendChild(grid);
+
+    var leg = el("div","heatleg");
+    leg.appendChild(el("span","hlab","menos"));
+    for(var k = 0; k <= 4; k++){
+      var s = el("span","hcell");
+      s.setAttribute("data-lv", String(k));
+      leg.appendChild(s);
+    }
+    leg.appendChild(el("span","hlab","mais"));
+    wrap.appendChild(leg);
+    return wrap;
+  }
+
+  function examChart(){
+    var rows = EXAMS.filter(function(e){
+      return COMPS.some(function(c){ return examVal(e.w, c.k) !== null; });
+    });
+    var wrap = el("figure","chart");
+    if(rows.length < 1){
+      wrap.appendChild(el("p","gsub","O gráfico aparece aqui assim que vocês anotarem o primeiro simulado abaixo."));
+      return wrap;
+    }
+
+    var Wd = 640, Hd = 300, ml = 34, mr = 106, mt = 16, mb = 42;
+    var iw = Wd - ml - mr, ih = Hd - mt - mb;
+    var xs = rows.length === 1 ? [ml + iw/2] : rows.map(function(_, i){ return ml + iw * i / (rows.length - 1); });
+    function y(v){ return mt + ih - (v - 1) / 11 * ih; }
+
+    var svg = document.createElementNS("http://www.w3.org/2000/svg","svg");
+    svg.setAttribute("viewBox","0 0 " + Wd + " " + Hd);
+    svg.setAttribute("class","chartsvg");
+    svg.setAttribute("role","img");
+    svg.setAttribute("aria-label","Evolução do nível NCLC nas quatro competências ao longo dos simulados");
+
+    function add(tag, attrs, text){
+      var n = document.createElementNS("http://www.w3.org/2000/svg", tag);
+      for(var a in attrs) n.setAttribute(a, attrs[a]);
+      if(text != null) n.textContent = text;
+      svg.appendChild(n);
+      return n;
+    }
+
+    [1,4,7,10,12].forEach(function(v){
+      add("line",{x1:ml, y1:y(v), x2:ml+iw, y2:y(v), stroke:"var(--rule-soft)", "stroke-width":1});
+      add("text",{x:ml-8, y:y(v)+4, "text-anchor":"end", class:"cax"}, String(v));
+    });
+    add("line",{x1:ml, y1:y(7), x2:ml+iw, y2:y(7), stroke:"var(--ink-3)", "stroke-width":1.5, "stroke-dasharray":"5 4"});
+    add("text",{x:ml+iw, y:y(7)-8, "text-anchor":"end", class:"cax strong"}, "NCLC 7 — o patamar");
+
+    rows.forEach(function(e, i){
+      add("text",{x:xs[i], y:Hd-22, "text-anchor":"middle", class:"cax"}, "S" + e.w);
+      add("text",{x:xs[i], y:Hd-8, "text-anchor":"middle", class:"cax dim"}, e.n.length > 14 ? e.n.slice(0,13) + "…" : e.n);
+    });
+
+    var labels = [];
+    COMPS.forEach(function(c){
+      var pts = [];
+      rows.forEach(function(e, i){
+        var v = examVal(e.w, c.k);
+        if(v !== null) pts.push([xs[i], y(v), v, e]);
+      });
+      if(!pts.length) return;
+      if(pts.length > 1){
+        add("polyline",{points: pts.map(function(p){ return p[0]+","+p[1]; }).join(" "), fill:"none", stroke:c.c, "stroke-width":2, "stroke-linejoin":"round", "stroke-linecap":"round"});
+      }
+      pts.forEach(function(p){
+        add("circle",{cx:p[0], cy:p[1], r:5.5, fill:c.c, stroke:"var(--surface)", "stroke-width":2})
+          .appendChild(document.createElementNS("http://www.w3.org/2000/svg","title")).textContent =
+            c.n + " — " + p[3].n + " (semana " + p[3].w + "): NCLC " + p[2];
+      });
+      var last = pts[pts.length - 1];
+      labels.push({x: last[0] + 10, py: last[1], y: last[1], t: c.n.replace("Compreensão","Compr.").replace("Expressão","Expr."), c: c.c});
+    });
+
+    /* Empates deixariam rótulos um em cima do outro: afasta e liga por um fio. */
+    labels.sort(function(a,b){ return a.y - b.y; });
+    var gap = 15;
+    for(var li = 1; li < labels.length; li++){
+      if(labels[li].y - labels[li-1].y < gap) labels[li].y = labels[li-1].y + gap;
+    }
+    if(labels.length){
+      var over = labels[labels.length-1].y - (mt + ih);
+      if(over > 0) labels.forEach(function(l){ l.y -= over; });
+      var under = mt - labels[0].y;
+      if(under > 0) labels.forEach(function(l){ l.y += under; });
+    }
+    labels.forEach(function(l){
+      if(Math.abs(l.y - l.py) > 3){
+        add("line",{x1:l.x - 6, y1:l.py, x2:l.x - 2, y2:l.y, stroke:l.c, "stroke-width":1, opacity:.55});
+      }
+      add("text",{x:l.x, y:l.y + 4, class:"clab", fill:l.c}, l.t);
+    });
+
+    wrap.appendChild(svg);
+    var cap = document.createElement("figcaption");
+    cap.className = "gsub";
+    cap.textContent = "Nível NCLC por competência, simulado a simulado. O que vale no processo é a competência mais baixa.";
+    wrap.appendChild(cap);
+    return wrap;
+  }
+
+  function examTable(){
+    var wrap = el("div","etable");
+    var tb = document.createElement("table");
+    var thead = document.createElement("thead");
+    var htr = document.createElement("tr");
+    ["Simulado","CO","CE","EE","EO","Menor"].forEach(function(t){
+      var th = document.createElement("th");
+      th.textContent = t;
+      htr.appendChild(th);
+    });
+    thead.appendChild(htr);
+    tb.appendChild(thead);
+
+    var tbody = document.createElement("tbody");
+    EXAMS.forEach(function(e){
+      var tr = document.createElement("tr");
+      var td0 = document.createElement("td");
+      td0.appendChild(el("b", null, "S" + e.w));
+      td0.appendChild(el("span","etn", e.n));
+      tr.appendChild(td0);
+
+      var vals = [];
+      COMPS.forEach(function(c){
+        var td = document.createElement("td");
+        var inp = document.createElement("input");
+        inp.type = "number";
+        inp.min = "1"; inp.max = "12"; inp.step = "1";
+        inp.className = "enum";
+        inp.id = "ex-" + e.w + "-" + c.k;
+        inp.setAttribute("aria-label", c.n + ", " + e.n);
+        inp.placeholder = "–";
+        var v = examVal(e.w, c.k);
+        if(v !== null){ inp.value = String(v); vals.push(v); }
+        inp.addEventListener("change", function(){
+          var n = parseInt(inp.value, 10);
+          if(isNaN(n) || n < 1 || n > 12){ inp.value = ""; setExam(e.w, c.k, null); }
+          else { setExam(e.w, c.k, n); }
+          renderProg();
+        });
+        td.appendChild(inp);
+        tr.appendChild(td);
+      });
+
+      var tdm = document.createElement("td");
+      var all = COMPS.map(function(c){ return examVal(e.w, c.k); });
+      if(all.every(function(x){ return x !== null; })){
+        var mn = Math.min.apply(null, all);
+        var chip = el("span","emin", "NCLC " + mn);
+        if(mn >= 7) chip.classList.add("good");
+        tdm.appendChild(chip);
+      } else {
+        tdm.appendChild(el("span","etn","—"));
+      }
+      tr.appendChild(tdm);
+      tbody.appendChild(tr);
+    });
+    tb.appendChild(tbody);
+    wrap.appendChild(tb);
+    return wrap;
+  }
+
+  /* ================= exportar para o Anki ================= */
+  function csvCell(s){ return '"' + String(s).replace(/"/g, '""') + '"'; }
+
+  function buildCsv(onlyDone){
+    var lines = [];
+    W.forEach(function(x){
+      if(!B[x.w]) return;
+      if(onlyDone && weekCount(x.w) !== 7) return;
+      B[x.w].w.forEach(function(p){
+        lines.push([csvCell(p[0]), csvCell(p[1]), csvCell("francais78 semana-" + String(x.w).padStart(2,"0") + " " + x.p)].join(","));
+      });
+    });
+    return lines.join("\r\n");
+  }
+
+  function exportCsv(onlyDone, btn){
+    var csv = buildCsv(onlyDone);
+    var out = document.getElementById("expout");
+    out.textContent = "";
+    if(!csv){
+      out.appendChild(el("p","gsub","Ainda não há semana concluída. Use o botão de cima para baixar tudo."));
+      return;
+    }
+    var n = csv.split("\r\n").length;
+    var name = "francais-78-anki" + (onlyDone ? "-concluidas" : "") + ".csv";
+
+    function fallback(msg){
+      out.textContent = "";
+      out.appendChild(el("p","gsub", msg));
+      var ta = document.createElement("textarea");
+      ta.className = "expta";
+      ta.readOnly = true;
+      ta.value = csv;
+      ta.setAttribute("aria-label","Conteúdo do arquivo para copiar");
+      out.appendChild(ta);
+      var cp = el("button","chip mini","Copiar tudo");
+      cp.type = "button";
+      cp.addEventListener("click", function(){
+        ta.select();
+        try{ document.execCommand("copy"); cp.textContent = "Copiado"; }catch(e){ cp.textContent = "Selecione e copie"; }
+      });
+      out.appendChild(cp);
+    }
+
+    function viaLink(){
+      try{
+        var blob = new Blob([csv], {type:"text/csv;charset=utf-8"});
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url; a.download = name;
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function(){ URL.revokeObjectURL(url); }, 3000);
+        out.appendChild(el("p","gsub", n + " cartões em " + name + ". Se o download não começar, o arquivo está abaixo para copiar."));
+        var more = el("button","chip mini","Mostrar o conteúdo");
+        more.type = "button";
+        more.addEventListener("click", function(){ fallback(n + " cartões — copie e cole num arquivo .csv:"); });
+        out.appendChild(more);
+      }catch(e){
+        fallback(n + " cartões — copie e cole num arquivo .csv:");
+      }
+    }
+
+    if(window.claude && typeof window.claude.use === "function"){
+      btn.disabled = true;
+      window.claude.use("downloads").then(function(d){
+        btn.disabled = false;
+        if(d && typeof d.save === "function"){
+          d.save({filename:name, data:csv}).then(function(){
+            out.appendChild(el("p","gsub", n + " cartões salvos em " + name + "."));
+          }).catch(function(){
+            fallback("O aparelho não liberou o download. " + n + " cartões — copie e cole num arquivo .csv:");
+          });
+        } else { viaLink(); }
+      }).catch(function(){ btn.disabled = false; viaLink(); });
+    } else {
+      viaLink();
+    }
   }
 
   function renderAll(){
+    renderViews(); applyView();
     renderMeter(); renderPhases(); renderFilters(); renderWeeks(); renderToday();
+    if(view === "prog") renderProg();
   }
 
   readLocal();
   renderAll();
+
+  (function(){
+    var qi = document.getElementById("q");
+    if(qi){
+      var t = null;
+      qi.addEventListener("input", function(){
+        if(t) clearTimeout(t);
+        t = setTimeout(function(){ query = qi.value.trim(); renderWeeks(); }, 180);
+      });
+    }
+    var up = el("button","totop","↑");
+    up.type = "button";
+    up.setAttribute("aria-label","Voltar ao topo");
+    up.hidden = true;
+    up.addEventListener("click", function(){ window.scrollTo({top:0, behavior:"smooth"}); });
+    document.body.appendChild(up);
+    var tick = null;
+    window.addEventListener("scroll", function(){
+      if(tick) return;
+      tick = setTimeout(function(){ tick = null; up.hidden = window.scrollY < 600; }, 200);
+    }, {passive:true});
+  })();
 
   if(window.claude && typeof window.claude.use === "function"){
     window.claude.use("db").then(function(db){
@@ -3032,6 +3971,8 @@ footer p + p{margin-top:10px}
           state.subs = (d.subs && typeof d.subs === "object") ? d.subs : (state.subs || {});
           state.hide = (d.hide && typeof d.hide === "object") ? d.hide : (state.hide || {});
           state.games = (d.games && typeof d.games === "object") ? d.games : (state.games || {});
+          state.days = (d.days && typeof d.days === "object") ? d.days : (state.days || {});
+          state.exams = (d.exams && typeof d.exams === "object") ? d.exams : (state.exams || {});
           writeLocal();
           renderAll();
         }
@@ -3039,8 +3980,8 @@ footer p + p{margin-top:10px}
       }, function(){
         dbErr = true; setSync("err","só neste aparelho");
       });
-      if(state.start || Object.keys(state.done).length || Object.keys(state.mine || {}).length || Object.keys(state.subs || {}).length || Object.keys(state.hide || {}).length || Object.keys(state.games || {}).length){
-        dirty = { start: state.start, done: state.done, mine: state.mine || {}, subs: state.subs || {}, hide: state.hide || {}, games: state.games || {} };
+      if(state.start || Object.keys(state.done).length || Object.keys(state.mine || {}).length || Object.keys(state.subs || {}).length || Object.keys(state.hide || {}).length || Object.keys(state.games || {}).length || Object.keys(state.days || {}).length || Object.keys(state.exams || {}).length){
+        dirty = { start: state.start, done: state.done, mine: state.mine || {}, subs: state.subs || {}, hide: state.hide || {}, games: state.games || {}, days: state.days || {}, exams: state.exams || {} };
         scheduleFlush();
       }
     }).catch(function(){});
