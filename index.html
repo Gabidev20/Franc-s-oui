@@ -21,7 +21,7 @@
   img{max-width:100%}
   [hidden]{display:none !important}
 </style>
-<title>78 Semanas para o TCF Canada</title>
+<title>Poliglota 78</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -224,6 +224,44 @@ h2{font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:clamp(1.6rem,4.4vw,2.
   text-decoration-color:color-mix(in srgb, var(--ink-3) 45%, transparent);
 }
 .subs li.sdone .vid{opacity:.6}
+/* ---- barra de idiomas ---- */
+.langs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px;width:100%}
+.lchip{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.04em;
+  padding:6px 12px;border-radius:5px;border:1px solid var(--rule);
+  background:var(--surface);color:var(--ink-2);cursor:pointer;
+}
+.lchip.on{border-color:var(--outremer);color:var(--outremer);background:var(--outremer-soft)}
+.lchip.lmore{border-style:dashed;color:var(--ink-3)}
+.lnum{font-size:10px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.lchip.on .lnum{color:var(--outremer)}
+
+.llist{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.lrow{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--rule);border-radius:6px;background:var(--surface-2);cursor:pointer}
+.lrow input[type="checkbox"]{
+  appearance:none;-webkit-appearance:none;width:18px;height:18px;flex:0 0 auto;margin:0;
+  border:1.5px solid var(--rule);border-radius:4px;background:var(--surface);cursor:pointer;position:relative;
+}
+.lrow input[type="checkbox"]:checked{background:var(--vert);border-color:var(--vert)}
+.lrow input[type="checkbox"]:checked::after{content:"";position:absolute;left:5px;top:1.5px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg)}
+.linfo{flex:1;min-width:0}
+.lname{font-size:1rem;font-weight:600;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.lnat{font-family:"Spectral",Georgia,serif;font-style:italic;font-weight:400;font-size:.88rem;color:var(--ink-3)}
+.lmeta{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;letter-spacing:.05em;color:var(--ink-3);margin-top:3px}
+.lprog{font-size:.82rem;color:var(--ink-2);margin-top:4px}
+
+.olangs{margin-top:22px;display:flex;flex-direction:column;gap:10px}
+.ogrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.ocard{
+  text-align:left;background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--acc, var(--rule));
+  border-radius:6px;padding:12px 14px;cursor:pointer;font-family:inherit;color:inherit;
+}
+.ocard:hover{border-color:var(--acc, var(--outremer))}
+.oname{font-size:.95rem;font-weight:600}
+.owk{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;color:var(--acc, var(--ink-3));margin-top:3px;font-variant-numeric:tabular-nums}
+.otheme{font-size:.82rem;color:var(--ink-2);margin-top:5px;line-height:1.35}
+
 /* ---- telas, fases, progresso ---- */
 :root{
   --ph-A1:#2A45A5; --ph-A2:#1E6B55; --ph-B1:#8A6A1F; --ph-B2:#A32E38; --ph-C1:#5B3E8C;
@@ -496,14 +534,14 @@ footer p + p{margin-top:10px}
 <body>
 <header class="topbar">
   <div class="wrap">
-    <div class="brand">TCF&nbsp;Canada · NCLC&nbsp;7 · 18&nbsp;mois</div>
+    <div class="brand" id="brand">78 semanas</div>
     <div class="meter">
       <div class="track"><i id="bar"></i></div>
       <div class="pct" id="pct">0 / 546</div>
     </div>
     <div class="sync" id="sync" data-s="wait">salvo neste aparelho</div>
   </div>
-  <div class="wrap vrow"><nav class="views" id="views"></nav></div>
+  <div class="wrap vrow"><nav class="langs" id="langbar"></nav><nav class="views" id="views"></nav></div>
 </header>
 
 <main class="wrap">
@@ -511,7 +549,7 @@ footer p + p{margin-top:10px}
   <section class="masthead" data-view="plano">
     <div class="eyebrow">Plan d'étude · 78 semaines · objectif NCLC 7</div>
     <h1>Do zero ao <em>TCF Canada</em> em 78 semanas</h1>
-    <p class="lede">Um currículo semanal completo, construído em torno das quatro provas do TCF Canada. Sete tarefas por semana, uma para cada dia, cada tema com uma aula em vídeo do mesmo professor. Marquem o que fizerem: o progresso fica salvo.</p>
+    <p class="lede">Um currículo semanal completo por idioma: sete tarefas por semana, uma para cada dia, cada tema com a sua aula em vídeo, jogos de escrita, pronúncia e escuta na própria página. Cada idioma guarda o próprio progresso — dá para estudar um por dia sem misturar nada. O francês, abaixo, está construído em torno das quatro provas do TCF Canada.</p>
 
     <dl class="facts">
       <div class="fact"><dt>Duração</dt><dd>78 semanas<small>18 meses, 5 fases</small></dd></div>
@@ -753,7 +791,7 @@ footer p + p{margin-top:10px}
   <footer data-view="plano">
     <p><b>Quatro regras que valem mais que o plano.</b> 1) Nunca dois dias seguidos sem nada — se falharem um dia, o seguinte é obrigatório, mesmo em 10 minutos. 2) Cronometrem quarta e sábado sempre; a prova é contra o relógio e o relógio se treina. 3) Falem desde a primeira semana, um com o outro, em voz alta; vergonha adiada vira sotaque fossilizado. 4) Input com prazer conta como estudo: uma série em francês vale mais que meia hora de exercício feito com raiva.</p>
     <p>As lacunas que este plano assume: o canal do Pierre não tem aula dedicada a <em>gérondif</em>, <em>voz passiva</em>, <em>plus-que-parfait</em>, <em>discurso indireto</em>, <em>plural dos substantivos</em>, <em>comparativo e superlativo</em>, <em>as horas</em> e <em>nominalização</em>. Nesses oito subtópicos o link aparece pontilhado e leva à busca dentro do canal, em vez de a um vídeo específico — a gramática escrita do Kwiziq e da Grammaire Progressive cobre cada um deles. Todos os outros links são vídeos verificados um a um. Os jogos e sites de exercício do domingo aparecem com uma seta (↗) em vez do ▶, e também foram abertos e testados um por um — um deles saiu da lista no meio do caminho porque o domínio havia sido vendido e hoje é outra coisa. Os jogos e sites de exercício do domingo aparecem com uma seta (↗) em vez do ▶, e também foram abertos e testados um por um — um deles saiu da lista no meio do caminho porque o domínio havia sido vendido e virou outra coisa.</p>
-    <p>Suas marcações, links, pontuações e notas de simulado ficam salvos no navegador deste aparelho. Use o backup logo abaixo para levá-los a outro celular ou computador.</p>
+    <p>Suas marcações, links, pontuações e notas ficam salvos no navegador deste aparelho, separados por idioma. Use o backup logo abaixo para levá-los a outro celular ou computador.</p>
   </footer>
 </main>
 
@@ -761,7 +799,7 @@ footer p + p{margin-top:10px}
 (function(){
   "use strict";
 
-  var PHASES = [
+  var FR_PHASES = [
     {id:"A1", name:"Fundamentos", fr:"Les bases", from:1, to:16,
      desc:"Sons, presente, passado e futuro. No fim da fase vocês falam de si, da rotina e do fim de semana — e já sabem como o TCF pergunta."},
     {id:"A2", name:"Autonomia básica", fr:"La survie", from:17, to:32,
@@ -775,7 +813,7 @@ footer p + p{margin-top:10px}
   ];
 
   // Playlists verificadas dos canais de simulado TCF Canada
-  var PL = {
+  var FR_PL = {
     ceA1:["PLL9piQUPwm11ioSQEbXU92S9yAdjT807S","Simulados CE — nível A1"],
     ceA2:["PLL9piQUPwm11fkiNpcubR-b4830GucsU1","Simulados CE — nível A2"],
     ceB1:["PLL9piQUPwm11bY-EtEDymfn2hfZn0gN2D","Simulados CE — nível B1"],
@@ -798,7 +836,7 @@ footer p + p{margin-top:10px}
 
   // Catálogo de aulas — todos do canal Français avec Pierre.
   // Um "?" no lugar do id abre a busca dentro do canal (tópicos que ele não cobre em aula dedicada).
-  var V = {
+  var FR_V = {
     alpha:["akKplmnr01M","Alphabet français"],
     sons:["DA1hSIevT58","Les sons du français illustrés"],
     accents:["Nz6IBVl7fF0","Les accents en français"],
@@ -1147,7 +1185,7 @@ footer p + p{margin-top:10px}
   };
 
   // gs = subtópicos de gramática, cada um com sua aula. ls = subtópicos de vocabulário.
-  var W = [
+  var FR_W = [
   {w:1,p:"A1",t:"Sons, alfabeto e primeiras frases",
    gs:[["O alfabeto e como soletrar","alpha"],["Os sons do francês, um por um","sons"],["Presente de être e avoir","present10"],["Os pronomes sujeito, em panorama","pronoms"]],
    ls:[["Saudar e despedir-se","saluer"],["Apresentar-se","seprsenter"],["Os números de 0 a 20","nombres"]],
@@ -1786,7 +1824,7 @@ footer p + p{margin-top:10px}
     return out;
   }
 
-  var GJ = {
+  var FR_GJ = {
   1:  J3("Escrever: digitar as 20 primeiras palavras nos 5 modos do jogo","jBabadum","Pronúncia: ouvir « bonjour » dito por nativos em vídeos reais","@bonjour|bonjour","Escuta: primeiros diálogos para quem nunca ouviu francês","jTV5prem"),
   2:  J3("Escrever: exercícios de artigos e gênero, com correção na hora","jFFexo","Pronúncia: « nationalité » e as nasais dentro dela","@nationalit%C3%A9|nationalité","Escuta: continuar a Première classe","jTV5prem"),
   3:  J3("Escrever: jogos de conjugação do presente","jOrtholud","Pronúncia: « travailler » e o R francês","@travailler|travailler","Escuta: exercícios A1 com vídeo","jTV5a1"),
@@ -1872,7 +1910,7 @@ footer p + p{margin-top:10px}
   };
 
   /* Pares mínimos para o jogo de discriminação auditiva. */
-  var PAIRS = {
+  var FR_PAIRS = {
     nasal:[["vin","vent"],["bon","banc"],["main","mont"],["cent","sont"],["lent","long"],["teint","temps"]],
     uou:[["vu","vous"],["su","sous"],["tu","tout"],["rue","roue"],["pur","pour"],["bu","boue"]],
     sz:[["poisson","poison"],["dessert","désert"],["cousin","coussin"],["russe","ruse"],["basse","base"],["casse","case"]],
@@ -1888,7 +1926,7 @@ footer p + p{margin-top:10px}
   };
 
   /* Banco de conteúdo de cada semana: palavras (fr/pt), frases e foco fonético. */
-  var B = {
+  var FR_B = {
   1:{p:"nasal",w:[["bonjour","bom dia, olá"],["salut","oi (informal)"],["merci","obrigado"],["au revoir","até logo"],["je m'appelle","eu me chamo"],["oui","sim"],["non","não"],["s'il vous plaît","por favor"]],s:["Bonjour, je m'appelle Marie.","J'ai vingt ans.","Merci beaucoup et au revoir."]},
   2:{p:"nasal",w:[["le pays","o país"],["la langue","a língua"],["le Brésil","o Brasil"],["la France","a França"],["un homme","um homem"],["une femme","uma mulher"],["les enfants","as crianças"],["cinquante","cinquenta"]],s:["Je viens du Brésil.","Elle parle trois langues.","Il y a cent personnes ici."]},
   3:{p:"uou",w:[["parler","falar"],["habiter","morar"],["travailler","trabalhar"],["aimer","gostar, amar"],["étudier","estudar"],["écouter","escutar"],["regarder","olhar, assistir"],["le travail","o trabalho"]],s:["Nous habitons à Paris.","Elle travaille beaucoup.","J'aime écouter la radio."]},
@@ -2093,13 +2131,13 @@ footer p + p{margin-top:10px}
 
   /* ---- pontuação salva ---- */
   function gameKey(w, g){ return "w" + w + "g" + g; }
-  function getScore(w, g){ return (state.games && state.games[gameKey(w,g)]) || null; }
+  function getScore(w, g){ return (S.games && S.games[gameKey(w,g)]) || null; }
   function saveScore(w, g, right, total){
-    if(!state.games) state.games = {};
+    if(!S.games) S.games = {};
     var k = gameKey(w, g);
-    var cur = state.games[k] || {best:0, of:total, plays:0};
+    var cur = S.games[k] || {best:0, of:total, plays:0};
     var rec = {best: Math.max(cur.best || 0, right), of: total, plays: (cur.plays || 0) + 1};
-    state.games[k] = rec;
+    S.games[k] = rec;
     markDirty({k:"games", key:k}, rec);
     refreshBadges(w, g);
     /* Terminar o jogo marca o tópico de domingo correspondente. */
@@ -2587,8 +2625,8 @@ footer p + p{margin-top:10px}
   var SLASHES = String.fromCharCode(47, 47);
 
   function mineKey(w, ti, si){ return "w" + w + "t" + ti + (si == null ? "x" : "s" + si); }
-  function getMine(key){ var a = state.mine && state.mine[key]; return (a && a.length) ? a : []; }
-  function isHidden(key){ return !!(state.hide && state.hide[key] === true); }
+  function getMine(key){ var a = S.mine && S.mine[key]; return (a && a.length) ? a : []; }
+  function isHidden(key){ return !!(S.hide && S.hide[key] === true); }
 
   function isSafeUrl(u){
     var low = String(u).toLowerCase();
@@ -2597,15 +2635,15 @@ footer p + p{margin-top:10px}
   }
 
   function saveMine(key, arr){
-    if(!state.mine) state.mine = {};
-    state.mine[key] = arr;
+    if(!S.mine) S.mine = {};
+    S.mine[key] = arr;
     markDirty({k:"mine", key:key}, arr);
     refreshLinks(key);
   }
 
   function setHidden(key, val){
-    if(!state.hide) state.hide = {};
-    state.hide[key] = val;
+    if(!S.hide) S.hide = {};
+    S.hide[key] = val;
     markDirty({k:"hide", key:key}, val);
     refreshLinks(key);
   }
@@ -2759,25 +2797,237 @@ footer p + p{margin-top:10px}
     ];
   }
 
-  var TOTAL = W.length * 7;
+  /* TOTAL é definido por loadLang, conforme o idioma. */
 
-  var state = { start: null, done: {}, mine: {}, subs: {}, hide: {}, games: {}, days: {}, exams: {} };
-  var LS = "fr78.v1";
+  var state = { cur: "fr", on: ["fr"], L: {} };
+  var S = null;
+
+  function blankBucket(){
+    return { start:null, done:{}, subs:{}, mine:{}, hide:{}, games:{}, days:{}, exams:{} };
+  }
+  function bucket(k){
+    if(!state.L) state.L = {};
+    if(!state.L[k]) state.L[k] = blankBucket();
+    var b = state.L[k];
+    ["done","subs","mine","hide","games","days","exams"].forEach(function(f){
+      if(!b[f] || typeof b[f] !== "object") b[f] = {};
+    });
+    return b;
+  }
+  /* ================= registro de idiomas ================= */
+  /* Cada idioma traz o seu currículo, os seus vídeos e os seus jogos.
+     O progresso de cada um é totalmente independente. */
+
+  var LANGS = {};
+  var ORDER = ["fr","es","it","en","de","ja","ko","zh"];
+
+  /* Variáveis que o resto do código usa: apontam para o idioma atual. */
+  var W, B, PHASES, GJ, V, PL, PAIRS, CFG, TOTAL = 0;
+
+  function langList(){
+    return ORDER.filter(function(k){ return LANGS[k]; }).map(function(k){ return LANGS[k]; });
+  }
+  function isReady(k){ return !!(LANGS[k] && LANGS[k].weeks && LANGS[k].weeks.length === 78); }
+
+  function loadLang(k){
+    if(!LANGS[k]) k = "fr";
+    var L = LANGS[k];
+    CFG = L;
+    W = L.weeks; B = L.banks; PHASES = L.phases;
+    GJ = L.gj; V = L.videos; PL = L.playlists; PAIRS = L.pairs;
+    TOTAL = W.length * 7;
+    state.cur = k;
+    S = bucket(k);
+    wtextCache = {};
+    open = {};
+    hojePick = null;
+    filter = "all";
+    query = "";
+    var qi = document.getElementById("q");
+    if(qi) qi.value = "";
+    document.documentElement.setAttribute("data-lang", k);
+    var br = document.getElementById("brand");
+    if(br) br.textContent = L.n + " · " + L.exam;
+  }
+
+  function switchLang(k){
+    if(k === state.cur) return;
+    loadLang(k);
+    markDirty({k:"cur"}, k);
+    renderAll();
+    window.scrollTo(0, 0);
+  }
+
+  function setActive(k, on){
+    var list = (state.on || []).slice();
+    var i = list.indexOf(k);
+    if(on && i < 0) list.push(k);
+    if(!on && i >= 0) list.splice(i, 1);
+    if(!list.length) list = [state.cur];
+    state.on = list;
+    markDirty({k:"on"}, list);
+    renderLangBar();
+    renderToday();
+  }
+  function activeLangs(){
+    var list = (state.on || []).filter(function(k){ return LANGS[k]; });
+    if(!list.length) list = [state.cur];
+    return list;
+  }
+
+  /* ---- barra de idiomas ---- */
+  function renderLangBar(){
+    var bar = document.getElementById("langbar");
+    if(!bar) return;
+    bar.textContent = "";
+    activeLangs().forEach(function(k){
+      var L = LANGS[k];
+      var b = el("button","lchip", L.n);
+      b.type = "button";
+      b.setAttribute("data-lg", k);
+      if(k === state.cur) b.classList.add("on");
+      b.setAttribute("aria-current", k === state.cur ? "true" : "false");
+      var bk = bucket(k);
+      var n = 0;
+      for(var x in bk.done){ var d = bk.done[x]; for(var t in d){ if(d[t]) n++; } }
+      var bd = el("span","lnum", String(n));
+      b.appendChild(bd);
+      b.addEventListener("click", function(){ switchLang(k); });
+      bar.appendChild(b);
+    });
+    var mg = el("button","lchip lmore","+ idiomas");
+    mg.type = "button";
+    mg.addEventListener("click", function(){ langModal(mg); });
+    bar.appendChild(mg);
+  }
+
+  function langModal(opener){
+    gmOpen("Escolher os idiomas", opener);
+    var intro = el("p","gsub","Marque os que vocês estão estudando. Cada idioma guarda o próprio progresso, a própria ofensiva e os próprios simulados — dá para estudar um por dia sem misturar nada.");
+    GM.body.appendChild(intro);
+
+    var list = el("div","llist");
+    ORDER.forEach(function(k){
+      var L = LANGS[k];
+      if(!L) return;
+      var row = el("label","lrow");
+      row.setAttribute("for","lg-" + k);
+      var cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.id = "lg-" + k;
+      cb.checked = activeLangs().indexOf(k) >= 0;
+      cb.addEventListener("change", function(){ setActive(k, cb.checked); });
+      row.appendChild(cb);
+
+      var info = el("div","linfo");
+      var t = el("div","lname", L.n);
+      t.appendChild(el("span","lnat", L.native));
+      info.appendChild(t);
+      info.appendChild(el("div","lmeta", L.exam + " · " + L.chan.n));
+      var bk = bucket(k);
+      var n = 0;
+      for(var x in bk.done){ var d = bk.done[x]; for(var tt in d){ if(d[tt]) n++; } }
+      info.appendChild(el("div","lprog", n ? (n + " de 546 tarefas") : "ainda não começou"));
+      row.appendChild(info);
+
+      var go = el("button","chip mini", k === state.cur ? "atual" : "abrir");
+      go.type = "button";
+      if(k === state.cur) go.disabled = true;
+      go.addEventListener("click", function(e){
+        e.preventDefault();
+        if(activeLangs().indexOf(k) < 0) setActive(k, true);
+        gmClose();
+        switchLang(k);
+      });
+      row.appendChild(go);
+      list.appendChild(row);
+    });
+    GM.body.appendChild(list);
+  }
+
+  /* ---- cartões dos outros idiomas na tela Hoje ---- */
+  function otherLangCards(){
+    var others = activeLangs().filter(function(k){ return k !== state.cur; });
+    if(!others.length) return null;
+    var wrap = el("div","olangs");
+    wrap.appendChild(el("div","glabel","Os outros idiomas de hoje"));
+    var grid = el("div","ogrid");
+    others.forEach(function(k){
+      var L = LANGS[k];
+      var bk = bucket(k);
+      var wn = 1;
+      for(var i = 0; i < L.weeks.length; i++){
+        var c = 0, d = bk.done["w" + L.weeks[i].w] || {};
+        for(var t = 0; t < 7; t++) if(d["t" + t]) c++;
+        if(c < 7){ wn = L.weeks[i].w; break; }
+        if(i === L.weeks.length - 1) wn = L.weeks.length;
+      }
+      var wk = L.weeks[wn - 1];
+      var done = 0, dd = bk.done["w" + wn] || {};
+      for(var t2 = 0; t2 < 7; t2++) if(dd["t" + t2]) done++;
+
+      var card = el("button","ocard");
+      card.type = "button";
+      card.setAttribute("data-ph", wk.p);
+      card.appendChild(el("div","oname", L.n));
+      card.appendChild(el("div","owk", "S" + String(wn).padStart(2,"0") + " · " + done + "/7"));
+      card.appendChild(el("div","otheme", wk.t));
+      card.addEventListener("click", function(){ switchLang(k); });
+      grid.appendChild(card);
+    });
+    wrap.appendChild(grid);
+    return wrap;
+  }
+
+  LANGS.fr = {
+    k:"fr", n:"Francês", native:"Français", tts:"fr",
+    exam:"TCF Canada", examNote:"Meta: NCLC 7 nas quatro competências",
+    scoreLabel:"NCLC", target:7,
+    chan:{h:"Francaisavecpierre", n:"Français avec Pierre"},
+    phases:FR_PHASES, weeks:FR_W, banks:FR_B, gj:FR_GJ, videos:FR_V, playlists:FR_PL, pairs:FR_PAIRS
+  };
+
+  var LS = "poliglota.v1";
+  var LS_OLD = "fr78.v1";
   var dbRef = null, docExists = false, dirty = null, flushing = false, dbErr = false;
 
+  function adoptState(o){
+    if(!o || typeof o !== "object") return false;
+    if(o.L && typeof o.L === "object"){
+      state.L = o.L;
+      state.cur = (o.cur && LANGS[o.cur]) ? o.cur : "fr";
+      state.on = (Object.prototype.toString.call(o.on) === "[object Array]" && o.on.length)
+        ? o.on.filter(function(k){ return LANGS[k]; }) : ["fr"];
+      if(!state.on.length) state.on = ["fr"];
+      return true;
+    }
+    /* Formato antigo, so frances: vira o balde do frances sem perder nada. */
+    if(o.done || o.subs || o.start){
+      state.L = { fr: {
+        start: o.start || null, done: o.done || {}, subs: o.subs || {}, mine: o.mine || {},
+        hide: o.hide || {}, games: o.games || {}, days: o.days || {}, exams: o.exams || {}
+      }};
+      state.cur = "fr"; state.on = ["fr"];
+      return true;
+    }
+    return false;
+  }
+
   function readLocal(){
-    try{
-      var raw = localStorage.getItem(LS);
-      if(raw){ var o = JSON.parse(raw); if(o && typeof o === "object"){
-        state.start = o.start || null; state.done = o.done || {}; state.mine = o.mine || {}; state.subs = o.subs || {}; state.hide = o.hide || {}; state.games = o.games || {}; state.days = o.days || {}; state.exams = o.exams || {};
-      }}
-    }catch(e){}
+    var got = false;
+    try{ got = adoptState(JSON.parse(localStorage.getItem(LS) || "null")); }catch(e){}
+    if(!got){
+      var old = false;
+      try{ old = adoptState(JSON.parse(localStorage.getItem(LS_OLD) || "null")); }catch(e){}
+      /* Progresso do tempo em que só havia francês: grava já no formato novo. */
+      if(old) writeLocal();
+    }
   }
   function writeLocal(){
     try{ localStorage.setItem(LS, JSON.stringify(state)); }catch(e){}
   }
 
-  function isDone(w,i){ var d = state.done["w"+w]; return !!(d && d["t"+i]); }
+  function isDone(w,i){ var d = S.done["w"+w]; return !!(d && d["t"+i]); }
   function weekCount(w){ var n=0; for(var i=0;i<7;i++) if(isDone(w,i)) n++; return n; }
   function totalDone(){ var n=0; for(var k=0;k<W.length;k++) n+=weekCount(W[k].w); return n; }
 
@@ -2788,30 +3038,35 @@ footer p + p{margin-top:10px}
 
   function markDirty(path, val){
     if(!dirty) dirty = {};
+    if(path.k === "cur"){ dirty.cur = val; writeLocal(); scheduleFlush(); return; }
+    if(path.k === "on"){ dirty.on = val; writeLocal(); scheduleFlush(); return; }
+    var lg = state.cur;
+    dirty.L = dirty.L || {};
+    var dd = dirty.L[lg] = dirty.L[lg] || {};
     if(path.k === "done"){
-      dirty.done = dirty.done || {};
-      dirty.done["w"+path.w] = dirty.done["w"+path.w] || {};
-      dirty.done["w"+path.w]["t"+path.i] = val;
+      dd.done = dd.done || {};
+      dd.done["w"+path.w] = dd.done["w"+path.w] || {};
+      dd.done["w"+path.w]["t"+path.i] = val;
     } else if(path.k === "mine"){
-      dirty.mine = dirty.mine || {};
-      dirty.mine[path.key] = val;
+      dd.mine = dd.mine || {};
+      dd.mine[path.key] = val;
     } else if(path.k === "subs"){
-      dirty.subs = dirty.subs || {};
-      dirty.subs[path.key] = val;
+      dd.subs = dd.subs || {};
+      dd.subs[path.key] = val;
     } else if(path.k === "hide"){
-      dirty.hide = dirty.hide || {};
-      dirty.hide[path.key] = val;
+      dd.hide = dd.hide || {};
+      dd.hide[path.key] = val;
     } else if(path.k === "games"){
-      dirty.games = dirty.games || {};
-      dirty.games[path.key] = val;
+      dd.games = dd.games || {};
+      dd.games[path.key] = val;
     } else if(path.k === "days"){
-      dirty.days = dirty.days || {};
-      dirty.days[path.key] = val;
+      dd.days = dd.days || {};
+      dd.days[path.key] = val;
     } else if(path.k === "exams"){
-      dirty.exams = dirty.exams || {};
-      dirty.exams[path.key] = val;
+      dd.exams = dd.exams || {};
+      dd.exams[path.key] = val;
     } else {
-      dirty.start = val;
+      dd.start = val;
     }
     writeLocal();
     scheduleFlush();
@@ -2858,14 +3113,14 @@ footer p + p{margin-top:10px}
     return isNaN(d.getTime()) ? null : d;
   }
   function currentWeek(){
-    var st = parseISO(state.start); if(!st) return null;
+    var st = parseISO(S.start); if(!st) return null;
     var days = Math.floor((parseISO(todayISO()) - st) / 86400000);
     if(days < 0) return null;
     var n = Math.floor(days/7) + 1;
     return n > W.length ? null : n;
   }
   function todayIndex(){
-    var st = parseISO(state.start); if(!st) return 0;
+    var st = parseISO(S.start); if(!st) return 0;
     var days = Math.floor((parseISO(todayISO()) - st) / 86400000);
     if(days < 0) return 0;
     return ((days % 7) + 7) % 7;
@@ -2953,13 +3208,13 @@ footer p + p{margin-top:10px}
 
   function hasAnySub(w, ti, n){
     for(var k = 0; k < n; k++){
-      if(state.subs[subKey(w, ti, k)] !== undefined) return true;
+      if(S.subs[subKey(w, ti, k)] !== undefined) return true;
     }
     return false;
   }
 
   function isSubDone(w, ti, si, n){
-    var v = state.subs[subKey(w, ti, si)];
+    var v = S.subs[subKey(w, ti, si)];
     if(v !== undefined) return !!v;
     /* Dias marcados antes de existir o check por tópico contam como completos. */
     return isDone(w, ti) && !hasAnySub(w, ti, n);
@@ -2973,17 +3228,17 @@ footer p + p{margin-top:10px}
 
   function setSub(w, ti, si, val){
     var sk = subKey(w, ti, si);
-    var was = state.subs[sk] === true;
-    state.subs[sk] = val;
+    var was = S.subs[sk] === true;
+    S.subs[sk] = val;
     markDirty({k:"subs", key:sk}, val);
     if(val && !was) bumpDay();
   }
 
   function setTaskDone(w, ti, val){
     var key = "w" + w;
-    if(!state.done[key]) state.done[key] = {};
-    if(!!state.done[key]["t" + ti] === !!val) return;
-    state.done[key]["t" + ti] = val;
+    if(!S.done[key]) S.done[key] = {};
+    if(!!S.done[key]["t" + ti] === !!val) return;
+    S.done[key]["t" + ti] = val;
     markDirty({k:"done", w:w, i:ti}, val);
     if(val) bumpDay();
   }
@@ -3180,13 +3435,13 @@ footer p + p{margin-top:10px}
 
   function bumpDay(){
     var k = todayKey();
-    if(!state.days) state.days = {};
-    state.days[k] = (state.days[k] || 0) + 1;
-    markDirty({k:"days", key:k}, state.days[k]);
+    if(!S.days) S.days = {};
+    S.days[k] = (S.days[k] || 0) + 1;
+    markDirty({k:"days", key:k}, S.days[k]);
   }
 
   function streakDays(){
-    var days = state.days || {};
+    var days = S.days || {};
     var start = new Date();
     if(!days[dkey(start)]) start = addDays(start, -1);
     if(!days[dkey(start)]) return 0;
@@ -3194,7 +3449,7 @@ footer p + p{margin-top:10px}
     while(days[dkey(cur)]){ n++; cur = addDays(cur, -1); }
     return n;
   }
-  function daysActive(){ return Object.keys(state.days || {}).length; }
+  function daysActive(){ return Object.keys(S.days || {}).length; }
 
   function firstOpenWeek(){
     for(var k = 0; k < W.length; k++){
@@ -3206,7 +3461,7 @@ footer p + p{margin-top:10px}
   function allDone(){ return firstOpenWeek() === null; }
 
   function plannedWeek(){
-    var st = parseISO(state.start);
+    var st = parseISO(S.start);
     if(!st) return null;
     var days = Math.floor((parseISO(todayISO()) - st) / 86400000);
     if(days < 0) return null;
@@ -3326,8 +3581,8 @@ footer p + p{margin-top:10px}
         fix.addEventListener("click", function(){
           var d = new Date();
           d.setDate(d.getDate() - (w - 1) * 7);
-          state.start = dkey(d);
-          markDirty({k:"start"}, state.start);
+          S.start = dkey(d);
+          markDirty({k:"start"}, S.start);
           renderToday();
           renderWeeks();
         });
@@ -3380,6 +3635,8 @@ footer p + p{margin-top:10px}
     links.appendChild(toPlan);
     box.appendChild(links);
 
+    var oc = otherLangCards();
+    if(oc) box.appendChild(oc);
     box.appendChild(reviewCard());
   }
 
@@ -3554,16 +3811,16 @@ footer p + p{margin-top:10px}
   ];
 
   function examVal(w, k){
-    var r = (state.exams || {})["w" + w];
+    var r = (S.exams || {})["w" + w];
     var v = r && r[k];
     return (typeof v === "number" && v >= 1 && v <= 12) ? v : null;
   }
   function setExam(w, k, v){
-    if(!state.exams) state.exams = {};
+    if(!S.exams) S.exams = {};
     var key = "w" + w;
-    var rec = Object.assign({}, state.exams[key] || {});
+    var rec = Object.assign({}, S.exams[key] || {});
     if(v === null) delete rec[k]; else rec[k] = v;
-    state.exams[key] = rec;
+    S.exams[key] = rec;
     markDirty({k:"exams", key:key}, rec);
   }
 
@@ -3626,7 +3883,7 @@ footer p + p{margin-top:10px}
     h3.appendChild(el("h2", null, "As notas dos simulados"));
     h3.appendChild(el("span","fr","Les résultats"));
     box.appendChild(h3);
-    box.appendChild(el("p","sub","Anotem o nível NCLC de 1 a 12 em cada competência, a cada simulado. É o dado que decide o processo: vale o menor dos quatro. A linha tracejada é o NCLC 7, o patamar que habilita a categoria de francês."));
+    box.appendChild(el("p","sub","Anotem o nível de 1 a 12 em cada competência, a cada simulado — a escala acompanha o CEFR (7 ≈ B2). Vale sempre o menor dos quatro. A linha tracejada é a meta deste idioma: " + CFG.scoreLabel + " " + CFG.target + ", para o " + CFG.exam + "."));
 
     box.appendChild(examChart());
     box.appendChild(examTable());
@@ -3654,7 +3911,7 @@ footer p + p{margin-top:10px}
 
   function heatmap(){
     var wrap = el("div","heat");
-    var days = state.days || {};
+    var days = S.days || {};
     var today = new Date();
     var end = addDays(today, 6 - today.getDay());
     var weeks = 26;
@@ -3731,8 +3988,8 @@ footer p + p{margin-top:10px}
       add("line",{x1:ml, y1:y(v), x2:ml+iw, y2:y(v), stroke:"var(--rule-soft)", "stroke-width":1});
       add("text",{x:ml-8, y:y(v)+4, "text-anchor":"end", class:"cax"}, String(v));
     });
-    add("line",{x1:ml, y1:y(7), x2:ml+iw, y2:y(7), stroke:"var(--ink-3)", "stroke-width":1.5, "stroke-dasharray":"5 4"});
-    add("text",{x:ml+iw, y:y(7)-8, "text-anchor":"end", class:"cax strong"}, "NCLC 7 — o patamar");
+    add("line",{x1:ml, y1:y(CFG.target), x2:ml+iw, y2:y(CFG.target), stroke:"var(--ink-3)", "stroke-width":1.5, "stroke-dasharray":"5 4"});
+    add("text",{x:ml+iw, y:y(CFG.target)-8, "text-anchor":"end", class:"cax strong"}, CFG.scoreLabel + " " + CFG.target + " — a meta");
 
     rows.forEach(function(e, i){
       add("text",{x:xs[i], y:Hd-22, "text-anchor":"middle", class:"cax"}, "S" + e.w);
@@ -3833,8 +4090,8 @@ footer p + p{margin-top:10px}
       var all = COMPS.map(function(c){ return examVal(e.w, c.k); });
       if(all.every(function(x){ return x !== null; })){
         var mn = Math.min.apply(null, all);
-        var chip = el("span","emin", "NCLC " + mn);
-        if(mn >= 7) chip.classList.add("good");
+        var chip = el("span","emin", CFG.scoreLabel + " " + mn);
+        if(mn >= CFG.target) chip.classList.add("good");
         tdm.appendChild(chip);
       } else {
         tdm.appendChild(el("span","etn","—"));
@@ -3927,12 +4184,13 @@ footer p + p{margin-top:10px}
   }
 
   function renderAll(){
-    renderViews(); applyView();
+    renderViews(); applyView(); renderLangBar();
     renderMeter(); renderPhases(); renderFilters(); renderWeeks(); renderToday();
     if(view === "prog") renderProg();
   }
 
   readLocal();
+  loadLang(state.cur);
   renderAll();
 
   (function(){
@@ -3964,24 +4222,18 @@ footer p + p{margin-top:10px}
       dbRef.onSnapshot(function(snap){
         docExists = snap.exists;
         if(snap.exists && !snap.metadata.hasPendingWrites){
-          var d = snap.data() || {};
-          state.start = d.start || state.start || null;
-          state.done = (d.done && typeof d.done === "object") ? d.done : (state.done || {});
-          state.mine = (d.mine && typeof d.mine === "object") ? d.mine : (state.mine || {});
-          state.subs = (d.subs && typeof d.subs === "object") ? d.subs : (state.subs || {});
-          state.hide = (d.hide && typeof d.hide === "object") ? d.hide : (state.hide || {});
-          state.games = (d.games && typeof d.games === "object") ? d.games : (state.games || {});
-          state.days = (d.days && typeof d.days === "object") ? d.days : (state.days || {});
-          state.exams = (d.exams && typeof d.exams === "object") ? d.exams : (state.exams || {});
-          writeLocal();
-          renderAll();
+          if(adoptState(snap.data() || {})){
+            loadLang(state.cur);
+            writeLocal();
+            renderAll();
+          }
         }
         if(!dbErr) setSync("ok", snap.exists ? "salvo" : "pronto");
       }, function(){
         dbErr = true; setSync("err","só neste aparelho");
       });
-      if(state.start || Object.keys(state.done).length || Object.keys(state.mine || {}).length || Object.keys(state.subs || {}).length || Object.keys(state.hide || {}).length || Object.keys(state.games || {}).length || Object.keys(state.days || {}).length || Object.keys(state.exams || {}).length){
-        dirty = { start: state.start, done: state.done, mine: state.mine || {}, subs: state.subs || {}, hide: state.hide || {}, games: state.games || {}, days: state.days || {}, exams: state.exams || {} };
+      if(Object.keys(state.L || {}).length){
+        dirty = { cur: state.cur, on: state.on, L: state.L };
         scheduleFlush();
       }
     }).catch(function(){});
